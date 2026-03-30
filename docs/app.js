@@ -19,6 +19,29 @@ const FILTER_LABELS = {
   kdh: 'KDH',
 };
 
+function updateKdhHeaderText() {
+  const grid = document.getElementById('card-grid');
+  if (!grid || !grid.parentNode) return;
+
+  let headerText = document.getElementById('kdh-header-text');
+  if (!headerText) {
+    headerText = document.createElement('div');
+    headerText.id = 'kdh-header-text';
+    headerText.className = 'hidden';
+    headerText.innerHTML = `
+      <span data-lang="ko">이 유물들은 드라마 '케이팝 데몬 헌터스'에 등장하는 실제 국보·보물입니다</span>
+      <span data-lang="en">These artifacts appear in the drama 'K-pop Demon Hunters' and are real National Treasures</span>
+    `;
+    grid.parentNode.insertBefore(headerText, grid);
+  }
+
+  if (currentFilter === 'kdh') {
+    headerText.classList.remove('hidden');
+  } else {
+    headerText.classList.add('hidden');
+  }
+}
+
 function ensureFilterTabs(counts) {
   const grid = document.getElementById('card-grid');
   if (!grid) return;
@@ -192,8 +215,12 @@ function renderDetailContent(detailData) {
     <pre><code class="detail-code">${escapeHtml(hglContent)}</code></pre>
     <p class="detail-description" data-lang="ko">${escapeHtml(descriptionKo)}</p>
     <p class="detail-description" data-lang="en">${escapeHtml(descriptionEn)}</p>
-    ${dramaKo ? `<p class="detail-drama" data-lang="ko"><strong>드라마 연결:</strong> ${escapeHtml(dramaKo)}</p>` : ''}
-    ${dramaEn ? `<p class="detail-drama" data-lang="en"><strong>Drama connection:</strong> ${escapeHtml(dramaEn)}</p>` : ''}
+    ${dramaKo || dramaEn ? `
+      <div class="detail-drama-connection">
+        ${dramaKo ? `<span data-lang="ko"><strong>드라마 연결:</strong> ${escapeHtml(dramaKo)}</span>` : ''}
+        ${dramaEn ? `<span data-lang="en"><strong>Drama connection:</strong> ${escapeHtml(dramaEn)}</span>` : ''}
+      </div>
+    ` : ''}
   `;
 }
 
@@ -246,6 +273,8 @@ function renderCards(artifacts) {
   const grid = document.getElementById('card-grid');
   if (!grid) return;
 
+  updateKdhHeaderText();
+
   grid.innerHTML = '';
 
   if (!Array.isArray(artifacts) || artifacts.length === 0) {
@@ -258,7 +287,7 @@ function renderCards(artifacts) {
     const card = document.createElement('div');
     const isKdh = artifact.collection === 'kdh';
 
-    card.className = `artifact-card card-skeleton${isKdh ? ' kdh' : ''}`;
+    card.className = `artifact-card card-skeleton${isKdh ? ' kdh kdh-special' : ''}`;
     card.dataset.id = artifact.id;
     card.dataset.collection = artifact.collection;
     card.setAttribute('role', 'button');
@@ -269,7 +298,7 @@ function renderCards(artifacts) {
     if (isKdh) {
       const badge = document.createElement('span');
       badge.className = 'kdh-badge';
-      badge.textContent = 'KDH';
+      badge.textContent = '🎬 K-pop Demon Hunters';
       cardBody.appendChild(badge);
     }
 

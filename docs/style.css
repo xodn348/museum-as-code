@@ -298,3 +298,48 @@ body[data-lang="en"] [data-lang="ko"] { display: none; }
   color: #8b1e2d;
   font-weight: 600;
 }
+
+.artifact-card.kdh-special {
+  border: 2px solid var(--accent);
+}
+
+.artifact-card.kdh-special:hover {
+  box-shadow: 0 8px 22px rgba(201, 168, 76, 0.28);
+}
+
+#kdh-header-text {
+  margin: 0.75rem 2rem 0;
+  padding: 0.85rem 1rem;
+  border-left: 4px solid var(--accent);
+  background: rgba(201, 168, 76, 0.1);
+  border-radius: 0 8px 8px 0;
+  color: #5f4813;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+#kdh-header-text span {
+  display: block;
+}
+
+.detail-drama-connection {
+  background: rgba(201, 168, 76, 0.12);
+  border-left: 4px solid var(--accent);
+  border-radius: 0 6px 6px 0;
+  color: #45413d;
+  font-size: 0.95rem;
+  font-style: italic;
+  line-height: 1.7;
+  margin-top: 0.7rem;
+  padding: 0.8rem 1rem;
+}
+
+.detail-drama-connection span {
+  display: block;
+}
+
+@media (max-width: 600px) {
+  #kdh-header-text {
+    margin: 0.75rem 1rem 0;
+  }
+}
