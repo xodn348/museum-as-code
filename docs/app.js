@@ -144,6 +144,8 @@ function renderCards(artifacts) {
     return;
   }
 
+  const fragment = document.createDocumentFragment();
+
   const cardElements = artifacts.map((artifact) => {
     const card = document.createElement('div');
     const isKdh = artifact.collection === 'kdh';
@@ -152,34 +154,46 @@ function renderCards(artifacts) {
     card.dataset.id = artifact.id;
     card.dataset.collection = artifact.collection;
     card.setAttribute('role', 'button');
-    card.setAttribute('tabindex', '0');
 
-    const badge = isKdh ? '<span class="kdh-badge">KDH</span>' : '';
-    card.innerHTML = `
-      <div class="card-body">
-        ${badge}
-        <h3 class="card-title">${artifact.name_ko ?? ''}</h3>
-        <p class="card-subtitle">${artifact.name_en ?? ''}</p>
-        <p class="card-designation">${artifact.designation ?? ''}</p>
-        <p class="card-period">${artifact.period ?? ''}</p>
-      </div>
-    `;
+    const cardBody = document.createElement('div');
+    cardBody.className = 'card-body';
+
+    if (isKdh) {
+      const badge = document.createElement('span');
+      badge.className = 'kdh-badge';
+      badge.textContent = 'KDH';
+      cardBody.appendChild(badge);
+    }
+
+    const title = document.createElement('h3');
+    title.className = 'card-title';
+    title.textContent = artifact.name_ko ?? '';
+
+    const subtitle = document.createElement('p');
+    subtitle.className = 'card-subtitle';
+    subtitle.textContent = artifact.name_en ?? '';
+
+    const designation = document.createElement('p');
+    designation.className = 'card-designation';
+    designation.textContent = artifact.designation ?? '';
+
+    const period = document.createElement('p');
+    period.className = 'card-period';
+    period.textContent = artifact.period ?? '';
+
+    cardBody.append(title, subtitle, designation, period);
+    card.appendChild(cardBody);
 
     const handleOpenDetail = () => {
       showDetail(artifact.id);
     };
 
     card.addEventListener('click', handleOpenDetail);
-    card.addEventListener('keydown', (event) => {
-      if (event.key === 'Enter' || event.key === ' ') {
-        event.preventDefault();
-        handleOpenDetail();
-      }
-    });
-
-    grid.appendChild(card);
+    fragment.appendChild(card);
     return card;
   });
+
+  grid.appendChild(fragment);
 
   observeCards(cardElements);
 }

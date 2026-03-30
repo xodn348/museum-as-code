@@ -126,6 +126,11 @@ header { background: var(--primary); color: white; padding: 1rem 2rem; display: 
   box-shadow: 0 0 0 2px rgba(201, 168, 76, 0.25);
 }
 
+.filter-tab:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
 .artifact-card.card-skeleton {
   opacity: 0;
   transform: translateY(14px);
