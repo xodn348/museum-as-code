@@ -2,15 +2,20 @@
 
 [![MIT License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Han Language](https://img.shields.io/badge/han-.hgl-green.svg)](https://github.com/han-lang/han)
+[![Artifacts](https://img.shields.io/badge/Artifacts-64-gold.svg)](docs/manifest.json)
 [![Python Pipeline](https://img.shields.io/badge/Pipeline-Python-orange.svg)](pipeline/)
 
 ---
 
 ## 소개 / Introduction
 
-**Museum as Code**는 국보·보물 등 한국의 소중한 문화재를 **han** (`.hgl`) 프로그래밍 언어 소스 코드로 디지털화하는 프로젝트입니다. 각 문화재를 구조체(struct)로建模하여 코드로서 보존하고, 파이프라인을 통해 e뮤지엄 API에서 자동으로 데이터를 가져와 `.hgl` 파일을 생성합니다.
+**Museum as Code**는 국보·보물 등 한국의 소중한 문화재를 **han** (`.hgl`) 프로그래밍 언어 소스 코드로 디지털화하는 프로젝트입니다. 현재 총 **64개 유물(국보·보물 57, KDH 7)**을 구조체(struct)로 보존하며, 파이프라인을 통해 e뮤지엄 API에서 자동으로 데이터를 가져와 `.hgl` 파일을 생성합니다. 프로젝트 페이지: https://xodn348.github.io/museum-as-code
 
-**Museum as Code** is a project that digitizes Korea's precious cultural heritage — national treasures and treasures — as source code in the **han** (`.hgl`) programming language. Each artifact is modeled as a struct, preserved as code, and automatically generated from the e뮤지엄 API via a Python pipeline.
+**Museum as Code** is a project that digitizes Korea's precious cultural heritage — national treasures and treasures — as source code in the **han** (`.hgl`) programming language. It currently preserves **64 artifacts total (57 national-treasures, 7 KDH)** as structs, automatically generated from the e뮤지엄 API via a Python pipeline. GitHub Pages: https://xodn348.github.io/museum-as-code
+
+- **컬렉션 / Collections**
+  - `national-treasures`: 57개
+  - `kdh`: 7개
 
 ---
 
@@ -23,35 +28,16 @@
 ### 예시 / Example
 
 ```hgl
-// 국보 제1호 — 서울 숭례문 (예시 / Example)
-// Designated: National Treasure No. 1
-// Era: Joseon Dynasty / 조선시대
-// Material: Stone / 석재
-
-구조 문화재 {
-    명칭: 문자열,
-    지정번호: 정수,
+// 실제 파일 발췌 / Real snippet from artifacts/national-treasures/nb_001.hgl
+구조 유물_국보제1호 {
+    이름: 문자열,
+    영문명: 문자열,
+    지정번호: 문자열,
     분류: 문자열,
-    소재지: 문자열,
     시대: 문자열,
     재질: 문자열,
-}
-
-구현 문화재 {
-    함수 정보출력(자신: 문화재) {
-        반환 ()
-    }
-}
-
-함수 main() {
-    변수 유물 = 문화재 {
-        명칭: "서울 숭례문",
-        지정번호: 1,
-        분류: "유적건조물",
-        소재지: "서울특별시 종로구",
-        시대: "조선시대",
-        재질: "석재",
-    }
+    크기: 문자열,
+    소장처: 문자열,
 }
 ```
 
