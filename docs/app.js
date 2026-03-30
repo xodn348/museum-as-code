@@ -8,6 +8,7 @@ let currentLang = 'ko';  // 'ko' | 'en'
 let allArtifacts = [];
 let currentFilter = 'all';
 let cardObserver = null;
+let currentDetailArtifactId = null;
 
 const FILTER_LABELS = {
   all: '전체',
@@ -89,6 +90,43 @@ function observeCards(cards) {
   });
 }
 
+function getFilteredArtifacts() {
+  return currentFilter === 'all'
+    ? allArtifacts
+    : allArtifacts.filter((artifact) => artifact.collection === currentFilter);
+}
+
+function normalizePath(path) {
+  if (typeof path !== 'string' || path.length === 0) return '';
+  if (path.startsWith('./') || path.startsWith('../') || path.startsWith('/')) return path;
+  return `./${path}`;
+}
+
+function escapeHtml(text) {
+  if (text == null) return '';
+  return String(text)
+    .replaceAll('&', '&amp;')
+    .replaceAll('<', '&lt;')
+    .replaceAll('>', '&gt;')
+    .replaceAll('"', '&quot;')
+    .replaceAll("'", '&#39;');
+}
+
+function getHashArtifactId() {
+  const match = window.location.hash.match(/^#artifact-(.+)$/);
+  return match ? decodeURIComponent(match[1]) : null;
+}
+
+function closeDetail({ clearHash = true } = {}) {
+  document.getElementById('artifact-detail')?.classList.add('hidden');
+  currentDetailArtifactId = null;
+
+  if (!clearHash) return;
+  if (window.location.hash.startsWith('#artifact-')) {
+    history.replaceState(null, '', `${window.location.pathname}${window.location.search}`);
+  }
+}
+
 // ── Stubs (T13/T14에서 구현됨) ────────────────────────────────────────────
 
 /**
@@ -167,11 +205,15 @@ function renderCards(artifacts) {
 
     const title = document.createElement('h3');
     title.className = 'card-title';
-    title.textContent = artifact.name_ko ?? '';
+    title.textContent = currentLang === 'ko'
+      ? (artifact.name_ko ?? '')
+      : (artifact.name_en ?? artifact.name_ko ?? '');
 
     const subtitle = document.createElement('p');
     subtitle.className = 'card-subtitle';
-    subtitle.textContent = artifact.name_en ?? '';
+    subtitle.textContent = currentLang === 'ko'
+      ? (artifact.name_en ?? '')
+      : (artifact.name_ko ?? '');
 
     const designation = document.createElement('p');
     designation.className = 'card-designation';
@@ -201,40 +243,142 @@ function renderCards(artifacts) {
 /**
  * 특정 artifact의 상세 overlay를 표시한다.
  * @param {string} artifactId - artifact의 id 필드 (예: "nb_001", "kdh_001")
- * TODO: T14에서 구현
  */
-function showDetail(artifactId) {
-  // TODO: T14에서 구현
+async function showDetail(artifactId) {
+  const overlay = document.getElementById('artifact-detail');
+  const detailContent = document.getElementById('detail-content');
+  if (!overlay || !detailContent) return;
+
+  const artifact = allArtifacts.find((item) => item.id === artifactId);
+  if (!artifact) {
+    detailContent.innerHTML = '<p class="error">상세 정보를 찾을 수 없습니다.</p>';
+    overlay.classList.remove('hidden');
+    return;
+  }
+
+  const jsonPath = normalizePath(artifact.json_path);
+  const hglPath = normalizePath(artifact.hgl_path);
+
+  try {
+    const [sidecarResponse, hglResponse] = await Promise.all([
+      fetch(jsonPath),
+      fetch(hglPath),
+    ]);
+
+    if (!sidecarResponse.ok) {
+      throw new Error(`Sidecar fetch failed with status ${sidecarResponse.status}`);
+    }
+    if (!hglResponse.ok) {
+      throw new Error(`HGL fetch failed with status ${hglResponse.status}`);
+    }
+
+    const sidecar = await sidecarResponse.json();
+    const hglContent = await hglResponse.text();
+
+    const nameKo = sidecar.name ?? artifact.name_ko ?? '';
+    const nameEn = sidecar.name_en ?? artifact.name_en ?? '';
+    const descriptionKo = sidecar.description ?? '';
+    const descriptionEn = sidecar.description_en
+      ?? sidecar.descriptionEn
+      ?? sidecar.drama_connection?.en
+      ?? '';
+    const dramaKo = sidecar.drama_connection?.ko ?? '';
+    const dramaEn = sidecar.drama_connection?.en ?? '';
+
+    const metadataRows = [
+      ['시대 / Era', sidecar.era ?? artifact.period ?? ''],
+      ['재질 / Material', sidecar.material ?? ''],
+      ['크기 / Size', sidecar.size ?? ''],
+      ['소장처 / Location', sidecar.location ?? ''],
+      ['지정 / Designation', sidecar.designation ?? artifact.designation ?? ''],
+    ]
+      .filter(([, value]) => value)
+      .map(([label, value]) => `<li><strong>${escapeHtml(label)}:</strong> ${escapeHtml(value)}</li>`)
+      .join('');
+
+    detailContent.innerHTML = `
+      <h2 class="detail-name-ko" data-lang="ko">${escapeHtml(nameKo)}</h2>
+      <p class="detail-name-en" data-lang="en">${escapeHtml(nameEn)}</p>
+      <ul class="detail-meta">${metadataRows}</ul>
+      <pre><code class="detail-code">${escapeHtml(hglContent)}</code></pre>
+      <p class="detail-description" data-lang="ko">${escapeHtml(descriptionKo)}</p>
+      <p class="detail-description" data-lang="en">${escapeHtml(descriptionEn)}</p>
+      ${dramaKo ? `<p class="detail-drama" data-lang="ko"><strong>드라마 연결:</strong> ${escapeHtml(dramaKo)}</p>` : ''}
+      ${dramaEn ? `<p class="detail-drama" data-lang="en"><strong>Drama connection:</strong> ${escapeHtml(dramaEn)}</p>` : ''}
+    `;
+
+    currentDetailArtifactId = artifactId;
+    overlay.classList.remove('hidden');
+
+    const nextHash = `#artifact-${encodeURIComponent(artifactId)}`;
+    if (window.location.hash !== nextHash) {
+      window.location.hash = nextHash;
+    }
+  } catch (error) {
+    console.error('상세 데이터 로드 실패:', error);
+    detailContent.innerHTML = '<p class="error">상세 정보를 불러오지 못했습니다.</p>';
+    overlay.classList.remove('hidden');
+  }
 }
 
 /**
  * ko/en 언어를 토글하고 모든 렌더링을 업데이트한다.
- * TODO: T14에서 완전 구현 — 현재는 버튼 텍스트만 업데이트
  */
 function toggleLang() {
   currentLang = currentLang === 'ko' ? 'en' : 'ko';
+  document.body.dataset.lang = currentLang;
+
   const btn = document.getElementById('lang-toggle');
   if (btn) btn.textContent = currentLang === 'ko' ? 'EN / 한' : '한 / EN';
-  // TODO: T14에서 카드/상세 뷰 재렌더링 로직 추가
+
+  renderCards(getFilteredArtifacts());
+
+  const overlay = document.getElementById('artifact-detail');
+  if (overlay && !overlay.classList.contains('hidden') && currentDetailArtifactId) {
+    showDetail(currentDetailArtifactId);
+  }
 }
 
 // ── Event Bindings ─────────────────────────────────────────────────────────
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
+  document.body.dataset.lang = currentLang;
+
   // 언어 토글
   document.getElementById('lang-toggle')?.addEventListener('click', toggleLang);
 
   // 상세 뷰 닫기
   document.getElementById('detail-close')?.addEventListener('click', () => {
-    document.getElementById('artifact-detail')?.classList.add('hidden');
+    closeDetail();
+  });
+
+  document.getElementById('artifact-detail')?.addEventListener('click', (event) => {
+    if (event.target === event.currentTarget) {
+      closeDetail();
+    }
   });
 
   // ESC 키로 상세 뷰 닫기
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
-      document.getElementById('artifact-detail')?.classList.add('hidden');
+      closeDetail();
     }
   });
 
+  window.addEventListener('hashchange', () => {
+    const artifactId = getHashArtifactId();
+    if (artifactId) {
+      showDetail(artifactId);
+      return;
+    }
+
+    closeDetail({ clearHash: false });
+  });
+
   // manifest 로드 시작 (T13에서 이 호출이 실제로 작동)
-  loadManifest();
+  await loadManifest();
+
+  const initialArtifactId = getHashArtifactId();
+  if (initialArtifactId) {
+    showDetail(initialArtifactId);
+  }
 });
