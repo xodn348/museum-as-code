@@ -1,0 +1,20 @@
+{
+  "id": "kdh_001",
+  "name": "금동미륵보살반가사유상",
+  "name_en": "Gilt-bronze Maitreya Bodhisattva in Pensive Posture",
+  "designation": "국보 제78호",
+  "designation_type": "국보",
+  "era": "삼국시대 (6-7세기)",
+  "material": "금동",
+  "size": "높이 93.5cm",
+  "location": "국립중앙박물관",
+  "description": "삼국시대 금동으로 제작된 미륵보살 반가사유상으로, 한 손을 턱에 괴고 사유의 자세로 앉아 있다. 고등 한국 불교 조각의 정수라 평가받는다.",
+  "image_url": "https://www.emuseum.go.kr/images/relic/11/0078.jpg",
+  "hgl_file": "artifacts/special/kdh/kdh_001.hgl",
+  "drama_connection": {
+    "ko": "악귀를 쫓는 주인공이 과거 전투에서 이 보살상 앞에 무릎 꿇고 힘을 빌리는 장면의 배경이 된다",
+    "en": "The protagonist kneels before this bodhisattva to borrow its power before a demon battle"
+  },
+  "collection": "kdh",
+  "created_at": "2026-03-29T00:00:00Z"
+}
