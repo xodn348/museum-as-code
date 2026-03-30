@@ -1,0 +1,17 @@
+{
+  "id": "nb_002",
+  "name": "원각사지십층석탑",
+  "name_en": "Wonkyo Temple Ten-story Stone Pagoda",
+  "designation": "국보 제2호",
+  "designation_type": "국보",
+  "era": "삼국시대",
+  "material": "화강암",
+  "size": "높이 8.3m",
+  "location": "서울특별시 종로구",
+  "description": "신라 원각사지에서 발견된 십층석탑으로, 통일신라 시대의 대표적인 석탑이다.",
+  "category": "불교 관련 석조물",
+  "image_url": "https://www.emuseum.go.kr/images/relic/11/0002.jpg",
+  "hgl_file": "national-treasures/nb_002.hgl",
+  "source": "e뮤지엄 Open API (fallback)",
+  "created_at": "2026-03-30T04:06:41Z"
+}

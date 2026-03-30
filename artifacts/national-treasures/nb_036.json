@@ -1,0 +1,17 @@
+{
+  "id": "nb_069",
+  "name": "백자 병",
+  "name_en": "White Porcelain Bottle",
+  "designation": "국보 제69호",
+  "designation_type": "국보",
+  "era": "조선시대",
+  "material": "백토",
+  "size": "높이 22.3cm",
+  "location": "국립중앙박물관",
+  "description": "조선시대의 백자 병으로, 검은 점이 특징적인 명작이다.",
+  "category": "도자기",
+  "image_url": "https://www.emuseum.go.kr/images/relic/11/0069.jpg",
+  "hgl_file": "national-treasures/nb_069.hgl",
+  "source": "e뮤지엄 Open API (fallback)",
+  "created_at": "2026-03-30T04:06:41Z"
+}

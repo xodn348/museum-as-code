@@ -1,0 +1,17 @@
+{
+  "id": "nb_038",
+  "name": "황토 기",
+  "name_en": "Yellow Earthenware",
+  "designation": "국보 제38호",
+  "designation_type": "국보",
+  "era": "삼국시대",
+  "material": "토기",
+  "size": "높이 25cm",
+  "location": "국립중앙박물관",
+  "description": "삼국시대 토기로, 황토색 유약이 특징적이다.",
+  "category": "토기",
+  "image_url": "https://www.emuseum.go.kr/images/relic/11/0038.jpg",
+  "hgl_file": "national-treasures/nb_038.hgl",
+  "source": "e뮤지엄 Open API (fallback)",
+  "created_at": "2026-03-30T04:06:41Z"
+}

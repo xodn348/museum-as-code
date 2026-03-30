@@ -1,0 +1,17 @@
+{
+  "id": "nb_022",
+  "name": "불국사 다보탑",
+  "name_en": "Dabotap Pagoda of Bulguksa Temple",
+  "designation": "국보 제22호",
+  "designation_type": "국보",
+  "era": "삼국시대",
+  "material": "화강암",
+  "size": "높이 10.4m",
+  "location": "경주시",
+  "description": "불국사의 다보탑으로, 통일신라 시대의 대표적 석탑이다.",
+  "category": "불교 관련 석조물",
+  "image_url": "https://www.emuseum.go.kr/images/relic/11/0022.jpg",
+  "hgl_file": "national-treasures/nb_022.hgl",
+  "source": "e뮤지엄 Open API (fallback)",
+  "created_at": "2026-03-30T04:06:41Z"
+}

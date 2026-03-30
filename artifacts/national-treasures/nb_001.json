@@ -1,0 +1,17 @@
+{
+  "id": "nb_001",
+  "name": "흥인지문",
+  "name_en": "Heunginjimun Gate",
+  "designation": "국보 제1호",
+  "designation_type": "국보",
+  "era": "조선시대",
+  "material": "석재, 목재",
+  "size": "정면 5칸, 측면 2칸",
+  "location": "서울특별시 종로구",
+  "description": "조선시대 한양 도성의 동쪽 대문으로, 흥인지문이라고도 불린다.",
+  "category": "유적건조물",
+  "image_url": "https://www.emuseum.go.kr/images/relic/11/0001.jpg",
+  "hgl_file": "national-treasures/nb_001.hgl",
+  "source": "e뮤지엄 Open API (fallback)",
+  "created_at": "2026-03-30T04:06:41Z"
+}

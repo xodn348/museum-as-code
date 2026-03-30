@@ -1,0 +1,17 @@
+{
+  "id": "nb_066",
+  "name": "청자 상감학목을 문갑",
+  "name_en": "Celadon Vase with Crane and Cloud Design",
+  "designation": "국보 제66호",
+  "designation_type": "국보",
+  "era": "고려시대",
+  "material": "청자",
+  "size": "높이 19.8cm",
+  "location": "국립중앙박물관",
+  "description": "고려 청자의 상감 기법이 도입된 초기 작품으로, 학목문이 정교하게 새겨졌다.",
+  "category": "도자기",
+  "image_url": "https://www.emuseum.go.kr/images/relic/11/0066.jpg",
+  "hgl_file": "national-treasures/nb_066.hgl",
+  "source": "e뮤지엄 Open API (fallback)",
+  "created_at": "2026-03-30T04:06:41Z"
+}
