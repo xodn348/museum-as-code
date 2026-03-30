@@ -1,8 +1,29 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
-    <title>Museum as Code</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>디지털 국립중앙박물관 / Digital National Museum</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <header>
+    <h1 data-ko="디지털 국립중앙박물관" data-en="Digital National Museum of Korea">디지털 국립중앙박물관</h1>
+    <button id="lang-toggle" aria-label="Toggle language">EN / 한</button>
+  </header>
+  <main>
+    <section id="card-grid" aria-label="Artifact collection">
+      <!-- T13에서 .artifact-card 요소들이 여기에 동적으로 삽입됨 -->
+    </section>
+  </main>
+  <div id="artifact-detail" class="hidden" role="dialog" aria-modal="true">
+    <div id="detail-panel">
+      <button id="detail-close" aria-label="Close detail view">✕ 닫기 / Close</button>
+      <div id="detail-content">
+        <!-- T14에서 채워짐 -->
+      </div>
+    </div>
+  </div>
+  <script src="app.js"></script>
 </body>
 </html>
