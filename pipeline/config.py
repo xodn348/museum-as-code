@@ -25,7 +25,8 @@ EMUSEUM_API_KEY = os.environ.get("EMUSEUM_API_KEY", "")
 DATA_GO_KR_API_KEY = os.environ.get("DATA_GO_KR_API_KEY", "")
 
 # ── API 엔드포인트 ───────────────────────────────────────────────────────────
-EMUSEUM_BASE_URL = "https://www.emuseum.go.kr/openApi"
+EMUSEUM_BASE_URL = "https://www.emuseum.go.kr/openapi"
+API_BASE_URL = "https://www.emuseum.go.kr/openapi/"
 EMUSEUM_RELIC_LIST_URL = f"{EMUSEUM_BASE_URL}/relic/list"
 EMUSEUM_RELIC_DETAIL_URL = f"{EMUSEUM_BASE_URL}/relic/detail"
 
@@ -65,6 +66,17 @@ def validate_config() -> dict:
         "treasures_dir_exists": TREASURES_DIR.exists(),
     }
     return status
+
+
+def get_api_key() -> str:
+    """Return the e뮤지엄 API key from environment, raising if missing."""
+    key = EMUSEUM_API_KEY.strip()
+    if not key:
+        raise EnvironmentError(
+            "Missing required environment variable 'EMUSEUM_API_KEY'. "
+            "Set it before running the pipeline: export EMUSEUM_API_KEY='your_key'"
+        )
+    return key
 
 
 if __name__ == "__main__":
