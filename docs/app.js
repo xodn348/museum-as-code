@@ -9,6 +9,8 @@ let allArtifacts = [];
 let currentFilter = 'all';
 let cardObserver = null;
 let currentDetailArtifactId = null;
+let currentDetailData = null;
+let detailRequestToken = 0;
 let skipNextHashChange = false;
 
 const FILTER_LABELS = {
@@ -103,6 +105,32 @@ function normalizePath(path) {
   return `./${path}`;
 }
 
+function getFallbackPath(path) {
+  if (typeof path !== 'string' || path.length === 0) return '';
+  const trimmed = path.replace(/^\.?\//, '');
+  return `../${trimmed}`;
+}
+
+async function fetchWithFallback(path) {
+  const primaryPath = normalizePath(path);
+  const fallbackPath = getFallbackPath(path);
+  const candidates = fallbackPath && fallbackPath !== primaryPath
+    ? [primaryPath, fallbackPath]
+    : [primaryPath];
+
+  let lastError = null;
+  for (const candidatePath of candidates) {
+    const response = await fetch(candidatePath);
+    if (response.ok) {
+      return response;
+    }
+
+    lastError = new Error(`Fetch failed for ${candidatePath} with status ${response.status}`);
+  }
+
+  throw lastError ?? new Error(`Fetch failed for ${path}`);
+}
+
 function escapeHtml(text) {
   if (text == null) return '';
   return String(text)
@@ -121,11 +149,52 @@ function getHashArtifactId() {
 function closeDetail({ clearHash = true } = {}) {
   document.getElementById('artifact-detail')?.classList.add('hidden');
   currentDetailArtifactId = null;
+  currentDetailData = null;
 
   if (!clearHash) return;
   if (window.location.hash.startsWith('#artifact-')) {
     history.replaceState(null, '', `${window.location.pathname}${window.location.search}`);
   }
+}
+
+function renderDetailContent(detailData) {
+  const detailContent = document.getElementById('detail-content');
+  if (!detailContent) return;
+
+  const {
+    artifact,
+    sidecar,
+    hglContent,
+  } = detailData;
+
+  const nameKo = sidecar.name ?? artifact.name_ko ?? '';
+  const nameEn = sidecar.name_en ?? artifact.name_en ?? '';
+  const descriptionKo = sidecar.description ?? '';
+  const descriptionEn = sidecar.description_en ?? sidecar.descriptionEn ?? '';
+  const dramaKo = sidecar.drama_connection?.ko ?? '';
+  const dramaEn = sidecar.drama_connection?.en ?? '';
+
+  const metadataRows = [
+    ['시대 / Era', sidecar.era ?? artifact.period ?? ''],
+    ['재질 / Material', sidecar.material ?? ''],
+    ['크기 / Size', sidecar.size ?? ''],
+    ['소장처 / Location', sidecar.location ?? ''],
+    ['지정 / Designation', sidecar.designation ?? artifact.designation ?? ''],
+  ]
+    .filter(([, value]) => value)
+    .map(([label, value]) => `<li><strong>${escapeHtml(label)}:</strong> ${escapeHtml(value)}</li>`)
+    .join('');
+
+  detailContent.innerHTML = `
+    <h2 class="detail-name-ko" data-lang="ko">${escapeHtml(nameKo)}</h2>
+    <p class="detail-name-en" data-lang="en">${escapeHtml(nameEn)}</p>
+    <ul class="detail-meta">${metadataRows}</ul>
+    <pre><code class="detail-code">${escapeHtml(hglContent)}</code></pre>
+    <p class="detail-description" data-lang="ko">${escapeHtml(descriptionKo)}</p>
+    <p class="detail-description" data-lang="en">${escapeHtml(descriptionEn)}</p>
+    ${dramaKo ? `<p class="detail-drama" data-lang="ko"><strong>드라마 연결:</strong> ${escapeHtml(dramaKo)}</p>` : ''}
+    ${dramaEn ? `<p class="detail-drama" data-lang="en"><strong>Drama connection:</strong> ${escapeHtml(dramaEn)}</p>` : ''}
+  `;
 }
 
 // ── Stubs (T13/T14에서 구현됨) ────────────────────────────────────────────
@@ -250,6 +319,15 @@ async function showDetail(artifactId) {
   const detailContent = document.getElementById('detail-content');
   if (!overlay || !detailContent) return;
 
+  if (
+    currentDetailArtifactId === artifactId
+    && !overlay.classList.contains('hidden')
+    && currentDetailData
+  ) {
+    renderDetailContent(currentDetailData);
+    return;
+  }
+
   const artifact = allArtifacts.find((item) => item.id === artifactId);
   if (!artifact) {
     detailContent.innerHTML = '<p class="error">상세 정보를 찾을 수 없습니다.</p>';
@@ -257,56 +335,23 @@ async function showDetail(artifactId) {
     return;
   }
 
-  const jsonPath = normalizePath(artifact.json_path);
-  const hglPath = normalizePath(artifact.hgl_path);
+  const requestToken = Date.now() + (++detailRequestToken);
 
   try {
     const [sidecarResponse, hglResponse] = await Promise.all([
-      fetch(jsonPath),
-      fetch(hglPath),
+      fetchWithFallback(artifact.json_path),
+      fetchWithFallback(artifact.hgl_path),
     ]);
-
-    if (!sidecarResponse.ok) {
-      throw new Error(`Sidecar fetch failed with status ${sidecarResponse.status}`);
-    }
-    if (!hglResponse.ok) {
-      throw new Error(`HGL fetch failed with status ${hglResponse.status}`);
-    }
 
     const sidecar = await sidecarResponse.json();
     const hglContent = await hglResponse.text();
 
-    const nameKo = sidecar.name ?? artifact.name_ko ?? '';
-    const nameEn = sidecar.name_en ?? artifact.name_en ?? '';
-    const descriptionKo = sidecar.description ?? '';
-    const descriptionEn = sidecar.description_en
-      ?? sidecar.descriptionEn
-      ?? sidecar.drama_connection?.en
-      ?? '';
-    const dramaKo = sidecar.drama_connection?.ko ?? '';
-    const dramaEn = sidecar.drama_connection?.en ?? '';
+    if (requestToken < detailRequestToken) {
+      return;
+    }
 
-    const metadataRows = [
-      ['시대 / Era', sidecar.era ?? artifact.period ?? ''],
-      ['재질 / Material', sidecar.material ?? ''],
-      ['크기 / Size', sidecar.size ?? ''],
-      ['소장처 / Location', sidecar.location ?? ''],
-      ['지정 / Designation', sidecar.designation ?? artifact.designation ?? ''],
-    ]
-      .filter(([, value]) => value)
-      .map(([label, value]) => `<li><strong>${escapeHtml(label)}:</strong> ${escapeHtml(value)}</li>`)
-      .join('');
-
-    detailContent.innerHTML = `
-      <h2 class="detail-name-ko" data-lang="ko">${escapeHtml(nameKo)}</h2>
-      <p class="detail-name-en" data-lang="en">${escapeHtml(nameEn)}</p>
-      <ul class="detail-meta">${metadataRows}</ul>
-      <pre><code class="detail-code">${escapeHtml(hglContent)}</code></pre>
-      <p class="detail-description" data-lang="ko">${escapeHtml(descriptionKo)}</p>
-      <p class="detail-description" data-lang="en">${escapeHtml(descriptionEn)}</p>
-      ${dramaKo ? `<p class="detail-drama" data-lang="ko"><strong>드라마 연결:</strong> ${escapeHtml(dramaKo)}</p>` : ''}
-      ${dramaEn ? `<p class="detail-drama" data-lang="en"><strong>Drama connection:</strong> ${escapeHtml(dramaEn)}</p>` : ''}
-    `;
+    currentDetailData = { artifact, sidecar, hglContent };
+    renderDetailContent(currentDetailData);
 
     currentDetailArtifactId = artifactId;
     overlay.classList.remove('hidden');
@@ -336,8 +381,8 @@ function toggleLang() {
   renderCards(getFilteredArtifacts());
 
   const overlay = document.getElementById('artifact-detail');
-  if (overlay && !overlay.classList.contains('hidden') && currentDetailArtifactId) {
-    showDetail(currentDetailArtifactId);
+  if (overlay && !overlay.classList.contains('hidden') && currentDetailData) {
+    renderDetailContent(currentDetailData);
   }
 }
 
