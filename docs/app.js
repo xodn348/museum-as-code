@@ -9,6 +9,7 @@ let allArtifacts = [];
 let currentFilter = 'all';
 let cardObserver = null;
 let currentDetailArtifactId = null;
+let skipNextHashChange = false;
 
 const FILTER_LABELS = {
   all: '전체',
@@ -312,6 +313,7 @@ async function showDetail(artifactId) {
 
     const nextHash = `#artifact-${encodeURIComponent(artifactId)}`;
     if (window.location.hash !== nextHash) {
+      skipNextHashChange = true;
       window.location.hash = nextHash;
     }
   } catch (error) {
@@ -365,6 +367,11 @@ document.addEventListener('DOMContentLoaded', async () => {
   });
 
   window.addEventListener('hashchange', () => {
+    if (skipNextHashChange) {
+      skipNextHashChange = false;
+      return;
+    }
+
     const artifactId = getHashArtifactId();
     if (artifactId) {
       showDetail(artifactId);
