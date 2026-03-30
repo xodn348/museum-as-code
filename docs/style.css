@@ -95,3 +95,68 @@ header { background: var(--primary); color: white; padding: 1rem 2rem; display: 
   #detail-panel { width: 95%; padding: 1.5rem; }
   header { flex-direction: column; gap: 0.5rem; text-align: center; }
 }
+
+.filter-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 1.25rem 2rem 0;
+}
+
+.filter-tab {
+  background: white;
+  color: var(--primary);
+  border: 1px solid var(--primary);
+  border-radius: 999px;
+  padding: 0.45rem 0.9rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.filter-tab:hover {
+  background: rgba(26, 58, 92, 0.08);
+}
+
+.filter-tab.active {
+  background: var(--primary);
+  color: white;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px rgba(201, 168, 76, 0.25);
+}
+
+.artifact-card.card-skeleton {
+  opacity: 0;
+  transform: translateY(14px);
+}
+
+.artifact-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.45s ease, transform 0.45s ease;
+}
+
+.card-period {
+  margin-top: 0.35rem;
+  font-size: 0.8rem;
+  color: #6d6a66;
+}
+
+#card-grid .error {
+  grid-column: 1 / -1;
+  color: #8b1e2d;
+  font-weight: 600;
+  padding: 1rem 0;
+}
+
+@media (max-width: 600px) {
+  .filter-tabs {
+    padding: 1rem 1rem 0;
+  }
+
+  .filter-tab {
+    font-size: 0.85rem;
+    padding: 0.4rem 0.8rem;
+  }
+}
