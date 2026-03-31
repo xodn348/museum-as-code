@@ -1,0 +1,8 @@
+category (must have checked):
+        <label><input type="checkbox" data-edge-type="category" checked> <span data-lang-ko="분류" data-lang-en="Category">분류</span></label>
+era (must NOT have checked):
+        <label><input type="checkbox" data-edge-type="era"> <span data-lang-ko="시대" data-lang-en="Era">시대</span></label>
+location:
+        <label><input type="checkbox" data-edge-type="location"> <span data-lang-ko="소장처" data-lang-en="Location">소장처</span></label>
+material:
+        <label><input type="checkbox" data-edge-type="material"> <span data-lang-ko="재질" data-lang-en="Material">재질</span></label>

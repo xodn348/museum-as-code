@@ -1,0 +1,2 @@
+material_edges:206, bad:0
+PASS

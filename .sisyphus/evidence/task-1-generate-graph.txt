@@ -1,0 +1,10 @@
+WARNING: kdh_001 missing category
+WARNING: kdh_002 missing category
+WARNING: kdh_003 missing category
+WARNING: kdh_004 missing category
+WARNING: kdh_005 missing category
+WARNING: kdh_006 missing category
+WARNING: kdh_007 missing category
+Generated docs/data/graph.json: 64 nodes, 1583 edges
+nodes:64, edges:1583
+PASS

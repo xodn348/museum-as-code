@@ -43,9 +43,9 @@ Organize ~130 uncommitted files (modified + untracked) into 4 logically grouped 
 - Commit 4: Config + project metadata (.gitignore, docs/manifest.json, .sisyphus/)
 
 ### Definition of Done
-- [ ] `git status` shows "nothing to commit, working tree clean"
-- [ ] `git log --oneline -4` shows 4 new commits with correct messages
-- [ ] `git push` succeeds (branch is up-to-date with origin)
+- [x] `git status` shows "nothing to commit, working tree clean"
+- [x] `git log --oneline -4` shows 4 new commits with correct messages
+- [x] `git push` succeeds (branch is up-to-date with origin)
 
 ### Must Have
 - 4 separate commits with meaningful messages following existing convention
@@ -106,7 +106,7 @@ Tasks are sequential so a single agent session handles all 5.
 
 ## TODOs
 
-- [ ] 1. Stage and commit updated artifact data (nb_001–050)
+- [x] 1. Stage and commit updated artifact data (nb_001–050)
 
   **What to do**:
   - `git add artifacts/national-treasures/nb_001.hgl artifacts/national-treasures/nb_001.json` ... through `nb_050.hgl nb_050.json`
@@ -159,7 +159,7 @@ Tasks are sequential so a single agent session handles all 5.
   - Message: `chore(data): update artifact definitions nb_001–050 with enriched metadata`
   - Files: `artifacts/national-treasures/nb_001.hgl` ... `nb_050.json` (100 files)
 
-- [ ] 2. Stage and commit new artifacts (nb_051–057)
+- [x] 2. Stage and commit new artifacts (nb_051–057)
 
   **What to do**:
   - `git add artifacts/national-treasures/nb_05[1-7].hgl artifacts/national-treasures/nb_05[1-7].json`
@@ -202,7 +202,7 @@ Tasks are sequential so a single agent session handles all 5.
   - Message: `feat(data): add new national treasure artifacts nb_051–057`
   - Files: `artifacts/national-treasures/nb_051.hgl` ... `nb_057.json` (14 files)
 
-- [ ] 3. Stage and commit pipeline infrastructure
+- [x] 3. Stage and commit pipeline infrastructure
 
   **What to do**:
   - `git add pipeline/API_MAPPING.md pipeline/README.md pipeline/api_samples/ pipeline/schemas/ pipeline/templates/ requirements.txt`
@@ -244,7 +244,7 @@ Tasks are sequential so a single agent session handles all 5.
   - Message: `feat(pipeline): add generation templates, schemas, API docs, and requirements`
   - Files: `pipeline/API_MAPPING.md`, `pipeline/README.md`, `pipeline/api_samples/*`, `pipeline/schemas/*`, `pipeline/templates/*`, `requirements.txt`
 
-- [ ] 4. Stage and commit config, docs, and project metadata
+- [x] 4. Stage and commit config, docs, and project metadata
 
   **What to do**:
   - `git add .gitignore docs/manifest.json .sisyphus/`
@@ -295,7 +295,7 @@ Tasks are sequential so a single agent session handles all 5.
   - Message: `chore: update gitignore, docs manifest, and sisyphus project metadata`
   - Files: `.gitignore`, `docs/manifest.json`, `.sisyphus/**`
 
-- [ ] 5. Push to origin and verify
+- [x] 5. Push to origin and verify
 
   **What to do**:
   - `git push origin main`
@@ -336,7 +336,7 @@ Tasks are sequential so a single agent session handles all 5.
 
   **Commit**: NO (this task pushes existing commits)
 
-- [ ] 1. Stage and commit updated artifact data (nb_001–050)
+- [x] 1. Stage and commit updated artifact data (nb_001–050)
 
   **What to do**:
   - `git add artifacts/national-treasures/nb_001.hgl artifacts/national-treasures/nb_001.json` ... through `nb_050.hgl nb_050.json`
@@ -389,7 +389,7 @@ Tasks are sequential so a single agent session handles all 5.
   - Message: `chore(data): update artifact definitions nb_001–050 with enriched metadata`
   - Files: `artifacts/national-treasures/nb_001.hgl` ... `nb_050.json` (100 files)
 
-- [ ] 2. Stage and commit new artifacts (nb_051–057)
+- [x] 2. Stage and commit new artifacts (nb_051–057)
 
   **What to do**:
   - `git add artifacts/national-treasures/nb_05[1-7].hgl artifacts/national-treasures/nb_05[1-7].json`
@@ -432,7 +432,7 @@ Tasks are sequential so a single agent session handles all 5.
   - Message: `feat(data): add new national treasure artifacts nb_051–057`
   - Files: `artifacts/national-treasures/nb_051.hgl` ... `nb_057.json` (14 files)
 
-- [ ] 3. Stage and commit pipeline infrastructure
+- [x] 3. Stage and commit pipeline infrastructure
 
   **What to do**:
   - `git add pipeline/API_MAPPING.md pipeline/README.md pipeline/api_samples/ pipeline/schemas/ pipeline/templates/ requirements.txt`
@@ -474,7 +474,7 @@ Tasks are sequential so a single agent session handles all 5.
   - Message: `feat(pipeline): add generation templates, schemas, API docs, and requirements`
   - Files: `pipeline/API_MAPPING.md`, `pipeline/README.md`, `pipeline/api_samples/*`, `pipeline/schemas/*`, `pipeline/templates/*`, `requirements.txt`
 
-- [ ] 4. Stage and commit config, docs, and project metadata
+- [x] 4. Stage and commit config, docs, and project metadata
 
   **What to do**:
   - `git add .gitignore docs/manifest.json .sisyphus/`
@@ -525,7 +525,7 @@ Tasks are sequential so a single agent session handles all 5.
   - Message: `chore: update gitignore, docs manifest, and sisyphus project metadata`
   - Files: `.gitignore`, `docs/manifest.json`, `.sisyphus/**`
 
-- [ ] 5. Push to origin and verify
+- [x] 5. Push to origin and verify
 
   **What to do**:
   - `git push origin main`
@@ -572,7 +572,7 @@ Tasks are sequential so a single agent session handles all 5.
 
 > Simplified for this trivial task — single verification instead of 4-agent review.
 
-- [ ] F1. **Post-Push Verification**
+- [x] F1. **Post-Push Verification**
   Run `git status`, `git log --oneline -4`, and `git diff origin/main..HEAD` to confirm:
   - Working tree clean
   - 4 commits with correct messages visible
@@ -608,7 +608,7 @@ git diff origin/main..HEAD    # Expected: empty (after push)
 ```
 
 ### Final Checklist
-- [ ] All 4 commits present with correct messages
-- [ ] All ~130 files committed (zero left unstaged)
-- [ ] Push to origin successful
-- [ ] No git config was modified
+- [x] All 4 commits present with correct messages
+- [x] All ~130 files committed (zero left unstaged)
+- [x] Push to origin successful
+- [x] No git config was modified

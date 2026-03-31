@@ -1,0 +1,6 @@
+=== HTML Structure ===
+id=cy: 1
+cytoscape 3.33.1: 1
+data-edge-type: 4
+data-tab: 2
+graph.js: 1
