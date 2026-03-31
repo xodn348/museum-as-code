@@ -12,7 +12,19 @@
     <button id="lang-toggle" aria-label="Toggle language">EN / 한</button>
   </header>
   <main>
-    <section id="card-grid" aria-label="Artifact collection">
+    <div class="tab-bar">
+      <button type="button" class="tab-btn active" data-tab="graph" data-lang-ko="그래프" data-lang-en="Graph">그래프</button>
+      <button type="button" class="tab-btn" data-tab="cards" data-lang-ko="카드" data-lang-en="Cards">카드</button>
+    </div>
+    <div id="cy" class="tab-content active">
+      <div id="edge-filters">
+        <label><input type="checkbox" data-edge-type="category" checked> <span data-lang-ko="분류" data-lang-en="Category">분류</span></label>
+        <label><input type="checkbox" data-edge-type="era"> <span data-lang-ko="시대" data-lang-en="Era">시대</span></label>
+        <label><input type="checkbox" data-edge-type="location"> <span data-lang-ko="소장처" data-lang-en="Location">소장처</span></label>
+        <label><input type="checkbox" data-edge-type="material"> <span data-lang-ko="재질" data-lang-en="Material">재질</span></label>
+      </div>
+    </div>
+    <section id="card-grid" class="tab-content" aria-label="Artifact collection">
       <!-- T13에서 .artifact-card 요소들이 여기에 동적으로 삽입됨 -->
     </section>
   </main>
@@ -24,6 +36,8 @@
       </div>
     </div>
   </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.33.1/cytoscape.min.js"></script>
+  <script src="graph.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
