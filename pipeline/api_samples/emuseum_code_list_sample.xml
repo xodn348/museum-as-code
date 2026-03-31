@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<result>
+  <params>
+    <item key="serviceKey" value="TEST_KEY"/>
+    <item key="parentCode" value="PS01"/>
+  </params>
+  <numOfRows>10</numOfRows>
+  <pageNo>1</pageNo>
+  <totalCount>5</totalCount>
+  <resultCode>0000</resultCode>
+  <resultMsg>OK</resultMsg>
+  <list>
+    <code>
+      <cd>PS01</cd>
+      <cdNm>국립중앙박물관</cdNm>
+      <cdDc/>
+    </code>
+    <code>
+      <cd>PS02</cd>
+      <cdNm>국립고궁박물관</cdNm>
+      <cdDc/>
+    </code>
+    <code>
+      <cd>PS03</cd>
+      <cdNm>국립부여박물관</cdNm>
+      <cdDc/>
+    </code>
+    <code>
+      <cd>PS04</cd>
+      <cdNm>국립광주박물관</cdNm>
+      <cdDc/>
+    </code>
+    <code>
+      <cd>PS05</cd>
+      <cdNm>국립진주박물관</cdNm>
+      <cdDc/>
+    </code>
+  </list>
+</result>

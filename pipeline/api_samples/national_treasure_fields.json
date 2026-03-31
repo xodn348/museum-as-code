@@ -1,0 +1,79 @@
+{
+  "designation": "국보",
+  "designationCode": "11",
+  "apiFieldMapping": {
+    "ccbaKdcd": {
+      "description": "자료구분코드",
+      "value": "11",
+      "hglField": "분류코드"
+    },
+    "ccbaAsno": {
+      "description": "등록번호",
+      "sample": "0083",
+      "hglField": "등록번호"
+    },
+    "ccbaMnm1": {
+      "description": "명칭 (한국어)",
+      "sample": "금동미륵보살반가사유상",
+      "hglField": "명칭"
+    },
+    "ccbaMnm2": {
+      "description": "명칭 (영문)",
+      "sample": "Gilt-bronze Maitreya Bodhisattva",
+      "hglField": "영문명"
+    },
+    "ccbsChrcd": {
+      "description": "시대",
+      "sample": "삼국시대",
+      "hglField": "시대"
+    },
+    "ccceName": {
+      "description": "시대 (대체)",
+      "sample": "삼국시대",
+      "hglField": "시대"
+    },
+    "ccmiName": {
+      "description": "재질",
+      "sample": "금동",
+      "hglField": "재질"
+    },
+    "ccmaName": {
+      "description": "기관명 (소장처)",
+      "sample": "국립중앙박물관",
+      "hglField": "소장처"
+    },
+    "ccmaWrtn": {
+      "description": "작성자",
+      "sample": "알 수 없음",
+      "hglField": "작성자"
+    },
+    "ccbaClas": {
+      "description": "분류",
+      "sample": "buddhist sculpture",
+      "hglField": "분류"
+    },
+    "ccbaCncl": {
+      "description": "설명",
+      "sample": "삼국 시대 금동 미륵 보살 반가사 유상",
+      "hglField": "설명"
+    },
+    "ccbaCtcd": {
+      "description": "시도코드",
+      "sample": "31",
+      "hglField": "시도코드"
+    },
+    "ccedRegn": {
+      "description": "관리지역",
+      "sample": "경상북도",
+      "hglField": "지역"
+    },
+    "ccbaImage": {
+      "description": "이미지 경로",
+      "sample": "/images/relic/11/0083.jpg",
+      "hglField": "이미지",
+      "note": "전제 URL: https://www.emuseum.go.kr{ccbaImage}"
+    }
+  },
+  "uniqueId": "ccbaKdcd + ccbaAsno (concatenated, e.g., '110083')",
+  "imageBaseUrl": "https://www.emuseum.go.kr"
+}

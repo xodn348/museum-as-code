@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<result>
+  <params>
+    <item key="serviceKey" value="TEST_KEY"/>
+    <item key="id" value="PS0100100101101235600000"/>
+  </params>
+  <resultCode>0000</resultCode>
+  <resultMsg>OK</resultMsg>
+  <detail>
+    <id>PS0100100101101235600000</id>
+    <ccbaKdcd>11</ccbaKdcd>
+    <ccbaCtcd>11</ccbaCtcd>
+    <ccbaAsno>00010001</ccbaAsno>
+    <ccbaMnht>PS01</ccbaMnht>
+    <crltsNm>금동대향로</crltsNm>
+    <ccbaLcals>경상북도</ccbaLcals>
+    <ccbaClcd>01</ccbaClcd>
+    <ccbaPdcd>01</ccbaPdcd>
+    <ccbaKdcd>11</ccbaKdcd>
+    <ccbaMnm1>국보</ccbaMnm1>
+    <ccbaMnm2>금동대향로</ccbaMnm2>
+    <prvcNm>국립중앙박물관</prvcNm>
+    <ccbaQuan>1</ccbaQuan>
+    <ccbaSize>세로 49.5cm</ccbaSize>
+    <matrlNm>금동</matrlNm>
+    <examNm/>
+    <ccbaRms>
+      <item>국보</item>
+    </ccbaRms>
+    <ccbaPres>원rots</ccbaPres>
+    <ccbaAcqu>1940년 구입</ccbaAcqu>
+    <ccbaCpno/>
+    <ccbaDt>2022-05-16</ccbaDt>
+    <ccbaRsr>
+      <item>국립중앙박물관</item>
+    </ccbaRsr>
+    <ccbaPdp1>불교</ccbaPdp1>
+    <ccbaPdp2>선역</ccbaPdp2>
+    <ccbaPdp3/>
+    <ccbaPdp4/>
+    <images>
+      <image>
+        <imgId>PS0100100101101235600000_I001</imgId>
+        <imgTtl>금동대향로</imgTtl>
+        <imgUrl>https://www.emuseum.go.kr/thumb/PS/01/001/001/01/PS01001001011012356000001_T001.jpg</imgUrl>
+        <imgOrginFileNm>PS01001001011012356000001_T001.jpg</imgOrginFileNm>
+      </image>
+      <image>
+        <imgId>PS0100100101101235600000_I002</imgId>
+        <imgTtl>금동대향로-전경</imgTtl>
+        <imgUrl>https://www.emuseum.go.kr/thumb/PS/01/001/001/01/PS01001001011012356000001_T002.jpg</imgUrl>
+        <imgOrginFileNm>PS01001001011012356000001_T002.jpg</imgOrginFileNm>
+      </image>
+    </images>
+    <relatedList>
+      <related>
+        <relId>PS0100100101101235600001</relId>
+        <relNm>금관</relNm>
+        <relImgUrl>https://www.emuseum.go.kr/thumb/PS/01/001/001/01/PS01001001011012356000001_T001.jpg</relImgUrl>
+      </related>
+    </relatedList>
+  </detail>
+</result>

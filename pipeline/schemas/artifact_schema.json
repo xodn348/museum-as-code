@@ -1,0 +1,87 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Artifact",
+  "description": "Korean National Museum artifact metadata schema",
+  "type": "object",
+  "required": [
+    "id",
+    "name",
+    "designation_number",
+    "designation_type",
+    "era",
+    "material",
+    "location",
+    "hgl_file"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique artifact ID (e.g., nb_001 for national treasure, bt_001 for treasure)",
+      "pattern": "^(nb|bt)_[0-9]{3}$"
+    },
+    "name": {
+      "type": "string",
+      "description": "Korean name (이름)"
+    },
+    "english_name": {
+      "type": "string",
+      "description": "English name translation"
+    },
+    "designation_number": {
+      "type": "string",
+      "description": "Designation number (e.g., 국보 제1호, 보물 제1호)"
+    },
+    "designation_type": {
+      "type": "string",
+      "enum": ["국보", "보물"],
+      "description": "Type: national treasure (국보) or treasure (보물)"
+    },
+    "category": {
+      "type": "string",
+      "description": "Classification category (분류)"
+    },
+    "era": {
+      "type": "string",
+      "description": "Historical era (시대)"
+    },
+    "material": {
+      "type": "string",
+      "description": "Material composition (재질)"
+    },
+    "size": {
+      "type": "string",
+      "description": "Dimensions and size (크기)"
+    },
+    "location": {
+      "type": "string",
+      "description": "Current location or museum (소장처)"
+    },
+    "description": {
+      "type": "string",
+      "description": "Detailed description (설명)"
+    },
+    "image_url": {
+      "type": "string",
+      "description": "Primary image URL for the artifact",
+      "format": "uri"
+    },
+    "api_source": {
+      "type": "string",
+      "description": "Source API used to fetch this data (e.g., heritage.go.kr, manual)"
+    },
+    "hgl_file": {
+      "type": "string",
+      "description": "Relative path to the corresponding .hgl file"
+    },
+    "created_at": {
+      "type": "string",
+      "description": "Record creation timestamp",
+      "format": "date-time"
+    },
+    "updated_at": {
+      "type": "string",
+      "description": "Record last update timestamp",
+      "format": "date-time"
+    }
+  }
+}

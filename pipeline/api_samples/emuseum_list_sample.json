@@ -1,0 +1,65 @@
+{
+  "result": {
+    "params": {
+      "item": [
+        { "key": "serviceKey", "value": "TEST_KEY" },
+        { "key": "pageNo", "value": "1" },
+        { "key": "numOfRows", "value": "10" },
+        { "key": "ccbaKdcd", "value": "11" }
+      ]
+    },
+    "numOfRows": 10,
+    "pageNo": 1,
+    "totalCount": 320,
+    "resultCode": "0000",
+    "resultMsg": "OK"
+  },
+  "list": [
+    {
+      "ccbaKdcd": "11",
+      "ccbaAsno": "0001",
+      "ccbaCtcd": "11",
+      "ccbaCpno": "1973001",
+      "ccbaMnm1": "숭례문",
+      "ccbaMnm2": "Sungnyemun Gate",
+      "crltsnoNm": "국립중앙박물관",
+      "ccbaLctno": "서울특별시 중구 을지로동",
+      "ccbaClas": "architecture",
+      "ccbaCncl": "조선 시대的一座城門，位於首爾市內",
+      "ccbaPdec1": "정면全景",
+      "ccbaPdec2": "세부 부재",
+      "ccbaImage": "/images/relic/11/0001.jpg",
+      "ccbaLgcd": "D",
+      "ccbsChrcd": "조선",
+      "ccmaName": "국립중앙박물관",
+      "ccmaWrtn": "알 수 없음",
+      "ccceName": "조선",
+      "ccmiName": "돌",
+      "ccedLimit": "국립중앙박물관",
+      "ccedRegn": "서울특별시"
+    },
+    {
+      "ccbaKdcd": "11",
+      "ccbaAsno": "0083",
+      "ccbaCtcd": "31",
+      "ccbaCpno": "1973002",
+      "ccbaMnm1": "금동미륵보살반가사유상",
+      "ccbaMnm2": "Gilt-bronze Maitreya Bodhisattva",
+      "crltsnoNm": "국립중앙박물관",
+      "ccbaLctno": "경북 경주시 인접",
+      "ccbaClas": "buddhist sculpture",
+      "ccbaCncl": "삼국 시대 금동 미륵 보살 반가사 유상",
+      "ccbaPdec1": "전체 모습",
+      "ccbaPdec2": "얼굴 부조",
+      "ccbaImage": "/images/relic/11/0083.jpg",
+      "ccbaLgcd": "C",
+      "ccbsChrcd": "삼국시대",
+      "ccmaName": "국립중앙박물관",
+      "ccmaWrtn": "알 수 없음",
+      "ccceName": "삼국시대",
+      "ccmiName": "금동",
+      "ccedLimit": "국립중앙박물관",
+      "ccedRegn": "경상북도"
+    }
+  ]
+}

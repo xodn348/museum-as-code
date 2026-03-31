@@ -1,0 +1,67 @@
+{
+  "result": {
+    "params": {
+      "item": [
+        { "key": "serviceKey", "value": "TEST_KEY" },
+        { "key": "id", "value": "PS0100100101101235600000" }
+      ]
+    },
+    "numOfRows": 1,
+    "pageNo": 1,
+    "totalCount": 1,
+    "resultCode": "0000",
+    "resultMsg": "OK"
+  },
+  "detail": {
+    "ccbaKdcd": "11",
+    "ccbaAsno": "0083",
+    "ccbaCtcd": "31",
+    "ccbaCpno": "1973002",
+    "ccbaMnm1": "금동미륵보살반가사유상",
+    "ccbaMnm2": "Gilt-bronze Maitreya Bodhisattva",
+    "crltsnoNm": "국립중앙박물관",
+    "ccbaLctno": "경북 경주시 인접",
+    "ccbaClas": "buddhist sculpture",
+    "ccbaCncl": "삼국 시대에 제작된 금동 미륵 보살 반가사 유상으로, 높이 93.5cm이다.",
+    "ccbaPdec1": "전체 모습",
+    "ccbaPdec2": "얼굴 부조",
+    "ccbaImage": "/images/relic/11/0083.jpg",
+    "ccbaLgcd": "C",
+    "ccbsChrcd": "삼국시대",
+    "ccmaName": "국립중앙박물관",
+    "ccmaWrtn": "알 수 없음",
+    "ccceName": "삼국시대",
+    "ccmiName": "금동",
+    "ccedLimit": "국립중앙박물관",
+    "ccedRegn": "경상북도",
+    "ccbaDetail": "이 불상은 6세기경 삼국 시대에 제작된 것으로, 금동 위에 재칠한 기법으로 만들어졌다. 미륵 보살은 미래의 부처로, 반가사 유상(반가사)는 나무에 기대어 생각에 잠긴 모습을 표현한다. 이 작품은 한국 불교 조각의 걸작으로 꼽힌다.",
+    "ccbaGmlNum": "35.79, 129.33",
+    "ccbaPlc": "경상북도 경주시",
+    "ccbaAcqu": "매입",
+    "ccbaRrpr": "원본",
+    "images": [
+      {
+        "imageUrl": "https://www.emuseum.go.kr/images/relic/11/0083_001.jpg",
+        "imageNm": "전체 전경",
+        "imageSeq": "1"
+      },
+      {
+        "imageUrl": "https://www.emuseum.go.kr/images/relic/11/0083_002.jpg",
+        "imageNm": "얼굴 클로즈업",
+        "imageSeq": "2"
+      },
+      {
+        "imageUrl": "https://www.emuseum.go.kr/images/relic/11/0083_003.jpg",
+        "imageNm": "하단 부조",
+        "imageSeq": "3"
+      }
+    ],
+    "relatedArtifacts": [
+      {
+        "id": "PS0100100101101235600001",
+        "name": "금동 미륵보살두광",
+        "relation": "동일 부조"
+      }
+    ]
+  }
+}

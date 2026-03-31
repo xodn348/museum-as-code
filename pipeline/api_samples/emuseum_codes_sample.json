@@ -1,0 +1,22 @@
+{
+  "result": {
+    "params": {
+      "item": [
+        { "key": "serviceKey", "value": "TEST_KEY" },
+        { "key": "parentCode", "value": "PS01" }
+      ]
+    },
+    "numOfRows": 10,
+    "pageNo": 1,
+    "totalCount": 5,
+    "resultCode": "0000",
+    "resultMsg": "OK"
+  },
+  "list": [
+    { "code": "PS01", "codeNm": "소장품구분" },
+    { "code": "PS02", "codeNm": "재질" },
+    { "code": "PS03", "codeNm": "용도" },
+    { "code": "PS04", "codeNm": "주제" },
+    { "code": "PS05", "codeNm": "분류" }
+  ]
+}
