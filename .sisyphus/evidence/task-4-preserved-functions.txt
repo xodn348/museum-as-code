@@ -1,0 +1,5 @@
+async function loadManifest() {
+function renderCards(artifacts) {
+async function showDetail(artifactId) {
+function closeDetail({ clearHash = true } = {}) {
+function toggleLang() {

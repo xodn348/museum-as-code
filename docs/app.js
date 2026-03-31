@@ -413,6 +413,7 @@ function toggleLang() {
   if (overlay && !overlay.classList.contains('hidden') && currentDetailData) {
     renderDetailContent(currentDetailData);
   }
+  if (typeof updateGraphLabels === 'function') { updateGraphLabels(currentLang); }
 }
 
 // ── Event Bindings ─────────────────────────────────────────────────────────
@@ -463,3 +464,33 @@ document.addEventListener('DOMContentLoaded', async () => {
     showDetail(initialArtifactId);
   }
 });
+
+// ── Graph / Cards Tab Switching ──────────────────────────────────────────
+(function () {
+  var graphInitialized = false;
+
+  document.querySelectorAll('.tab-btn').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var tab = btn.dataset.tab;
+      document.querySelectorAll('.tab-btn').forEach(function (b) { b.classList.remove('active'); });
+      document.querySelectorAll('.tab-content').forEach(function (c) { c.classList.remove('active'); });
+      btn.classList.add('active');
+      var panel = tab === 'graph' ? document.getElementById('cy') : document.getElementById('card-grid');
+      if (panel) { panel.classList.add('active'); }
+      if (tab === 'graph' && !graphInitialized) {
+        graphInitialized = true;
+        if (typeof initGraph === 'function') { initGraph(); }
+      }
+    });
+  });
+
+  document.querySelectorAll('#edge-filters input[type="checkbox"]').forEach(function (cb) {
+    cb.addEventListener('change', function () {
+      var active = [];
+      document.querySelectorAll('#edge-filters input[type="checkbox"]:checked').forEach(function (c) {
+        active.push(c.dataset.edgeType);
+      });
+      if (typeof filterEdges === 'function') { filterEdges(active); }
+    });
+  });
+})();

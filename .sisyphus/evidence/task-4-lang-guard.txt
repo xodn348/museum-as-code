@@ -1,0 +1,3 @@
+  }
+  if (typeof updateGraphLabels === 'function') { updateGraphLabels(currentLang); }
+}
