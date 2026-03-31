@@ -1,0 +1,17 @@
+{
+  "id": "nb_197",
+  "name": "궁예릉",
+  "name_en": "King Gungye Tomb",
+  "designation": "국보 제197호",
+  "designation_type": "국보",
+  "era": "고려시대",
+  "material": "돌, 벽돌",
+  "size": "직경 약 47m",
+  "location": "황해도 봉산군",
+  "description": "후고구려의 왕 궁예의 능묘로, 고려 건국과 관련된 역사적 유적이다.",
+  "category": "고분",
+  "image_url": "https://www.emuseum.go.kr/images/relic/11/0197.jpg",
+  "hgl_file": "national-treasures/nb_197.hgl",
+  "source": "e뮤지엄 Open API (fallback)",
+  "created_at": "2026-03-30T04:13:39Z"
+}
