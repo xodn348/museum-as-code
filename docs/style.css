@@ -420,4 +420,7 @@ body[data-lang="en"] [data-lang="ko"] { display: none; }
   #cy {
     min-height: 300px;
   }
+  #edge-filters {
+    flex-direction: column;
+  }
 }

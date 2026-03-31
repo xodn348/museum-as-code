@@ -484,6 +484,14 @@ document.addEventListener('DOMContentLoaded', async () => {
     });
   });
 
+  (function () {
+    var activeBtn = document.querySelector('.tab-btn.active');
+    if (activeBtn && activeBtn.dataset.tab === 'graph' && !graphInitialized) {
+      graphInitialized = true;
+      if (typeof initGraph === 'function') { initGraph(); }
+    }
+  }());
+
   document.querySelectorAll('#edge-filters input[type="checkbox"]').forEach(function (cb) {
     cb.addEventListener('change', function () {
       var active = [];
