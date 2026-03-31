@@ -1,0 +1,5 @@
+- 2026-03-30 F4: Scope audit must inspect both committed history and current working tree; this repo has significant unstaged/untracked artifact churn that changes compliance outcomes.
+- Plan task sections for T7/T8 are missing in TODO block; reconstruct intent from wave/dependency/commit-strategy sections before scoring fidelity.
+- Forbidden scope drift detected: collection filter UI in docs/app.js + docs/style.css violates global Must-NOT (검색/필터 기능).
+- 2026-03-30 F4: T14 is clearly out of spec because docs/app.js fetches artifact.hgl_path directly even though the plan requires detail view code to come from a JSON sidecar hgl_content field.
+- 2026-03-30 F4: T11/T17 fidelity must consider git accounting, not only files on disk; docs/manifest.json already references nb_051..057 while those artifact pairs remain untracked in git status.

@@ -1,0 +1,8 @@
+origin	https://github.com/xodn348/museum-as-code.git (fetch)
+origin	https://github.com/xodn348/museum-as-code.git (push)
+---
+880b685 fix: redirect 404 to /museum-as-code/ and add GitHub Actions deploy workflow
+45f65c9 docs: finalize README with actual artifact count, URLs, and code examples
+7916bb7 docs: finalize README with actual artifact count, URLs, and code examples
+205fe8f chore(deploy): GitHub Pages configuration with .nojekyll and 404 redirect
+9b77295 chore(data): regenerate manifest.json with final artifact set

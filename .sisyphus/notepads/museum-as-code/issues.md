@@ -1,0 +1,5 @@
+- 2026-03-30: Plan inconsistency: T7/T8 detailed 'What to do' sections absent while tasks are referenced elsewhere.
+- Significant unaccounted/uncommitted files in working tree (pipeline/templates, pipeline/schemas, API samples, nb_051..057, evidence files) complicate strict 1:1 verification against last 18 commits.
+- Expected file naming drift: plan references docs/styles.css and docs/hgl-highlight.js; repo uses docs/style.css and lacks hgl-highlight.js.
+- 2026-03-30: T4/T5 are only partially realized in the repo state: sample API files use different names and include mock/sample content, while pipeline/test_api.py is absent and config.py does not load .env files.
+- 2026-03-30: Root manifest.json is an unexplained placeholder `{}` while the live viewer uses docs/manifest.json; this is easy to misread during audits and should be clarified or removed.

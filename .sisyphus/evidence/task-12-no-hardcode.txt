@@ -1,0 +1,4 @@
+PASS: dynamic scanning detected nb_999 without hardcoding
+Generated docs/manifest.json: 65 artifacts in 2 collections
+Generated docs/manifest.json: 64 artifacts in 2 collections
+Final total_count after cleanup: 64

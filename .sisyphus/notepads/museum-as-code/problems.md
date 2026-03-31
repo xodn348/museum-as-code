@@ -1,0 +1,5 @@
+- Resolve T7/T8 missing detailed specs in plan to remove ambiguity for future fidelity audits.
+- Decide whether working-tree untracked artifacts (nb_051..057 and pipeline assets) should be committed as part of current scope or excluded/reset before final compliance gate.
+- Reconcile expected docs assets (styles.css + hgl-highlight.js) with current implementation (style.css, inline detail code styling).
+- Decide whether collection-level tabs/buttons should be considered forbidden "filter" scope or explicitly exempted in the plan; current wording is contradictory and blocks clean approval.
+- Rebuild the detail-view data contract so sidecars carry the code payload (or revise the spec), because the current direct .hgl fetch breaks the written T14 boundary.

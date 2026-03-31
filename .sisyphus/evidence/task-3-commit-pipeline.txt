@@ -1,0 +1,83 @@
+=== Task 3: Commit pipeline infrastructure ===
+
+--- git status --short ---
+ M .gitignore
+ M .sisyphus/evidence/task-10-kdh-files.txt
+ M .sisyphus/evidence/task-10-kdh-json.txt
+ M docs/manifest.json
+A  pipeline/API_MAPPING.md
+A  pipeline/README.md
+A  pipeline/api_samples/README.md
+A  pipeline/api_samples/emuseum_code_list_sample.xml
+A  pipeline/api_samples/emuseum_codes_sample.json
+A  pipeline/api_samples/emuseum_detail_sample.json
+A  pipeline/api_samples/emuseum_list_sample.json
+A  pipeline/api_samples/emuseum_relic_detail_sample.xml
+A  pipeline/api_samples/emuseum_relic_list_sample.xml
+A  pipeline/api_samples/national_treasure_fields.json
+A  pipeline/api_samples/treasure_fields.json
+A  pipeline/schemas/artifact_schema.json
+A  pipeline/templates/artifact_template.hgl.tmpl
+A  requirements.txt
+?? .sisyphus/boulder.json
+?? .sisyphus/drafts/
+?? .sisyphus/evidence/final-qa/
+?? .sisyphus/evidence/task-1-404-fix.txt
+?? .sisyphus/evidence/task-1-commit-artifacts-update.txt
+?? .sisyphus/evidence/task-12-manifest.txt
+?? .sisyphus/evidence/task-12-no-hardcode.txt
+?? .sisyphus/evidence/task-13-card-grid.txt
+?? .sisyphus/evidence/task-18-bilingual.txt
+?? .sisyphus/evidence/task-18-no-placeholders.txt
+?? .sisyphus/evidence/task-18-readme-data.txt
+?? .sisyphus/evidence/task-2-commit-new-artifacts.txt
+?? .sisyphus/evidence/task-2-deploy-yml.txt
+?? .sisyphus/evidence/task-3-commit-pipeline.txt
+?? .sisyphus/evidence/task-3-repo-push.txt
+?? .sisyphus/evidence/task-4-pages-enabled.txt
+?? .sisyphus/evidence/task-5-404-redirect.txt
+?? .sisyphus/evidence/task-5-artifacts-curl.txt
+?? .sisyphus/evidence/task-5-detail-annotated.png
+?? .sisyphus/evidence/task-5-detail-view.png
+?? .sisyphus/evidence/task-5-main-page-annotated.png
+?? .sisyphus/evidence/task-5-main-page.png
+?? .sisyphus/evidence/task-5-user-site-intact.txt
+?? .sisyphus/notepads/
+?? .sisyphus/plans/
+
+--- git commit ---
+[main fe8254c] feat(pipeline): add generation templates, schemas, API docs, and requirements
+ 14 files changed, 971 insertions(+)
+ create mode 100644 pipeline/API_MAPPING.md
+ create mode 100644 pipeline/README.md
+ create mode 100644 pipeline/api_samples/README.md
+ create mode 100644 pipeline/api_samples/emuseum_code_list_sample.xml
+ create mode 100644 pipeline/api_samples/emuseum_codes_sample.json
+ create mode 100644 pipeline/api_samples/emuseum_detail_sample.json
+ create mode 100644 pipeline/api_samples/emuseum_list_sample.json
+ create mode 100644 pipeline/api_samples/emuseum_relic_detail_sample.xml
+ create mode 100644 pipeline/api_samples/emuseum_relic_list_sample.xml
+ create mode 100644 pipeline/api_samples/national_treasure_fields.json
+ create mode 100644 pipeline/api_samples/treasure_fields.json
+ create mode 100644 pipeline/schemas/artifact_schema.json
+ create mode 100644 pipeline/templates/artifact_template.hgl.tmpl
+ create mode 100644 requirements.txt
+
+--- git log --oneline -1 ---
+fe8254c feat(pipeline): add generation templates, schemas, API docs, and requirements
+
+--- files in last commit ---
+pipeline/API_MAPPING.md
+pipeline/README.md
+pipeline/api_samples/README.md
+pipeline/api_samples/emuseum_code_list_sample.xml
+pipeline/api_samples/emuseum_codes_sample.json
+pipeline/api_samples/emuseum_detail_sample.json
+pipeline/api_samples/emuseum_list_sample.json
+pipeline/api_samples/emuseum_relic_detail_sample.xml
+pipeline/api_samples/emuseum_relic_list_sample.xml
+pipeline/api_samples/national_treasure_fields.json
+pipeline/api_samples/treasure_fields.json
+pipeline/schemas/artifact_schema.json
+pipeline/templates/artifact_template.hgl.tmpl
+requirements.txt

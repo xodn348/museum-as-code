@@ -1,0 +1,3 @@
+- 2026-03-30: Scope-fidelity decisions are evaluated against explicit 'What to do' + global guardrails first; commit message labels are secondary evidence only.
+- 2026-03-30: Treat search/filter as forbidden regardless of per-task wording conflict because top-level Must NOT Have is stricter and governs final acceptance.
+- 2026-03-30: Count a task as non-compliant when an explicit required artifact/file is missing, a must-not-do rule is violated, or the implemented behavior materially differs from the plan even if adjacent tasks touched the same file.

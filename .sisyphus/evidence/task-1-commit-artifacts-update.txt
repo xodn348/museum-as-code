@@ -1,0 +1,160 @@
+=== Task 1: Commit nb_001-050 ===
+
+--- git status --short ---
+ M .gitignore
+ M .sisyphus/evidence/task-10-kdh-files.txt
+ M .sisyphus/evidence/task-10-kdh-json.txt
+M  artifacts/national-treasures/nb_001.hgl
+M  artifacts/national-treasures/nb_001.json
+M  artifacts/national-treasures/nb_002.hgl
+M  artifacts/national-treasures/nb_002.json
+M  artifacts/national-treasures/nb_003.hgl
+M  artifacts/national-treasures/nb_003.json
+M  artifacts/national-treasures/nb_004.hgl
+M  artifacts/national-treasures/nb_004.json
+M  artifacts/national-treasures/nb_005.hgl
+M  artifacts/national-treasures/nb_005.json
+M  artifacts/national-treasures/nb_006.hgl
+M  artifacts/national-treasures/nb_006.json
+M  artifacts/national-treasures/nb_007.hgl
+M  artifacts/national-treasures/nb_007.json
+M  artifacts/national-treasures/nb_008.hgl
+M  artifacts/national-treasures/nb_008.json
+M  artifacts/national-treasures/nb_009.hgl
+M  artifacts/national-treasures/nb_009.json
+M  artifacts/national-treasures/nb_010.hgl
+M  artifacts/national-treasures/nb_010.json
+M  artifacts/national-treasures/nb_011.hgl
+M  artifacts/national-treasures/nb_011.json
+M  artifacts/national-treasures/nb_012.hgl
+M  artifacts/national-treasures/nb_012.json
+M  artifacts/national-treasures/nb_013.hgl
+M  artifacts/national-treasures/nb_013.json
+M  artifacts/national-treasures/nb_014.hgl
+M  artifacts/national-treasures/nb_014.json
+M  artifacts/national-treasures/nb_015.hgl
+M  artifacts/national-treasures/nb_015.json
+M  artifacts/national-treasures/nb_016.hgl
+M  artifacts/national-treasures/nb_016.json
+M  artifacts/national-treasures/nb_017.hgl
+M  artifacts/national-treasures/nb_017.json
+M  artifacts/national-treasures/nb_018.hgl
+M  artifacts/national-treasures/nb_018.json
+M  artifacts/national-treasures/nb_019.hgl
+M  artifacts/national-treasures/nb_019.json
+M  artifacts/national-treasures/nb_020.hgl
+M  artifacts/national-treasures/nb_020.json
+M  artifacts/national-treasures/nb_021.hgl
+M  artifacts/national-treasures/nb_021.json
+M  artifacts/national-treasures/nb_022.hgl
+M  artifacts/national-treasures/nb_022.json
+M  artifacts/national-treasures/nb_023.hgl
+M  artifacts/national-treasures/nb_023.json
+M  artifacts/national-treasures/nb_024.hgl
+M  artifacts/national-treasures/nb_024.json
+M  artifacts/national-treasures/nb_025.hgl
+M  artifacts/national-treasures/nb_025.json
+M  artifacts/national-treasures/nb_026.hgl
+M  artifacts/national-treasures/nb_026.json
+M  artifacts/national-treasures/nb_027.hgl
+M  artifacts/national-treasures/nb_027.json
+M  artifacts/national-treasures/nb_028.hgl
+M  artifacts/national-treasures/nb_028.json
+M  artifacts/national-treasures/nb_029.hgl
+M  artifacts/national-treasures/nb_029.json
+M  artifacts/national-treasures/nb_030.hgl
+M  artifacts/national-treasures/nb_030.json
+M  artifacts/national-treasures/nb_031.hgl
+M  artifacts/national-treasures/nb_031.json
+M  artifacts/national-treasures/nb_032.hgl
+M  artifacts/national-treasures/nb_032.json
+M  artifacts/national-treasures/nb_033.hgl
+M  artifacts/national-treasures/nb_033.json
+M  artifacts/national-treasures/nb_034.hgl
+M  artifacts/national-treasures/nb_034.json
+M  artifacts/national-treasures/nb_035.hgl
+M  artifacts/national-treasures/nb_035.json
+M  artifacts/national-treasures/nb_036.hgl
+M  artifacts/national-treasures/nb_036.json
+M  artifacts/national-treasures/nb_037.hgl
+M  artifacts/national-treasures/nb_037.json
+M  artifacts/national-treasures/nb_038.hgl
+M  artifacts/national-treasures/nb_038.json
+M  artifacts/national-treasures/nb_039.hgl
+M  artifacts/national-treasures/nb_039.json
+M  artifacts/national-treasures/nb_040.hgl
+M  artifacts/national-treasures/nb_040.json
+M  artifacts/national-treasures/nb_041.hgl
+M  artifacts/national-treasures/nb_041.json
+M  artifacts/national-treasures/nb_042.hgl
+M  artifacts/national-treasures/nb_042.json
+M  artifacts/national-treasures/nb_043.hgl
+M  artifacts/national-treasures/nb_043.json
+M  artifacts/national-treasures/nb_044.hgl
+M  artifacts/national-treasures/nb_044.json
+M  artifacts/national-treasures/nb_045.hgl
+M  artifacts/national-treasures/nb_045.json
+M  artifacts/national-treasures/nb_046.hgl
+M  artifacts/national-treasures/nb_046.json
+M  artifacts/national-treasures/nb_047.hgl
+M  artifacts/national-treasures/nb_047.json
+M  artifacts/national-treasures/nb_048.hgl
+M  artifacts/national-treasures/nb_048.json
+M  artifacts/national-treasures/nb_049.hgl
+M  artifacts/national-treasures/nb_049.json
+M  artifacts/national-treasures/nb_050.hgl
+M  artifacts/national-treasures/nb_050.json
+ M docs/manifest.json
+?? .sisyphus/boulder.json
+?? .sisyphus/drafts/
+?? .sisyphus/evidence/final-qa/
+?? .sisyphus/evidence/task-1-404-fix.txt
+?? .sisyphus/evidence/task-1-commit-artifacts-update.txt
+?? .sisyphus/evidence/task-12-manifest.txt
+?? .sisyphus/evidence/task-12-no-hardcode.txt
+?? .sisyphus/evidence/task-13-card-grid.txt
+?? .sisyphus/evidence/task-18-bilingual.txt
+?? .sisyphus/evidence/task-18-no-placeholders.txt
+?? .sisyphus/evidence/task-18-readme-data.txt
+?? .sisyphus/evidence/task-2-deploy-yml.txt
+?? .sisyphus/evidence/task-3-repo-push.txt
+?? .sisyphus/evidence/task-4-pages-enabled.txt
+?? .sisyphus/evidence/task-5-404-redirect.txt
+?? .sisyphus/evidence/task-5-artifacts-curl.txt
+?? .sisyphus/evidence/task-5-detail-annotated.png
+?? .sisyphus/evidence/task-5-detail-view.png
+?? .sisyphus/evidence/task-5-main-page-annotated.png
+?? .sisyphus/evidence/task-5-main-page.png
+?? .sisyphus/evidence/task-5-user-site-intact.txt
+?? .sisyphus/notepads/
+?? .sisyphus/plans/
+?? artifacts/national-treasures/nb_051.hgl
+?? artifacts/national-treasures/nb_051.json
+?? artifacts/national-treasures/nb_052.hgl
+?? artifacts/national-treasures/nb_052.json
+?? artifacts/national-treasures/nb_053.hgl
+?? artifacts/national-treasures/nb_053.json
+?? artifacts/national-treasures/nb_054.hgl
+?? artifacts/national-treasures/nb_054.json
+?? artifacts/national-treasures/nb_055.hgl
+?? artifacts/national-treasures/nb_055.json
+?? artifacts/national-treasures/nb_056.hgl
+?? artifacts/national-treasures/nb_056.json
+?? artifacts/national-treasures/nb_057.hgl
+?? artifacts/national-treasures/nb_057.json
+?? pipeline/API_MAPPING.md
+?? pipeline/README.md
+?? pipeline/api_samples/
+?? pipeline/schemas/
+?? pipeline/templates/
+?? requirements.txt
+
+--- git commit ---
+[main db5e9a4] chore(data): update artifact definitions nb_001-050 with enriched metadata
+ 100 files changed, 1150 insertions(+), 1150 deletions(-)
+
+--- git log --oneline -1 ---
+db5e9a4 chore(data): update artifact definitions nb_001-050 with enriched metadata
+
+--- file count in last commit ---
+     100

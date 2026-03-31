@@ -1,0 +1,22 @@
+commit 880b685bdbe8e19789879bae9adbc756ab254a9d
+Author: Junhyuk Lee <xodn348@users.noreply.github.com>
+Date:   Mon Mar 30 11:54:54 2026 -0500
+
+    fix: redirect 404 to /museum-as-code/ and add GitHub Actions deploy workflow
+
+diff --git a/docs/404.html b/docs/404.html
+index 4082755..1fd6316 100644
+--- a/docs/404.html
++++ b/docs/404.html
+@@ -3,9 +3,9 @@
+ <head>
+   <meta charset="UTF-8">
+   <title>404 — 디지털 국립중앙박물관</title>
+-  <script>window.location.href = '/';</script>
++  <script>window.location.href = '/museum-as-code/';</script>
+ </head>
+ <body>
+-  <p>페이지를 찾을 수 없습니다. <a href="/">홈으로 돌아가기</a></p>
++  <p>페이지를 찾을 수 없습니다. <a href="/museum-as-code/">홈으로 돌아가기</a></p>
+ </body>
+ </html>

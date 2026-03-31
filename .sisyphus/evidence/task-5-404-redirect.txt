@@ -1,0 +1,3 @@
+=== 404 redirect ===
+url_effective: https://xodn348.github.io/museum-as-code/nonexistent-path
+http_code: 404

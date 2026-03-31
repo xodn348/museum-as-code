@@ -9,10 +9,10 @@ drwxr-xr-x@  4 jnnj92  staff   128 Mar 29 18:15 ..
 -rw-r--r--@  1 jnnj92  staff  2068 Mar 29 22:45 kdh_003.hgl
 -rw-r--r--@  1 jnnj92  staff   880 Mar 29 22:45 kdh_003.json
 -rw-r--r--@  1 jnnj92  staff  2099 Mar 29 22:45 kdh_004.hgl
--rw-r--r--@  1 jnnj92  staff   922 Mar 29 22:45 kdh_004.json
+-rw-r--r--@  1 jnnj92  staff   922 Mar 29 22:47 kdh_004.json
 -rw-r--r--@  1 jnnj92  staff  1961 Mar 29 22:46 kdh_005.hgl
--rw-r--r--@  1 jnnj92  staff   870 Mar 29 22:46 kdh_005.json
+-rw-r--r--@  1 jnnj92  staff   908 Mar 29 22:47 kdh_005.json
 -rw-r--r--@  1 jnnj92  staff  2005 Mar 29 22:46 kdh_006.hgl
--rw-r--r--@  1 jnnj92  staff   887 Mar 29 22:46 kdh_006.json
+-rw-r--r--@  1 jnnj92  staff   892 Mar 29 22:47 kdh_006.json
 -rw-r--r--@  1 jnnj92  staff  2101 Mar 29 22:46 kdh_007.hgl
 -rw-r--r--@  1 jnnj92  staff   940 Mar 29 22:46 kdh_007.json
