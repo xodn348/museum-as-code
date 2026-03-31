@@ -1,4 +1,4 @@
-// 고려 명종 명성왕후 묘지 - 국보 제129호 디지털 아카이브
+// 고려명종명성왕후묘지 - 국보 제129호 디지털 아카이브
 // 자동 생성됨: museum-as-code 파이프라인
 // 생성일: 2026-03-30
 
@@ -30,15 +30,15 @@
 }
 
 함수 main() {
-    변수 이름_val = "고려 명종 명성왕후 묘지"
-    변수 영문명_val = "Goryeo Queen Myeongseong's Epitaph"
+    변수 이름_val = "고려명종명성왕후묘지"
+    변수 영문명_val = "Goryeo Queen Myeongseong Epitaph"
     변수 지정번호_val = "국보 제129호"
     변수 분류_val = "비문"
     변수 시대_val = "고려시대"
     변수 재질_val = "화강암"
     변수 크기_val = "가로 70cm, 세로 100cm"
     변수 소장처_val = "국립중앙박물관"
-    변수 설명_val = "고려 명종 명성왕후의 묘지로, 고려 시대의 역사 자료이다."
+    변수 설명_val = "고려 명종 명성 왕후의 묘지로, 고려 시대의 역사 자료이다."
     변수 이미지URL_val = "https://www.emuseum.go.kr/images/relic/11/0129.jpg"
     변수 API출처_val = "e뮤지엄 Open API (fallback)"
     변수 유물 = 유물_국보제129호 {

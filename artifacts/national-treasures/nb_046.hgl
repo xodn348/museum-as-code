@@ -1,4 +1,4 @@
-// 고구려 벽화 모본 - 국보 제61호 디지털 아카이브
+// 고려사찰壁画 - 국보 제61호 디지털 아카이브
 // 자동 생성됨: museum-as-code 파이프라인
 // 생성일: 2026-03-30
 
@@ -30,15 +30,15 @@
 }
 
 함수 main() {
-    변수 이름_val = "고구려 벽화 모본"
-    변수 영문명_val = "Goguryeo Tomb Mural Reproduction"
+    변수 이름_val = "고려사찰壁画"
+    변수 영문명_val = "Goryeo Temple Mural"
     변수 지정번호_val = "국보 제61호"
     변수 분류_val = "회화"
-    변수 시대_val = "삼국시대"
+    변수 시대_val = "고려시대"
     변수 재질_val = "석회, 안료"
     변수 크기_val = "가로 250cm, 세로 200cm"
     변수 소장처_val = "국립중앙박물관"
-    변수 설명_val = "고구려 고분 벽화의 내용으로, 당시의 생활과 신앙을 보여준다."
+    변수 설명_val = "고려 사찰 벽화로, 당시의 생활과 신앙을 보여준다."
     변수 이미지URL_val = "https://www.emuseum.go.kr/images/relic/11/0061.jpg"
     변수 API출처_val = "e뮤지엄 Open API (fallback)"
     변수 유물 = 유물_국보제61호 {

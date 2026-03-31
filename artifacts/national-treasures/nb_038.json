@@ -8,10 +8,10 @@
   "material": "청동",
   "size": "가로 7cm, 세로 10cm",
   "location": "한국국학진흥원",
-  "description": "고려 시대의 금속활자로, 세계 최고 수준의 인쇄 기술 유산이다.",
+  "description": "고려 시대의 금속활자로, 세계 최고 수준의 인쇄 기술을 보여주는 유물이다.",
   "category": "전적류",
   "image_url": "https://www.emuseum.go.kr/images/relic/11/0015.jpg",
   "hgl_file": "national-treasures/nb_015.hgl",
   "source": "e뮤지엄 Open API (fallback)",
-  "created_at": "2026-03-30T04:06:41Z"
+  "created_at": "2026-03-30T04:13:39Z"
 }

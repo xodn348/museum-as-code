@@ -31,14 +31,14 @@
 
 함수 main() {
     변수 이름_val = "청동은입사포류수금문정병"
-    변수 영문명_val = "Bronze Inlaid Vessel with Phoenix and Dragon Design"
+    변수 영문명_val = "Bronze Inlaid Vessel with Grape Design"
     변수 지정번호_val = "국보 제92호"
-    변수 분류_val = "금속공예"
-    변수 시대_val = "삼국시대"
+    변수 분류_val = "금속류"
+    변수 시대_val = "고려시대"
     변수 재질_val = "청동"
-    변수 크기_val = "높이 28.5cm"
+    변수 크기_val = "높이 24.2cm"
     변수 소장처_val = "국립중앙박물관"
-    변수 설명_val = "삼국시대 청동 은입사 포류수금문정병으로, 정교한 은입사 기법이 특징이다."
+    변수 설명_val = "고려시대의 청동 은입사 정병으로, 포도 문양이 정교하게 새겨져 있다. 고려 청동기의 은입사 기법을 대표하는 명작이다."
     변수 이미지URL_val = "https://www.emuseum.go.kr/images/relic/11/0092.jpg"
     변수 API출처_val = "e뮤지엄 Open API (fallback)"
     변수 유물 = 유물_국보제92호 {

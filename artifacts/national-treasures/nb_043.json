@@ -1,17 +1,17 @@
 {
-  "id": "nb_033",
-  "name": "신라 연화문 비단",
-  "name_en": "Silla Lotus Pattern Brocade",
-  "designation": "국보 제33호",
+  "id": "nb_045",
+  "name": "백제무녕왕릉석곽",
+  "name_en": "Baekje King Munyeong Stone Coffin",
+  "designation": "국보 제45호",
   "designation_type": "국보",
   "era": "삼국시대",
-  "material": "비단",
-  "size": "가로 45cm, 세로 120cm",
+  "material": "화강암",
+  "size": "가로 3m, 세로 2m",
   "location": "국립중앙박물관",
-  "description": "신라 시대 비단직물로, 연화문이 정교하게 표현되었다.",
-  "category": "직물",
-  "image_url": "https://www.emuseum.go.kr/images/relic/11/0033.jpg",
-  "hgl_file": "national-treasures/nb_033.hgl",
+  "description": "백제 무녕왕릉에서 출토된 돌棺으로, 백제 문화의 정수를 보여준다.",
+  "category": "고분 유물",
+  "image_url": "https://www.emuseum.go.kr/images/relic/11/0045.jpg",
+  "hgl_file": "national-treasures/nb_045.hgl",
   "source": "e뮤지엄 Open API (fallback)",
-  "created_at": "2026-03-30T04:06:41Z"
+  "created_at": "2026-03-30T04:13:39Z"
 }

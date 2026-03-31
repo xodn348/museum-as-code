@@ -1,6 +1,6 @@
 {
   "id": "nb_030",
-  "name": "신라 진골 왕경",
+  "name": "신라인서",
   "name_en": "Silla Royal Sutra",
   "designation": "국보 제30호",
   "designation_type": "국보",
@@ -13,5 +13,5 @@
   "image_url": "https://www.emuseum.go.kr/images/relic/11/0030.jpg",
   "hgl_file": "national-treasures/nb_030.hgl",
   "source": "e뮤지엄 Open API (fallback)",
-  "created_at": "2026-03-30T04:06:41Z"
+  "created_at": "2026-03-30T04:13:39Z"
 }
