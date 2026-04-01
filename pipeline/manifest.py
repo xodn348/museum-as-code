@@ -127,6 +127,8 @@ def _load_artifact_entry(sidecar_path: Path, collection_id: str) -> ManifestArti
             if img.suffix == ".jpg" and img.stem.startswith(artifact_id):
                 image_url = f"images/artifacts/{img.name}"
                 break
+    if not image_url:
+        image_url = _find_local_image_url(sidecar_path, artifact_id, collection_id)
 
     return {
         "id": artifact_id,
