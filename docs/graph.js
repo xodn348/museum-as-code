@@ -105,13 +105,16 @@ function initGraph() {
           idealEdgeLength: function () {
             return 120;
           },
-          nodeOverlap: 20,
-          gravity: 0.25,
-          componentSpacing: 100,
+          edgeElasticity: function () {
+            return 100;
+          },
+          gravity: 0.1,
+          numIter: 1000,
           animate: false,
           randomize: true,
-          padding: 30,
-          fit: true,
+          componentSpacing: 100,
+          coolingFactor: 0.95,
+          minTemp: 1.0,
         },
       });
 
