@@ -134,7 +134,7 @@ function initGraph() {
         updateGraphLabels(currentLang);
       }
 
-      filterEdges(['category']);
+      filterEdges(['era', 'category', 'location', 'material']);
     })
     .catch(function (error) {
       console.error('Failed to initialize graph:', error);
