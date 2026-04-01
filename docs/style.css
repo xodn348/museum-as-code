@@ -273,7 +273,11 @@ body[data-lang="en"] [data-lang="ko"] { display: none; }
 .detail-code .kw,
 .detail-code .keyword {
   color: #1a3a5c;
+<<<<<<< HEAD
   font-weight: 600;
+=======
+  font-weight: 700;
+>>>>>>> 0491265 (feat(ui): add syntax highlighting to artifact detail code view)
 }
 
 .detail-code .prop {
@@ -282,7 +286,11 @@ body[data-lang="en"] [data-lang="ko"] { display: none; }
 }
 
 .detail-code .cm {
+<<<<<<< HEAD
   color: #888888;
+=======
+  color: #888;
+>>>>>>> 0491265 (feat(ui): add syntax highlighting to artifact detail code view)
   font-style: italic;
 }
 
