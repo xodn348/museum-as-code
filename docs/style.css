@@ -125,6 +125,13 @@ pre {
   padding: 1rem;
 }
 
+#detail-content pre {
+  background: transparent;
+  border-radius: 0;
+  margin: 0 0 1.25rem;
+  padding: 0;
+}
+
 .detail-code {
   color: #2f241d;
   display: block;
@@ -273,7 +280,7 @@ body[data-lang="en"] [data-lang="ko"] { display: none; }
 
 .detail-code .kw,
 .detail-code .keyword {
-  color: #1a3a5c;
+  color: #1a5c9c;
   font-weight: 700;
 }
 
@@ -283,12 +290,12 @@ body[data-lang="en"] [data-lang="ko"] { display: none; }
 }
 
 .detail-code .cm {
-  color: #888;
+  color: #5a7a5a;
   font-style: italic;
 }
 
 .detail-code .str {
-  color: #8c2f39;
+  color: #8a2f5a;
 }
 
 .detail-description {
