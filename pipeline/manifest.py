@@ -120,7 +120,13 @@ def _load_artifact_entry(sidecar_path: Path, collection_id: str) -> ManifestArti
     sidecar = _read_sidecar(sidecar_path)
     relative_json_path = sidecar_path.relative_to(PROJECT_ROOT).as_posix()
     artifact_id = _string_field(sidecar, "id")
-    image_url = _find_local_image_url(sidecar_path, artifact_id, collection_id)
+    images_dir = PROJECT_ROOT / "docs" / "images" / "artifacts"
+    image_url = ""
+    if images_dir.exists():
+        for img in images_dir.iterdir():
+            if img.suffix == ".jpg" and img.stem.startswith(artifact_id):
+                image_url = f"images/artifacts/{img.name}"
+                break
 
     return {
         "id": artifact_id,
