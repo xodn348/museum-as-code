@@ -282,6 +282,13 @@ async function loadManifest() {
     const manifest = await response.json();
     allArtifacts = Array.isArray(manifest.artifacts) ? manifest.artifacts : [];
 
+    const periodOrder = {
+      '선사시대': 1, '고조선': 2,
+      '삼국시대': 3, '백제': 3, '신라': 3, '가야': 3, '가야시대': 3,
+      '통일신라시대': 4, '고려시대': 5, '조선시대': 6, '근현대': 7,
+    };
+    allArtifacts.sort((a, b) => (periodOrder[a.period] ?? 99) - (periodOrder[b.period] ?? 99));
+
     const collections = Array.isArray(manifest.collections) ? manifest.collections : [];
     const nationalTreasuresCount =
       collections.find((collection) => collection.id === 'national-treasures')?.count

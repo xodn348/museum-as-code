@@ -46,7 +46,7 @@ function initGraph() {
           {
             selector: 'node',
             style: {
-              label: 'data(label_ko)',
+              label: 'data(label_en)',
               'background-color': '#4a7c59',
               color: '#fff',
               'text-valign': 'center',
@@ -103,10 +103,10 @@ function initGraph() {
             return 450000;
           },
           idealEdgeLength: function () {
-            return 120;
+            return 150;
           },
           nodeOverlap: 20,
-          gravity: 0.25,
+          gravity: 80,
           componentSpacing: 100,
           padding: 30,
           fit: true,
