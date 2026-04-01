@@ -411,6 +411,11 @@ function toggleLang() {
   currentLang = currentLang === 'ko' ? 'en' : 'ko';
   document.body.dataset.lang = currentLang;
 
+  // Swap text for elements with data-lang-ko / data-lang-en attributes
+  document.querySelectorAll('[data-lang-ko]').forEach(el => {
+    el.textContent = currentLang === 'ko' ? el.dataset.langKo : el.dataset.langEn;
+  });
+
   const btn = document.getElementById('lang-toggle');
   if (btn) btn.textContent = currentLang === 'ko' ? 'EN / 한' : '한 / EN';
 
