@@ -100,28 +100,34 @@ def with_retries(fetch_fn: Callable[[], requests.Response]) -> requests.Response
     raise RuntimeError(f"Request failed after {RETRY_COUNT} attempts: {last_error}")
 
 
-def find_relic_id_candidates(client: RateLimitedSession, image_code: str) -> list[str]:
+def find_relic_id_candidates(
+    client: RateLimitedSession,
+    image_code: str,
+    page_limit: int = 2,
+) -> list[str]:
     keyword = str(int(image_code))
-    response = with_retries(
-        lambda: client.get(
-            SEARCH_URL,
-            params={
-                "detailFlag": "true",
-                "filedOp": "keyword",
-                "keyword": keyword,
-                "keywordHistory": keyword,
-                "pageNum": "1",
-            },
-        )
-    )
-    raw_ids = cast(list[str], RELIC_ID_PATTERN.findall(response.text))
     unique_ids: list[str] = []
     seen: set[str] = set()
-    for relic_id in raw_ids:
-        if relic_id in seen:
-            continue
-        seen.add(relic_id)
-        unique_ids.append(relic_id)
+
+    for page_number in range(1, page_limit + 1):
+        response = with_retries(
+            lambda: client.get(
+                SEARCH_URL,
+                params={
+                    "detailFlag": "true",
+                    "filedOp": "keyword",
+                    "keyword": keyword,
+                    "keywordHistory": keyword,
+                    "pageNum": str(page_number),
+                },
+            )
+        )
+        raw_ids = cast(list[str], RELIC_ID_PATTERN.findall(response.text))
+        for relic_id in raw_ids:
+            if relic_id in seen:
+                continue
+            seen.add(relic_id)
+            unique_ids.append(relic_id)
 
     if not unique_ids:
         raise RuntimeError(f"No relicId found for image code {image_code}")
@@ -207,10 +213,27 @@ def main() -> None:
     downloaded = 0
     failed: list[str] = []
     total_size_bytes = 0
+    used_file_names: set[str] = set(
+        file_path.name
+        for file_path in OUTPUT_DIR.iterdir()
+        if file_path.is_file() and file_path.suffix == ".jpg"
+    )
+    print(f"Found {len(used_file_names)} already-downloaded files, will skip them.")
 
     for index, source in enumerate(sources, start=1):
         print(f"Downloading {index}/57: {source.name}...")
         try:
+            file_name = build_output_name(index)
+            output_path = OUTPUT_DIR / file_name
+            if output_path.exists():
+                print(
+                    f"  [{index}/57] SKIP {source.name} → already exists as {file_name}"
+                )
+                used_file_names.add(file_name)
+                downloaded += 1
+                total_size_bytes += output_path.stat().st_size
+                continue
+
             candidates = find_relic_id_candidates(client, source.image_code)
             detail = pick_unique_detail(
                 source,
@@ -218,12 +241,10 @@ def main() -> None:
                 client,
                 detail_cache,
             )
-            file_name = build_output_name(index)
             image_bytes = download_image_bytes(client, detail)
-
-            output_path = OUTPUT_DIR / file_name
             output_path.write_bytes(image_bytes)
 
+            used_file_names.add(file_name)
             downloaded += 1
             total_size_bytes += len(image_bytes)
         except Exception as error:  # noqa: BLE001
