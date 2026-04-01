@@ -100,10 +100,18 @@ function initGraph() {
         layout: {
           name: 'cose',
           nodeRepulsion: function () {
-            return 6000;
+            return 450000;
           },
+          idealEdgeLength: function () {
+            return 120;
+          },
+          nodeOverlap: 20,
+          gravity: 0.25,
+          componentSpacing: 100,
           animate: false,
           randomize: true,
+          padding: 30,
+          fit: true,
         },
       });
 
