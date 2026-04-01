@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 import json
-from datetime import datetime
+from datetime import UTC, datetime
 from pathlib import Path
 from typing import Final, TypedDict, cast
 
@@ -23,7 +23,6 @@ class ManifestArtifact(TypedDict):
     name_en: str
     period: str
     designation: str
-    image_url: str
     image_url: str
 
 
@@ -85,18 +84,43 @@ def _string_field(sidecar: dict[str, object], key: str) -> str:
     return str(value)
 
 
+def _find_local_image_url(
+    sidecar_path: Path, artifact_id: str, collection_id: str
+) -> str:
+    images_dir = PROJECT_ROOT / "docs" / "images" / "artifacts"
+    if not images_dir.exists():
+        return ""
+
+    image_paths = sorted(images_dir.glob("*.jpg"))
+
+    candidate_prefixes = [artifact_id]
+    sidecar_stem = sidecar_path.stem
+    if sidecar_stem not in candidate_prefixes:
+        candidate_prefixes.append(sidecar_stem)
+
+    for img in image_paths:
+        if any(img.stem.startswith(prefix) for prefix in candidate_prefixes):
+            return f"images/artifacts/{img.name}"
+
+    stem_parts = sidecar_stem.rsplit("_", 1)
+    if (
+        collection_id == "national-treasures"
+        and sidecar_stem.startswith("nb_")
+        and len(stem_parts) == 2
+        and stem_parts[1].isdigit()
+    ):
+        image_suffix = f"_{int(stem_parts[1]) * 10000:09d}"
+        for img in image_paths:
+            if img.stem.endswith(image_suffix):
+                return f"images/artifacts/{img.name}"
+    return ""
+
+
 def _load_artifact_entry(sidecar_path: Path, collection_id: str) -> ManifestArtifact:
     sidecar = _read_sidecar(sidecar_path)
     relative_json_path = sidecar_path.relative_to(PROJECT_ROOT).as_posix()
     artifact_id = _string_field(sidecar, "id")
-
-    images_dir = PROJECT_ROOT / "docs" / "images" / "artifacts"
-    image_url = ""
-    if images_dir.exists():
-        for img in images_dir.iterdir():
-            if img.suffix == ".jpg" and img.stem.startswith(artifact_id):
-                image_url = f"images/artifacts/{img.name}"
-                break
+    image_url = _find_local_image_url(sidecar_path, artifact_id, collection_id)
 
     return {
         "id": artifact_id,
@@ -143,7 +167,7 @@ def build_manifest() -> ManifestDocument:
     ]
 
     return {
-        "generated_at": datetime.utcnow().isoformat() + "Z",
+        "generated_at": datetime.now(UTC).isoformat().replace("+00:00", "Z"),
         "total_count": len(artifacts),
         "artifacts": artifacts,
         "collections": collections,

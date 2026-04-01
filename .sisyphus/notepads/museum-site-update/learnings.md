@@ -98,3 +98,16 @@ Failed: 0 (none)
 Total size: 7.0M
 Naming pattern: {kdcd}_{asno}.jpg
 Script: pipeline/download_images.py
+
+## 2026-04-01 Task: 4 (COMPLETE)
+File modified: docs/app.js
+Change: renderCards() now appends a direct child <img> before .card-body for every artifact card, uses lazy loading, localized alt text, and hides empty or failed images gracefully.
+Runtime note: current docs/manifest.json contains image_url keys but empty-string values, so cards pre-hide empty images while still satisfying DOM verification.
+Verification: document.querySelectorAll('.artifact-card img').length returned 64 on local preview.
+
+## 2026-04-01 Task: 3
+Files modified: pipeline/manifest.py, docs/manifest.json
+image_url logic: scan docs/images/artifacts/ for file with stem starting with artifact id, then fall back to the national-treasures sidecar filename sequence when repo data uses nb_* ids instead of PS* ids
+id field value confirmed: artifacts/national-treasures sidecars currently use nb_* ids (example: nb_001 in nb_001.json)
+images matched: 57
+commit: feat: add image_url to manifest pipeline
