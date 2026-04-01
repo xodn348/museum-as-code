@@ -260,6 +260,7 @@ body[data-lang="en"] [data-lang="ko"] { display: none; }
   background: #f5f3ef;
   border: 1px solid #e0d8cc;
   border-radius: 6px;
+  color: #2b2b2b;
   padding: 1rem;
   font-family: 'Courier New', monospace;
   font-size: 0.8rem;
@@ -273,11 +274,7 @@ body[data-lang="en"] [data-lang="ko"] { display: none; }
 .detail-code .kw,
 .detail-code .keyword {
   color: #1a3a5c;
-<<<<<<< HEAD
-  font-weight: 600;
-=======
   font-weight: 700;
->>>>>>> 0491265 (feat(ui): add syntax highlighting to artifact detail code view)
 }
 
 .detail-code .prop {
@@ -286,16 +283,12 @@ body[data-lang="en"] [data-lang="ko"] { display: none; }
 }
 
 .detail-code .cm {
-<<<<<<< HEAD
-  color: #888888;
-=======
   color: #888;
->>>>>>> 0491265 (feat(ui): add syntax highlighting to artifact detail code view)
   font-style: italic;
 }
 
 .detail-code .str {
-  color: #8a2f5a;
+  color: #8c2f39;
 }
 
 .detail-description {

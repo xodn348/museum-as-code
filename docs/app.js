@@ -167,18 +167,13 @@ function escapeHtml(text) {
 function highlightCode(text) {
   if (text == null) return '';
   let escaped = escapeHtml(text);
-<<<<<<< HEAD
-  escaped = escaped.replace(/(이름|영문명|지정번호|분류|시대|재질|크기|소장처|지정|설명):/g, '<span class="kw">$1</span>:');
-=======
   escaped = escaped.replace(
     /(이름|영문명|지정번호|분류|시대|재질|크기|소장처|지정|설명):/g,
     '<span class="kw">$1</span>:'
   );
->>>>>>> 0491265 (feat(ui): add syntax highlighting to artifact detail code view)
   escaped = escaped.replace(/(\/\/[^\n]*)/g, '<span class="cm">$1</span>');
   return escaped;
 }
-
 function getHashArtifactId() {
   const match = window.location.hash.match(/^#artifact-(.+)$/);
   return match ? decodeURIComponent(match[1]) : null;
