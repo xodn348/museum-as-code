@@ -182,3 +182,9 @@ commit: feat: add image_url to manifest pipeline
 - File: `docs/graph.js`
 - Layout tuning that spreads nodes successfully: `nodeRepulsion=450000`, `idealEdgeLength=120`, `nodeOverlap=20`, `gravity=0.25`, `componentSpacing=100`, `padding=30`, `fit=true`.
 - Git hygiene note: when `docs/graph.js` already has unrelated unstaged hunks, stage only the intended layout hunk before committing so graph behavior fixes do not accidentally ship unrelated filter changes.
+
+## 2026-04-01 Graph layout spacing verification (follow-up)
+- `docs/data/graph.json` currently contains 64 nodes and 1583 edges, so aggressive COSE spacing parameters are warranted to keep labels readable.
+- The requested COSE block already exists in repo history as commit `5318ef8 fix: increase graph node repulsion to reduce clustering`; if `docs/graph.js` regresses locally, restoring that layout does not produce a new commit because Git sees no net layout diff from `HEAD`.
+
+- 2026-04-01: The artifact detail code view uses two `.detail-code` style blocks; the later light-background block must override keyword/comment colors for readability on `#f5f3ef`.

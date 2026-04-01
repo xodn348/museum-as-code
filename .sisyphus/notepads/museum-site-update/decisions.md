@@ -51,3 +51,5 @@ cd /Users/jnnj92/museum-as-code && python -m pipeline.manifest
 
 ## 2026-04-01 Final Verification Wave Remediation Decision
 - Kept duplicate-ID handling centralized in the manifest pipeline and regenerated output, rather than patching generated JSON manually, to prevent recurrence on future pipeline runs.
+
+- 2026-04-01: Kept HTML escaping in `escapeHtml()` first, then applied trusted `<span>` wrappers for Korean field labels and `//` comments so syntax highlighting stays XSS-safe.

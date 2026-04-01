@@ -181,3 +181,9 @@ Tasks [6/6 compliant] | Contamination [CLEAN/0 issues] | Unaccounted [CLEAN/0 fi
 - Created/backfilled all 22 evidence files in .sisyphus/evidence/
 - Committed: fix: h1 English mode, 404 content, backfill evidence
 - Pushed to origin/main
+
+## 2026-04-01 Graph layout spacing follow-up issue
+- `docs/graph.js` had a local regression back to the older COSE values (`nodeOverlap/padding/fit`) plus an unrelated `filterEdges(['era', 'category', 'location', 'material'])` worktree change.
+- Commit request could not be fulfilled with a new changeset because the requested spacing fix is already present at `HEAD` (`5318ef8 fix: increase graph node repulsion to reduce clustering`); Git rejected the attempted commit as empty.
+
+- 2026-04-01: Existing repo state already had the `highlightCode(hglContent)` render path in `docs/app.js`; only the light-theme CSS override remained dirty in git.
