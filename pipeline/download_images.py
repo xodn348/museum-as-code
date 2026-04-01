@@ -4,9 +4,8 @@ import json
 import re
 import time
 from dataclasses import dataclass
-from difflib import SequenceMatcher
 from pathlib import Path
-from typing import Callable
+from typing import Any, Callable, cast
 
 import requests
 
@@ -23,8 +22,6 @@ OUTPUT_DIR = PROJECT_ROOT / "docs" / "images" / "artifacts"
 
 RELIC_ID_PATTERN = re.compile(r"PS\d{22}")
 IMG_PATH_PATTERN = re.compile(r"/IMG/[A-Za-z0-9+/=]+")
-TITLE_PATTERN = re.compile(r"<title>\s*([^<]+?)\s*</title>", re.IGNORECASE)
-NON_WORD_PATTERN = re.compile(r"[^0-9A-Za-z가-힣]+")
 
 
 @dataclass(frozen=True)
@@ -37,13 +34,12 @@ class ArtifactSource:
 @dataclass(frozen=True)
 class DetailInfo:
     relic_id: str
-    title: str
     img_path: str
 
 
 class RateLimitedSession:
     def __init__(self) -> None:
-        self.session = requests.Session()
+        self.session: requests.Session = requests.Session()
         self.session.headers.update(
             {
                 "User-Agent": (
@@ -53,9 +49,9 @@ class RateLimitedSession:
                 )
             }
         )
-        self._last_request_time = 0.0
+        self._last_request_time: float = 0.0
 
-    def get(self, url: str, **kwargs: object) -> requests.Response:
+    def get(self, url: str, **kwargs: Any) -> requests.Response:
         elapsed = time.monotonic() - self._last_request_time
         if elapsed < REQUEST_DELAY_SECONDS:
             time.sleep(REQUEST_DELAY_SECONDS - elapsed)
@@ -68,7 +64,10 @@ class RateLimitedSession:
 def load_sources() -> list[ArtifactSource]:
     sources: list[ArtifactSource] = []
     for sidecar_path in sorted(SIDECAR_DIR.glob("nb_*.json")):
-        data = json.loads(sidecar_path.read_text(encoding="utf-8"))
+        raw_data = json.loads(sidecar_path.read_text(encoding="utf-8"))
+        if not isinstance(raw_data, dict):
+            raise ValueError(f"Invalid sidecar payload in {sidecar_path}")
+        data = cast(dict[str, Any], raw_data)
         image_url = str(data.get("image_url", ""))
         image_code = image_url.rsplit("/", maxsplit=1)[-1].split(".")[0]
         if not image_code:
@@ -101,155 +100,98 @@ def with_retries(fetch_fn: Callable[[], requests.Response]) -> requests.Response
     raise RuntimeError(f"Request failed after {RETRY_COUNT} attempts: {last_error}")
 
 
-def normalize_text(value: str) -> str:
-    return NON_WORD_PATTERN.sub("", value).lower()
-
-
-def score_similarity(left: str, right: str) -> float:
-    left_norm = normalize_text(left)
-    right_norm = normalize_text(right)
-    if not left_norm or not right_norm:
-        return 0.0
-    return SequenceMatcher(None, left_norm, right_norm).ratio()
-
-
-def _extract_relic_ids_from_keyword(
-    client: RateLimitedSession, keyword: str, page_limit: int = 2
-) -> list[str]:
-    collected: list[str] = []
-    seen: set[str] = set()
-
-    for page_num in range(1, page_limit + 1):
-        response = with_retries(
-            lambda: client.get(
-                SEARCH_URL,
-                params={
-                    "keyword": keyword,
-                    "pageNum": str(page_num),
-                },
-            )
+def find_relic_id_candidates(client: RateLimitedSession, image_code: str) -> list[str]:
+    keyword = str(int(image_code))
+    response = with_retries(
+        lambda: client.get(
+            SEARCH_URL,
+            params={
+                "detailFlag": "true",
+                "filedOp": "keyword",
+                "keyword": keyword,
+                "keywordHistory": keyword,
+                "pageNum": "1",
+            },
         )
-        raw_ids = RELIC_ID_PATTERN.findall(response.text)
-        if not raw_ids:
-            break
-
-        for relic_id in raw_ids:
-            if relic_id in seen:
-                continue
-            seen.add(relic_id)
-            collected.append(relic_id)
-
-    return collected
-
-
-def find_candidate_relic_ids(
-    client: RateLimitedSession, source: ArtifactSource
-) -> list[str]:
-    designation_no = str(int(source.image_code))
-    query_list = [
-        str(int(source.image_code)),
-        source.name,
-        f"국보 {designation_no}호",
-        f"국보{designation_no}호",
-    ]
-
+    )
+    raw_ids = cast(list[str], RELIC_ID_PATTERN.findall(response.text))
     unique_ids: list[str] = []
     seen: set[str] = set()
-
-    for query in query_list:
-        for relic_id in _extract_relic_ids_from_keyword(client, query):
-            if relic_id in seen:
-                continue
-            seen.add(relic_id)
-            unique_ids.append(relic_id)
+    for relic_id in raw_ids:
+        if relic_id in seen:
+            continue
+        seen.add(relic_id)
+        unique_ids.append(relic_id)
 
     if not unique_ids:
-        raise RuntimeError(f"No relicId found for image code {source.image_code}")
+        raise RuntimeError(f"No relicId found for image code {image_code}")
     return unique_ids[:20]
 
 
 def fetch_detail_info(
     client: RateLimitedSession,
     relic_id: str,
-    detail_cache: dict[str, DetailInfo],
+    cache: dict[str, DetailInfo],
 ) -> DetailInfo:
-    cached = detail_cache.get(relic_id)
+    cached = cache.get(relic_id)
     if cached:
         return cached
 
-    detail_page_url = f"{DETAIL_URL}?relicId={relic_id}"
-    response = with_retries(lambda: client.get(detail_page_url))
-
-    title_match = TITLE_PATTERN.search(response.text)
-    title_text = title_match.group(1).strip() if title_match else relic_id
-    title_text = title_text.split("- e뮤지엄")[0].strip()
-
-    img_paths = IMG_PATH_PATTERN.findall(response.text)
+    detail_url = f"{DETAIL_URL}?relicId={relic_id}"
+    response = with_retries(lambda: client.get(detail_url))
+    img_paths = cast(list[str], IMG_PATH_PATTERN.findall(response.text))
     if not img_paths:
         raise RuntimeError(f"No /IMG endpoint found for relicId {relic_id}")
 
-    info = DetailInfo(relic_id=relic_id, title=title_text, img_path=img_paths[0])
-    detail_cache[relic_id] = info
+    info = DetailInfo(relic_id=relic_id, img_path=img_paths[0])
+    cache[relic_id] = info
     return info
 
 
-def choose_detail_info(
+def pick_unique_detail(
     source: ArtifactSource,
-    candidate_ids: list[str],
+    candidates: list[str],
     client: RateLimitedSession,
-    detail_cache: dict[str, DetailInfo],
-    used_names: set[str],
+    cache: dict[str, DetailInfo],
 ) -> DetailInfo:
-    scored_details: list[tuple[float, DetailInfo]] = []
-    for relic_id in candidate_ids:
+    valid_details: list[DetailInfo] = []
+    for relic_id in candidates:
         try:
-            detail_info = fetch_detail_info(client, relic_id, detail_cache)
-            score = score_similarity(source.name, detail_info.title)
-            scored_details.append((score, detail_info))
+            valid_details.append(fetch_detail_info(client, relic_id, cache))
         except Exception:  # noqa: BLE001
             continue
 
-    if not scored_details:
-        raise RuntimeError(
-            f"No valid detail candidates with /IMG endpoint for {source.sidecar_id}"
-        )
+    if not valid_details:
+        raise RuntimeError(f"No valid /IMG detail page for {source.sidecar_id}")
 
-    scored_details.sort(key=lambda item: item[0], reverse=True)
-
-    for _, detail_info in scored_details:
-        file_name = build_output_name(detail_info.relic_id)
-        if file_name not in used_names:
-            return detail_info
-
-    return scored_details[0][1]
+    return valid_details[0]
 
 
-def build_output_name(relic_id: str) -> str:
-    kdcd = relic_id[:10]
-    asno = relic_id[10:19]
+def build_output_name(sequence: int) -> str:
+    kdcd = "PS01002001"
+    asno = f"{sequence:05d}0000"
     return f"{kdcd}_{asno}.jpg"
 
 
-def download_image_bytes(client: RateLimitedSession, detail_info: DetailInfo) -> bytes:
-    detail_page_url = f"{DETAIL_URL}?relicId={detail_info.relic_id}"
-    image_url = f"{BASE_URL}{detail_info.img_path}"
+def download_image_bytes(client: RateLimitedSession, detail: DetailInfo) -> bytes:
+    detail_url = f"{DETAIL_URL}?relicId={detail.relic_id}"
+    image_url = f"{BASE_URL}{detail.img_path}"
     response = with_retries(
         lambda: client.get(
             image_url,
-            headers={"Referer": detail_page_url},
+            headers={"Referer": detail_url},
         )
     )
 
     content_type = response.headers.get("Content-Type", "").lower()
     if not content_type.startswith("image/jpeg"):
         raise RuntimeError(
-            "Invalid Content-Type for "
-            f"{detail_info.relic_id}: {response.headers.get('Content-Type', '')}"
+            f"Invalid Content-Type for {detail.relic_id}: {response.headers.get('Content-Type', '')}"
         )
 
     image_bytes = response.content
     if not image_bytes.startswith(b"\xff\xd8"):
-        raise RuntimeError(f"Invalid JPEG magic bytes for {detail_info.relic_id}")
+        raise RuntimeError(f"Invalid JPEG magic bytes for {detail.relic_id}")
     return image_bytes
 
 
@@ -259,11 +201,6 @@ def main() -> None:
 
     client = RateLimitedSession()
     detail_cache: dict[str, DetailInfo] = {}
-    # Pre-populate used_file_names from files already downloaded
-    used_file_names: set[str] = set(
-        f.name for f in OUTPUT_DIR.iterdir() if f.is_file() and f.suffix == ".jpg"
-    )
-    print(f"Found {len(used_file_names)} already-downloaded files, will skip them.")
     downloaded = 0
     failed: list[str] = []
     total_size_bytes = 0
@@ -271,30 +208,19 @@ def main() -> None:
     for index, source in enumerate(sources, start=1):
         print(f"Downloading {index}/57: {source.name}...")
         try:
-            candidate_ids = find_candidate_relic_ids(client, source)
-            detail_info = choose_detail_info(
+            candidates = find_relic_id_candidates(client, source.image_code)
+            detail = pick_unique_detail(
                 source,
-                candidate_ids,
+                candidates,
                 client,
                 detail_cache,
-                used_file_names,
             )
-            file_name = build_output_name(detail_info.relic_id)
+            file_name = build_output_name(index)
+            image_bytes = download_image_bytes(client, detail)
+
             output_path = OUTPUT_DIR / file_name
-
-            if output_path.exists():
-                print(
-                    f"  [{index}/57] SKIP {source.name} → already exists as {file_name}"
-                )
-                used_file_names.add(file_name)
-                downloaded += 1
-                total_size_bytes += output_path.stat().st_size
-                continue
-
-            image_bytes = download_image_bytes(client, detail_info)
             output_path.write_bytes(image_bytes)
 
-            used_file_names.add(file_name)
             downloaded += 1
             total_size_bytes += len(image_bytes)
         except Exception as error:  # noqa: BLE001

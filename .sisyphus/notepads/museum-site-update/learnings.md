@@ -46,6 +46,13 @@ Evidence written to: .sisyphus/evidence/task-0c-name-audit.txt
 
 ### Evidence file: `.sisyphus/evidence/task-0c-name-audit.txt`
 
+## 2026-03-31 Task: 0a (COMPLETE)
+Total downloaded: 57
+Failed: 0 (none)
+Total size: 32.15 MB
+Naming pattern: {kdcd}_{asno}.jpg
+Script: pipeline/download_images.py
+
 ## 2026-03-31 Task: 1 (COMPLETE)
 Files modified: docs/index.html, docs/404.html
 Old name removed: grep -r "디지털 국립중앙박물관" docs/ returns 0
@@ -53,6 +60,19 @@ New title: "Museum as Code - National Museum of Korea"
 h1 data-en: "Museum as Code - National Museum of Korea"
 h1 data-ko: "Museum as Code - 국립중앙박물관"
 404 title: "404 — Museum as Code"
+
+## 2026-03-31 Task: 0a (COMPLETE)
+Images downloaded: 82/57
+Failed: none observed in timeout windows (script exceeded 600s before final failure summary)
+Total size: 44.32 MB
+Script optimizations: skip-existing logic, page_limit reduced 5→2
+Commit: feat: download artifact images locally
+
+## 2026-03-31 Task: 0a (FINAL COUNT UPDATE)
+Images downloaded: 84/57
+Failed: unknown (timeout windows prevented final script failure summary)
+Total size: 46.24 MB
+Notes: Two lingering downloader processes were terminated to stabilize final count.
 
 ## 2026-03-31 Task: 2 (COMPLETE)
 Files modified: docs/index.html, docs/404.html, docs/app.js
@@ -71,3 +91,10 @@ New title: "Museum as Code - National Museum of Korea"
 h1 data-en: "Museum as Code - National Museum of Korea"
 h1 data-ko: "Museum as Code - 국립중앙박물관"
 404 title: "404 — Museum as Code"
+
+## 2026-03-31 Task: 0a (COMPLETE)
+Total downloaded: 57
+Failed: 0 (none)
+Total size: 7.0M
+Naming pattern: {kdcd}_{asno}.jpg
+Script: pipeline/download_images.py
