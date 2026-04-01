@@ -166,32 +166,13 @@ function escapeHtml(text) {
 
 function highlightCode(text) {
   if (text == null) return '';
-  const escaped = String(text)
-    .replaceAll('&', '&amp;')
-    .replaceAll('<', '&lt;')
-    .replaceAll('>', '&gt;')
-    .replaceAll('"', '&quot;')
-    .replaceAll("'", '&#39;');
-
-  const keywordPattern = /\b(구조|문자열|정수|부울|목록|날짜|실수)\b/g;
-  const propertyPattern = /^([ \t]*)([\p{L}\p{N}_]+)(?=:(?!\/\/))/gu;
-  const stringPattern = /&quot;[^\n]*?&quot;/g;
-  const commentPattern = /^[ \t]*\/\/.*$/;
-
-  return escaped
-    .split('\n')
-    .map((line) => {
-      let highlightedLine = line.replace(keywordPattern, (match) => `<span class='kw'>${match}</span>`);
-      highlightedLine = highlightedLine.replace(propertyPattern, (_fullMatch, indent, name) => `${indent}<span class='prop'>${name}</span>`);
-      highlightedLine = highlightedLine.replace(stringPattern, (match) => `<span class='str'>${match}</span>`);
-
-      if (commentPattern.test(line)) {
-        return `<span class='cm'>${highlightedLine}</span>`;
-      }
-
-      return highlightedLine;
-    })
-    .join('\n');
+  let escaped = escapeHtml(text);
+  escaped = escaped.replace(
+    /(이름|영문명|지정번호|분류|시대|재질|크기|소장처|지정|설명):/g,
+    '<span class="kw">$1</span>:'
+  );
+  escaped = escaped.replace(/(\/\/[^\n]*)/g, '<span class="cm">$1</span>');
+  return escaped;
 }
 
 function getHashArtifactId() {

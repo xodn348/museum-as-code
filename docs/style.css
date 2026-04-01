@@ -125,13 +125,6 @@ pre {
   padding: 1rem;
 }
 
-#detail-content pre {
-  background: transparent;
-  border-radius: 0;
-  margin: 0 0 1.25rem;
-  padding: 0;
-}
-
 .detail-code {
   color: #2f241d;
   display: block;
@@ -280,7 +273,7 @@ body[data-lang="en"] [data-lang="ko"] { display: none; }
 
 .detail-code .kw,
 .detail-code .keyword {
-  color: #1a5c9c;
+  color: #1a3a5c;
   font-weight: 700;
 }
 
@@ -290,12 +283,12 @@ body[data-lang="en"] [data-lang="ko"] { display: none; }
 }
 
 .detail-code .cm {
-  color: #5a7a5a;
+  color: #888;
   font-style: italic;
 }
 
 .detail-code .str {
-  color: #8a2f5a;
+  color: #8c2f39;
 }
 
 .detail-description {
