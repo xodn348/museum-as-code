@@ -4,7 +4,7 @@
 const MANIFEST_URL = './manifest.json';
 
 // ── State ──────────────────────────────────────────────────────────────────
-let currentLang = 'ko';  // 'ko' | 'en'
+let currentLang = 'en';  // 'ko' | 'en'
 let allArtifacts = [];
 let currentFilter = 'all';
 let cardObserver = null;

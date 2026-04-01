@@ -54,6 +54,11 @@ h1 data-en: "Museum as Code - National Museum of Korea"
 h1 data-ko: "Museum as Code - 국립중앙박물관"
 404 title: "404 — Museum as Code"
 
+## 2026-03-31 Task: 2 (COMPLETE)
+Files modified: docs/index.html, docs/404.html, docs/app.js
+Changes: html lang="ko"→"en" in both HTML files; currentLang='ko'→'en' in app.js
+toggleLang() NOT touched — works bidirectionally as-is
+
 ## 2026-03-31 Task: 1 (COMPLETE)
 Files modified: docs/index.html, docs/404.html
 Old name removed: grep -r "디지털 국립중앙박물관" docs/ returns 0
