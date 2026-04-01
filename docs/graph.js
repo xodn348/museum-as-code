@@ -5,18 +5,14 @@ function initGraph() {
     return;
   }
 
-  fetch('manifest.json')
+  fetch('./manifest.json')
     .then(function (response) {
       return response.json();
     })
     .then(function (manifest) {
       var imageMap = {};
-      (manifest.collections || []).forEach(function (col) {
-        (col.artifacts || []).forEach(function (a) {
-          if (a.id && a.image_url) {
-            imageMap[a.id] = a.image_url;
-          }
-        });
+      (manifest.artifacts || []).forEach(function (artifact) {
+        imageMap[artifact.id] = artifact.image_url || '';
       });
       return imageMap;
     })
@@ -37,11 +33,11 @@ function initGraph() {
       var imageMap = result.imageMap;
 
       // Enrich node data with image_url
-      (graphData.elements || []).forEach(function (el) {
-        if (el.data && el.data.id && imageMap[el.data.id]) {
-          el.data.image_url = imageMap[el.data.id];
-        }
-      });
+      if (graphData.elements && graphData.elements.nodes) {
+        graphData.elements.nodes.forEach(function (node) {
+          node.data.image_url = imageMap[node.data.id] || '';
+        });
+      }
 
       cy = cytoscape({
         container: document.getElementById('cy'),
@@ -52,16 +48,21 @@ function initGraph() {
             style: {
               label: 'data(label_ko)',
               'background-color': '#4a7c59',
-              'background-image': 'data(image_url)',
-              'background-fit': 'cover',
-              'background-clip': 'node',
               color: '#fff',
               'text-valign': 'center',
               'text-halign': 'center',
               'font-size': '10px',
               width: '50px',
               height: '50px',
-            cursor: 'pointer',
+            },
+          },
+          {
+            selector: 'node[image_url != ""]',
+            style: {
+              'background-image': 'data(image_url)',
+              'background-fit': 'cover',
+              'background-clip': 'node',
+              'text-opacity': 0,
             },
           },
           {
@@ -98,7 +99,7 @@ function initGraph() {
         ],
         layout: {
           name: 'cose',
-          nodeRepulsion: function (node) {
+          nodeRepulsion: function () {
             return 6000;
           },
           animate: false,

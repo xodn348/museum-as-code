@@ -99,6 +99,13 @@ Total size: 7.0M
 Naming pattern: {kdcd}_{asno}.jpg
 Script: pipeline/download_images.py
 
+## 2026-04-01 Task: 5 (COMPLETE)
+Files modified: docs/graph.js
+Manifest mapping: use manifest.artifacts -> imageMap[id] -> graphData.elements.nodes[].data.image_url
+Photo fallback: Cytoscape must receive 'none' instead of empty string for background-image or graph initialization can fail on blank image_url nodes
+Node behavior: photo nodes render at 50px, enlarge to 80px on mouseover, reset on mouseout, and keep existing tap -> showDetail(id) wiring
+Verification: graph rendered with 61 nodes / 54 photo-backed nodes in browser; tap on kdh_001 opened the existing detail overlay successfully when served from repo root
+
 ## 2026-04-01 Task: 4 (COMPLETE)
 File modified: docs/app.js
 Change: renderCards() now appends a direct child <img> before .card-body for every artifact card, uses lazy loading, localized alt text, and hides empty or failed images gracefully.
@@ -111,3 +118,13 @@ image_url logic: scan docs/images/artifacts/ for file with stem starting with ar
 id field value confirmed: artifacts/national-treasures sidecars currently use nb_* ids (example: nb_001 in nb_001.json)
 images matched: 57
 commit: feat: add image_url to manifest pipeline
+
+## 2026-04-01 Task: 6 (COMPLETE)
+Repository: /Users/jnnj92/museum-as-code
+Push command: git push origin main
+Result: SUCCESS (exit code 0); remote advanced b476099 -> cda11be
+Verification: git status shows "Your branch is up to date with 'origin/main'" and git log origin/main..main returned 0 commits
+
+## 2026-04-01 Task: 5 (FINAL ADDENDUM)
+Graph photo nodes should apply `background-image` only on `node[image_url != ""]`; Cytoscape throws at init time if empty-string image URLs are styled directly.
+Fallback behavior is cleaner when text labels stay on base nodes and photo nodes hide text with selector styling, so empty-image nodes remain readable without broken image requests.
