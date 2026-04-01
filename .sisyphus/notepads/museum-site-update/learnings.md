@@ -153,3 +153,15 @@ Silent recovery in graph image loading should be used carefully: image fetch fal
 - Validation command `python3 -c "...Dupes..."` returned `Artifacts: 64 | Dupes: NONE` after regeneration.
 - `grep -c "image_url" docs/manifest.json` returned `64`, matching expected artifact count.
 - Final branch checks: `git fetch origin && git log origin/main..HEAD --oneline` produced no commits; `git status --short --branch` shows `main...origin/main`.
+
+ ## 2026-03-31 Task: 0a (COMPLETE)
+ Images downloaded: 57/57
+ Failed: none
+ Total size: 6.85 MB
+ Script optimizations: skip-existing logic, page_limit reduced 5→2
+ Commit: feat: download artifact images locally
+
+## 2026-04-01 Task: 4 (Verification addendum)
+- Verified on local preview server `python3 -m http.server 8765` from `docs/`: `document.querySelectorAll('.artifact-card img').length` returned `64`.
+- DOM order check passed: each card with an image had the `<img>` as the direct first child before `.card-body`.
+- Git history note: the feature commit `feat: render artifact photos in cards` already exists in branch history (`cda11be`, earlier duplicate `1d630bc`), so no third duplicate feature commit was created.
