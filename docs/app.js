@@ -172,7 +172,7 @@ function highlightCode(text) {
     .replaceAll('>', '&gt;')
     .replaceAll('"', '&quot;')
     .replaceAll("'", '&#39;');
-  const keywordPattern = /\b(구조|문자열|정수|부울|목록|날짜|실수)\b/g;
+  const keywordPattern = /\b(구조|문자열|정수|부울|목록|날짜|실수|구현|함수|변수)\b/g;
   const propertyPattern = /^([ \t]*)([\p{L}\p{N}_]+)(?=:(?!\/\/))/gu;
   const stringPattern = /&quot;[^\n]*?&quot;/g;
   const commentPattern = /^[ \t]*\/\/.*$/;
