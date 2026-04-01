@@ -1,0 +1,107 @@
+================================================================================
+TASK 0a: e-museum.go.kr Image Hotlinking Validation
+Date: 2026-03-31
+================================================================================
+
+## TEST URLs (3 sidecar JSON images)
+1. nb_001.json (흥인지문):    https://www.emuseum.go.kr/images/relic/11/0001.jpg
+2. nb_032.json (백제금동대향로): https://www.emuseum.go.kr/images/relic/11/0287.jpg  
+3. nb_057.json (아미타쌍상도): https://www.emuseum.go.kr/images/relic/11/0531.jpg
+
+================================================================================
+## CURL -I RESULTS (no referer)
+================================================================================
+
+### URL 1: https://www.emuseum.go.kr/images/relic/11/0001.jpg
+% curl -I "https://www.emuseum.go.kr/images/relic/11/0001.jpg"
+HTTP/1.1 200 OK
+Connection: Close
+Content-Length: 1920
+Content-Type: text/html
+Date: Tue, 31 Mar 2026 21:46:28 GMT
+Pragma: no-cache
+Cache-Control: no-cache, no-store, must-revalidate
+
+*** BLOCKING INDICATOR: Content-Type is text/html (not image/*)
+*** Body preview: error page "존재하지 않는 페이지거나, 오류로 인하여 현재 페이지를 볼 수 없습니다"
+
+### URL 2: https://www.emuseum.go.kr/images/relic/11/0287.jpg
+% curl -I "https://www.emuseum.go.kr/images/relic/11/0287.jpg"
+HTTP/1.1 200 OK
+Connection: Close
+Content-Length: 1920
+Content-Type: text/html
+Date: Tue, 31 Mar 2026 21:46:28 GMT
+Pragma: no-cache
+Cache-Control: no-cache, no-store, must-revalidate
+
+*** BLOCKING INDICATOR: Content-Type is text/html (not image/*)
+
+### URL 3: https://www.emuseum.go.kr/images/relic/11/0531.jpg
+% curl -I "https://www.emuseum.go.kr/images/relic/11/0531.jpg"
+HTTP/1.1 200 OK
+Connection: Close
+Content-Length: 1920
+Content-Type: text/html
+Date: Tue, 31 Mar 2026 21:46:37 GMT
+Pragma: no-cache
+Cache-Control: no-cache, no-store, must-revalidate
+
+*** BLOCKING INDICATOR: Content-Type is text/html (not image/*)
+
+================================================================================
+## CURL -I WITH e-museum REFERER
+================================================================================
+
+% curl -I "https://www.emuseum.go.kr/images/relic/11/0001.jpg" -H "Referer: https://www.emuseum.go.kr/"
+HTTP/1.1 200 OK
+Connection: Close
+Content-Length: 1920
+Content-Type: text/html
+Date: Tue, 31 Mar 2026 21:47:55 GMT
+Pragma: no-cache
+Cache-Control: no-cache, no-store, must-revalidate
+
+*** STILL BLOCKED: Adding proper Referer does not bypass block
+
+================================================================================
+## BROWSER TEST (Playwright, naturalWidth check)
+================================================================================
+
+Test: inject <img src="{url}"> into about:blank, wait 5s, check naturalWidth > 0
+
+URL 1: https://www.emuseum.go.kr/images/relic/11/0001.jpg
+  naturalWidth: 0, naturalHeight: 0, complete: true
+  *** BLOCKED: Image did not render
+
+URL 2: https://www.emuseum.go.kr/images/relic/11/0287.jpg
+  naturalWidth: 0, naturalHeight: 0, complete: true
+  *** BLOCKED: Image did not render
+
+URL 3: https://www.emuseum.go.kr/images/relic/11/0531.jpg
+  naturalWidth: 0, naturalHeight: 0, complete: true
+  *** BLOCKED: Image did not render
+
+================================================================================
+## BLOCK TYPE ANALYSIS
+================================================================================
+
+Block Type: ANTI-HOTLINKING / SESSION-REQUIRED
+- HTTP 200 returned but Content-Type is text/html (error page)
+- Error message: "존재하지 않는 페이지거나, 오류로 인하여 현재 페이지를 볼 수 없습니다"
+  (Page doesn't exist or cannot be displayed due to error)
+- Not a 403 Forbidden — server accepts the request but returns error HTML
+- Not referrer-based alone — adding proper Referer still returns error page
+- Likely requires active session cookie from e-museum.go.kr domain
+- Images cannot be directly embedded in external static sites
+
+================================================================================
+## CONCLUSION
+================================================================================
+
+STATUS: BLOCKED
+All 3 URLs fail hotlinking validation.
+Images must be fetched from within e-museum.go.kr browsing context.
+Static site deployment with direct image URLs will NOT work.
+
+================================================================================

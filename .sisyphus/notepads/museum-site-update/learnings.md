@@ -128,3 +128,23 @@ Verification: git status shows "Your branch is up to date with 'origin/main'" an
 ## 2026-04-01 Task: 5 (FINAL ADDENDUM)
 Graph photo nodes should apply `background-image` only on `node[image_url != ""]`; Cytoscape throws at init time if empty-string image URLs are styled directly.
 Fallback behavior is cleaner when text labels stay on base nodes and photo nodes hide text with selector styling, so empty-image nodes remain readable without broken image requests.
+
+## 2026-04-01 F4 Scope Fidelity Audit
+- Commit matching must use message + file scope, not `HEAD~N` alone. This history contains duplicate task messages, so positional commit checks are unreliable.
+- The expected 6-task sequence is not cleanly isolated: duplicate task commits and extra image-download commits were interleaved.
+- Push-task validation must be checked at audit time (`git status -sb`), not inferred from earlier notes; current branch is ahead of origin by 1 commit.
+
+
+## 2026-04-01 Task: F2 (Code Quality Review)
+Manifest consumers currently assume artifact ids are unique. If docs/graph.js builds imageMap[id], manifest generation must either guarantee unique ids or fail fast.
+Silent recovery in graph image loading should be used carefully: image fetch fallback is acceptable, but swallowing manifest-image lookup problems makes wrong-image bugs harder to notice.
+
+## 2026-04-01 Code quality review (F2)
+- Generated manifests need a uniqueness check on `artifact.id` because the frontend uses ids as stable keys across cards, hashes, and graph nodes.
+- Prefer one shared image URL resolution path in `pipeline/manifest.py`; parallel helper + inline logic invites drift.
+- For static frontend fetch chains, log or surface manifest-load failures instead of silently returning fallback objects.
+
+## 2026-04-01 Final Verification Remediation
+- `pipeline/manifest.py` now deduplicates repeated artifact ids during manifest build (`id`, `id_2`, `id_3`, ...), preventing downstream key collisions.
+- Regenerated `docs/manifest.json` validates with `DUPES: NONE` across all 64 artifacts.
+- Removed stale scaffold/task-marker references (`T12/T13/T14`) from `docs/app.js` while preserving runtime behavior.

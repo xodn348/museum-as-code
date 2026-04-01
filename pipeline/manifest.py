@@ -143,10 +143,23 @@ def _load_artifact_entry(sidecar_path: Path, collection_id: str) -> ManifestArti
     }
 
 
+def _deduplicate_artifact_ids(artifacts: list[ManifestArtifact]) -> None:
+    id_counts: dict[str, int] = {}
+
+    for artifact in artifacts:
+        original_id = artifact["id"]
+        occurrence = id_counts.get(original_id, 0) + 1
+        id_counts[original_id] = occurrence
+
+        if occurrence > 1:
+            artifact["id"] = f"{original_id}_{occurrence}"
+
+
 def build_manifest() -> ManifestDocument:
     artifacts: list[ManifestArtifact] = []
     collection_counts: dict[str, int] = {}
     collection_sort_order: dict[str, int] = {}
+    artifact_id_counts: dict[str, int] = {}
 
     for collection in COLLECTION_SPECS:
         collection_id = collection["id"]
@@ -155,7 +168,15 @@ def build_manifest() -> ManifestDocument:
         collection_sort_order[collection_id] = collection["sort_order"]
 
         for sidecar_path in sidecar_files:
-            artifacts.append(_load_artifact_entry(sidecar_path, collection_id))
+            artifact = _load_artifact_entry(sidecar_path, collection_id)
+            base_id = artifact["id"]
+            duplicate_count = artifact_id_counts.get(base_id, 0) + 1
+            artifact_id_counts[base_id] = duplicate_count
+
+            if duplicate_count > 1:
+                artifact["id"] = f"{base_id}_{duplicate_count}"
+
+            artifacts.append(artifact)
 
     artifacts.sort(
         key=lambda artifact: (
@@ -163,6 +184,8 @@ def build_manifest() -> ManifestDocument:
             artifact["id"],
         )
     )
+
+    _deduplicate_artifact_ids(artifacts)
 
     collections: list[ManifestCollection] = [
         {

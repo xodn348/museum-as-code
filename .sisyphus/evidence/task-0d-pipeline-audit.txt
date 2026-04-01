@@ -1,0 +1,153 @@
+================================================================================
+TASK 0d PIPELINE AUDIT — generate_graph.py → manifest.json
+================================================================================
+
+CORRECTION: The task description incorrectly referenced generate_graph.py.
+The CORRECT file that produces manifest.json is: pipeline/manifest.py
+
+generate_graph.py produces docs/data/graph.json (Cytoscape graph data).
+manifest.py produces docs/manifest.json (artifact metadata catalog).
+
+================================================================================
+1. EXACT LOCATION WHERE SIDECAR FIELDS ARE EXTRACTED
+================================================================================
+
+File: /Users/jnnj92/museum-as-code/pipeline/manifest.py
+Function: _load_artifact_entry() — lines 86-99
+
+    86: def _load_artifact_entry(sidecar_path: Path, collection_id: str) -> ManifestArtifact:
+    87:     sidecar = _read_sidecar(sidecar_path)
+    88:     relative_json_path = sidecar_path.relative_to(PROJECT_ROOT).as_posix()
+    89: 
+    90:     return {
+    91:         "id": _string_field(sidecar, "id"),
+    92:         "collection": collection_id,
+    93:         "hgl_path": relative_json_path.replace(".json", ".hgl"),
+    94:         "json_path": relative_json_path,
+    95:         "name_ko": _string_field(sidecar, "name"),
+    96:         "name_en": _string_field(sidecar, "name_en"),
+    97:         "period": _string_field(sidecar, "era"),
+    98:         "designation": _string_field(sidecar, "designation"),
+    99:     }
+
+================================================================================
+2. CURRENT FIELDS EXTRACTED (8 fields)
+================================================================================
+
+Line 91: "id"        — from sidecar["id"]
+Line 92: "collection" — function parameter (collection_id)
+Line 93: "hgl_path"   — derived from json_path (replaces .json with .hgl)
+Line 94: "json_path"  — path to sidecar JSON relative to PROJECT_ROOT
+Line 95: "name_ko"    — from sidecar["name"]
+Line 96: "name_en"    — from sidecar["name_en"]
+Line 97: "period"     — from sidecar["era"]
+Line 98: "designation" — from sidecar["designation"]
+
+================================================================================
+3. TYPEDDICT FOR MANIFEST ARTIFACT ENTRY (needs modification too)
+================================================================================
+
+File: /Users/jnnj92/museum-as-code/pipeline/manifest.py
+Lines 17-25:
+
+    17: class ManifestArtifact(TypedDict):
+    18:     id: str
+    19:     collection: str
+    20:     hgl_path: str
+    21:     json_path: str
+    22:     name_ko: str
+    23:     name_en: str
+    24:     period: str
+    25:     designation: str
+
+================================================================================
+4. EXACT CODE CHANGES NEEDED TO ADD image_url
+================================================================================
+
+A) In ManifestArtifact TypedDict (after line 25, before line 26):
+    Add:     image_url: str
+
+B) In _load_artifact_entry() function (after line 98, before line 99):
+    Add:         "image_url": _string_field(sidecar, "image_url"),
+
+NOTE: Use _string_field() helper (defined lines 77-83) for safe extraction.
+      This handles None values and non-string types gracefully.
+
+================================================================================
+5. COMMAND TO REGENERATE MANIFEST.JSON
+================================================================================
+
+    cd /Users/jnnj92/museum-as-code
+    python -m pipeline.manifest
+
+Or equivalently:
+
+    cd /Users/jnnj92/museum-as-code
+    python pipeline/manifest.py
+
+Output goes to: docs/manifest.json
+
+================================================================================
+6. CURRENT MANIFEST.JSON STRUCTURE (first entry)
+================================================================================
+
+File: /Users/jnnj92/museum-as-code/docs/manifest.json
+
+{
+  "generated_at": "2026-03-30T06:00:45.573305Z",
+  "total_count": 64,
+  "artifacts": [
+    {
+      "id": "nb_001",
+      "collection": "national-treasures",
+      "hgl_path": "artifacts/national-treasures/nb_001.hgl",
+      "json_path": "artifacts/national-treasures/nb_001.json",
+      "name_ko": "흥인지문",
+      "name_en": "Heunginjimun Gate",
+      "period": "조선시대",
+      "designation": "국보 제1호"
+    },
+    ...
+  ],
+  "collections": [
+    {"id": "national-treasures", "name_ko": "국보·보물", "name_en": "National Treasures", "count": 57},
+    {"id": "kdh", "name_ko": "케이팝 데몬 헌터스", "name_en": "K-pop Demon Hunters", "count": 7}
+  ]
+}
+
+================================================================================
+7. SIDECAR JSON STRUCTURE (nb_001.json example — image_url at line 13)
+================================================================================
+
+File: /Users/jnnj92/museum-as-code/artifacts/national-treasures/nb_001.json
+
+{
+  "id": "nb_001",
+  "name": "흥인지문",
+  "name_en": "Heunginjimun Gate",
+  "designation": "국보 제1호",
+  "designation_type": "국보",
+  "era": "조선시대",
+  "material": "석재, 목재",
+  "size": "정면 5칸, 측면 2칸",
+  "location": "서울특별시 종로구",
+  "description": "조선 태조 4년(1395)에 한양 도성 동쪽에 세운 처량으로, 홍희문이라고도 한다.",
+  "category": "유적건조물",
+  "image_url": "https://www.emuseum.go.kr/images/relic/11/0001.jpg",  <-- LINE 13
+  "hgl_file": "national-treasures/nb_001.hgl",
+  "source": "e뮤지엄 Open API (fallback)",
+  "created_at": "2026-03-30T04:13:38Z"
+}
+
+================================================================================
+8. NOTE: image_url ALREADY EXISTS IN SIDECARS
+================================================================================
+
+Verified: image_url field IS present in nb_001.json at line 13.
+Verified: image_url field is NOT in current manifest.json (0 matches in grep).
+
+The pipeline just doesn't extract it yet — Task 3 will add this extraction.
+
+================================================================================
+END OF AUDIT
+================================================================================

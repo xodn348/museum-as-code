@@ -224,11 +224,6 @@ function renderDetailContent(detailData) {
   `;
 }
 
-// ── Stubs (T13/T14에서 구현됨) ────────────────────────────────────────────
-
-/**
- * T12에서 생성될 manifest.json을 페치한다.
- */
 async function loadManifest() {
   const grid = document.getElementById('card-grid');
 
@@ -468,7 +463,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     closeDetail({ clearHash: false });
   });
 
-  // manifest 로드 시작 (T13에서 이 호출이 실제로 작동)
   await loadManifest();
 
   const initialArtifactId = getHashArtifactId();

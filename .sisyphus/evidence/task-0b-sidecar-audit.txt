@@ -1,0 +1,45 @@
+================================================================================
+TASK 0B: SIDECAR JSON AUDIT — image_url FIELD VALIDATION
+================================================================================
+Audit Date: 2026-03-31
+Working Directory: /Users/jnnj92/museum-as-code
+Source: artifacts/national-treasures/*.json
+
+--------------------------------------------------------------------------------
+SUMMARY
+--------------------------------------------------------------------------------
+Total sidecar JSON files:     57
+Files WITH "image_url":        57
+Files MISSING "image_url":     0
+URL format consistent:         YES
+
+--------------------------------------------------------------------------------
+VERIFICATION: All image_url values start with https://www.emuseum.go.kr/
+--------------------------------------------------------------------------------
+All 57 extracted URLs conform to expected format:
+  https://www.emuseum.go.kr/images/relic/XX/XXXX.jpg
+
+Sample URLs (first 10):
+  - https://www.emuseum.go.kr/images/relic/11/0001.jpg
+  - https://www.emuseum.go.kr/images/relic/11/0002.jpg
+  - https://www.emuseum.go.kr/images/relic/11/0004.jpg
+  - https://www.emuseum.go.kr/images/relic/11/0005.jpg
+  - https://www.emuseum.go.kr/images/relic/11/0006.jpg
+  - https://www.emuseum.go.kr/images/relic/11/0007.jpg
+  - https://www.emuseum.go.kr/images/relic/11/0008.jpg
+  - https://www.emuseum.go.kr/images/relic/11/0009.jpg
+  - https://www.emuseum.go.kr/images/relic/11/0010.jpg
+  - https://www.emuseum.go.kr/images/relic/11/0020.jpg
+
+--------------------------------------------------------------------------------
+MISSING FILES LIST
+--------------------------------------------------------------------------------
+NONE — All 57 sidecar JSON files contain the "image_url" field.
+
+--------------------------------------------------------------------------------
+CONCLUSION
+--------------------------------------------------------------------------------
+Field coverage: 100% (57/57 files have image_url)
+URL format: 100% consistent with https://www.emuseum.go.kr/ prefix
+READY FOR TASK 3 (manifest pipeline update) — no data remediation needed.
+================================================================================

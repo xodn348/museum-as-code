@@ -412,7 +412,7 @@ Parallel Speedup: ~40% vs sequential
 
 ### Wave 1 — Core Changes (parallel after Wave 0)
 
-- [ ] 1. Rename Site Across All Files
+- [x] 1. Rename Site Across All Files
 
   **What to do**:
   - Replace ALL occurrences of "디지털 국립중앙박물관" found by Task 0c audit
@@ -477,7 +477,7 @@ Parallel Speedup: ~40% vs sequential
   - Files: `docs/index.html`, `docs/404.html`
   - Pre-commit: `grep -r "디지털 국립중앙박물관" docs/` returns 0
 
-- [ ] 2. Switch Default Language to English
+- [x] 2. Switch Default Language to English
 
   **What to do**:
   - `docs/index.html:2`: Change `<html lang="ko">` → `<html lang="en">`
@@ -544,7 +544,7 @@ Parallel Speedup: ~40% vs sequential
   - Files: `docs/app.js`, `docs/index.html`
   - Pre-commit: Playwright confirms English default
 
-- [ ] 3. Add image_url to Manifest via Pipeline
+- [x] 3. Add image_url to Manifest via Pipeline
 
   **What to do**:
   - Modify `pipeline/generate_graph.py` at the location identified by Task 0d
@@ -608,7 +608,7 @@ Parallel Speedup: ~40% vs sequential
 
 ### Wave 2 — Rendering (parallel, after Task 3)
 
-- [ ] 4. Render Artifact Photos in Cards
+- [x] 4. Render Artifact Photos in Cards
 
   **What to do**:
   - In `docs/app.js`, find the card rendering function (lines ~307-315)
@@ -679,7 +679,7 @@ Parallel Speedup: ~40% vs sequential
   - Files: `docs/app.js`
   - Pre-commit: Playwright confirms `.artifact-card img` elements exist
 
-- [ ] 5. Graph Photo Nodes — Cytoscape Image Nodes + Hover/Click
+- [x] 5. Graph Photo Nodes — Cytoscape Image Nodes + Hover/Click
 
   **What to do**:
   - In `docs/graph.js`, modify node style to use `background-image` property from manifest `image_url`
@@ -780,236 +780,7 @@ Parallel Speedup: ~40% vs sequential
 
 ### Wave 3 — Deploy
 
-- [ ] 6. Push All Changes to origin/main
-
-  **What to do**:
-  - First push the 5 existing commits that are already ahead of origin/main
-  - Then push the new commits from Tasks 1-5
-  - Command: `git push origin main`
-  - Verify: `git log origin/main..HEAD --oneline` returns empty (all pushed)
-  - Verify: `git status` shows "Your branch is up to date with 'origin/main'"
-
-  **Must NOT do**:
-  - Do NOT force push (`--force`)
-  - Do NOT update git config user.name or user.email
-  - Do NOT rebase or squash existing commits
-  - Do NOT create a new branch — push directly to main
-
-  **Recommended Agent Profile**:
-  - **Subagent Type**: `explore` (single git command)
-  - **Skills**: []
-
-  **Parallelization**:
-  - **Can Run In Parallel**: NO
-  - **Parallel Group**: Sequential (Wave 3)
-  - **Blocks**: F1-F4 (final verification)
-  - **Blocked By**: Tasks 1, 2, 4, 5 (all implementation must be committed first)
-
-  **References**:
-  - Git log: 5 existing commits ahead of origin/main (from before this plan)
-  - New commits from Tasks 1-5 (6 total new commits per Commit Strategy)
-
-  **QA Scenarios**:
-  ```
-  Scenario: All commits pushed to remote (happy path)
-    Tool: Bash
-    Preconditions: All Tasks 1-5 committed
-    Steps:
-      1. git push origin main → assert exit code 0
-      2. git log origin/main..HEAD --oneline → assert empty output
-      3. git status → assert contains "up to date with 'origin/main'"
-    Expected Result: All local commits pushed, local and remote in sync
-    Failure Indicators: Push rejected, commits still ahead, auth error
-    Evidence: .sisyphus/evidence/task-6-push-result.txt
-
-  Scenario: GitHub Pages will serve updated site
-    Tool: Bash
-    Preconditions: Push successful
-    Steps:
-      1. git log origin/main --oneline -5 → verify latest commits are ours
-      2. Assert: commit messages match our Commit Strategy (rename, feat: switch, feat: add, feat: render, feat: graph)
-    Expected Result: Remote main has all our commits, GitHub Pages will auto-deploy
-    Failure Indicators: Commits missing from remote, wrong branch
-    Evidence: .sisyphus/evidence/task-6-remote-log.txt
-  ```
-
-  **Commit**: NO (this IS the push task)
-
-### Wave 2 — Rendering (parallel, after Task 3)
-
-- [ ] 4. Render Artifact Photos in Cards
-
-  **What to do**:
-  - In `docs/app.js`, find the card rendering function (lines ~307-315)
-  - Add an `<img>` element BEFORE the existing text content in each card
-  - Image source: `artifact.image_url` from manifest data
-  - Add `loading="lazy"` attribute on every `<img>`
-  - Add `onerror="this.style.display='none'"` for graceful fallback on broken images
-  - Add `alt` attribute with artifact name for accessibility
-  - The existing CSS at `style.css:42` (`.artifact-card img`) already handles sizing — no CSS changes needed
-
-  **Must NOT do**:
-  - Do NOT refactor the card rendering architecture — add image INTO existing template literal
-  - Do NOT add a lightbox, modal, or image zoom feature
-  - Do NOT add lazy loading library — just the native `loading="lazy"` attribute
-  - Do NOT add retry logic or image preloading
-  - Do NOT modify style.css — the `.artifact-card img` rule already exists
-
-  **Recommended Agent Profile**:
-  - **Subagent Type**: `explore` (single function modification in one file)
-  - **Skills**: [`browse`]
-    - `browse`: Needed to verify images render in browser and fallback works
-
-  **Parallelization**:
-  - **Can Run In Parallel**: YES
-  - **Parallel Group**: Wave 2 (with Task 5)
-  - **Blocks**: Task 6 (push)
-  - **Blocked By**: Task 3 (needs manifest with image_url)
-
-  **References**:
-  - `docs/app.js:307-315` — Current card rendering (text only, no image) — add `<img>` here
-  - `docs/style.css:42` — `.artifact-card img { width: 100%; height: 200px; object-fit: cover; }` — already prepared, DO NOT MODIFY
-  - `docs/manifest.json` — After Task 3, will contain `image_url` field per artifact
-  - Sample URL format: `https://www.emuseum.go.kr/images/relic/11/0001.jpg`
-
-  **QA Scenarios**:
-  ```
-  Scenario: Cards display artifact images (happy path)
-    Tool: Playwright (browse skill)
-    Preconditions: Local server running, manifest.json has image_url fields (Task 3 complete)
-    Steps:
-      1. Navigate to localhost:8000
-      2. Wait for cards to render (wait for selector `.artifact-card`)
-      3. Query: document.querySelectorAll('.artifact-card img').length
-      4. Assert: count > 0 (at least some cards have images)
-      5. Query first card image: document.querySelector('.artifact-card img').naturalWidth
-      6. Assert: naturalWidth > 0 (image actually loaded)
-      7. Query first card image: getAttribute('loading')
-      8. Assert: equals "lazy"
-    Expected Result: Cards show images, images load, lazy loading enabled
-    Failure Indicators: No <img> elements in cards, naturalWidth === 0, missing lazy attribute
-    Evidence: .sisyphus/evidence/task-4-card-images.png
-
-  Scenario: Broken image URL hides gracefully (error handling)
-    Tool: Playwright (browse skill)
-    Preconditions: At least one artifact has empty/invalid image_url
-    Steps:
-      1. Navigate to localhost:8000
-      2. Evaluate: find a card where img failed to load (naturalWidth === 0)
-      3. Assert: that img element has display:none (onerror handler fired)
-      4. Assert: card still displays text content correctly (name, period, designation)
-    Expected Result: Broken images hidden, card text still readable
-    Failure Indicators: Broken image icon visible, card layout broken
-    Evidence: .sisyphus/evidence/task-4-broken-image-fallback.png
-  ```
-
-  **Commit**: YES
-  - Message: `feat: render artifact photos in cards`
-  - Files: `docs/app.js`
-  - Pre-commit: Playwright confirms `.artifact-card img` elements exist
-
-- [ ] 5. Graph Photo Nodes — Cytoscape Image Nodes + Hover/Click
-
-  **What to do**:
-  - In `docs/graph.js`, modify node style to use `background-image` property from manifest `image_url`
-  - Set node style: `'background-image': 'data(image_url)'`, `'background-fit': 'cover'`, `'background-clip': 'node'`
-  - Set node shape to `'ellipse'` or keep existing, sized appropriately for image display (~40-60px)
-  - Pass `image_url` as node data when creating Cytoscape elements (read from manifest)
-  - **Hover → enlarge**: Use Cytoscape `mouseover`/`mouseout` events to scale node (e.g., `ele.style('width', '80px')` on hover, revert on mouseout)
-  - **Click → info**: Use Cytoscape `tap` event on node to trigger the existing detail/info overlay (reuse the card click handler from `app.js` if available, or dispatch a custom event)
-  - **Edges stay as-is**: The 1583 existing edges already represent relationships between artifacts — these become photo-to-photo relationships automatically when nodes show photos
-  - Add fallback for nodes without image_url: show text label instead
-
-  **Must NOT do**:
-  - Do NOT add new edge types or relationship logic — existing edges ARE the photo-to-photo relationships
-  - Do NOT add a separate photo graph — enhance the existing graph
-  - Do NOT add lightbox or modal for enlarged view — just CSS/Cytoscape scale on hover
-  - Do NOT create new files — modify `docs/graph.js` and optionally `docs/style.css` for hover tooltip CSS
-
-  **Recommended Agent Profile**:
-  - **Subagent Type**: `explore` (Cytoscape.js API usage, single file focus)
-  - **Skills**: [`browse`]
-    - `browse`: Needed to verify graph renders with images, hover/click interactions work
-
-  **Parallelization**:
-  - **Can Run In Parallel**: YES
-  - **Parallel Group**: Wave 2 (with Task 4)
-  - **Blocks**: Task 6 (push)
-  - **Blocked By**: Task 3 (needs manifest with image_url for node data)
-
-  **References**:
-  - `docs/graph.js` (111 lines) — Current Cytoscape.js module, CoSE layout, 64 nodes, 1583 edges
-  - `docs/app.js` — Card click handler / detail overlay (reuse for node click → info)
-  - `docs/manifest.json` — After Task 3, contains `image_url` per artifact
-  - Cytoscape.js docs: `background-image` node style — https://js.cytoscape.org/#style/background-image
-  - Cytoscape.js docs: events — https://js.cytoscape.org/#events
-  - `docs/style.css` — May need minor additions for hover tooltip if using HTML overlay
-
-  **QA Scenarios**:
-  ```
-  Scenario: Graph nodes display artifact photos (happy path)
-    Tool: Playwright (browse skill)
-    Preconditions: Local server running, manifest with image_url (Task 3), graph view active
-    Steps:
-      1. Navigate to localhost:8000
-      2. Switch to graph view (click graph tab/button if needed)
-      3. Wait for Cytoscape canvas to render (wait for `#cy` or `.cytoscape-container`)
-      4. Evaluate: cy.nodes().length → assert equals 64
-      5. Evaluate: cy.nodes()[0].style('background-image') → assert contains "emuseum.go.kr"
-      6. Screenshot the graph
-    Expected Result: 64 nodes with artifact photos as backgrounds
-    Failure Indicators: Nodes show text labels only, background-image empty, canvas blank
-    Evidence: .sisyphus/evidence/task-5-graph-photo-nodes.png
-
-  Scenario: Hover enlarges node photo
-    Tool: Playwright (browse skill)
-    Preconditions: Graph view active with photo nodes
-    Steps:
-      1. Get position of first node: cy.nodes()[0].renderedPosition()
-      2. Get initial width: cy.nodes()[0].style('width')
-      3. Mouse hover over node position on canvas
-      4. Wait 500ms for animation
-      5. Get new width: cy.nodes()[0].style('width')
-      6. Assert: new width > initial width (node enlarged)
-      7. Mouse move away from node
-      8. Wait 500ms
-      9. Assert: width returns to initial value
-    Expected Result: Node enlarges on hover, returns to normal on mouseout
-    Failure Indicators: No size change, node stays enlarged, JavaScript error
-    Evidence: .sisyphus/evidence/task-5-hover-enlarge.png
-
-  Scenario: Click node opens info overlay
-    Tool: Playwright (browse skill)
-    Preconditions: Graph view active with photo nodes
-    Steps:
-      1. Click on a graph node (via canvas coordinates or Cytoscape tap event)
-      2. Wait 500ms for overlay/panel to appear
-      3. Assert: detail panel/overlay is visible (check for `.artifact-detail`, `.modal`, or similar selector)
-      4. Assert: panel shows artifact name matching the clicked node
-    Expected Result: Clicking photo node shows artifact information
-    Failure Indicators: No overlay appears, wrong artifact shown, JavaScript error
-    Evidence: .sisyphus/evidence/task-5-click-info.png
-
-  Scenario: Node without image_url shows text fallback
-    Tool: Playwright (browse skill)
-    Preconditions: At least one artifact lacks image_url (from Task 0b audit)
-    Steps:
-      1. Find node without background-image: cy.nodes().filter(n => !n.data('image_url'))
-      2. Assert: node shows text label instead of image
-      3. Assert: graph still renders without errors
-    Expected Result: Graceful fallback to text label for imageless nodes
-    Failure Indicators: Broken image icon in node, graph crashes, blank node
-    Evidence: .sisyphus/evidence/task-5-text-fallback.png
-  ```
-
-  **Commit**: YES
-  - Message: `feat: graph photo nodes with hover/click`
-  - Files: `docs/graph.js`, `docs/style.css` (if hover CSS needed)
-  - Pre-commit: Playwright confirms graph nodes show images
-
-### Wave 3 — Deploy
-
-- [ ] 6. Push All Changes to origin/main
+- [x] 6. Push All Changes to origin/main
 
   **What to do**:
   - First push the 5 existing commits that are already ahead of origin/main

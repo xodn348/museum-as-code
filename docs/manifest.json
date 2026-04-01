@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-01T08:42:32.987351Z",
+  "generated_at": "2026-04-01T08:47:21.484903Z",
   "total_count": 64,
   "artifacts": [
     {
@@ -14,7 +14,7 @@
       "image_url": "images/artifacts/PS01002001_000010000.jpg"
     },
     {
-      "id": "nb_001",
+      "id": "nb_001_2",
       "collection": "national-treasures",
       "hgl_path": "artifacts/national-treasures/nb_003.hgl",
       "json_path": "artifacts/national-treasures/nb_003.json",
@@ -58,7 +58,7 @@
       "image_url": "images/artifacts/PS01002001_000050000.jpg"
     },
     {
-      "id": "nb_006",
+      "id": "nb_006_2",
       "collection": "national-treasures",
       "hgl_path": "artifacts/national-treasures/nb_039.hgl",
       "json_path": "artifacts/national-treasures/nb_039.json",
@@ -102,7 +102,7 @@
       "image_url": "images/artifacts/PS01002001_000080000.jpg"
     },
     {
-      "id": "nb_009",
+      "id": "nb_009_2",
       "collection": "national-treasures",
       "hgl_path": "artifacts/national-treasures/nb_040.hgl",
       "json_path": "artifacts/national-treasures/nb_040.json",

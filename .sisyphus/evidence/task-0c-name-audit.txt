@@ -1,0 +1,134 @@
+================================================================================
+TASK 0C: FULL SITE NAME GREP + META TAG AUDIT
+================================================================================
+Generated: 2026-03-31
+Working Directory: /Users/jnnj92/museum-as-code
+
+================================================================================
+SECTION 1: OCCURRENCES OF "디지털 국립중앙박물관"
+================================================================================
+Grep command: grep -rn "디지털 국립중앙박물관" docs/
+
+RESULTS:
+  docs/index.html:6   <title>디지털 국립중앙박물관 / Digital National Museum</title>
+  docs/index.html:11  <h1 data-ko="디지털 국립중앙박물관" data-en="Digital National Museum of Korea">디지털 국립중앙박물관</h1>
+  docs/404.html:5     <title>404 — 디지털 국립중앙박물관</title>
+
+TOTAL OCCURRENCES: 3
+
+================================================================================
+SECTION 2: META TAG AUDIT (og:title, og:site_name, description, title)
+================================================================================
+Grep command: grep -rn "og:title\|og:site_name\|name=\"description\"\|<title>" docs/
+
+FINDINGS:
+  - NO og:title tags found in docs/
+  - NO og:site_name tags found in docs/
+  - NO <meta name="description"> tags found in docs/
+  - <title> elements found in:
+      docs/index.html:6
+      docs/404.html:5
+
+ADDITIONAL CHECKS:
+  - grep -rn "og:" docs/ → NO og: meta tags exist
+  - grep -rn "description" docs/ → Only CSS class (.detail-description) and 
+    app.js references (sidecar.description), NO meta description tags
+
+================================================================================
+SECTION 3: FULL FILE CONTENTS
+================================================================================
+
+--- docs/index.html (43 lines) ---
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>디지털 국립중앙박물관 / Digital National Museum</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1 data-ko="디지털 국립중앙박물관" data-en="Digital National Museum of Korea">디지털 국립중앙박물관</h1>
+    <button id="lang-toggle" aria-label="Toggle language">EN / 한</button>
+  </header>
+  ... (rest of file)
+
+--- docs/404.html (11 lines) ---
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>404 — 디지털 국립중앙박물관</title>
+  <script>window.location.href = '/museum-as-code/';</script>
+</head>
+<body>
+  <p>페이지를 찾을 수 없습니다. <a href="/museum-as-code/">홈으로 돌아가기</a></p>
+</body>
+</html>
+
+================================================================================
+SECTION 4: CHANGE MAPPING — FILE → WHAT NEEDS CHANGING → WHAT IT SHOULD BECOME
+================================================================================
+
+FILE: docs/index.html
+  ┌─────────────────────────────────────────────────────────────────────────┐
+  │ Line 2: <html lang="ko">                                               │
+  │   CHANGE TO: <html lang="en">                                          │
+  │   REASON: Default language should be English per task specification     │
+  └─────────────────────────────────────────────────────────────────────────┘
+  ┌─────────────────────────────────────────────────────────────────────────┐
+  │ Line 6: <title>디지털 국립중앙박물관 / Digital National Museum</title>    │
+  │   CHANGE TO: <title>Museum as Code - National Museum of Korea</title>   │
+  │   REASON: English title format per task specification                   │
+  └─────────────────────────────────────────────────────────────────────────┘
+  ┌─────────────────────────────────────────────────────────────────────────┐
+  │ Line 11: <h1 data-ko="디지털 국립중앙박물관"                            │
+  │               data-en="Digital National Museum of Korea">               │
+  │               디지털 국립중앙박물관</h1>                                  │
+  │   CHANGE TO: <h1 data-ko="국립중앙박물관"                               │
+  │               data-en="National Museum of Korea">                      │
+  │               국립중앙박물관</h1>                                        │
+  │   REASON: Remove "디지털" prefix; new Korean name is "국립중앙박물관"   │
+  │   NOTE: Display text AND data-ko attribute both need updating           │
+  └─────────────────────────────────────────────────────────────────────────┘
+
+FILE: docs/404.html
+  ┌─────────────────────────────────────────────────────────────────────────┐
+  │ Line 2: <html lang="ko">                                               │
+  │   CHANGE TO: <html lang="en">                                          │
+  │   REASON: Default language should be English per task specification     │
+  └─────────────────────────────────────────────────────────────────────────┘
+  ┌─────────────────────────────────────────────────────────────────────────┐
+  │ Line 5: <title>404 — 디지털 국립중앙박물관</title>                       │
+  │   CHANGE TO: <title>404 — Museum as Code - 국립중앙박물관</title>        │
+  │   REASON: Mix English project name with Korean museum name              │
+  └─────────────────────────────────────────────────────────────────────────┘
+
+================================================================================
+SECTION 5: ITEMS NOT FOUND (no changes needed)
+================================================================================
+  - NO og:title meta tags → nothing to update
+  - NO og:site_name meta tags → nothing to update
+  - NO <meta name="description"> tags → nothing to update
+  - NO html lang="en" elements to change (currently "ko" everywhere)
+
+================================================================================
+SECTION 6: SUMMARY
+================================================================================
+Files requiring changes: 2
+  - docs/index.html (3 changes: html lang, title, h1)
+  - docs/404.html (2 changes: html lang, title)
+
+Total "디지털 국립중앙박물관" occurrences to remove: 3
+  - 2 in docs/index.html
+  - 1 in docs/404.html
+
+New values to apply:
+  - English title: "Museum as Code - National Museum of Korea"
+  - Korean title: "Museum as Code - 국립중앙박물관"
+  - html lang attribute: "en"
+
+================================================================================
+END OF AUDIT
+================================================================================
