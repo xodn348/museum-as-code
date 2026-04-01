@@ -132,6 +132,11 @@ Fallback behavior is cleaner when text labels stay on base nodes and photo nodes
 ## 2026-04-01 F4 Scope Fidelity Audit
 - Commit matching must use message + file scope, not `HEAD~N` alone. This history contains duplicate task messages, so positional commit checks are unreliable.
 - The expected 6-task sequence is not cleanly isolated: duplicate task commits and extra image-download commits were interleaved.
+
+## 2026-04-01 Task: 3
+Confirmed repo mismatch: national-treasures sidecar `id` values are `nb_*`, while checked-in JPGs live under `docs/images/artifacts/` with `PS...jpg` filenames, so strict `stem.startswith(id)` matching alone leaves every manifest `image_url` empty.
+Working pipeline behavior: keep the direct prefix scan first, then fall back to the national-treasures sidecar filename sequence (`nb_001` → `_000010000.jpg`) so local images populate correctly with the current asset set.
+Verification: `python3 pipeline/manifest.py` regenerated `docs/manifest.json` successfully; first entry now has a local `image_url`, 57 artifacts have non-empty local paths, and 7 remain empty strings.
 - Push-task validation must be checked at audit time (`git status -sb`), not inferred from earlier notes; current branch is ahead of origin by 1 commit.
 
 
@@ -161,7 +166,19 @@ Silent recovery in graph image loading should be used carefully: image fetch fal
  Script optimizations: skip-existing logic, page_limit reduced 5→2
  Commit: feat: download artifact images locally
 
+## 2026-04-01 Task: 3
+Files modified: pipeline/manifest.py, docs/manifest.json
+image_url logic: scan docs/images/artifacts/ for file with stem starting with artifact id, then fall back to the national-treasures sidecar filename sequence when repo data uses nb_* ids instead of PS* ids
+id field value confirmed: nb_001
+images matched: 57
+commit: feat: add image_url to manifest pipeline
+
 ## 2026-04-01 Task: 4 (Verification addendum)
 - Verified on local preview server `python3 -m http.server 8765` from `docs/`: `document.querySelectorAll('.artifact-card img').length` returned `64`.
 - DOM order check passed: each card with an image had the `<img>` as the direct first child before `.card-body`.
 - Git history note: the feature commit `feat: render artifact photos in cards` already exists in branch history (`cda11be`, earlier duplicate `1d630bc`), so no third duplicate feature commit was created.
+
+## 2026-04-01 Graph layout spacing fix
+- File: `docs/graph.js`
+- Layout tuning that spreads nodes successfully: `nodeRepulsion=450000`, `idealEdgeLength=120`, `nodeOverlap=20`, `gravity=0.25`, `componentSpacing=100`, `padding=30`, `fit=true`.
+- Git hygiene note: when `docs/graph.js` already has unrelated unstaged hunks, stage only the intended layout hunk before committing so graph behavior fixes do not accidentally ship unrelated filter changes.

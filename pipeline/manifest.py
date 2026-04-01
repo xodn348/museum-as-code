@@ -42,6 +42,7 @@ class ManifestDocument(TypedDict):
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 DOCS_DIR = PROJECT_ROOT / "docs"
+ARTIFACT_IMAGES_DIR = DOCS_DIR / "images" / "artifacts"
 MANIFEST_PATH = DOCS_DIR / "manifest.json"
 
 COLLECTION_SPECS: Final[list[CollectionSpec]] = [
@@ -84,35 +85,35 @@ def _string_field(sidecar: dict[str, object], key: str) -> str:
     return str(value)
 
 
-def _find_local_image_url(
-    sidecar_path: Path, artifact_id: str, collection_id: str
-) -> str:
-    images_dir = PROJECT_ROOT / "docs" / "images" / "artifacts"
-    if not images_dir.exists():
+def _resolve_local_image_url(sidecar_path: Path, artifact_id: str) -> str:
+    """Map an artifact to a checked-in local image path when available.
+
+    The preferred match is a JPG whose stem starts with the sidecar `id`.
+    National-treasures images in the current repo are named with a PS* prefix,
+    so `nb_001.json` style sidecar filenames fall back to the existing numeric
+    sequence convention (`nb_001.json` -> `_000010000.jpg`).
+    """
+    if not artifact_id or not ARTIFACT_IMAGES_DIR.exists():
         return ""
 
-    image_paths = sorted(images_dir.glob("*.jpg"))
+    image_paths = sorted(ARTIFACT_IMAGES_DIR.glob("*.jpg"))
 
-    candidate_prefixes = [artifact_id]
+    for image_path in image_paths:
+        if image_path.stem.startswith(artifact_id):
+            return f"images/artifacts/{image_path.name}"
+
     sidecar_stem = sidecar_path.stem
-    if sidecar_stem not in candidate_prefixes:
-        candidate_prefixes.append(sidecar_stem)
-
-    for img in image_paths:
-        if any(img.stem.startswith(prefix) for prefix in candidate_prefixes):
-            return f"images/artifacts/{img.name}"
-
     stem_parts = sidecar_stem.rsplit("_", 1)
     if (
-        collection_id == "national-treasures"
-        and sidecar_stem.startswith("nb_")
+        sidecar_stem.startswith("nb_")
         and len(stem_parts) == 2
         and stem_parts[1].isdigit()
     ):
         image_suffix = f"_{int(stem_parts[1]) * 10000:09d}"
-        for img in image_paths:
-            if img.stem.endswith(image_suffix):
-                return f"images/artifacts/{img.name}"
+        for image_path in image_paths:
+            if image_path.stem.endswith(image_suffix):
+                return f"images/artifacts/{image_path.name}"
+
     return ""
 
 
@@ -120,15 +121,6 @@ def _load_artifact_entry(sidecar_path: Path, collection_id: str) -> ManifestArti
     sidecar = _read_sidecar(sidecar_path)
     relative_json_path = sidecar_path.relative_to(PROJECT_ROOT).as_posix()
     artifact_id = _string_field(sidecar, "id")
-    images_dir = PROJECT_ROOT / "docs" / "images" / "artifacts"
-    image_url = ""
-    if images_dir.exists():
-        for img in images_dir.iterdir():
-            if img.suffix == ".jpg" and img.stem.startswith(artifact_id):
-                image_url = f"images/artifacts/{img.name}"
-                break
-    if not image_url:
-        image_url = _find_local_image_url(sidecar_path, artifact_id, collection_id)
 
     return {
         "id": artifact_id,
@@ -139,7 +131,7 @@ def _load_artifact_entry(sidecar_path: Path, collection_id: str) -> ManifestArti
         "name_en": _string_field(sidecar, "name_en"),
         "period": _string_field(sidecar, "era"),
         "designation": _string_field(sidecar, "designation"),
-        "image_url": image_url,
+        "image_url": _resolve_local_image_url(sidecar_path, artifact_id),
     }
 
 
