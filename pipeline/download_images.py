@@ -179,7 +179,10 @@ def download_image_bytes(client: RateLimitedSession, detail: DetailInfo) -> byte
     response = with_retries(
         lambda: client.get(
             image_url,
-            headers={"Referer": detail_url},
+            headers={
+                "Referer": detail_url,
+                "Accept": "image/avif,image/webp,image/apng,image/*,*/*;q=0.8",
+            },
         )
     )
 
