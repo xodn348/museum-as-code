@@ -23,6 +23,8 @@ class ManifestArtifact(TypedDict):
     name_en: str
     period: str
     designation: str
+    image_url: str
+    image_url: str
 
 
 class ManifestCollection(TypedDict):
@@ -86,9 +88,18 @@ def _string_field(sidecar: dict[str, object], key: str) -> str:
 def _load_artifact_entry(sidecar_path: Path, collection_id: str) -> ManifestArtifact:
     sidecar = _read_sidecar(sidecar_path)
     relative_json_path = sidecar_path.relative_to(PROJECT_ROOT).as_posix()
+    artifact_id = _string_field(sidecar, "id")
+
+    images_dir = PROJECT_ROOT / "docs" / "images" / "artifacts"
+    image_url = ""
+    if images_dir.exists():
+        for img in images_dir.iterdir():
+            if img.suffix == ".jpg" and img.stem.startswith(artifact_id):
+                image_url = f"images/artifacts/{img.name}"
+                break
 
     return {
-        "id": _string_field(sidecar, "id"),
+        "id": artifact_id,
         "collection": collection_id,
         "hgl_path": relative_json_path.replace(".json", ".hgl"),
         "json_path": relative_json_path,
@@ -96,6 +107,7 @@ def _load_artifact_entry(sidecar_path: Path, collection_id: str) -> ManifestArti
         "name_en": _string_field(sidecar, "name_en"),
         "period": _string_field(sidecar, "era"),
         "designation": _string_field(sidecar, "designation"),
+        "image_url": image_url,
     }
 
 

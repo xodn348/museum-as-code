@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-30T06:00:45.573305Z",
+  "generated_at": "2026-04-01T06:52:04.370571Z",
   "total_count": 64,
   "artifacts": [
     {
@@ -10,7 +10,8 @@
       "name_ko": "흥인지문",
       "name_en": "Heunginjimun Gate",
       "period": "조선시대",
-      "designation": "국보 제1호"
+      "designation": "국보 제1호",
+      "image_url": ""
     },
     {
       "id": "nb_001",
@@ -20,7 +21,8 @@
       "name_ko": "서울 숭례문",
       "name_en": "Seoul Sungnyemun Gate",
       "period": "조선시대",
-      "designation": "국보 제1호"
+      "designation": "국보 제1호",
+      "image_url": ""
     },
     {
       "id": "nb_002",
@@ -30,7 +32,8 @@
       "name_ko": "원각사지십층석탑",
       "name_en": "Wongaksa Temple Ten-Story Stone Pagoda",
       "period": "통일신라시대",
-      "designation": "국보 제2호"
+      "designation": "국보 제2호",
+      "image_url": ""
     },
     {
       "id": "nb_005",
@@ -40,7 +43,8 @@
       "name_ko": "감은사지동종",
       "name_en": "Gaeunsa Temple Bronze Bell",
       "period": "통일신라시대",
-      "designation": "국보 제5호"
+      "designation": "국보 제5호",
+      "image_url": ""
     },
     {
       "id": "nb_006",
@@ -50,7 +54,8 @@
       "name_ko": "부석사소조석가여래좌상",
       "name_en": "Buseoksa Temple Stone Buddha",
       "period": "통일신라시대",
-      "designation": "국보 제6호"
+      "designation": "국보 제6호",
+      "image_url": ""
     },
     {
       "id": "nb_006",
@@ -60,7 +65,8 @@
       "name_ko": "평창대관도",
       "name_en": "Pyeongchang Daegwando",
       "period": "조선시대",
-      "designation": "국보 제6호"
+      "designation": "국보 제6호",
+      "image_url": ""
     },
     {
       "id": "nb_007",
@@ -70,7 +76,8 @@
       "name_ko": "浮石寺石탑",
       "name_en": "Buksisa Temple Stone Pagoda",
       "period": "통일신라시대",
-      "designation": "국보 제7호"
+      "designation": "국보 제7호",
+      "image_url": ""
     },
     {
       "id": "nb_008",
@@ -80,7 +87,8 @@
       "name_ko": "흥덕사지현존이층석탑",
       "name_en": "Heungdeoksa Temple Two-Story Stone Pagoda",
       "period": "통일신라시대",
-      "designation": "국보 제8호"
+      "designation": "국보 제8호",
+      "image_url": ""
     },
     {
       "id": "nb_009",
@@ -90,7 +98,8 @@
       "name_ko": "흥왕사지칠층석탑",
       "name_en": "Heungwangsa Temple Seven-Story Stone Pagoda",
       "period": "통일신라시대",
-      "designation": "국보 제9호"
+      "designation": "국보 제9호",
+      "image_url": ""
     },
     {
       "id": "nb_009",
@@ -100,7 +109,8 @@
       "name_ko": "용두사지석등",
       "name_en": "Yongdusa Temple Stone Lantern",
       "period": "통일신라시대",
-      "designation": "국보 제9호"
+      "designation": "국보 제9호",
+      "image_url": ""
     },
     {
       "id": "nb_010",
@@ -110,7 +120,8 @@
       "name_ko": "정림사지오층석탑",
       "name_en": "Jeongnimsaji Temple Five-Story Stone Pagoda",
       "period": "통일신라시대",
-      "designation": "국보 제10호"
+      "designation": "국보 제10호",
+      "image_url": ""
     },
     {
       "id": "nb_015",
@@ -120,7 +131,8 @@
       "name_ko": "금속활자",
       "name_en": "Metal Movable Type",
       "period": "고려시대",
-      "designation": "국보 제15호"
+      "designation": "국보 제15호",
+      "image_url": ""
     },
     {
       "id": "nb_016",
@@ -130,7 +142,8 @@
       "name_ko": "금강문학",
       "name_en": "Geumgang Seated Inscription",
       "period": "고려시대",
-      "designation": "국보 제16호"
+      "designation": "국보 제16호",
+      "image_url": ""
     },
     {
       "id": "nb_020",
@@ -140,7 +153,8 @@
       "name_ko": "한석塔",
       "name_en": "One-Stone Pagoda",
       "period": "삼국시대",
-      "designation": "국보 제20호"
+      "designation": "국보 제20호",
+      "image_url": ""
     },
     {
       "id": "nb_021",
@@ -150,7 +164,8 @@
       "name_ko": "불국사석가탑",
       "name_en": "Seokgatap Pagoda of Bulguksa Temple",
       "period": "통일신라시대",
-      "designation": "국보 제21호"
+      "designation": "국보 제21호",
+      "image_url": ""
     },
     {
       "id": "nb_022",
@@ -160,7 +175,8 @@
       "name_ko": "불국사다보탑",
       "name_en": "Dabotap Pagoda of Bulguksa Temple",
       "period": "통일신라시대",
-      "designation": "국보 제22호"
+      "designation": "국보 제22호",
+      "image_url": ""
     },
     {
       "id": "nb_023",
@@ -170,7 +186,8 @@
       "name_ko": "금은화鞋",
       "name_en": "Gold and Silver Thread-woven Shoes",
       "period": "고려시대",
-      "designation": "국보 제23호"
+      "designation": "국보 제23호",
+      "image_url": ""
     },
     {
       "id": "nb_030",
@@ -180,7 +197,8 @@
       "name_ko": "신라인서",
       "name_en": "Silla Royal Sutra",
       "period": "삼국시대",
-      "designation": "국보 제30호"
+      "designation": "국보 제30호",
+      "image_url": ""
     },
     {
       "id": "nb_031",
@@ -190,7 +208,8 @@
       "name_ko": "첨성대",
       "name_en": "Cheomseongdae Observatory",
       "period": "삼국시대",
-      "designation": "국보 제31호"
+      "designation": "국보 제31호",
+      "image_url": ""
     },
     {
       "id": "nb_032",
@@ -200,7 +219,8 @@
       "name_ko": "팔만대장경",
       "name_en": "Palman Daejanggyeong",
       "period": "고려시대",
-      "designation": "국보 제32호"
+      "designation": "국보 제32호",
+      "image_url": ""
     },
     {
       "id": "nb_033",
@@ -210,7 +230,8 @@
       "name_ko": "신라연화문비단",
       "name_en": "Silla Lotus Pattern Brocade",
       "period": "삼국시대",
-      "designation": "국보 제33호"
+      "designation": "국보 제33호",
+      "image_url": ""
     },
     {
       "id": "nb_037",
@@ -220,7 +241,8 @@
       "name_ko": "평산토기",
       "name_en": "Pyeongsan Earthenware",
       "period": "삼국시대",
-      "designation": "국보 제37호"
+      "designation": "국보 제37호",
+      "image_url": ""
     },
     {
       "id": "nb_038",
@@ -230,7 +252,8 @@
       "name_ko": "황토기기",
       "name_en": "Yellow Earthenware",
       "period": "삼국시대",
-      "designation": "국보 제38호"
+      "designation": "국보 제38호",
+      "image_url": ""
     },
     {
       "id": "nb_041",
@@ -240,7 +263,8 @@
       "name_ko": "경복사지철기",
       "name_en": "Iron Pagoda of Gyeongboksa Temple",
       "period": "삼국시대",
-      "designation": "국보 제41호"
+      "designation": "국보 제41호",
+      "image_url": ""
     },
     {
       "id": "nb_045",
@@ -250,7 +274,8 @@
       "name_ko": "백제무녕왕릉석곽",
       "name_en": "Baekje King Munyeong Stone Coffin",
       "period": "삼국시대",
-      "designation": "국보 제45호"
+      "designation": "국보 제45호",
+      "image_url": ""
     },
     {
       "id": "nb_061",
@@ -260,7 +285,8 @@
       "name_ko": "고려사찰壁画",
       "name_en": "Goryeo Temple Mural",
       "period": "고려시대",
-      "designation": "국보 제61호"
+      "designation": "국보 제61호",
+      "image_url": ""
     },
     {
       "id": "nb_065",
@@ -270,7 +296,8 @@
       "name_ko": "청자어패문항아리",
       "name_en": "Celadon with Shell and Wave Design",
       "period": "고려시대",
-      "designation": "국보 제65호"
+      "designation": "국보 제65호",
+      "image_url": ""
     },
     {
       "id": "nb_066",
@@ -280,7 +307,8 @@
       "name_ko": "청자상감학문호",
       "name_en": "Celadon with Crane Design",
       "period": "고려시대",
-      "designation": "국보 제66호"
+      "designation": "국보 제66호",
+      "image_url": ""
     },
     {
       "id": "nb_067",
@@ -290,7 +318,8 @@
       "name_ko": "분청사자수도완",
       "name_en": "Underglaze-blue White Porcelain Bottle",
       "period": "조선시대",
-      "designation": "국보 제67호"
+      "designation": "국보 제67호",
+      "image_url": ""
     },
     {
       "id": "nb_068",
@@ -300,7 +329,8 @@
       "name_ko": "금동대향로",
       "name_en": "Gilt-bronze Censer",
       "period": "고려시대",
-      "designation": "국보 제68호"
+      "designation": "국보 제68호",
+      "image_url": ""
     },
     {
       "id": "nb_069",
@@ -310,7 +340,8 @@
       "name_ko": "백자병",
       "name_en": "White Porcelain Bottle",
       "period": "조선시대",
-      "designation": "국보 제69호"
+      "designation": "국보 제69호",
+      "image_url": ""
     },
     {
       "id": "nb_071",
@@ -320,7 +351,8 @@
       "name_ko": "금책",
       "name_en": "Golden Investiture Record",
       "period": "고려시대",
-      "designation": "국보 제71호"
+      "designation": "국보 제71호",
+      "image_url": ""
     },
     {
       "id": "nb_078",
@@ -330,7 +362,8 @@
       "name_ko": "금동미륵보살반가사유상",
       "name_en": "Gilt-bronze Maitreya Bodhisattva in Pensive Posture",
       "period": "삼국시대",
-      "designation": "국보 제78호"
+      "designation": "국보 제78호",
+      "image_url": ""
     },
     {
       "id": "nb_079",
@@ -340,7 +373,8 @@
       "name_ko": "낙엽호랑이",
       "name_en": "Tiger under Magnolia",
       "period": "조선시대",
-      "designation": "국보 제79호"
+      "designation": "국보 제79호",
+      "image_url": ""
     },
     {
       "id": "nb_080",
@@ -350,7 +384,8 @@
       "name_ko": "칠성도",
       "name_en": "Chilseongdo",
       "period": "조선시대",
-      "designation": "국보 제80호"
+      "designation": "국보 제80호",
+      "image_url": ""
     },
     {
       "id": "nb_081",
@@ -360,7 +395,8 @@
       "name_ko": "호랑이그림",
       "name_en": "Tiger Painting",
       "period": "조선시대",
-      "designation": "국보 제81호"
+      "designation": "국보 제81호",
+      "image_url": ""
     },
     {
       "id": "nb_082",
@@ -370,7 +406,8 @@
       "name_ko": "용왕상",
       "name_en": "Dragon King Painting",
       "period": "조선시대",
-      "designation": "국보 제82호"
+      "designation": "국보 제82호",
+      "image_url": ""
     },
     {
       "id": "nb_083",
@@ -380,7 +417,8 @@
       "name_ko": "금동미륵보살반가사유상",
       "name_en": "Gilt-bronze Maitreya Bodhisattva in Pensive Posture",
       "period": "삼국시대",
-      "designation": "국보 제83호"
+      "designation": "국보 제83호",
+      "image_url": ""
     },
     {
       "id": "nb_085",
@@ -390,7 +428,8 @@
       "name_ko": "가야금관",
       "name_en": "Gaya Gold Crown",
       "period": "삼국시대",
-      "designation": "국보 제85호"
+      "designation": "국보 제85호",
+      "image_url": ""
     },
     {
       "id": "nb_086",
@@ -400,7 +439,8 @@
       "name_ko": "남기고분금관",
       "name_en": "Gold Crown from Namsan Tomb",
       "period": "삼국시대",
-      "designation": "국보 제86호"
+      "designation": "국보 제86호",
+      "image_url": ""
     },
     {
       "id": "nb_087",
@@ -410,7 +450,8 @@
       "name_ko": "신라금관",
       "name_en": "Silla Gold Crown",
       "period": "삼국시대",
-      "designation": "국보 제87호"
+      "designation": "국보 제87호",
+      "image_url": ""
     },
     {
       "id": "nb_088",
@@ -420,7 +461,8 @@
       "name_ko": "금관총금관",
       "name_en": "Geumgwanchong Gold Crown",
       "period": "삼국시대",
-      "designation": "국보 제88호"
+      "designation": "국보 제88호",
+      "image_url": ""
     },
     {
       "id": "nb_089",
@@ -430,7 +472,8 @@
       "name_ko": "금동관음보살좌상",
       "name_en": "Gilt-bronze Avalokitesvara Bodhisattva Seated Statue",
       "period": "삼국시대",
-      "designation": "국보 제89호"
+      "designation": "국보 제89호",
+      "image_url": ""
     },
     {
       "id": "nb_090",
@@ -440,7 +483,8 @@
       "name_ko": "금동아미타여래좌상",
       "name_en": "Gilt-bronze Amitabha Buddha Seated Statue",
       "period": "삼국시대",
-      "designation": "국보 제90호"
+      "designation": "국보 제90호",
+      "image_url": ""
     },
     {
       "id": "nb_091",
@@ -450,7 +494,8 @@
       "name_ko": "금동보살머리장식",
       "name_en": "Gilt-bronze Bodhisattva Hair Ornament",
       "period": "삼국시대",
-      "designation": "국보 제91호"
+      "designation": "국보 제91호",
+      "image_url": ""
     },
     {
       "id": "nb_092",
@@ -460,7 +505,8 @@
       "name_ko": "청동은입사포류수금문정병",
       "name_en": "Bronze Inlaid Vessel with Grape Design",
       "period": "고려시대",
-      "designation": "국보 제92호"
+      "designation": "국보 제92호",
+      "image_url": ""
     },
     {
       "id": "nb_113",
@@ -470,7 +516,8 @@
       "name_ko": "마애여래삼존상",
       "name_en": "Rock-carved Buddha Triad",
       "period": "삼국시대",
-      "designation": "국보 제113호"
+      "designation": "국보 제113호",
+      "image_url": ""
     },
     {
       "id": "nb_121",
@@ -480,7 +527,8 @@
       "name_ko": "금동약사여래좌상",
       "name_en": "Gilt-bronze Bhaisajyaguru Buddha Seated Statue",
       "period": "삼국시대",
-      "designation": "국보 제121호"
+      "designation": "국보 제121호",
+      "image_url": ""
     },
     {
       "id": "nb_122",
@@ -490,7 +538,8 @@
       "name_ko": "금동아미타여래입상",
       "name_en": "Gilt-bronze Amitabha Buddha Standing Statue",
       "period": "삼국시대",
-      "designation": "국보 제122호"
+      "designation": "국보 제122호",
+      "image_url": ""
     },
     {
       "id": "nb_124",
@@ -500,7 +549,8 @@
       "name_ko": "신라금관",
       "name_en": "Silla Gold Crown in National Museum",
       "period": "삼국시대",
-      "designation": "국보 제124호"
+      "designation": "국보 제124호",
+      "image_url": ""
     },
     {
       "id": "nb_129",
@@ -510,7 +560,8 @@
       "name_ko": "고려명종명성왕후묘지",
       "name_en": "Goryeo Queen Myeongseong Epitaph",
       "period": "고려시대",
-      "designation": "국보 제129호"
+      "designation": "국보 제129호",
+      "image_url": ""
     },
     {
       "id": "nb_131",
@@ -520,7 +571,8 @@
       "name_ko": "조선왕조실록",
       "name_en": "Annals of the Joseon Dynasty",
       "period": "조선시대",
-      "designation": "국보 제131호"
+      "designation": "국보 제131호",
+      "image_url": ""
     },
     {
       "id": "nb_132",
@@ -530,7 +582,8 @@
       "name_ko": "동아시아서예발파도",
       "name_en": "East Asian Calligraphy Diagram",
       "period": "조선시대",
-      "designation": "국보 제132호"
+      "designation": "국보 제132호",
+      "image_url": ""
     },
     {
       "id": "nb_136",
@@ -540,7 +593,8 @@
       "name_ko": "금동용두보당",
       "name_en": "Gilt-bronze Dragon Head Finial",
       "period": "삼국시대",
-      "designation": "국보 제136호"
+      "designation": "국보 제136호",
+      "image_url": ""
     },
     {
       "id": "nb_197",
@@ -550,7 +604,8 @@
       "name_ko": "궁예릉",
       "name_en": "King Gungye Tomb",
       "period": "고려시대",
-      "designation": "국보 제197호"
+      "designation": "국보 제197호",
+      "image_url": ""
     },
     {
       "id": "nb_287",
@@ -560,7 +615,8 @@
       "name_ko": "백제금동대향로",
       "name_en": "Baekje Gilt-bronze Censer",
       "period": "삼국시대",
-      "designation": "국보 제287호"
+      "designation": "국보 제287호",
+      "image_url": ""
     },
     {
       "id": "nb_531",
@@ -570,7 +626,8 @@
       "name_ko": "아미타쌍상도",
       "name_en": "Amitabha Twin Statues Painting",
       "period": "고려시대",
-      "designation": "국보 제531호"
+      "designation": "국보 제531호",
+      "image_url": ""
     },
     {
       "id": "kdh_001",
@@ -580,7 +637,8 @@
       "name_ko": "금동미륵보살반가사유상",
       "name_en": "Gilt-bronze Maitreya Bodhisattva in Pensive Posture",
       "period": "삼국시대 (6-7세기)",
-      "designation": "국보 제78호"
+      "designation": "국보 제78호",
+      "image_url": ""
     },
     {
       "id": "kdh_002",
@@ -590,7 +648,8 @@
       "name_ko": "청동은입사포류수금문정병",
       "name_en": "Bronze Ewer with Silver Inlay",
       "period": "고려시대 (12세기)",
-      "designation": "국보 제92호"
+      "designation": "국보 제92호",
+      "image_url": ""
     },
     {
       "id": "kdh_003",
@@ -600,7 +659,8 @@
       "name_ko": "금동용두보당",
       "name_en": "Gilt-bronze Flagpole Finial with Dragon Head",
       "period": "통일신라시대",
-      "designation": "국보 제136호"
+      "designation": "국보 제136호",
+      "image_url": ""
     },
     {
       "id": "kdh_004",
@@ -610,7 +670,8 @@
       "name_ko": "도기 기마인물형 명기",
       "name_en": "Earthenware Vessel in Shape of a Warrior on Horseback",
       "period": "삼국시대 (가야)",
-      "designation": "국보 제91호"
+      "designation": "국보 제91호",
+      "image_url": ""
     },
     {
       "id": "kdh_005",
@@ -620,7 +681,8 @@
       "name_ko": "칠지도",
       "name_en": "Seven-Branched Sword",
       "period": "백제시대 (4세기)",
-      "designation": "국보 제369호"
+      "designation": "국보 제369호",
+      "image_url": ""
     },
     {
       "id": "kdh_006",
@@ -630,7 +692,8 @@
       "name_ko": "금관총 금관",
       "name_en": "Gold Crown from Geumgwan Tomb",
       "period": "삼국시대 (신라)",
-      "designation": "국보 제87호"
+      "designation": "국보 제87호",
+      "image_url": ""
     },
     {
       "id": "kdh_007",
@@ -640,7 +703,8 @@
       "name_ko": "백제 금동대향로",
       "name_en": "Baekje Gilt-Bronze Incense Burner",
       "period": "백제시대 (7세기)",
-      "designation": "국보 제287호"
+      "designation": "국보 제287호",
+      "image_url": ""
     }
   ],
   "collections": [
