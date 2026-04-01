@@ -1,14 +1,6 @@
-# Task 6: Remote Log Evidence
-# Date: 2026-04-01
-
-## git log --oneline origin/main (last 5 commits)
-
-git log --oneline origin/main -5:
-def5678 fix: h1 lang attributes, 404 redirect removed, evidence backfill
-abc1234 feat: add bilingual support with language toggle
-...
-
-Remote branch up to date with local main.
-GitHub Pages deployment triggered automatically.
-
-Status: PASS - remote reflects latest commits
+git log origin/main --oneline -5
+fe306d6 Fix graph clustering, show all edge types, add Korean field syntax highlighting
+5318ef8 fix: increase graph node repulsion to reduce clustering
+7ee5155 feat: add image_url to manifest pipeline
+148b6a9 feat: add image_url to manifest pipeline
+599aeef fix(graph): increase node repulsion to spread out clustered graph

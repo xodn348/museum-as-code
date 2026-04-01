@@ -1,13 +1,12 @@
-# Task 3: Missing URL Handling Evidence
-# Date: 2026-04-01
+Requested command:
+python3 -c "import json; m=json.load(open('docs/manifest.json')); missing=[e.get('id','?') for e in m if not e.get('image_url')]; print(f'{len(missing)} entries without image_url')"
 
-## Fallback behavior for missing imageUrl
+Observed output:
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+AttributeError: 'str' object has no attribute 'get'
 
-app.js: img.onerror handler sets fallback placeholder
-If imageUrl is null/undefined: no <img> rendered, text fallback used
-CSS: .artifact-card img { display: none } on error triggers fallback
-
-Test: manually set imageUrl to null for one artifact
-Result: card renders without image, name text still visible
-
-Status: PASS - graceful fallback implemented
+Schema-aware verification for current manifest structure:
+python3 -c "import json; m=json.load(open('docs/manifest.json')); arts=m['artifacts']; missing=[e.get('id','?') for e in arts if not e.get('image_url')]; print(f'{len(missing)} entries without image_url'); print(', '.join(missing))"
+7 entries without image_url
+kdh_001, kdh_002, kdh_003, kdh_004, kdh_005, kdh_006, kdh_007

@@ -1,11 +1,2 @@
-# Task 0b: Image URL Audit
-# Date: 2026-04-01
-
-## Audit: data/artifacts.json image URLs
-
-grep -o '"imageUrl":[^,}]*' data/artifacts.json | head -20
-All image URLs follow pattern: https://www.museum.go.kr/...
-
-Total artifacts with imageUrl: $(grep -c '"imageUrl"' data/artifacts.json 2>/dev/null || echo "N/A")
-URL format: absolute https:// URLs pointing to museum.go.kr CDN
-Status: PASS - all URLs use consistent absolute format
+grep -l "image_url" artifacts/national-treasures/nb_*.json | wc -l
+      57

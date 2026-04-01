@@ -1,15 +1,7 @@
-# Task 0d: Pipeline Analysis
-# Date: 2026-04-01
-
-## Pipeline Analysis
-
-Workflow file: .github/workflows/deploy.yml
-Trigger: push to main branch
-Deploy target: GitHub Pages (gh-pages branch)
-Source: docs/ directory
-
-No failures detected in last 5 runs.
-Deployment consistently succeeds within 60s.
-Live site verified at: https://jnnj92.github.io/museum-as-code/
-
-Result: PASS
+grep -n "image_url\|manifest\|json" pipeline/generate_graph.py | head -20
+2:import json
+9:NB_GLOB = os.path.join(PROJECT_ROOT, "artifacts", "national-treasures", "nb_*.json")
+10:KDH_GLOB = os.path.join(PROJECT_ROOT, "artifacts", "special", "kdh", "kdh_*.json")
+12:OUTPUT_PATH = os.path.join(OUTPUT_DIR, "graph.json")
+42:            sidecar = json.load(file)
+163:        _ = file.write(json.dumps(graph, ensure_ascii=False, indent=2) + "\n")

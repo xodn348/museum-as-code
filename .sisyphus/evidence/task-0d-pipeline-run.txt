@@ -1,15 +1,7 @@
-# Task 0d: Pipeline Run
-# Date: 2026-04-01
-
-## GitHub Actions Pipeline
-
-Triggered: push to main
-Workflow: .github/workflows/deploy.yml
-Status: success
-Duration: ~45s
-Deploy URL: https://jnnj92.github.io/museum-as-code/
-
-Steps:
-1. checkout - success
-2. build - success (no build step, static site)
-3. deploy to gh-pages - success
+python3 pipeline/generate_graph.py 2>&1 | tail -5
+WARNING: kdh_004 missing category
+WARNING: kdh_005 missing category
+WARNING: kdh_006 missing category
+WARNING: kdh_007 missing category
+Generated docs/data/graph.json: 64 nodes, 1583 edges
+Exit code: 0

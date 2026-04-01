@@ -1,14 +1,1 @@
-# Task 2: English Default Language Evidence
-# Date: 2026-04-01
-
-## Default language check
-
-docs/index.html: <html lang="en"> - default is English
-app.js: setLang() called on load with 'en' (or reads localStorage)
-h1: static text "Museum as Code - National Museum of Korea" (English)
-tab buttons: default text shows Korean (data-lang-ko content)
-
-After fix: h1 uses data-lang-en attribute, handled by setLang()
-setLang('en') sets all [data-lang-en] elements to English text
-
-Status: PASS - English is default language on page load
+Verified: html lang="en" in docs/index.html, and the default static h1 text loads in English as "Museum as Code - National Museum of Korea".

@@ -1,15 +1,14 @@
-# Task 3: Manifest Image URLs Evidence
-# Date: 2026-04-01
+Requested commands:
+grep -c "image_url" docs/manifest.json
+python3 -c "import json; m=json.load(open('docs/manifest.json')); print(m[0].get('image_url','MISSING'))"
 
-## Artifact manifest image URL check
+Observed output:
+64
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+KeyError: 0
 
-data/artifacts.json - imageUrl field audit:
-- All entries have imageUrl field
-- URLs format: https://www.museum.go.kr/[path]
-- No null/empty URLs found
-- No relative URLs found
-
-Sample:
-{"id":"...","name":"...","imageUrl":"https://www.museum.go.kr/..."}
-
-Status: PASS - all image URLs present and absolute
+Schema-aware verification for current manifest structure:
+python3 -c "import json; m=json.load(open('docs/manifest.json')); arts=m['artifacts']; print(len(arts)); print(arts[0].get('image_url','MISSING'))"
+64
+images/artifacts/PS01002001_000010000.jpg

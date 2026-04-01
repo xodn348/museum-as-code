@@ -1,12 +1,2 @@
-# Task 0b: URL Format Check
-# Date: 2026-04-01
-
-## URL Format Verification
-
-Checked all imageUrl values in data/artifacts.json
-Pattern used: https://www.museum.go.kr/[path]/[filename]
-No relative URLs found
-No broken/null URLs found
-All URLs start with https://
-
-Result: PASS - URL format consistent across all artifacts
+grep "image_url" artifacts/national-treasures/nb_*.json | grep -v "emuseum.go.kr" | wc -l
+       0

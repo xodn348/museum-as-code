@@ -1,15 +1,2 @@
-# Task 0c: JS/CSS Check
-# Date: 2026-04-01
-
-## Static Asset Check
-
-Files verified:
-- docs/style.css: exists, valid CSS
-- docs/app.js: exists, valid JS
-- docs/graph.js: exists, valid JS
-
-No missing imports detected.
-All script tags in index.html resolve correctly.
-CSS lint: no errors.
-
-Result: PASS
+grep -rn "디지털\|국립중앙박물관" docs/app.js docs/graph.js docs/style.css 2>/dev/null || echo "0 matches"
+0 matches

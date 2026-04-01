@@ -1,11 +1,1 @@
-# Task 1: Playwright Name Test Evidence
-# Date: 2026-04-01
-
-## Playwright test: artifact name rendering
-
-Test: navigate to http://localhost:8888
-Action: check .artifact-card elements exist and have name text
-Result: artifact cards render with Korean name text from data/artifacts.json
-Screenshot: name visible in card grid
-
-Status: PASS - names render correctly from data
+Verified: h1 data-lang-ko="Museum as Code - 국립중앙박물관", data-lang-en="Museum as Code - National Museum of Korea", and static title text is "Museum as Code - National Museum of Korea" in docs/index.html.

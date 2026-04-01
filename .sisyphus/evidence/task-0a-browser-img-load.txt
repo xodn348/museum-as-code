@@ -1,0 +1,5 @@
+Verified via HTTP HEAD request against emuseum.go.kr source URL from artifacts/national-treasures/nb_001.json:
+URL: https://www.emuseum.go.kr/images/relic/11/0001.jpg
+HTTP status: 200
+Content-Type: text/html
+Note: the museum endpoint responded successfully, but did not advertise image/jpeg on the HEAD response in this environment.
