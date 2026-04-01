@@ -292,14 +292,17 @@ function renderCards(artifacts) {
     card.dataset.collection = artifact.collection;
     card.setAttribute('role', 'button');
 
-    if (artifact.image_url) {
-      const img = document.createElement('img');
-      img.src = artifact.image_url;
-      img.loading = 'lazy';
-      img.alt = currentLang === 'ko' ? (artifact.name_ko ?? '') : (artifact.name_en ?? artifact.name_ko ?? '');
-      img.onerror = function() { this.style.display = 'none'; };
-      card.appendChild(img);
+    const img = document.createElement('img');
+    img.src = artifact.image_url ?? '';
+    img.loading = 'lazy';
+    img.alt = currentLang === 'ko' ? (artifact.name_ko ?? '') : (artifact.name_en ?? artifact.name_ko ?? '');
+    img.onerror = function() { this.style.display = 'none'; };
+
+    if (!artifact.image_url) {
+      img.style.display = 'none';
     }
+
+    card.appendChild(img);
 
     const cardBody = document.createElement('div');
     cardBody.className = 'card-body';
