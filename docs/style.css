@@ -272,8 +272,8 @@ body[data-lang="en"] [data-lang="ko"] { display: none; }
 
 .detail-code .kw,
 .detail-code .keyword {
-  color: #1a5c9c;
-  font-weight: 700;
+  color: #1a3a5c;
+  font-weight: 600;
 }
 
 .detail-code .prop {
@@ -282,7 +282,7 @@ body[data-lang="en"] [data-lang="ko"] { display: none; }
 }
 
 .detail-code .cm {
-  color: #5a7a5a;
+  color: #888888;
   font-style: italic;
 }
 
