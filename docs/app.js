@@ -164,6 +164,35 @@ function escapeHtml(text) {
     .replaceAll("'", '&#39;');
 }
 
+function highlightCode(text) {
+  if (text == null) return '';
+  const escaped = String(text)
+    .replaceAll('&', '&amp;')
+    .replaceAll('<', '&lt;')
+    .replaceAll('>', '&gt;')
+    .replaceAll('"', '&quot;')
+    .replaceAll("'", '&#39;');
+  const keywordPattern = /\b(구조|문자열|정수|부울|목록|날짜|실수)\b/g;
+  const propertyPattern = /^([ \t]*)([\p{L}\p{N}_]+)(?=:(?!\/\/))/gu;
+  const stringPattern = /&quot;[^\n]*?&quot;/g;
+  const commentPattern = /^[ \t]*\/\/.*$/;
+
+  return escaped
+    .split('\n')
+    .map((line) => {
+      let highlightedLine = line.replace(keywordPattern, (match) => `<span class='kw'>${match}</span>`);
+      highlightedLine = highlightedLine.replace(propertyPattern, (match, indent, name) => `${indent}<span class='prop'>${name}</span>`);
+      highlightedLine = highlightedLine.replace(stringPattern, (match) => `<span class='str'>${match}</span>`);
+
+      if (commentPattern.test(line)) {
+        return `<span class='cm'>${highlightedLine}</span>`;
+      }
+
+      return highlightedLine;
+    })
+    .join('\n');
+}
+
 function getHashArtifactId() {
   const match = window.location.hash.match(/^#artifact-(.+)$/);
   return match ? decodeURIComponent(match[1]) : null;
@@ -212,7 +241,7 @@ function renderDetailContent(detailData) {
     <h2 class="detail-name-ko" data-lang="ko">${escapeHtml(nameKo)}</h2>
     <p class="detail-name-en" data-lang="en">${escapeHtml(nameEn)}</p>
     <ul class="detail-meta">${metadataRows}</ul>
-    <pre><code class="detail-code">${escapeHtml(hglContent)}</code></pre>
+    <pre><code class="detail-code">${highlightCode(hglContent)}</code></pre>
     <p class="detail-description" data-lang="ko">${escapeHtml(descriptionKo)}</p>
     <p class="detail-description" data-lang="en">${escapeHtml(descriptionEn)}</p>
     ${dramaKo || dramaEn ? `
