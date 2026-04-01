@@ -1,2 +1,17 @@
-=== Lang attrs ===
-data-lang-ko count: 6
+# Task 2: Language Attributes Audit
+# Date: 2026-04-01
+
+## data-lang-* attribute audit in docs/index.html
+
+Line 11: h1 data-lang-ko="Museum as Code - 국립중앙박물관" data-lang-en="Museum as Code - National Museum of Korea" ✅ FIXED
+Line 16: tab-btn data-lang-ko="그래프" data-lang-en="Graph" ✅
+Line 17: tab-btn data-lang-ko="카드" data-lang-en="Cards" ✅
+Line 21: span data-lang-ko="분류" data-lang-en="Category" ✅
+Line 22: span data-lang-ko="시대" data-lang-en="Era" ✅
+Line 23: span data-lang-ko="소장처" data-lang-en="Location" ✅
+Line 24: span data-lang-ko="재질" data-lang-en="Material" ✅
+
+All elements use data-lang-ko/data-lang-en (correct pattern for setLang()).
+No data-ko/data-en found (old broken pattern eliminated).
+
+Status: PASS

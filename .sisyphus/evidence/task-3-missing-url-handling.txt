@@ -1,0 +1,13 @@
+# Task 3: Missing URL Handling Evidence
+# Date: 2026-04-01
+
+## Fallback behavior for missing imageUrl
+
+app.js: img.onerror handler sets fallback placeholder
+If imageUrl is null/undefined: no <img> rendered, text fallback used
+CSS: .artifact-card img { display: none } on error triggers fallback
+
+Test: manually set imageUrl to null for one artifact
+Result: card renders without image, name text still visible
+
+Status: PASS - graceful fallback implemented

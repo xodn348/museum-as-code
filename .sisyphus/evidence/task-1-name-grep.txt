@@ -1,0 +1,13 @@
+# Task 1: Name Grep Evidence
+# Date: 2026-04-01
+
+## grep for artifact name display in source
+
+grep -n "name\|artifactName\|title" docs/app.js | head -30
+grep -n "artifact.name\|item.name" docs/app.js
+
+Result: artifact names are rendered via JS in card and detail views.
+Name field: artifacts[i].name (Korean) displayed in cards.
+No hardcoded English-only names found.
+
+Status: PASS

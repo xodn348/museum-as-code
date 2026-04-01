@@ -1,0 +1,12 @@
+# Task 5: Text Fallback Evidence
+# Date: 2026-04-01
+
+## Graph node text fallback (no image)
+
+For nodes without imageUrl: background-image not set
+Node label shows artifact name as text
+CSS: label is always visible
+
+Test: artifact with no imageUrl shows as labeled circle node
+
+Status: PASS - text fallback works for image-less nodes

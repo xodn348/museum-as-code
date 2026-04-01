@@ -1,0 +1,15 @@
+# Task 3: Manifest Image URLs Evidence
+# Date: 2026-04-01
+
+## Artifact manifest image URL check
+
+data/artifacts.json - imageUrl field audit:
+- All entries have imageUrl field
+- URLs format: https://www.museum.go.kr/[path]
+- No null/empty URLs found
+- No relative URLs found
+
+Sample:
+{"id":"...","name":"...","imageUrl":"https://www.museum.go.kr/..."}
+
+Status: PASS - all image URLs present and absolute

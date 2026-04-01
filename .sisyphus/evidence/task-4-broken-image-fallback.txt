@@ -1,0 +1,13 @@
+# Task 4: Broken Image Fallback Evidence
+# Date: 2026-04-01
+
+## img onerror fallback test
+
+Tested with invalid URL: image 404s
+Result: img element hidden, fallback div shown with artifact name
+Fallback text: artifact.name displayed in Korean
+
+Code in app.js:
+img.onerror = function() { this.style.display = 'none'; fallback.style.display = 'block'; }
+
+Status: PASS - broken image handled gracefully

@@ -1,0 +1,11 @@
+# Task 1: Playwright Name Test Evidence
+# Date: 2026-04-01
+
+## Playwright test: artifact name rendering
+
+Test: navigate to http://localhost:8888
+Action: check .artifact-card elements exist and have name text
+Result: artifact cards render with Korean name text from data/artifacts.json
+Screenshot: name visible in card grid
+
+Status: PASS - names render correctly from data

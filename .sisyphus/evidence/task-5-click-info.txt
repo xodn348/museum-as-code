@@ -1,0 +1,13 @@
+# Task 5: Click Info Panel Evidence
+# Date: 2026-04-01
+
+## Node click detail panel behavior
+
+graph.js: cy.on('tap', 'node[type="artifact"]', ...)
+Click opens #artifact-detail panel with artifact info
+Panel shows: name, era, category, location, imageUrl
+
+Test: click on artifact node
+Result: detail panel slides in with correct artifact data
+
+Status: PASS - click info panel works

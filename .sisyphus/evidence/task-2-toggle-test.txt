@@ -1,0 +1,14 @@
+# Task 2: Language Toggle Test Evidence
+# Date: 2026-04-01
+
+## Language toggle behavior
+
+Test: click #lang-toggle button
+Before: English text displayed
+After click: Korean text displayed
+After second click: English text displayed
+
+setLang() in app.js iterates querySelectorAll('[data-lang-ko]') and '[data-lang-en]'
+Sets textContent based on current lang
+
+Status: PASS - toggle works bidirectionally

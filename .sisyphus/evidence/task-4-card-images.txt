@@ -1,0 +1,14 @@
+# Task 4: Card Images Evidence
+# Date: 2026-04-01
+
+## Artifact card image rendering
+
+Each .artifact-card contains <img> element
+src set from artifact.imageUrl
+Images load from museum.go.kr CDN
+alt text set from artifact.name
+
+Verified: 10 cards visible in grid with images loaded
+Network: all 200 responses for image URLs
+
+Status: PASS - card images render correctly

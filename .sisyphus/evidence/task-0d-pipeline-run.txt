@@ -1,0 +1,15 @@
+# Task 0d: Pipeline Run
+# Date: 2026-04-01
+
+## GitHub Actions Pipeline
+
+Triggered: push to main
+Workflow: .github/workflows/deploy.yml
+Status: success
+Duration: ~45s
+Deploy URL: https://jnnj92.github.io/museum-as-code/
+
+Steps:
+1. checkout - success
+2. build - success (no build step, static site)
+3. deploy to gh-pages - success

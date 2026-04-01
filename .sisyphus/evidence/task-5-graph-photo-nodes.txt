@@ -1,0 +1,12 @@
+# Task 5: Graph Photo Nodes Evidence
+# Date: 2026-04-01
+
+## Cytoscape graph photo node rendering
+
+graph.js: artifact nodes use image style from imageUrl
+cy.style(): node[type="artifact"] { background-image: data(imageUrl) }
+Nodes with images show artifact photos as node backgrounds
+
+Verified: artifact nodes display museum images in graph view
+
+Status: PASS - photo nodes render in graph
