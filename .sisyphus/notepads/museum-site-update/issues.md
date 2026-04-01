@@ -38,3 +38,7 @@ Minor AI slop: docs/app.js still has stale scaffold comments referencing T12/T13
 
 ## 2026-04-01 Final Verification Remediation Issues
 - Work-context conflict detected: remediation checklist requested editing `.sisyphus/plans/museum-site-update.md`, but orchestration guardrail marks plan files as read-only.
+
+## 2026-04-01 Final Verification Wave Remediation Follow-up
+- Duplicate manifest ids issue is resolved by pipeline-level deduplication and manifest regeneration.
+- Stale `T12/T13/T14` scaffold-comment issue in `docs/app.js` is resolved (no matches).

@@ -148,3 +148,8 @@ Silent recovery in graph image loading should be used carefully: image fetch fal
 - `pipeline/manifest.py` now deduplicates repeated artifact ids during manifest build (`id`, `id_2`, `id_3`, ...), preventing downstream key collisions.
 - Regenerated `docs/manifest.json` validates with `DUPES: NONE` across all 64 artifacts.
 - Removed stale scaffold/task-marker references (`T12/T13/T14`) from `docs/app.js` while preserving runtime behavior.
+
+## 2026-04-01 Final Verification Wave Remediation (Execution Notes)
+- Validation command `python3 -c "...Dupes..."` returned `Artifacts: 64 | Dupes: NONE` after regeneration.
+- `grep -c "image_url" docs/manifest.json` returned `64`, matching expected artifact count.
+- Final branch checks: `git fetch origin && git log origin/main..HEAD --oneline` produced no commits; `git status --short --branch` shows `main...origin/main`.

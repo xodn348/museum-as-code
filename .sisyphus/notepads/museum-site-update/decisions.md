@@ -48,3 +48,6 @@ cd /Users/jnnj92/museum-as-code && python -m pipeline.manifest
 
 ## 2026-04-01 Final Verification Remediation Decision
 - Implemented id deduplication inside `pipeline/manifest.py` generation path (not post-process in frontend) so `docs/manifest.json` is guaranteed safe for all consumers.
+
+## 2026-04-01 Final Verification Wave Remediation Decision
+- Kept duplicate-ID handling centralized in the manifest pipeline and regenerated output, rather than patching generated JSON manually, to prevent recurrence on future pipeline runs.
