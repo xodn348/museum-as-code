@@ -86,13 +86,6 @@ def _string_field(sidecar: dict[str, object], key: str) -> str:
 
 
 def _resolve_local_image_url(sidecar_path: Path, artifact_id: str) -> str:
-    """Map an artifact to a checked-in local image path when available.
-
-    The preferred match is a JPG whose stem starts with the sidecar `id`.
-    National-treasures images in the current repo are named with a PS* prefix,
-    so `nb_001.json` style sidecar filenames fall back to the existing numeric
-    sequence convention (`nb_001.json` -> `_000010000.jpg`).
-    """
     if not artifact_id or not ARTIFACT_IMAGES_DIR.exists():
         return ""
 
