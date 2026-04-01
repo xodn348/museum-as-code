@@ -5,11 +5,44 @@ function initGraph() {
     return;
   }
 
-  fetch('data/graph.json')
+  fetch('manifest.json')
     .then(function (response) {
       return response.json();
     })
-    .then(function (graphData) {
+    .then(function (manifest) {
+      var imageMap = {};
+      (manifest.collections || []).forEach(function (col) {
+        (col.artifacts || []).forEach(function (a) {
+          if (a.id && a.image_url) {
+            imageMap[a.id] = a.image_url;
+          }
+        });
+      });
+      return imageMap;
+    })
+    .catch(function () {
+      return {};
+    })
+    .then(function (imageMap) {
+      return fetch('data/graph.json')
+        .then(function (response) {
+          return response.json();
+        })
+        .then(function (graphData) {
+          return { graphData: graphData, imageMap: imageMap };
+        });
+    })
+    .then(function (result) {
+      var graphData = result.graphData;
+      var imageMap = result.imageMap;
+
+      // Enrich node data with image_url
+      (graphData.elements || []).forEach(function (el) {
+        if (el.data && el.data.id && imageMap[el.data.id]) {
+          el.data.image_url = imageMap[el.data.id];
+        }
+      });
+
       cy = cytoscape({
         container: document.getElementById('cy'),
         elements: graphData.elements,
@@ -19,13 +52,16 @@ function initGraph() {
             style: {
               label: 'data(label_ko)',
               'background-color': '#4a7c59',
+              'background-image': 'data(image_url)',
+              'background-fit': 'cover',
+              'background-clip': 'node',
               color: '#fff',
               'text-valign': 'center',
               'text-halign': 'center',
               'font-size': '10px',
-              width: '30px',
-              height: '30px',
-              cursor: 'pointer',
+              width: '50px',
+              height: '50px',
+            cursor: 'pointer',
             },
           },
           {
@@ -72,6 +108,14 @@ function initGraph() {
 
       cy.on('tap', 'node', function (evt) {
         showDetail(evt.target.data('id'));
+      });
+
+      cy.on('mouseover', 'node', function (evt) {
+        evt.target.style({ width: '80px', height: '80px' });
+      });
+
+      cy.on('mouseout', 'node', function (evt) {
+        evt.target.style({ width: '50px', height: '50px' });
       });
 
       if (typeof currentLang !== 'undefined') {
