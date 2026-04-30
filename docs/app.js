@@ -69,6 +69,25 @@ function imageVerificationNote(record) {
     || 'Image withheld until the exact object, license, and local file are verified.';
 }
 
+function getOfficialImageUrl(record) {
+  if (!record) return '';
+  return record.image_official_url
+    || record.sidecar?.image_official_url
+    || '';
+}
+
+function getOfficialImageMeta(record) {
+  if (!record) return null;
+  const src = record.image_source_api || record.sidecar?.image_source_api || '';
+  const license = record.image_official_license || record.sidecar?.image_official_license || '';
+  const credit = record.image_official_credit || record.sidecar?.image_official_credit || '';
+  const sourceName = record.image_official_source_name_ko
+    || record.sidecar?.image_official_source_name_ko
+    || '';
+  if (!src && !license && !credit) return null;
+  return { src, license, credit, sourceName };
+}
+
 function trimHglPreview(text, maxLines = 9) {
   if (!text) return '';
   const lines = text
@@ -752,8 +771,14 @@ function renderCards(artifacts) {
     const card = document.createElement('a');
     const isKdh = artifact.collection === 'kdh';
     const verified = isExactImageVerified(artifact);
+    const hasOfficialImage = Boolean(getOfficialImageUrl(artifact));
+    const cardImageState = verified
+      ? ' image-verified'
+      : hasOfficialImage
+        ? ' image-official'
+        : ' needs-source-review';
 
-    card.className = `kpdh-card archive-card${isKdh ? ' kdh' : ''}${verified ? ' image-verified' : ' needs-source-review'}`;
+    card.className = `kpdh-card archive-card${isKdh ? ' kdh' : ''}${cardImageState}`;
     card.href = `#artifact-${encodeURIComponent(artifact.id)}`;
     card.dataset.id = artifact.id;
     card.dataset.collection = artifact.collection;
@@ -767,17 +792,36 @@ function renderCards(artifacts) {
     const fileTag = archiveFileTag(artifact);
     const code = buildArchiveCardCode(artifact);
     const imagePath = getVerifiedImagePath(artifact);
-    const imageMarkup = imagePath ? `
+    const officialUrl = getOfficialImageUrl(artifact);
+    const officialMeta = getOfficialImageMeta(artifact);
+    let imageMarkup;
+    if (officialUrl) {
+      const sourceLabel = officialMeta?.src === 'cha'
+        ? '국가유산청 (CHA)'
+        : (officialMeta?.src || 'official source');
+      const licenseLabel = officialMeta?.license || '';
+      const captionParts = [sourceLabel, licenseLabel].filter(Boolean).join(' · ');
+      imageMarkup = `
+      <figure class="kpdh-card-figure official-image">
+        <img src="${escapeHtml(officialUrl)}" alt="${escapeHtml(titleEn)}" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+        <figcaption class="image-credit">${escapeHtml(captionParts)}</figcaption>
+      </figure>
+    `;
+    } else if (imagePath) {
+      imageMarkup = `
       <figure class="kpdh-card-figure">
         <img src="${escapeHtml(imagePath)}" alt="${escapeHtml(titleEn)}" loading="lazy" decoding="async">
         <figcaption>exact image verified</figcaption>
       </figure>
-    ` : `
+    `;
+    } else {
+      imageMarkup = `
       <div class="kpdh-card-image-pending" title="${escapeHtml(imageVerificationNote(artifact))}">
         <span>IMAGE WITHHELD</span>
         <small>source match pending</small>
       </div>
     `;
+    }
     const tagBits = [
       designation,
       period,

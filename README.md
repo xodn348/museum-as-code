@@ -224,6 +224,16 @@ hgl interpret artifacts/heroes/hero_pensive_bodhisattva.hgl
 # Normalize sidecars after metadata/image-source edits
 python3 -m pipeline.normalize_sidecars
 
+# Fetch official photo URLs from 국가유산청 (CHA) Open API and write
+# image_official_url / image_source_api / image_official_license into the
+# national-treasures sidecars. No API key required, public domain endpoint,
+# rate-limited to ≤2 req/s. Add --dry-run to skip HTTP, --limit N to cap
+# the number of detail fetches for a smoke test.
+python3 -m pipeline.fetch_official_images          # full sweep (국보)
+python3 -m pipeline.fetch_official_images --dry-run
+python3 -m pipeline.fetch_official_images --limit 5
+python3 -m pipeline.fetch_official_images --type 보물
+
 # Copy artifact .json/.hgl records into GitHub Pages-safe docs/data paths
 python3 -m pipeline.sync_docs_artifacts
 
@@ -254,6 +264,32 @@ python3 -m pipeline.validate_data
 2. **Do not show uncertain photos as primary homepage visuals.** If a source match is not exact, leave `needs_verification` and use the code-first presentation.
 3. **Record source and license fields** in sidecar JSON and `docs/images/heroes/*/image-sources.json`.
 4. **Reintroduce photos per artifact only after verification**, not as broad automatic thumbnails.
+
+### Official image attribution (CHA Open API)
+
+Sidecars under `artifacts/national-treasures/` may carry an `image_official_url`
+pulled from the **국가유산청 (Cultural Heritage Administration) Open API**
+(`https://www.cha.go.kr/cha/SearchKindOpenapiList.do` /
+`SearchKindOpenapiDt.do`). Matching is by 지정번호 only — i.e. `designation`
+parses to "국보 제N호" → CHA `ccbaAsno` index — so the photo represents the
+official record for that designation, which may not match local
+`name`/`description` fields if the local sidecar is mislabeled. Fields
+written by `pipeline.fetch_official_images`:
+
+| Field | Meaning |
+|---|---|
+| `image_official_url` | HTTPS URL of the official photo on `khs.go.kr` |
+| `image_source_api` | `"cha"` |
+| `image_official_license` | `공공누리 제1유형(출처표시)` — Korea OGL Type 1 (attribution required, commercial use OK) |
+| `image_official_credit` | `국가유산청 (Cultural Heritage Administration of Korea)` |
+| `image_official_source_name_ko` | Canonical Korean name of the matched designation in CHA |
+| `image_fetched_at` | ISO-8601 UTC timestamp of the fetch |
+
+Each archive card on the homepage shows this image with a
+`source · license` caption (rendered from `image_source_api` and
+`image_official_license`), satisfying the 공공누리 제1유형 attribution
+requirement. If `image_official_url` is missing, the card falls back to the
+`exact_image_verified` path or the `IMAGE WITHHELD` placeholder.
 
 ---
 

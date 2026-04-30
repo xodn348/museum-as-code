@@ -26,5 +26,11 @@
   "license": "needs_verification",
   "credit": "Museum as Code local artifact image; original source requires verification",
   "confidence": "low",
-  "updated_at": "2026-04-30T03:35:18.829367Z"
+  "updated_at": "2026-04-30T03:35:18.829367Z",
+  "image_official_url": "https://www.khs.go.kr/unisearch/images/national_treasure/1611490.jpg",
+  "image_source_api": "cha",
+  "image_official_license": "공공누리 제1유형(출처표시)",
+  "image_official_credit": "국가유산청 (Cultural Heritage Administration of Korea)",
+  "image_official_source_name_ko": "경주 감산사 석조아미타여래입상",
+  "image_fetched_at": "2026-04-30T17:59:55Z"
 }
