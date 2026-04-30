@@ -148,6 +148,36 @@ a { color: var(--paper); }
   gap: 14px;
   align-items: center;
 }
+
+/* Dual GH chips: link to museum + han-lang side-by-side, mirrors index.html. */
+.hero-nav .gh-pair {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.hero-nav .gh-chip {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 7px 12px;
+  border: 1px solid rgba(246, 239, 227, 0.18);
+  color: var(--paper);
+  background: rgba(20, 10, 30, 0.4);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: 0.18s;
+  font-weight: 700;
+}
+.hero-nav .gh-chip .gh-icon { color: var(--rose); font-size: 8px; line-height: 1; }
+.hero-nav .gh-chip .gh-arrow { font-size: 12px; opacity: 0.7; margin-left: 2px; }
+.hero-nav .gh-chip:hover { border-color: var(--rose); color: var(--rose); background: rgba(255, 46, 106, 0.08); }
+.hero-nav .gh-chip.gh-han { border-color: rgba(255, 46, 106, 0.4); color: var(--rose); }
+.hero-nav .gh-chip.gh-han:hover { background: var(--rose); color: var(--ink); }
+.hero-nav .gh-chip.gh-han:hover .gh-icon,
+.hero-nav .gh-chip.gh-han:hover .gh-arrow { color: var(--ink); }
 .back-link {
   text-decoration: none;
   color: var(--paper-dim);
