@@ -1,0 +1,44 @@
+{
+  "id": "hero_genre_album",
+  "name_ko": "김홍도 필 풍속도 화첩",
+  "name_en": "Album of Genre Paintings by Kim Hong-do (Danwon)",
+  "designation": "Treasure No. 527",
+  "period": "Joseon, 18th century",
+  "period_ko": "조선, 18세기",
+  "medium": "Ink and light color on paper",
+  "medium_ko": "종이에 담채",
+  "location": "National Museum of Korea",
+  "location_ko": "국립중앙박물관",
+  "room": "Painting",
+  "hook": "After kings and Buddhas, ordinary people take the stage.",
+  "summary_en": "Kim Hong-do’s genre album brings labor, play, humor, and movement into the hero sequence.",
+  "summary_ko": "김홍도의 풍속도첩은 노동과 놀이, 유머와 움직임을 히어로 목록 안으로 끌어옵니다.",
+  "cover_image": "images/heroes/hero_genre_album/danwon-ssireum.jpg",
+  "images": [
+    {
+      "path": "images/heroes/hero_genre_album/danwon-ssireum.jpg",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Danwon-Ssireum.jpg",
+      "license": "Public domain",
+      "credit": "Wikimedia Commons public-domain reproduction"
+    }
+  ],
+  "sections": {
+    "why_this_matters": "The set needs people. Danwon’s album makes Korean heritage feel inhabited, funny, physical, and social.",
+    "what_you_are_looking_at": "The paintings often leave the background sparse and concentrate on bodies in action. In Wrestling, spectators form a ring around two athletes, and a vendor and scattered shoes complete the composition.",
+    "the_story": "Kim Hong-do’s genre paintings are valued for their warm but sharp observation of common life in late Joseon. Treated as one hero slot, the album can open into several leaves rather than reducing the work to a single famous image."
+  },
+  "sections_ko": {
+    "why_this_matters": "승인 후 한국어 큐레이터 카피 확장 예정",
+    "what_you_are_looking_at": "김홍도의 풍속도첩은 노동과 놀이, 유머와 움직임을 히어로 목록 안으로 끌어옵니다.",
+    "the_story": "영문 본문을 기준으로 사실 검증 후 번역합니다."
+  },
+  "sidecar_path": "../artifacts/heroes/hero_genre_album.json",
+  "hgl_path": "data/heroes/hero_genre_album.hgl",
+  "copy_path": "../artifacts/heroes/hero_genre_album.md",
+  "source_urls": [
+    "https://www.museum.go.kr/ENG/contents/E0403000000.do?relicId=551&schM=view&searchId=search"
+  ],
+  "license": "Public domain",
+  "credit": "Wikimedia Commons public-domain reproduction",
+  "needs_verification": ""
+}

@@ -1,0 +1,46 @@
+{
+  "id": "hero_celestial_chart",
+  "name_ko": "천상열차분야지도 각석",
+  "name_en": "Stone Constellation Chart (Cheonsang Yeolcha Bunyajido)",
+  "designation": "National Treasure No. 228",
+  "period": "Joseon, 1395",
+  "period_ko": "조선, 1395년",
+  "medium": "Stone engraving",
+  "medium_ko": "석각",
+  "location": "National Palace Museum of Korea",
+  "location_ko": "국립고궁박물관",
+  "room": "Records & Writing",
+  "hook": "The new dynasty wrote its sky in stone.",
+  "summary_en": "A Joseon star chart that maps constellations, seasons, and royal legitimacy onto a dark slab.",
+  "summary_ko": "별자리와 계절, 왕조의 정당성을 검은 돌 위에 새긴 조선의 천문도입니다.",
+  "cover_image": "images/heroes/hero_celestial_chart/cheonsang-chart.svg",
+  "images": [
+    {
+      "path": "images/heroes/hero_celestial_chart/cheonsang-chart.svg",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Cheonsang.jpg",
+      "license": "CC0 source candidate; local SVG placeholder until download recovers",
+      "credit": "Local placeholder by museum-as-code; source candidate: Wikimedia Commons"
+    }
+  ],
+  "sections": {
+    "why_this_matters": "It changes the emotional register of the set: from sacred faces and royal gold to science, measurement, and the night sky.",
+    "what_you_are_looking_at": "The chart organizes stars inside circles and explanatory inscriptions. Rather than illustrating a mythic heavens, it presents observation, order, and calendrical authority as statecraft.",
+    "the_story": "Created soon after the founding of Joseon, Cheonsang Yeolcha Bunyajido linked astronomy with royal legitimacy. It also preserves older astronomical traditions, turning inherited sky knowledge into a new dynasty’s monument."
+  },
+  "sections_ko": {
+    "why_this_matters": "승인 후 한국어 큐레이터 카피 확장 예정",
+    "what_you_are_looking_at": "별자리와 계절, 왕조의 정당성을 검은 돌 위에 새긴 조선의 천문도입니다.",
+    "the_story": "영문 본문을 기준으로 사실 검증 후 번역합니다."
+  },
+  "sidecar_path": "../artifacts/heroes/hero_celestial_chart.json",
+  "hgl_path": "data/heroes/hero_celestial_chart.hgl",
+  "copy_path": "../artifacts/heroes/hero_celestial_chart.md",
+  "source_urls": [
+    "https://www.gogung.go.kr/ebook/access/ecatalogt.jsp?Dir=40&callmode=admin&catimage=&eclang=ko&start=46&um=s"
+  ],
+  "license": "CC0 source candidate; local SVG placeholder until download recovers",
+  "credit": "Local placeholder by museum-as-code; source candidate: Wikimedia Commons",
+  "needs_verification": "Wikimedia returned HTTP 429 during download; local placeholder prevents hotlinking and marks source replacement required.",
+  "image_url": "images/heroes/hero_celestial_chart/cheonsang-chart.svg",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Cheonsang.jpg"
+}

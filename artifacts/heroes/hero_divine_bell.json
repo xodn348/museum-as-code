@@ -1,0 +1,41 @@
+{
+  "id": "hero_divine_bell",
+  "name": "성덕대왕신종",
+  "name_en": "Divine Bell of King Seongdeok",
+  "official_name_en": "Divine Bell of King Seongdeok",
+  "designation": "National Treasure No. 29",
+  "designation_ko": "국보 제29호",
+  "designation_type": "국보",
+  "era": "통일신라, 771년",
+  "period_en": "Unified Silla, 771",
+  "material": "청동",
+  "material_en": "Bronze",
+  "size": "Height 365.0 cm; diameter 223.0 cm; weight 18.9 t",
+  "location": "국립경주박물관",
+  "location_en": "Gyeongju National Museum",
+  "category": "Buddhist Sculpture",
+  "description": "부조와 명문, 울림으로 한국 범종의 기준이 된 통일신라의 거대한 청동 종입니다.",
+  "description_en": "A monumental Unified Silla bell whose reliefs, inscription, and resonance made it a model for Korean Buddhist bells.",
+  "hook": "A sculpture you are meant to hear.",
+  "image_url": "images/heroes/hero_divine_bell/divine-bell-seongdeok.svg",
+  "images": [
+    {
+      "path": "images/heroes/hero_divine_bell/divine-bell-seongdeok.svg",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Bell_of_King_Seongdeok.jpg",
+      "license": "CC0 source candidate; local SVG placeholder until download recovers",
+      "credit": "Local placeholder by museum-as-code; source candidate: Wikimedia Commons"
+    }
+  ],
+  "license": "CC0 source candidate; local SVG placeholder until download recovers",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Bell_of_King_Seongdeok.jpg",
+  "credit": "Local placeholder by museum-as-code; source candidate: Wikimedia Commons",
+  "source_urls": [
+    "https://gyeongju.museum.go.kr/eng/html/sub02/0201.html?d_mng_no=14&mng_no=180&mode=V"
+  ],
+  "hgl_file": "artifacts/heroes/hero_divine_bell.hgl",
+  "curator_copy_file": "artifacts/heroes/hero_divine_bell.md",
+  "needs_verification": "Wikimedia returned HTTP 429 during download; local placeholder prevents hotlinking and marks source replacement required.",
+  "created_at": "2026-04-30T03:26:53Z",
+  "updated_at": "2026-04-30T03:26:53Z",
+  "cover_image": "images/heroes/hero_divine_bell/divine-bell-seongdeok.svg"
+}

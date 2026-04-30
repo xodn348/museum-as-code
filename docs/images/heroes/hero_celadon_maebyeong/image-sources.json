@@ -1,0 +1,13 @@
+{
+  "hero_id": "hero_celadon_maebyeong",
+  "images": [
+    {
+      "path": "images/heroes/hero_celadon_maebyeong/celadon-cloud-crane.jpg",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Unknown_artist_-_Prunus_Vase_with_Inlaid_Clouds_and_Flying_Cranes_Design_-_1921.634_-_Cleveland_Museum_of_Art.jpg",
+      "download_url": "https://upload.wikimedia.org/wikipedia/commons/7/70/Unknown_artist_-_Prunus_Vase_with_Inlaid_Clouds_and_Flying_Cranes_Design_-_1921.634_-_Cleveland_Museum_of_Art.jpg",
+      "license": "CC0",
+      "credit": "Cleveland Museum of Art via Wikimedia Commons",
+      "needs_verification": "Local image is a public-domain Goryeo cloud-and-crane prunus vase, not yet verified as National Treasure No. 68. Replace with exact NT68 image if a reusable source is confirmed."
+    }
+  ]
+}

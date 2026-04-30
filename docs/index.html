@@ -13,10 +13,28 @@
   </header>
   <main>
     <div class="tab-bar">
-      <button type="button" class="tab-btn active" data-tab="graph" data-lang-ko="그래프" data-lang-en="Graph">Graph</button>
-      <button type="button" class="tab-btn" data-tab="cards" data-lang-ko="카드" data-lang-en="Cards">Cards</button>
+      <button type="button" class="tab-btn active" data-tab="featured" data-lang-ko="대표 유물" data-lang-en="Featured Artifacts">Featured Artifacts</button>
+      <button type="button" class="tab-btn" data-tab="rooms" data-lang-ko="테마 룸" data-lang-en="Rooms">Rooms</button>
+      <button type="button" class="tab-btn" data-tab="cards" data-lang-ko="전체 유물" data-lang-en="All Artifacts">All Artifacts</button>
+      <button type="button" class="tab-btn" data-tab="graph" data-lang-ko="연결 탐색" data-lang-en="Explore Connections">Explore Connections</button>
     </div>
-    <div id="cy" class="tab-content active">
+    <section id="featured-heroes" class="tab-content active" aria-label="Featured hero artifacts">
+      <div class="featured-intro">
+        <p class="eyebrow" data-lang-ko="Phase C" data-lang-en="Phase C">Phase C</p>
+        <h2 data-lang-ko="대표 유물 10점" data-lang-en="Ten hero artifacts">Ten hero artifacts</h2>
+        <p data-lang-ko="깊이 있는 단일 페이지로 먼저 완성한 한국 문화유산의 입구입니다." data-lang-en="A focused entrance to Korean heritage, built as immersive single-object pages first.">A focused entrance to Korean heritage, built as immersive single-object pages first.</p>
+      </div>
+      <div id="featured-grid"></div>
+    </section>
+    <section id="rooms" class="tab-content" aria-label="Curated rooms">
+      <div class="rooms-intro">
+        <p class="eyebrow" data-lang-ko="Phase A" data-lang-en="Phase A">Phase A</p>
+        <h2 data-lang-ko="테마 룸" data-lang-en="Curated rooms">Curated rooms</h2>
+        <p data-lang-ko="그래프보다 먼저 만나는 큐레이션 입구입니다. 각 방은 대표 유물 페이지와 전체 컬렉션을 연결합니다." data-lang-en="A curated entrance before the graph. Each room connects immersive hero pages with the broader collection.">A curated entrance before the graph. Each room connects immersive hero pages with the broader collection.</p>
+      </div>
+      <div id="rooms-grid"></div>
+    </section>
+    <div id="cy" class="tab-content">
       <div id="edge-filters">
         <label><input type="checkbox" data-edge-type="category" checked> <span class="edge-swatch" style="background:#66aa77"></span><span data-lang-ko="분류" data-lang-en="Category">Category</span></label>
         <label><input type="checkbox" data-edge-type="era" checked> <span class="edge-swatch" style="background:#6699cc"></span><span data-lang-ko="시대" data-lang-en="Era">Era</span></label>

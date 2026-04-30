@@ -1,87 +1,63 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "Artifact",
-  "description": "Korean National Museum artifact metadata schema",
+  "title": "Museum as Code Artifact Sidecar",
+  "description": "Canonical sidecar schema for museum-as-code artifacts after Phase B provenance normalization.",
   "type": "object",
   "required": [
     "id",
     "name",
-    "designation_number",
+    "designation",
     "designation_type",
     "era",
     "material",
     "location",
-    "hgl_file"
+    "hgl_file",
+    "license",
+    "source_url",
+    "credit",
+    "confidence"
   ],
   "properties": {
-    "id": {
-      "type": "string",
-      "description": "Unique artifact ID (e.g., nb_001 for national treasure, bt_001 for treasure)",
-      "pattern": "^(nb|bt)_[0-9]{3}$"
+    "id": { "type": "string", "pattern": "^(nb|bt|kdh)_[0-9]{3}(_[0-9]+)?$" },
+    "name": { "type": "string" },
+    "name_en": { "type": "string" },
+    "designation": { "type": "string" },
+    "designation_ko": { "type": "string" },
+    "designation_type": { "type": "string" },
+    "category": { "type": "string" },
+    "era": { "type": "string" },
+    "material": { "type": "string" },
+    "size": { "type": "string" },
+    "location": { "type": "string" },
+    "description": { "type": "string" },
+    "description_en": { "type": "string" },
+    "image_url": { "type": "string", "description": "Local docs-relative path only; remote URLs belong in source_url." },
+    "images": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["path", "source_url", "license", "credit"],
+        "properties": {
+          "path": { "type": "string" },
+          "source_url": { "type": "string" },
+          "license": { "type": "string" },
+          "credit": { "type": "string" },
+          "needs_verification": { "type": "string" }
+        }
+      }
     },
-    "name": {
-      "type": "string",
-      "description": "Korean name (이름)"
-    },
-    "english_name": {
-      "type": "string",
-      "description": "English name translation"
-    },
-    "designation_number": {
-      "type": "string",
-      "description": "Designation number (e.g., 국보 제1호, 보물 제1호)"
-    },
-    "designation_type": {
-      "type": "string",
-      "enum": ["국보", "보물"],
-      "description": "Type: national treasure (국보) or treasure (보물)"
-    },
-    "category": {
-      "type": "string",
-      "description": "Classification category (분류)"
-    },
-    "era": {
-      "type": "string",
-      "description": "Historical era (시대)"
-    },
-    "material": {
-      "type": "string",
-      "description": "Material composition (재질)"
-    },
-    "size": {
-      "type": "string",
-      "description": "Dimensions and size (크기)"
-    },
-    "location": {
-      "type": "string",
-      "description": "Current location or museum (소장처)"
-    },
-    "description": {
-      "type": "string",
-      "description": "Detailed description (설명)"
-    },
-    "image_url": {
-      "type": "string",
-      "description": "Primary image URL for the artifact",
-      "format": "uri"
-    },
-    "api_source": {
-      "type": "string",
-      "description": "Source API used to fetch this data (e.g., heritage.go.kr, manual)"
-    },
-    "hgl_file": {
-      "type": "string",
-      "description": "Relative path to the corresponding .hgl file"
-    },
-    "created_at": {
-      "type": "string",
-      "description": "Record creation timestamp",
-      "format": "date-time"
-    },
-    "updated_at": {
-      "type": "string",
-      "description": "Record last update timestamp",
-      "format": "date-time"
-    }
-  }
+    "source_url": { "type": "string" },
+    "source_urls": { "type": "array", "items": { "type": "string" } },
+    "license": { "type": "string" },
+    "credit": { "type": "string" },
+    "confidence": { "type": "string", "enum": ["low", "medium", "high"] },
+    "needs_verification": { "type": "string" },
+    "room_tags": { "type": "array", "items": { "type": "string" } },
+    "hgl_file": { "type": "string" },
+    "curator_copy_file": { "type": "string" },
+    "source": { "type": "string" },
+    "created_at": { "type": "string" },
+    "updated_at": { "type": "string" }
+  },
+  "additionalProperties": true
 }

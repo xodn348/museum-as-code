@@ -1,0 +1,40 @@
+{
+  "id": "hero_moon_jar",
+  "name": "백자 달항아리",
+  "name_en": "White Porcelain Moon Jar",
+  "official_name_en": "White Porcelain Moon Jar",
+  "designation": "National Treasure No. 310",
+  "designation_ko": "국보 제310호",
+  "designation_type": "국보",
+  "era": "조선, 17–18세기",
+  "period_en": "Joseon, 17th–18th century",
+  "material": "백자",
+  "material_en": "White porcelain",
+  "size": "Object-specific dimensions vary; source object verification required",
+  "location": "국립중앙박물관 공개 이미지 예시",
+  "location_en": "National Museum of Korea / public-source example",
+  "category": "Joseon Court",
+  "description": "순백의 둥근 형태와 미세한 비대칭이 조선 미감의 절제를 보여주는 달항아리입니다.",
+  "description_en": "A full, white porcelain form whose slight asymmetry turns restraint into presence.",
+  "hook": "The most radical gesture here is emptiness.",
+  "image_url": "images/heroes/hero_moon_jar/moon-jar-nt262.jpg",
+  "images": [
+    {
+      "path": "images/heroes/hero_moon_jar/moon-jar-nt262.jpg",
+      "source_url": "https://commons.wikimedia.org/wiki/File:%EB%B0%B1%EC%9E%90_%EB%8B%AC%ED%95%AD%EC%95%84%EB%A6%AC(310%ED%98%B8).jpg",
+      "license": "KOGL Type 1",
+      "credit": "Cultural Heritage Administration / Korea Heritage Service via Wikimedia Commons"
+    }
+  ],
+  "license": "KOGL Type 1",
+  "source_url": "https://commons.wikimedia.org/wiki/File:%EB%B0%B1%EC%9E%90_%EB%8B%AC%ED%95%AD%EC%95%84%EB%A6%AC(310%ED%98%B8).jpg",
+  "credit": "Cultural Heritage Administration / Korea Heritage Service via Wikimedia Commons",
+  "source_urls": [
+    "https://english.cha.go.kr/chaen/search/selectGeneralSearchDetail.do?ccebAsno=0003100000000&mn=EN_02_02&pageIndex=33&sCcebCtcd=11&sCcebKdcd=11"
+  ],
+  "hgl_file": "artifacts/heroes/hero_moon_jar.hgl",
+  "curator_copy_file": "artifacts/heroes/hero_moon_jar.md",
+  "needs_verification": "",
+  "created_at": "2026-04-30T03:26:53Z",
+  "updated_at": "2026-04-30T03:26:53Z"
+}

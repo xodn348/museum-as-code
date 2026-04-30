@@ -1,0 +1,46 @@
+{
+  "id": "hero_moon_jar",
+  "name_ko": "백자 달항아리",
+  "name_en": "White Porcelain Moon Jar",
+  "designation": "National Treasure No. 310",
+  "period": "Joseon, 17th–18th century",
+  "period_ko": "조선, 17–18세기",
+  "medium": "White porcelain",
+  "medium_ko": "백자",
+  "location": "National Museum of Korea / public-source example",
+  "location_ko": "국립중앙박물관 공개 이미지 예시",
+  "room": "Joseon Court",
+  "hook": "The most radical gesture here is emptiness.",
+  "summary_en": "A full, white porcelain form whose slight asymmetry turns restraint into presence.",
+  "summary_ko": "순백의 둥근 형태와 미세한 비대칭이 조선 미감의 절제를 보여주는 달항아리입니다.",
+  "cover_image": "images/heroes/hero_moon_jar/moon-jar-nt262.jpg",
+  "images": [
+    {
+      "path": "images/heroes/hero_moon_jar/moon-jar-nt262.jpg",
+      "source_url": "https://commons.wikimedia.org/wiki/File:%EB%B0%B1%EC%9E%90_%EB%8B%AC%ED%95%AD%EC%95%84%EB%A6%AC(310%ED%98%B8).jpg",
+      "license": "KOGL Type 1",
+      "credit": "Cultural Heritage Administration / Korea Heritage Service via Wikimedia Commons"
+    }
+  ],
+  "sections": {
+    "why_this_matters": "Foreign visitors often recognize moon jars as the Korean answer to minimalism: generous, handmade, and never mechanically perfect.",
+    "what_you_are_looking_at": "Large moon jars were usually formed from two hemispheres joined at the center, which helps explain their quiet irregularity. The surface is not blank; it is a field of milky glaze, soft shadow, and small deviations that make the object feel alive.",
+    "the_story": "Made in Joseon kilns connected with court supply, moon jars later became a modern design icon. Their power lies in refusing spectacle: after crowns and incense burners, the moon jar asks the page to slow down and look at white space."
+  },
+  "sections_ko": {
+    "why_this_matters": "승인 후 한국어 큐레이터 카피 확장 예정",
+    "what_you_are_looking_at": "순백의 둥근 형태와 미세한 비대칭이 조선 미감의 절제를 보여주는 달항아리입니다.",
+    "the_story": "영문 본문을 기준으로 사실 검증 후 번역합니다."
+  },
+  "sidecar_path": "../artifacts/heroes/hero_moon_jar.json",
+  "hgl_path": "data/heroes/hero_moon_jar.hgl",
+  "copy_path": "../artifacts/heroes/hero_moon_jar.md",
+  "source_urls": [
+    "https://english.cha.go.kr/chaen/search/selectGeneralSearchDetail.do?ccebAsno=0003100000000&mn=EN_02_02&pageIndex=33&sCcebCtcd=11&sCcebKdcd=11"
+  ],
+  "license": "KOGL Type 1",
+  "credit": "Cultural Heritage Administration / Korea Heritage Service via Wikimedia Commons",
+  "needs_verification": "",
+  "designation_ko": "국보 제310호",
+  "source_url": "https://commons.wikimedia.org/wiki/File:%EB%B0%B1%EC%9E%90_%EB%8B%AC%ED%95%AD%EC%95%84%EB%A6%AC(310%ED%98%B8).jpg"
+}

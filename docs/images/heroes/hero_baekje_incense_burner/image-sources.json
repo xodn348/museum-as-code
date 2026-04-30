@@ -1,0 +1,11 @@
+{
+  "hero_id": "hero_baekje_incense_burner",
+  "images": [
+    {
+      "path": "images/heroes/hero_baekje_incense_burner/baekje-incense-burner.jpg",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Incense_Burner_of_Baekje_in_National_Museum_of_Korea.jpg",
+      "license": "CC BY-SA 2.5 candidate / existing local artifact image fallback",
+      "credit": "Rheo1905 via Wikimedia Commons; local fallback copied from existing artifact asset"
+    }
+  ]
+}

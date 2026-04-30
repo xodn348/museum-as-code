@@ -1,0 +1,65 @@
+{
+  "generated_at": "2026-04-29T00:00:00Z",
+  "rooms": [
+    {
+      "id": "buddhist-sculpture",
+      "name_en": "Buddhist Sculpture",
+      "name_ko": "불교 조각과 의례",
+      "intro_en": "Faces, bells, and ritual forms that made Buddhist devotion visible, audible, and architectural.",
+      "intro_ko": "불교적 사유와 의례가 얼굴, 종, 조형으로 드러나는 방입니다.",
+      "hero_ids": ["hero_pensive_bodhisattva", "hero_divine_bell"],
+      "artifact_ids": ["nb_083", "nb_029"],
+      "sort_order": 1
+    },
+    {
+      "id": "goryeo-celadon",
+      "name_en": "Goryeo Celadon",
+      "name_ko": "고려청자",
+      "intro_en": "Jade-green glaze, inlay, and silhouettes that turn ceramic surfaces into atmosphere.",
+      "intro_ko": "비색 유약과 상감, 실루엣이 도자기 표면을 하나의 분위기로 바꾸는 방입니다.",
+      "hero_ids": ["hero_celadon_maebyeong"],
+      "artifact_ids": ["nb_065"],
+      "sort_order": 2
+    },
+    {
+      "id": "joseon-court",
+      "name_en": "Joseon Court",
+      "name_ko": "조선의 궁중 미감",
+      "intro_en": "White porcelain, restrained surfaces, and courtly systems of taste and production.",
+      "intro_ko": "백자와 절제된 표면, 궁중 취향과 제작 시스템을 다루는 방입니다.",
+      "hero_ids": ["hero_moon_jar"],
+      "artifact_ids": [],
+      "sort_order": 3
+    },
+    {
+      "id": "three-kingdoms-gold",
+      "name_en": "Three Kingdoms Gold",
+      "name_ko": "삼국의 금속공예",
+      "intro_en": "Gold, gilt bronze, dragons, crowns, and court ritual from Silla and Baekje.",
+      "intro_ko": "신라와 백제의 금, 금동, 용, 관, 궁중 의례가 만나는 방입니다.",
+      "hero_ids": ["hero_silla_gold_crown", "hero_baekje_incense_burner"],
+      "artifact_ids": ["nb_087", "nb_287"],
+      "sort_order": 4
+    },
+    {
+      "id": "records-writing",
+      "name_en": "Records & Writing",
+      "name_ko": "기록과 문자",
+      "intro_en": "Books, blocks, charts, and scripts: Korean heritage as stored knowledge.",
+      "intro_ko": "책, 목판, 천문도, 문자처럼 지식을 저장한 유산을 모은 방입니다.",
+      "hero_ids": ["hero_hunminjeongeum", "hero_tripitaka", "hero_celestial_chart"],
+      "artifact_ids": ["nb_032"],
+      "sort_order": 5
+    },
+    {
+      "id": "painting",
+      "name_en": "Painting",
+      "name_ko": "회화와 일상",
+      "intro_en": "People at work and play, observed with economy, humor, and human warmth.",
+      "intro_ko": "노동과 놀이의 장면을 절제와 유머, 인간적 온기로 바라보는 방입니다.",
+      "hero_ids": ["hero_genre_album"],
+      "artifact_ids": [],
+      "sort_order": 6
+    }
+  ]
+}

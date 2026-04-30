@@ -62,7 +62,11 @@ function initGraph() {
               'background-image': 'data(image_url)',
               'background-fit': 'cover',
               'background-clip': 'node',
-              'text-opacity': 0,
+              'text-opacity': 1,
+              'text-background-color': 'rgba(10, 10, 10, 0.72)',
+              'text-background-opacity': 1,
+              'text-background-padding': '3px',
+              'text-margin-y': '36px',
             },
           },
           {

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hero Artifact — Museum as Code</title>
+  <link rel="stylesheet" href="hero.css">
+</head>
+<body data-lang="en">
+  <header class="hero-nav">
+    <a class="back-link" href="index.html" data-lang-en="← Featured Artifacts" data-lang-ko="← 대표 유물">← Featured Artifacts</a>
+    <button type="button" id="lang-toggle" aria-label="Toggle language">한 / EN</button>
+  </header>
+
+  <main id="hero-root" class="loading">
+    <section class="hero-shot" aria-labelledby="hero-title">
+      <div class="hero-image-wrap">
+        <img id="hero-image" alt="" decoding="async">
+      </div>
+      <div class="hero-title-block">
+        <p id="hero-room" class="eyebrow"></p>
+        <h1 id="hero-title"></h1>
+        <p id="hero-subtitle"></p>
+        <p id="hero-hook"></p>
+      </div>
+    </section>
+
+    <section class="hero-meta-panel" aria-label="Artifact metadata">
+      <dl id="hero-meta"></dl>
+    </section>
+
+    <section class="narrative-section" id="why-section">
+      <p class="section-kicker">01</p>
+      <h2 data-lang-en="Why this matters" data-lang-ko="왜 중요한가">Why this matters</h2>
+      <p id="why-copy"></p>
+    </section>
+
+    <section class="narrative-section split" id="looking-section">
+      <div>
+        <p class="section-kicker">02</p>
+        <h2 data-lang-en="What you're looking at" data-lang-ko="무엇을 보는가">What you're looking at</h2>
+        <p id="looking-copy"></p>
+      </div>
+      <figure>
+        <img id="detail-image" alt="">
+        <figcaption id="image-credit"></figcaption>
+      </figure>
+    </section>
+
+    <section class="narrative-section" id="story-section">
+      <p class="section-kicker">03</p>
+      <h2 data-lang-en="The story" data-lang-ko="이야기">The story</h2>
+      <p id="story-copy"></p>
+    </section>
+
+    <section class="source-panel" aria-labelledby="source-title">
+      <div class="source-panel-heading">
+        <p class="section-kicker">.hgl</p>
+        <h2 id="source-title" data-lang-en="Source code of this artifact" data-lang-ko="이 유물의 소스 코드">Source code of this artifact</h2>
+      </div>
+      <pre><code id="hero-hgl"></code></pre>
+    </section>
+
+    <footer class="hero-footer">
+      <div>
+        <strong data-lang-en="License / credit" data-lang-ko="라이선스 / 크레딧">License / credit</strong>
+        <p id="license-line"></p>
+      </div>
+      <nav id="next-prev" aria-label="Hero navigation"></nav>
+    </footer>
+  </main>
+
+  <div id="hero-error" class="hidden" role="alert"></div>
+  <script src="hero.js"></script>
+</body>
+</html>

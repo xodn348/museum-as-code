@@ -1,0 +1,11 @@
+{
+  "hero_id": "hero_tripitaka",
+  "images": [
+    {
+      "path": "images/heroes/hero_tripitaka/tripitaka-koreana-woodblock.jpg",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Korea-Haeinsa_Tripitaka_Koreana_woodblock_2770-06a.jpg",
+      "license": "CC BY-SA 3.0 candidate / existing local artifact image fallback",
+      "credit": "Wikimedia Commons contributor; local fallback copied from existing artifact asset"
+    }
+  ]
+}

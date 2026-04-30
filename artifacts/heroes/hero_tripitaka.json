@@ -1,0 +1,40 @@
+{
+  "id": "hero_tripitaka",
+  "name": "합천 해인사 대장경판",
+  "name_en": "Printing Woodblocks of the Tripiṭaka Koreana",
+  "official_name_en": "Printing Woodblocks of the Tripiṭaka Koreana",
+  "designation": "National Treasure No. 32",
+  "designation_ko": "국보 제32호",
+  "designation_type": "국보",
+  "era": "고려, 1236–1251년",
+  "period_en": "Goryeo, 1236–1251",
+  "material": "목판",
+  "material_en": "Woodblocks",
+  "size": "81,258 woodblocks",
+  "location": "해인사",
+  "location_en": "Haeinsa Temple",
+  "category": "Records & Writing",
+  "description": "고려가 새긴 8만여 장의 불교 경전 목판으로, 지식 보존의 거대한 시스템입니다.",
+  "description_en": "More than 80,000 Buddhist printing blocks, carved in Goryeo as a monumental act of preservation.",
+  "hook": "A library carved so carefully it became architecture.",
+  "image_url": "images/heroes/hero_tripitaka/tripitaka-koreana-woodblock.jpg",
+  "images": [
+    {
+      "path": "images/heroes/hero_tripitaka/tripitaka-koreana-woodblock.jpg",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Korea-Haeinsa_Tripitaka_Koreana_woodblock_2770-06a.jpg",
+      "license": "CC BY-SA 3.0 candidate / existing local artifact image fallback",
+      "credit": "Wikimedia Commons contributor; local fallback copied from existing artifact asset"
+    }
+  ],
+  "license": "CC BY-SA 3.0 candidate / existing local artifact image fallback",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Korea-Haeinsa_Tripitaka_Koreana_woodblock_2770-06a.jpg",
+  "credit": "Wikimedia Commons contributor; local fallback copied from existing artifact asset",
+  "source_urls": [
+    "https://english.cha.go.kr/chaen/search/selectGeneralSearchDetail.do?ccebAsno=05040000&ccebKdcd=13&mn=EN_02_02&pageIndex=47&sCcebCtcd=38&sCcebKdcd=13"
+  ],
+  "hgl_file": "artifacts/heroes/hero_tripitaka.hgl",
+  "curator_copy_file": "artifacts/heroes/hero_tripitaka.md",
+  "needs_verification": "",
+  "created_at": "2026-04-30T03:26:53Z",
+  "updated_at": "2026-04-30T03:26:53Z"
+}

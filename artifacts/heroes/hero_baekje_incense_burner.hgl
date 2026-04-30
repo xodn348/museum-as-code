@@ -1,0 +1,36 @@
+// 백제 금동대향로 — Phase C hero artifact
+// A whole mountain smokes inside a ritual vessel.
+// Source metadata is tracked in artifacts/heroes/hero_baekje_incense_burner.json
+
+구조 히어로유물_hero_baekje_incense_burner {
+    이름: 문자열,
+    영문명: 문자열,
+    지정번호: 문자열,
+    시대: 문자열,
+    재질: 문자열,
+    크기: 문자열,
+    소장처: 문자열,
+    제작연도: 문자열,
+    의의: 문자열,
+    이미지경로: 문자열,
+    라이선스: 문자열,
+}
+
+함수 main() {
+    변수 이름 = "백제 금동대향로"
+    변수 영문명 = "Great Gilt-bronze Incense Burner of Baekje"
+    변수 지정번호 = "국보 제287호"
+    변수 시대 = "백제, 6–7세기"
+    변수 재질 = "금동"
+    변수 크기 = "Height 61.8 cm; maximum diameter 19.0 cm"
+    변수 소장처 = "국립부여박물관"
+    변수 제작연도 = "Baekje, 6th–7th century"
+    변수 의의 = "봉황, 산악형 뚜껑, 연꽃 몸체, 용 받침이 한 몸을 이룬 백제 공예의 절정입니다."
+    변수 이미지경로 = "images/heroes/hero_baekje_incense_burner/baekje-incense-burner.jpg"
+    변수 라이선스 = "CC BY-SA 4.0"
+
+    출력(형식("{0} — {1}", 이름, 지정번호))
+    출력(의의)
+}
+
+main()

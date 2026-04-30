@@ -1,0 +1,11 @@
+{
+  "hero_id": "hero_moon_jar",
+  "images": [
+    {
+      "path": "images/heroes/hero_moon_jar/moon-jar-nt262.jpg",
+      "source_url": "https://commons.wikimedia.org/wiki/File:%EB%B0%B1%EC%9E%90_%EB%8B%AC%ED%95%AD%EC%95%84%EB%A6%AC(310%ED%98%B8).jpg",
+      "license": "KOGL Type 1",
+      "credit": "Cultural Heritage Administration / Korea Heritage Service via Wikimedia Commons"
+    }
+  ]
+}

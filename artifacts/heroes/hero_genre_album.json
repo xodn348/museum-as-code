@@ -1,0 +1,40 @@
+{
+  "id": "hero_genre_album",
+  "name": "김홍도 필 풍속도 화첩",
+  "name_en": "Album of Genre Paintings by Kim Hong-do (Danwon)",
+  "official_name_en": "Album of Genre Paintings by Kim Hong-do",
+  "designation": "Treasure No. 527",
+  "designation_ko": "보물 제527호",
+  "designation_type": "보물",
+  "era": "조선, 18세기",
+  "period_en": "Joseon, 18th century",
+  "material": "종이에 담채",
+  "material_en": "Ink and light color on paper",
+  "size": "Individual album leaves about 27–28 × 22–24 cm",
+  "location": "국립중앙박물관",
+  "location_en": "National Museum of Korea",
+  "category": "Painting",
+  "description": "김홍도의 풍속도첩은 노동과 놀이, 유머와 움직임을 히어로 목록 안으로 끌어옵니다.",
+  "description_en": "Kim Hong-do’s genre album brings labor, play, humor, and movement into the hero sequence.",
+  "hook": "After kings and Buddhas, ordinary people take the stage.",
+  "image_url": "images/heroes/hero_genre_album/danwon-ssireum.jpg",
+  "images": [
+    {
+      "path": "images/heroes/hero_genre_album/danwon-ssireum.jpg",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Danwon-Ssireum.jpg",
+      "license": "Public domain",
+      "credit": "Wikimedia Commons public-domain reproduction"
+    }
+  ],
+  "license": "Public domain",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Danwon-Ssireum.jpg",
+  "credit": "Wikimedia Commons public-domain reproduction",
+  "source_urls": [
+    "https://www.museum.go.kr/ENG/contents/E0403000000.do?relicId=551&schM=view&searchId=search"
+  ],
+  "hgl_file": "artifacts/heroes/hero_genre_album.hgl",
+  "curator_copy_file": "artifacts/heroes/hero_genre_album.md",
+  "needs_verification": "",
+  "created_at": "2026-04-30T03:26:53Z",
+  "updated_at": "2026-04-30T03:26:53Z"
+}

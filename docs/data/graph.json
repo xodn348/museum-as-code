@@ -455,8 +455,24 @@
         "data": {
           "source": "kdh_001",
           "target": "kdh_002",
+          "type": "category",
+          "value": "KDH cultural reference"
+        }
+      },
+      {
+        "data": {
+          "source": "kdh_001",
+          "target": "kdh_002",
           "type": "location",
           "value": "국립중앙박물관"
+        }
+      },
+      {
+        "data": {
+          "source": "kdh_001",
+          "target": "kdh_003",
+          "type": "category",
+          "value": "KDH cultural reference"
         }
       },
       {
@@ -487,8 +503,24 @@
         "data": {
           "source": "kdh_001",
           "target": "kdh_004",
+          "type": "category",
+          "value": "KDH cultural reference"
+        }
+      },
+      {
+        "data": {
+          "source": "kdh_001",
+          "target": "kdh_004",
           "type": "location",
           "value": "국립중앙박물관"
+        }
+      },
+      {
+        "data": {
+          "source": "kdh_001",
+          "target": "kdh_005",
+          "type": "category",
+          "value": "KDH cultural reference"
         }
       },
       {
@@ -505,6 +537,22 @@
           "target": "kdh_006",
           "type": "era",
           "value": "삼국시대"
+        }
+      },
+      {
+        "data": {
+          "source": "kdh_001",
+          "target": "kdh_006",
+          "type": "category",
+          "value": "KDH cultural reference"
+        }
+      },
+      {
+        "data": {
+          "source": "kdh_001",
+          "target": "kdh_007",
+          "type": "category",
+          "value": "KDH cultural reference"
         }
       },
       {
@@ -1055,8 +1103,24 @@
         "data": {
           "source": "kdh_002",
           "target": "kdh_003",
+          "type": "category",
+          "value": "KDH cultural reference"
+        }
+      },
+      {
+        "data": {
+          "source": "kdh_002",
+          "target": "kdh_003",
           "type": "location",
           "value": "국립중앙박물관"
+        }
+      },
+      {
+        "data": {
+          "source": "kdh_002",
+          "target": "kdh_004",
+          "type": "category",
+          "value": "KDH cultural reference"
         }
       },
       {
@@ -1071,8 +1135,32 @@
         "data": {
           "source": "kdh_002",
           "target": "kdh_005",
+          "type": "category",
+          "value": "KDH cultural reference"
+        }
+      },
+      {
+        "data": {
+          "source": "kdh_002",
+          "target": "kdh_005",
           "type": "location",
           "value": "국립중앙박물관"
+        }
+      },
+      {
+        "data": {
+          "source": "kdh_002",
+          "target": "kdh_006",
+          "type": "category",
+          "value": "KDH cultural reference"
+        }
+      },
+      {
+        "data": {
+          "source": "kdh_002",
+          "target": "kdh_007",
+          "type": "category",
+          "value": "KDH cultural reference"
         }
       },
       {
@@ -1455,6 +1543,14 @@
         "data": {
           "source": "kdh_003",
           "target": "kdh_004",
+          "type": "category",
+          "value": "KDH cultural reference"
+        }
+      },
+      {
+        "data": {
+          "source": "kdh_003",
+          "target": "kdh_004",
           "type": "location",
           "value": "국립중앙박물관"
         }
@@ -1463,8 +1559,32 @@
         "data": {
           "source": "kdh_003",
           "target": "kdh_005",
+          "type": "category",
+          "value": "KDH cultural reference"
+        }
+      },
+      {
+        "data": {
+          "source": "kdh_003",
+          "target": "kdh_005",
           "type": "location",
           "value": "국립중앙박물관"
+        }
+      },
+      {
+        "data": {
+          "source": "kdh_003",
+          "target": "kdh_006",
+          "type": "category",
+          "value": "KDH cultural reference"
+        }
+      },
+      {
+        "data": {
+          "source": "kdh_003",
+          "target": "kdh_007",
+          "type": "category",
+          "value": "KDH cultural reference"
         }
       },
       {
@@ -1903,6 +2023,14 @@
         "data": {
           "source": "kdh_004",
           "target": "kdh_005",
+          "type": "category",
+          "value": "KDH cultural reference"
+        }
+      },
+      {
+        "data": {
+          "source": "kdh_004",
+          "target": "kdh_005",
           "type": "location",
           "value": "국립중앙박물관"
         }
@@ -1913,6 +2041,22 @@
           "target": "kdh_006",
           "type": "era",
           "value": "삼국시대"
+        }
+      },
+      {
+        "data": {
+          "source": "kdh_004",
+          "target": "kdh_006",
+          "type": "category",
+          "value": "KDH cultural reference"
+        }
+      },
+      {
+        "data": {
+          "source": "kdh_004",
+          "target": "kdh_007",
+          "type": "category",
+          "value": "KDH cultural reference"
         }
       },
       {
@@ -2374,9 +2518,25 @@
       {
         "data": {
           "source": "kdh_005",
+          "target": "kdh_006",
+          "type": "category",
+          "value": "KDH cultural reference"
+        }
+      },
+      {
+        "data": {
+          "source": "kdh_005",
           "target": "kdh_007",
           "type": "era",
           "value": "백제시대"
+        }
+      },
+      {
+        "data": {
+          "source": "kdh_005",
+          "target": "kdh_007",
+          "type": "category",
+          "value": "KDH cultural reference"
         }
       },
       {
@@ -2657,6 +2817,14 @@
           "target": "nb_531",
           "type": "location",
           "value": "국립중앙박물관"
+        }
+      },
+      {
+        "data": {
+          "source": "kdh_006",
+          "target": "kdh_007",
+          "type": "category",
+          "value": "KDH cultural reference"
         }
       },
       {

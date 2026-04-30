@@ -1,0 +1,40 @@
+{
+  "id": "hero_celadon_maebyeong",
+  "name": "청자 상감운학문 매병",
+  "name_en": "Celadon Prunus Vase with Inlaid Cloud and Crane Design",
+  "official_name_en": "Celadon Prunus Vase with Inlaid Cloud and Crane Design",
+  "designation": "National Treasure No. 68",
+  "designation_ko": "국보 제68호",
+  "designation_type": "국보",
+  "era": "고려, 12세기",
+  "period_en": "Goryeo, 12th century",
+  "material": "상감청자",
+  "material_en": "Inlaid celadon",
+  "size": "Height about 42.1 cm (source verification required)",
+  "location": "간송미술관",
+  "location_en": "Kansong Art Museum",
+  "category": "Goryeo Celadon",
+  "description": "운학문 상감과 팽팽한 실루엣으로 고려청자의 정수를 보여주는 매병입니다.",
+  "description_en": "The iconic Goryeo celadon maebyeong, celebrated for its cloud-and-crane inlay and taut, elegant silhouette.",
+  "hook": "A vase where cranes drift through jade-green air.",
+  "image_url": "images/heroes/hero_celadon_maebyeong/celadon-cloud-crane.jpg",
+  "images": [
+    {
+      "path": "images/heroes/hero_celadon_maebyeong/celadon-cloud-crane.jpg",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Unknown_artist_-_Prunus_Vase_with_Inlaid_Clouds_and_Flying_Cranes_Design_-_1921.634_-_Cleveland_Museum_of_Art.jpg",
+      "license": "CC0",
+      "credit": "Cleveland Museum of Art via Wikimedia Commons"
+    }
+  ],
+  "license": "CC0",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Unknown_artist_-_Prunus_Vase_with_Inlaid_Clouds_and_Flying_Cranes_Design_-_1921.634_-_Cleveland_Museum_of_Art.jpg",
+  "credit": "Cleveland Museum of Art via Wikimedia Commons",
+  "source_urls": [
+    "https://kansong.org/eng/index.do?menu_id=00004581"
+  ],
+  "hgl_file": "artifacts/heroes/hero_celadon_maebyeong.hgl",
+  "curator_copy_file": "artifacts/heroes/hero_celadon_maebyeong.md",
+  "needs_verification": "Local image is a public-domain Goryeo cloud-and-crane prunus vase, not yet verified as National Treasure No. 68. Replace with exact NT68 image if a reusable source is confirmed.",
+  "created_at": "2026-04-30T03:26:53Z",
+  "updated_at": "2026-04-30T03:26:53Z"
+}

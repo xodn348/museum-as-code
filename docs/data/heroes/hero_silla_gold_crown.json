@@ -1,0 +1,44 @@
+{
+  "id": "hero_silla_gold_crown",
+  "name_ko": "금관총 금관",
+  "name_en": "Gold Crown from Geumgwanchong Tomb",
+  "designation": "National Treasure No. 87",
+  "period": "Silla, 5th century",
+  "period_ko": "신라, 5세기",
+  "medium": "Gold and jade",
+  "medium_ko": "금, 곡옥",
+  "location": "National Museum of Korea",
+  "location_ko": "국립중앙박물관",
+  "room": "Three Kingdoms Gold",
+  "hook": "A crown that looks less worn than grown.",
+  "summary_en": "A Silla gold crown whose tree-like uprights and jade pendants turn royal power into ritual landscape.",
+  "summary_ko": "나뭇가지 모양 입식과 곡옥 장식이 신라 왕권과 제의를 압축한 금관입니다.",
+  "cover_image": "images/heroes/hero_silla_gold_crown/geumgwanchong-crown.jpg",
+  "images": [
+    {
+      "path": "images/heroes/hero_silla_gold_crown/geumgwanchong-crown.jpg",
+      "source_url": "https://commons.wikimedia.org/wiki/File:%EA%B8%88%EA%B4%80%EC%B4%9D%EA%B8%88%EA%B4%80.jpg",
+      "license": "KOGL Type 1",
+      "credit": "Korea Heritage Service via Wikimedia Commons"
+    }
+  ],
+  "sections": {
+    "why_this_matters": "Gold needs no translation. This crown gives the sequence a flash of Silla spectacle and an immediately readable image of ancient kingship.",
+    "what_you_are_looking_at": "The crown is built from a headband with vertical branch-shaped uprights and suspended ornaments. Thin gold sheet, stamped patterns, and curved jade pieces make it shimmer with movement even when still.",
+    "the_story": "Silla tombs preserved crowns, belts, vessels, and horse gear as part of an elite burial world. The Geumgwanchong crown remains one of the clearest images of that world: a ruler framed by trees, antlers, light, and ritual authority."
+  },
+  "sections_ko": {
+    "why_this_matters": "승인 후 한국어 큐레이터 카피 확장 예정",
+    "what_you_are_looking_at": "나뭇가지 모양 입식과 곡옥 장식이 신라 왕권과 제의를 압축한 금관입니다.",
+    "the_story": "영문 본문을 기준으로 사실 검증 후 번역합니다."
+  },
+  "sidecar_path": "../artifacts/heroes/hero_silla_gold_crown.json",
+  "hgl_path": "data/heroes/hero_silla_gold_crown.hgl",
+  "copy_path": "../artifacts/heroes/hero_silla_gold_crown.md",
+  "source_urls": [
+    "https://www.museum.go.kr/ENG/contents/E0401000000.do?relicRecommendId=519701&schM=view"
+  ],
+  "license": "KOGL Type 1",
+  "credit": "Korea Heritage Service via Wikimedia Commons",
+  "needs_verification": ""
+}

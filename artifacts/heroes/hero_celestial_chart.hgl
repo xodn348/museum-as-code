@@ -1,0 +1,36 @@
+// 천상열차분야지도 각석 — Phase C hero artifact
+// The new dynasty wrote its sky in stone.
+// Source metadata is tracked in artifacts/heroes/hero_celestial_chart.json
+
+구조 히어로유물_hero_celestial_chart {
+    이름: 문자열,
+    영문명: 문자열,
+    지정번호: 문자열,
+    시대: 문자열,
+    재질: 문자열,
+    크기: 문자열,
+    소장처: 문자열,
+    제작연도: 문자열,
+    의의: 문자열,
+    이미지경로: 문자열,
+    라이선스: 문자열,
+}
+
+함수 main() {
+    변수 이름 = "천상열차분야지도 각석"
+    변수 영문명 = "Stone Constellation Chart (Cheonsang Yeolcha Bunyajido)"
+    변수 지정번호 = "국보 제228호"
+    변수 시대 = "조선, 1395년"
+    변수 재질 = "석각"
+    변수 크기 = "About 211.0 × 123.0 cm (catalogue source)"
+    변수 소장처 = "국립고궁박물관"
+    변수 제작연도 = "Joseon, 1395"
+    변수 의의 = "별자리와 계절, 왕조의 정당성을 검은 돌 위에 새긴 조선의 천문도입니다."
+    변수 이미지경로 = "images/heroes/hero_celestial_chart/cheonsang-chart.jpg"
+    변수 라이선스 = "CC0"
+
+    출력(형식("{0} — {1}", 이름, 지정번호))
+    출력(의의)
+}
+
+main()

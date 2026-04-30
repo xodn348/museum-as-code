@@ -1,0 +1,44 @@
+{
+  "id": "hero_pensive_bodhisattva",
+  "name_ko": "금동미륵보살반가사유상",
+  "name_en": "Pensive Bodhisattva",
+  "designation": "National Treasure No. 83",
+  "period": "Three Kingdoms Period, early 7th century",
+  "period_ko": "삼국시대, 7세기 초",
+  "medium": "Gilt bronze",
+  "medium_ko": "금동",
+  "location": "National Museum of Korea",
+  "location_ko": "국립중앙박물관",
+  "room": "Buddhist Sculpture",
+  "hook": "A single figure turns thought itself into sculpture.",
+  "summary_en": "A serene gilt-bronze bodhisattva whose crossed leg, lowered gaze, and slight smile have become an emblem of Korean Buddhist art.",
+  "summary_ko": "반가의 자세, 내려앉은 시선, 미소가 한국 불교조각의 상징이 된 금동 보살상입니다.",
+  "cover_image": "images/heroes/hero_pensive_bodhisattva/meditating-maitreya.jpg",
+  "images": [
+    {
+      "path": "images/heroes/hero_pensive_bodhisattva/meditating-maitreya.jpg",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Meditating_Maitreya._Gilded_bronze._National_Museum_of_Korea.jpg",
+      "license": "CC BY-SA 4.0",
+      "credit": "Photo by Slices of Light via Wikimedia Commons"
+    }
+  ],
+  "sections": {
+    "why_this_matters": "For visitors new to Korean art, this is the quietest possible monument: not a ruler, not a weapon, but concentration made visible.",
+    "what_you_are_looking_at": "The bodhisattva sits with one leg folded over the other and one hand lifted toward the cheek, a posture associated with contemplative images of Maitreya. The body is spare rather than ornamental: a simple crown, exposed torso, and balanced proportions keep attention on the face and hand.",
+    "the_story": "Such pensive images moved across East Asia with Buddhism, but Korea gave the type an unusually inward mood. National Treasure No. 83 is often compared with the red-pine bodhisattva at Kōryūji in Kyoto, a reminder that sculpture, belief, and technique crossed the sea long before modern borders."
+  },
+  "sections_ko": {
+    "why_this_matters": "승인 후 한국어 큐레이터 카피 확장 예정",
+    "what_you_are_looking_at": "반가의 자세, 내려앉은 시선, 미소가 한국 불교조각의 상징이 된 금동 보살상입니다.",
+    "the_story": "영문 본문을 기준으로 사실 검증 후 번역합니다."
+  },
+  "sidecar_path": "../artifacts/heroes/hero_pensive_bodhisattva.json",
+  "hgl_path": "data/heroes/hero_pensive_bodhisattva.hgl",
+  "copy_path": "../artifacts/heroes/hero_pensive_bodhisattva.md",
+  "source_urls": [
+    "https://www.museum.go.kr/CHN/contents/E0403000000.do?relicId=1256&schM=relic_represent_view"
+  ],
+  "license": "CC BY-SA 4.0",
+  "credit": "Photo by Slices of Light via Wikimedia Commons",
+  "needs_verification": ""
+}

@@ -1,0 +1,44 @@
+{
+  "id": "hero_hunminjeongeum",
+  "name_ko": "훈민정음 해례본",
+  "name_en": "Hunminjeongeum Manuscript (Haerye Edition)",
+  "designation": "National Treasure No. 70 / UNESCO Memory of the World",
+  "period": "Joseon, 1446",
+  "period_ko": "조선, 1446년",
+  "medium": "Printed book on paper",
+  "medium_ko": "종이 인쇄본",
+  "location": "Kansong Art Museum",
+  "location_ko": "간송미술관",
+  "room": "Records & Writing",
+  "hook": "A writing system appears with its own source code.",
+  "summary_en": "The book that explains why Hangul was invented and how its letters work.",
+  "summary_ko": "한글이 왜 만들어졌고 어떻게 작동하는지 설명하는 문자 창제의 원본 기록입니다.",
+  "cover_image": "images/heroes/hero_hunminjeongeum/hunminjeongeum-haerye.jpg",
+  "images": [
+    {
+      "path": "images/heroes/hero_hunminjeongeum/hunminjeongeum-haerye.jpg",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Hunminjeongeum_Haerye_10.jpg",
+      "license": "Public domain",
+      "credit": "Kyujanggak scan via Wikimedia Commons"
+    }
+  ],
+  "sections": {
+    "why_this_matters": "For Museum as Code, this is the conceptual anchor: a language object that explains its own design decisions.",
+    "what_you_are_looking_at": "The Haerye edition contains King Sejong’s preface and examples, followed by scholarly explanations of the principles behind the letters. It is not merely a display of beautiful script; it is a technical document about phonology, access, and design.",
+    "the_story": "Published in 1446, Hunminjeongeum made a new alphabet public and explained it with unusual clarity. In this project, the `.hgl` panel is not decoration beside the manuscript; it is a contemporary echo of Korea’s long habit of treating language as infrastructure."
+  },
+  "sections_ko": {
+    "why_this_matters": "승인 후 한국어 큐레이터 카피 확장 예정",
+    "what_you_are_looking_at": "한글이 왜 만들어졌고 어떻게 작동하는지 설명하는 문자 창제의 원본 기록입니다.",
+    "the_story": "영문 본문을 기준으로 사실 검증 후 번역합니다."
+  },
+  "sidecar_path": "../artifacts/heroes/hero_hunminjeongeum.json",
+  "hgl_path": "data/heroes/hero_hunminjeongeum.hgl",
+  "copy_path": "../artifacts/heroes/hero_hunminjeongeum.md",
+  "source_urls": [
+    "https://english.cha.go.kr/cop/bbs/selectBoardArticle.do?bbsId=BBSMSTR_1205&ctgryLrcls=&mn=EN_03_01&nttId=57977&uniq=0"
+  ],
+  "license": "Public domain",
+  "credit": "Kyujanggak scan via Wikimedia Commons",
+  "needs_verification": ""
+}

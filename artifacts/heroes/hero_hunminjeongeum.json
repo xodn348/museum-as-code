@@ -1,0 +1,40 @@
+{
+  "id": "hero_hunminjeongeum",
+  "name": "훈민정음 해례본",
+  "name_en": "Hunminjeongeum Manuscript (Haerye Edition)",
+  "official_name_en": "Hunminjeongeum Manuscript",
+  "designation": "National Treasure No. 70 / UNESCO Memory of the World",
+  "designation_ko": "국보 제70호 / 유네스코 세계기록유산",
+  "designation_type": "국보",
+  "era": "조선, 1446년",
+  "period_en": "Joseon, 1446",
+  "material": "종이 인쇄본",
+  "material_en": "Printed book on paper",
+  "size": "33 leaves (as described in heritage sources)",
+  "location": "간송미술관",
+  "location_en": "Kansong Art Museum",
+  "category": "Records & Writing",
+  "description": "한글이 왜 만들어졌고 어떻게 작동하는지 설명하는 문자 창제의 원본 기록입니다.",
+  "description_en": "The book that explains why Hangul was invented and how its letters work.",
+  "hook": "A writing system appears with its own source code.",
+  "image_url": "images/heroes/hero_hunminjeongeum/hunminjeongeum-haerye.jpg",
+  "images": [
+    {
+      "path": "images/heroes/hero_hunminjeongeum/hunminjeongeum-haerye.jpg",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Hunminjeongeum_Haerye_10.jpg",
+      "license": "Public domain",
+      "credit": "Kyujanggak scan via Wikimedia Commons"
+    }
+  ],
+  "license": "Public domain",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Hunminjeongeum_Haerye_10.jpg",
+  "credit": "Kyujanggak scan via Wikimedia Commons",
+  "source_urls": [
+    "https://english.cha.go.kr/cop/bbs/selectBoardArticle.do?bbsId=BBSMSTR_1205&ctgryLrcls=&mn=EN_03_01&nttId=57977&uniq=0"
+  ],
+  "hgl_file": "artifacts/heroes/hero_hunminjeongeum.hgl",
+  "curator_copy_file": "artifacts/heroes/hero_hunminjeongeum.md",
+  "needs_verification": "",
+  "created_at": "2026-04-30T03:26:53Z",
+  "updated_at": "2026-04-30T03:26:53Z"
+}

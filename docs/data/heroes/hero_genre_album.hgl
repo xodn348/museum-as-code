@@ -1,0 +1,36 @@
+// 김홍도 필 풍속도 화첩 — Phase C hero artifact
+// After kings and Buddhas, ordinary people take the stage.
+// Source metadata is tracked in artifacts/heroes/hero_genre_album.json
+
+구조 히어로유물_hero_genre_album {
+    이름: 문자열,
+    영문명: 문자열,
+    지정번호: 문자열,
+    시대: 문자열,
+    재질: 문자열,
+    크기: 문자열,
+    소장처: 문자열,
+    제작연도: 문자열,
+    의의: 문자열,
+    이미지경로: 문자열,
+    라이선스: 문자열,
+}
+
+함수 main() {
+    변수 이름 = "김홍도 필 풍속도 화첩"
+    변수 영문명 = "Album of Genre Paintings by Kim Hong-do (Danwon)"
+    변수 지정번호 = "보물 제527호"
+    변수 시대 = "조선, 18세기"
+    변수 재질 = "종이에 담채"
+    변수 크기 = "Individual album leaves about 27–28 × 22–24 cm"
+    변수 소장처 = "국립중앙박물관"
+    변수 제작연도 = "Joseon, 18th century"
+    변수 의의 = "김홍도의 풍속도첩은 노동과 놀이, 유머와 움직임을 히어로 목록 안으로 끌어옵니다."
+    변수 이미지경로 = "images/heroes/hero_genre_album/danwon-ssireum.jpg"
+    변수 라이선스 = "Public domain"
+
+    출력(형식("{0} — {1}", 이름, 지정번호))
+    출력(의의)
+}
+
+main()

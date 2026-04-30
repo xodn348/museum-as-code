@@ -1,0 +1,36 @@
+// 합천 해인사 대장경판 — Phase C hero artifact
+// A library carved so carefully it became architecture.
+// Source metadata is tracked in artifacts/heroes/hero_tripitaka.json
+
+구조 히어로유물_hero_tripitaka {
+    이름: 문자열,
+    영문명: 문자열,
+    지정번호: 문자열,
+    시대: 문자열,
+    재질: 문자열,
+    크기: 문자열,
+    소장처: 문자열,
+    제작연도: 문자열,
+    의의: 문자열,
+    이미지경로: 문자열,
+    라이선스: 문자열,
+}
+
+함수 main() {
+    변수 이름 = "합천 해인사 대장경판"
+    변수 영문명 = "Printing Woodblocks of the Tripiṭaka Koreana"
+    변수 지정번호 = "국보 제32호"
+    변수 시대 = "고려, 1236–1251년"
+    변수 재질 = "목판"
+    변수 크기 = "81,258 woodblocks"
+    변수 소장처 = "해인사"
+    변수 제작연도 = "Goryeo, 1236–1251"
+    변수 의의 = "고려가 새긴 8만여 장의 불교 경전 목판으로, 지식 보존의 거대한 시스템입니다."
+    변수 이미지경로 = "images/heroes/hero_tripitaka/tripitaka-koreana-woodblock.jpg"
+    변수 라이선스 = "CC BY-SA 3.0"
+
+    출력(형식("{0} — {1}", 이름, 지정번호))
+    출력(의의)
+}
+
+main()

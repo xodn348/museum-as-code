@@ -1,0 +1,44 @@
+{
+  "id": "hero_celadon_maebyeong",
+  "name_ko": "청자 상감운학문 매병",
+  "name_en": "Celadon Prunus Vase with Inlaid Cloud and Crane Design",
+  "designation": "National Treasure No. 68",
+  "period": "Goryeo, 12th century",
+  "period_ko": "고려, 12세기",
+  "medium": "Inlaid celadon",
+  "medium_ko": "상감청자",
+  "location": "Kansong Art Museum",
+  "location_ko": "간송미술관",
+  "room": "Goryeo Celadon",
+  "hook": "A vase where cranes drift through jade-green air.",
+  "summary_en": "The iconic Goryeo celadon maebyeong, celebrated for its cloud-and-crane inlay and taut, elegant silhouette.",
+  "summary_ko": "운학문 상감과 팽팽한 실루엣으로 고려청자의 정수를 보여주는 매병입니다.",
+  "cover_image": "images/heroes/hero_celadon_maebyeong/celadon-cloud-crane.jpg",
+  "images": [
+    {
+      "path": "images/heroes/hero_celadon_maebyeong/celadon-cloud-crane.jpg",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Unknown_artist_-_Prunus_Vase_with_Inlaid_Clouds_and_Flying_Cranes_Design_-_1921.634_-_Cleveland_Museum_of_Art.jpg",
+      "license": "CC0",
+      "credit": "Cleveland Museum of Art via Wikimedia Commons"
+    }
+  ],
+  "sections": {
+    "why_this_matters": "Goryeo celadon is one of Korea’s most internationally recognizable arts, and this form offers a perfect visual pause between bronze, gold, paper, and stone.",
+    "what_you_are_looking_at": "A maebyeong narrows at the mouth, expands powerfully at the shoulder, and tightens again near the foot. The inlay technique cuts designs into the clay and fills them with contrasting slip before glazing, allowing cranes and clouds to hover inside the blue-green surface rather than sit on top of it.",
+    "the_story": "Celadon reached a technical and poetic peak in Goryeo. Cranes suggest longevity and ascent, while the glaze evokes water, sky, and polished jade. Even where the exact hero image still needs replacement, the page documents the public-source constraint rather than pretending certainty."
+  },
+  "sections_ko": {
+    "why_this_matters": "승인 후 한국어 큐레이터 카피 확장 예정",
+    "what_you_are_looking_at": "운학문 상감과 팽팽한 실루엣으로 고려청자의 정수를 보여주는 매병입니다.",
+    "the_story": "영문 본문을 기준으로 사실 검증 후 번역합니다."
+  },
+  "sidecar_path": "../artifacts/heroes/hero_celadon_maebyeong.json",
+  "hgl_path": "data/heroes/hero_celadon_maebyeong.hgl",
+  "copy_path": "../artifacts/heroes/hero_celadon_maebyeong.md",
+  "source_urls": [
+    "https://kansong.org/eng/index.do?menu_id=00004581"
+  ],
+  "license": "CC0",
+  "credit": "Cleveland Museum of Art via Wikimedia Commons",
+  "needs_verification": "Local image is a public-domain Goryeo cloud-and-crane prunus vase, not yet verified as National Treasure No. 68. Replace with exact NT68 image if a reusable source is confirmed."
+}

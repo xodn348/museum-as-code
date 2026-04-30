@@ -1,9 +1,11 @@
 from __future__ import annotations
 
 import json
-from datetime import UTC, datetime
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Final, TypedDict, cast
+
+from pipeline.artifact_io import COLLECTIONS, PROJECT_ROOT, DOCS_DIR, docs_artifact_data_path, docs_artifact_hgl_path, resolve_local_artifact_image
 
 
 class CollectionSpec(TypedDict):
@@ -40,26 +42,17 @@ class ManifestDocument(TypedDict):
     collections: list[ManifestCollection]
 
 
-PROJECT_ROOT = Path(__file__).resolve().parent.parent
-DOCS_DIR = PROJECT_ROOT / "docs"
-ARTIFACT_IMAGES_DIR = DOCS_DIR / "images" / "artifacts"
 MANIFEST_PATH = DOCS_DIR / "manifest.json"
 
 COLLECTION_SPECS: Final[list[CollectionSpec]] = [
     {
-        "id": "national-treasures",
-        "name_ko": "국보·보물",
-        "name_en": "National Treasures",
-        "glob": "artifacts/national-treasures/*.json",
-        "sort_order": 0,
-    },
-    {
-        "id": "kdh",
-        "name_ko": "케이팝 데몬 헌터스",
-        "name_en": "K-pop Demon Hunters",
-        "glob": "artifacts/special/kdh/*.json",
-        "sort_order": 1,
-    },
+        "id": collection["id"],
+        "name_ko": collection["name_ko"],
+        "name_en": collection["name_en"],
+        "glob": collection["glob"],
+        "sort_order": index,
+    }
+    for index, collection in enumerate(COLLECTIONS)
 ]
 
 
@@ -86,45 +79,28 @@ def _string_field(sidecar: dict[str, object], key: str) -> str:
 
 
 def _resolve_local_image_url(sidecar_path: Path, artifact_id: str) -> str:
-    if not artifact_id or not ARTIFACT_IMAGES_DIR.exists():
-        return ""
-
-    image_paths = sorted(ARTIFACT_IMAGES_DIR.glob("*.jpg"))
-
-    for image_path in image_paths:
-        if image_path.stem.startswith(artifact_id):
-            return f"images/artifacts/{image_path.name}"
-
-    sidecar_stem = sidecar_path.stem
-    stem_parts = sidecar_stem.rsplit("_", 1)
-    if (
-        sidecar_stem.startswith("nb_")
-        and len(stem_parts) == 2
-        and stem_parts[1].isdigit()
-    ):
-        image_suffix = f"_{int(stem_parts[1]) * 10000:09d}"
-        for image_path in image_paths:
-            if image_path.stem.endswith(image_suffix):
-                return f"images/artifacts/{image_path.name}"
-
-    return ""
+    return resolve_local_artifact_image(sidecar_path, artifact_id)
 
 
 def _load_artifact_entry(sidecar_path: Path, collection_id: str) -> ManifestArtifact:
     sidecar = _read_sidecar(sidecar_path)
-    relative_json_path = sidecar_path.relative_to(PROJECT_ROOT).as_posix()
     artifact_id = _string_field(sidecar, "id")
 
     return {
         "id": artifact_id,
         "collection": collection_id,
-        "hgl_path": relative_json_path.replace(".json", ".hgl"),
-        "json_path": relative_json_path,
+        "hgl_path": docs_artifact_hgl_path(collection_id, sidecar_path),
+        "json_path": docs_artifact_data_path(collection_id, sidecar_path),
         "name_ko": _string_field(sidecar, "name"),
         "name_en": _string_field(sidecar, "name_en"),
         "period": _string_field(sidecar, "era"),
         "designation": _string_field(sidecar, "designation"),
-        "image_url": _resolve_local_image_url(sidecar_path, artifact_id),
+        "image_url": _resolve_local_image_url(sidecar_path, artifact_id) or _string_field(sidecar, "image_url"),
+        "license": _string_field(sidecar, "license"),
+        "credit": _string_field(sidecar, "credit"),
+        "source_url": _string_field(sidecar, "source_url"),
+        "confidence": _string_field(sidecar, "confidence"),
+        "room_tags": sidecar.get("room_tags", []),
     }
 
 
@@ -183,7 +159,7 @@ def build_manifest() -> ManifestDocument:
     ]
 
     return {
-        "generated_at": datetime.now(UTC).isoformat().replace("+00:00", "Z"),
+        "generated_at": datetime.now(timezone.utc).isoformat().replace("+00:00", "Z"),
         "total_count": len(artifacts),
         "artifacts": artifacts,
         "collections": collections,

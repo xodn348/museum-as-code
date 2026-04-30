@@ -1,0 +1,40 @@
+{
+  "id": "hero_baekje_incense_burner",
+  "name": "백제 금동대향로",
+  "name_en": "Great Gilt-bronze Incense Burner of Baekje",
+  "official_name_en": "Great Gilt-bronze Incense Burner of Baekje",
+  "designation": "National Treasure No. 287",
+  "designation_ko": "국보 제287호",
+  "designation_type": "국보",
+  "era": "백제, 6–7세기",
+  "period_en": "Baekje, 6th–7th century",
+  "material": "금동",
+  "material_en": "Gilt bronze",
+  "size": "Height 61.8 cm; maximum diameter 19.0 cm",
+  "location": "국립부여박물관",
+  "location_en": "Buyeo National Museum",
+  "category": "Three Kingdoms Gold",
+  "description": "봉황, 산악형 뚜껑, 연꽃 몸체, 용 받침이 한 몸을 이룬 백제 공예의 절정입니다.",
+  "description_en": "A phoenix, mountain lid, lotus body, and dragon base combine into Baekje’s most theatrical bronze object.",
+  "hook": "A whole mountain smokes inside a ritual vessel.",
+  "image_url": "images/heroes/hero_baekje_incense_burner/baekje-incense-burner.jpg",
+  "images": [
+    {
+      "path": "images/heroes/hero_baekje_incense_burner/baekje-incense-burner.jpg",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Incense_Burner_of_Baekje_in_National_Museum_of_Korea.jpg",
+      "license": "CC BY-SA 2.5 candidate / existing local artifact image fallback",
+      "credit": "Rheo1905 via Wikimedia Commons; local fallback copied from existing artifact asset"
+    }
+  ],
+  "license": "CC BY-SA 2.5 candidate / existing local artifact image fallback",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Incense_Burner_of_Baekje_in_National_Museum_of_Korea.jpg",
+  "credit": "Rheo1905 via Wikimedia Commons; local fallback copied from existing artifact asset",
+  "source_urls": [
+    "https://buyeo.museum.go.kr/rprsPsn/view.do?key=2305160031&multiType=en&rprsPsnCmdtyMngSn=2001010001"
+  ],
+  "hgl_file": "artifacts/heroes/hero_baekje_incense_burner.hgl",
+  "curator_copy_file": "artifacts/heroes/hero_baekje_incense_burner.md",
+  "needs_verification": "",
+  "created_at": "2026-04-30T03:26:53Z",
+  "updated_at": "2026-04-30T03:26:53Z"
+}

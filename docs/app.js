@@ -2,6 +2,8 @@
 
 // ── Constants ──────────────────────────────────────────────────────────────
 const MANIFEST_URL = './manifest.json';
+const HERO_INDEX_URL = './data/heroes/index.json';
+const ROOMS_URL = './data/rooms.json';
 
 // ── State ──────────────────────────────────────────────────────────────────
 let currentLang = 'en';  // 'ko' | 'en'
@@ -18,6 +20,111 @@ const FILTER_LABELS = {
   'national-treasures': '국보·보물',
   kdh: 'KDH',
 };
+
+
+
+async function loadRooms() {
+  const grid = document.getElementById('rooms-grid');
+  if (!grid) return;
+  try {
+    const [roomsResponse, heroesResponse] = await Promise.all([
+      fetch(ROOMS_URL),
+      fetch(HERO_INDEX_URL),
+    ]);
+    if (!roomsResponse.ok) throw new Error(`Rooms fetch failed with status ${roomsResponse.status}`);
+    if (!heroesResponse.ok) throw new Error(`Hero index fetch failed with status ${heroesResponse.status}`);
+    const rooms = await roomsResponse.json();
+    const heroIndex = await heroesResponse.json();
+    renderRooms(Array.isArray(rooms.rooms) ? rooms.rooms : [], Array.isArray(heroIndex.heroes) ? heroIndex.heroes : []);
+  } catch (error) {
+    console.error('rooms 로드 실패:', error);
+    grid.innerHTML = '<p class="error">Rooms failed to load.</p>';
+  }
+}
+
+function renderRooms(rooms, heroes) {
+  const grid = document.getElementById('rooms-grid');
+  if (!grid) return;
+  const heroById = new Map(heroes.map((hero) => [hero.id, hero]));
+  grid.innerHTML = '';
+  const fragment = document.createDocumentFragment();
+  rooms
+    .slice()
+    .sort((a, b) => (a.sort_order || 0) - (b.sort_order || 0))
+    .forEach((room) => {
+      const card = document.createElement('section');
+      card.className = 'room-card';
+      const roomHeroes = (room.hero_ids || []).map((id) => heroById.get(id)).filter(Boolean);
+      const preview = roomHeroes.slice(0, 3).map((hero) => `
+        <a class="room-hero-link" href="hero.html?id=${encodeURIComponent(hero.id)}">
+          <img src="${escapeHtml(hero.cover_image || '')}" alt="${escapeHtml(hero.name_en || hero.name_ko || '')}">
+          <span>${escapeHtml(currentLang === 'ko' ? (hero.name_ko || '') : (hero.name_en || hero.name_ko || ''))}</span>
+        </a>
+      `).join('');
+      card.innerHTML = `
+        <div class="room-card-heading">
+          <p class="room-count">${String(roomHeroes.length).padStart(2, '0')} hero pages</p>
+          <h3>${escapeHtml(currentLang === 'ko' ? room.name_ko : room.name_en)}</h3>
+          <p>${escapeHtml(currentLang === 'ko' ? room.intro_ko : room.intro_en)}</p>
+        </div>
+        <div class="room-hero-strip">${preview}</div>
+      `;
+      fragment.appendChild(card);
+    });
+  grid.appendChild(fragment);
+}
+
+async function loadFeaturedHeroes() {
+  const grid = document.getElementById('featured-grid');
+  if (!grid) return;
+
+  try {
+    const response = await fetch(HERO_INDEX_URL);
+    if (!response.ok) {
+      throw new Error(`Hero index fetch failed with status ${response.status}`);
+    }
+    const index = await response.json();
+    renderFeaturedHeroes(Array.isArray(index.heroes) ? index.heroes : []);
+  } catch (error) {
+    console.error('hero index 로드 실패:', error);
+    grid.innerHTML = '<p class="error">Hero artifacts failed to load.</p>';
+  }
+}
+
+function renderFeaturedHeroes(heroes) {
+  const grid = document.getElementById('featured-grid');
+  if (!grid) return;
+  grid.innerHTML = '';
+  const fragment = document.createDocumentFragment();
+
+  heroes.forEach((hero, index) => {
+    const card = document.createElement('a');
+    card.className = `featured-hero-card hero-room-${String(hero.room || '').toLowerCase().replaceAll(' ', '-')}`;
+    card.href = `hero.html?id=${encodeURIComponent(hero.id)}`;
+    card.style.setProperty('--delay', `${Math.min(index * 40, 320)}ms`);
+
+    const img = document.createElement('img');
+    img.src = hero.cover_image || '';
+    img.alt = currentLang === 'ko' ? (hero.name_ko || hero.name_en || '') : (hero.name_en || hero.name_ko || '');
+    img.loading = index < 3 ? 'eager' : 'lazy';
+    img.onerror = function () { this.closest('.featured-hero-card')?.classList.add('image-missing'); };
+
+    const body = document.createElement('div');
+    body.className = 'featured-hero-body';
+    body.innerHTML = `
+      <span class="featured-number">${String(index + 1).padStart(2, '0')}</span>
+      <span class="featured-room">${escapeHtml(hero.room || '')}</span>
+      <h3>${escapeHtml(currentLang === 'ko' ? (hero.name_ko || '') : (hero.name_en || hero.name_ko || ''))}</h3>
+      <p class="featured-subtitle">${escapeHtml(currentLang === 'ko' ? (hero.name_en || '') : (hero.name_ko || ''))}</p>
+      <p class="featured-hook">${escapeHtml(currentLang === 'ko' ? (hero.summary_ko || hero.hook || '') : (hero.hook || hero.summary_en || ''))}</p>
+      ${hero.needs_verification ? '<p class="verification-note">source verification marker</p>' : ''}
+    `;
+    card.append(img, body);
+    fragment.appendChild(card);
+  });
+
+  grid.appendChild(fragment);
+}
 
 function updateKdhHeaderText() {
   const grid = document.getElementById('card-grid');
@@ -317,6 +424,13 @@ async function loadManifest() {
  * artifact 배열을 받아 #card-grid에 카드를 렌더링한다.
  * @param {Array} artifacts - manifest.json의 artifacts 배열
  */
+function createImagePlaceholder() {
+  const placeholder = document.createElement('div');
+  placeholder.className = 'artifact-image-placeholder';
+  placeholder.textContent = 'Museum as Code';
+  return placeholder;
+}
+
 function renderCards(artifacts) {
   const grid = document.getElementById('card-grid');
   if (!grid) return;
@@ -340,17 +454,16 @@ function renderCards(artifacts) {
     card.dataset.collection = artifact.collection;
     card.setAttribute('role', 'button');
 
-    const img = document.createElement('img');
-    img.src = artifact.image_url ?? '';
-    img.loading = 'lazy';
-    img.alt = currentLang === 'ko' ? (artifact.name_ko ?? '') : (artifact.name_en ?? artifact.name_ko ?? '');
-    img.onerror = function() { this.style.display = 'none'; };
-
-    if (!artifact.image_url) {
-      img.style.display = 'none';
+    if (artifact.image_url) {
+      const img = document.createElement('img');
+      img.src = artifact.image_url;
+      img.loading = 'lazy';
+      img.alt = currentLang === 'ko' ? (artifact.name_ko ?? '') : (artifact.name_en ?? artifact.name_ko ?? '');
+      img.onerror = function() { this.replaceWith(createImagePlaceholder()); };
+      card.appendChild(img);
+    } else {
+      card.appendChild(createImagePlaceholder());
     }
-
-    card.appendChild(img);
 
     const cardBody = document.createElement('div');
     cardBody.className = 'card-body';
@@ -473,6 +586,8 @@ function toggleLang() {
   if (btn) btn.textContent = currentLang === 'ko' ? 'EN / 한' : '한 / EN';
 
   renderCards(getFilteredArtifacts());
+  loadFeaturedHeroes();
+  loadRooms();
 
   const overlay = document.getElementById('artifact-detail');
   if (overlay && !overlay.classList.contains('hidden') && currentDetailData) {
@@ -521,7 +636,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     closeDetail({ clearHash: false });
   });
 
-  await loadManifest();
+  await Promise.all([loadManifest(), loadFeaturedHeroes(), loadRooms()]);
 
   const initialArtifactId = getHashArtifactId();
   if (initialArtifactId) {
@@ -539,7 +654,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       document.querySelectorAll('.tab-btn').forEach(function (b) { b.classList.remove('active'); });
       document.querySelectorAll('.tab-content').forEach(function (c) { c.classList.remove('active'); });
       btn.classList.add('active');
-      var panel = tab === 'graph' ? document.getElementById('cy') : document.getElementById('card-grid');
+      var panel = tab === 'graph' ? document.getElementById('cy') : (tab === 'featured' ? document.getElementById('featured-heroes') : (tab === 'rooms' ? document.getElementById('rooms') : document.getElementById('card-grid')));
       if (panel) { panel.classList.add('active'); }
       if (tab === 'graph' && !graphInitialized) {
         graphInitialized = true;

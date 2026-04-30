@@ -1,0 +1,11 @@
+{
+  "hero_id": "hero_celestial_chart",
+  "images": [
+    {
+      "path": "images/heroes/hero_celestial_chart/cheonsang-chart.svg",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Cheonsang.jpg",
+      "license": "CC0 source candidate; local SVG placeholder until download recovers",
+      "credit": "Local placeholder by museum-as-code; source candidate: Wikimedia Commons"
+    }
+  ]
+}

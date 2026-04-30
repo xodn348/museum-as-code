@@ -1,0 +1,45 @@
+{
+  "id": "hero_baekje_incense_burner",
+  "name_ko": "백제 금동대향로",
+  "name_en": "Great Gilt-bronze Incense Burner of Baekje",
+  "designation": "National Treasure No. 287",
+  "period": "Baekje, 6th–7th century",
+  "period_ko": "백제, 6–7세기",
+  "medium": "Gilt bronze",
+  "medium_ko": "금동",
+  "location": "Buyeo National Museum",
+  "location_ko": "국립부여박물관",
+  "room": "Three Kingdoms Gold",
+  "hook": "A whole mountain smokes inside a ritual vessel.",
+  "summary_en": "A phoenix, mountain lid, lotus body, and dragon base combine into Baekje’s most theatrical bronze object.",
+  "summary_ko": "봉황, 산악형 뚜껑, 연꽃 몸체, 용 받침이 한 몸을 이룬 백제 공예의 절정입니다.",
+  "cover_image": "images/heroes/hero_baekje_incense_burner/baekje-incense-burner.jpg",
+  "images": [
+    {
+      "path": "images/heroes/hero_baekje_incense_burner/baekje-incense-burner.jpg",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Incense_Burner_of_Baekje_in_National_Museum_of_Korea.jpg",
+      "license": "CC BY-SA 2.5 candidate / existing local artifact image fallback",
+      "credit": "Rheo1905 via Wikimedia Commons; local fallback copied from existing artifact asset"
+    }
+  ],
+  "sections": {
+    "why_this_matters": "No other object in the set carries so many worlds at once: scent, ritual, animals, music, immortals, mountains, and smoke.",
+    "what_you_are_looking_at": "The burner rises from a dragon base to a lotus bowl and a mountain-shaped lid topped by a phoenix. Small openings among the peaks let incense smoke drift through the landscape, animating the metal with air.",
+    "the_story": "Discovered at Neungsan-ri in Buyeo, the burner shows Baekje’s ability to absorb Buddhist and Daoist imagery into a distinct court style. It is ideal for a scroll page because every level rewards close looking."
+  },
+  "sections_ko": {
+    "why_this_matters": "승인 후 한국어 큐레이터 카피 확장 예정",
+    "what_you_are_looking_at": "봉황, 산악형 뚜껑, 연꽃 몸체, 용 받침이 한 몸을 이룬 백제 공예의 절정입니다.",
+    "the_story": "영문 본문을 기준으로 사실 검증 후 번역합니다."
+  },
+  "sidecar_path": "../artifacts/heroes/hero_baekje_incense_burner.json",
+  "hgl_path": "data/heroes/hero_baekje_incense_burner.hgl",
+  "copy_path": "../artifacts/heroes/hero_baekje_incense_burner.md",
+  "source_urls": [
+    "https://buyeo.museum.go.kr/rprsPsn/view.do?key=2305160031&multiType=en&rprsPsnCmdtyMngSn=2001010001"
+  ],
+  "license": "CC BY-SA 2.5 candidate / existing local artifact image fallback",
+  "credit": "Rheo1905 via Wikimedia Commons; local fallback copied from existing artifact asset",
+  "needs_verification": "",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Incense_Burner_of_Baekje_in_National_Museum_of_Korea.jpg"
+}

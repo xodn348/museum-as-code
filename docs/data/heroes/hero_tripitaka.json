@@ -1,0 +1,45 @@
+{
+  "id": "hero_tripitaka",
+  "name_ko": "합천 해인사 대장경판",
+  "name_en": "Printing Woodblocks of the Tripiṭaka Koreana",
+  "designation": "National Treasure No. 32",
+  "period": "Goryeo, 1236–1251",
+  "period_ko": "고려, 1236–1251년",
+  "medium": "Woodblocks",
+  "medium_ko": "목판",
+  "location": "Haeinsa Temple",
+  "location_ko": "해인사",
+  "room": "Records & Writing",
+  "hook": "A library carved so carefully it became architecture.",
+  "summary_en": "More than 80,000 Buddhist printing blocks, carved in Goryeo as a monumental act of preservation.",
+  "summary_ko": "고려가 새긴 8만여 장의 불교 경전 목판으로, 지식 보존의 거대한 시스템입니다.",
+  "cover_image": "images/heroes/hero_tripitaka/tripitaka-koreana-woodblock.jpg",
+  "images": [
+    {
+      "path": "images/heroes/hero_tripitaka/tripitaka-koreana-woodblock.jpg",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Korea-Haeinsa_Tripitaka_Koreana_woodblock_2770-06a.jpg",
+      "license": "CC BY-SA 3.0 candidate / existing local artifact image fallback",
+      "credit": "Wikimedia Commons contributor; local fallback copied from existing artifact asset"
+    }
+  ],
+  "sections": {
+    "why_this_matters": "For a code museum, the Tripiṭaka Koreana feels like an early data infrastructure: text, format, duplication, storage, and long-term preservation.",
+    "what_you_are_looking_at": "Each block carries carved characters in reverse for printing. The scale matters as much as the individual craft: tens of thousands of blocks had to remain consistent enough to transmit a complete canon.",
+    "the_story": "Carved during the Goryeo period, the woodblocks are kept at Haeinsa. They were made under conditions of crisis and devotion, turning religious text into a durable national archive."
+  },
+  "sections_ko": {
+    "why_this_matters": "승인 후 한국어 큐레이터 카피 확장 예정",
+    "what_you_are_looking_at": "고려가 새긴 8만여 장의 불교 경전 목판으로, 지식 보존의 거대한 시스템입니다.",
+    "the_story": "영문 본문을 기준으로 사실 검증 후 번역합니다."
+  },
+  "sidecar_path": "../artifacts/heroes/hero_tripitaka.json",
+  "hgl_path": "data/heroes/hero_tripitaka.hgl",
+  "copy_path": "../artifacts/heroes/hero_tripitaka.md",
+  "source_urls": [
+    "https://english.cha.go.kr/chaen/search/selectGeneralSearchDetail.do?ccebAsno=05040000&ccebKdcd=13&mn=EN_02_02&pageIndex=47&sCcebCtcd=38&sCcebKdcd=13"
+  ],
+  "license": "CC BY-SA 3.0 candidate / existing local artifact image fallback",
+  "credit": "Wikimedia Commons contributor; local fallback copied from existing artifact asset",
+  "needs_verification": "",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Korea-Haeinsa_Tripitaka_Koreana_woodblock_2770-06a.jpg"
+}
