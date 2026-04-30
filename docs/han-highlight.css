@@ -1,0 +1,22 @@
+/* han-highlight.css — Han-lang syntax highlighting · KPDH-A palette */
+
+pre.hgl, code.hgl, pre[data-lang="han"], code[data-lang="han"], code.language-han {
+  font-family: 'JetBrains Mono', SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 13px;
+  line-height: 1.6;
+  color: rgba(246, 239, 227, 0.9);
+  background: rgba(0, 0, 0, 0.45);
+  padding: 16px 20px;
+  border-left: 2px solid #ff2e6a;
+  overflow: auto;
+}
+
+.han-kw      { color: #ffd60a; font-weight: 700; }      /* keywords: 함수 변수 구조 ... */
+.han-type    { color: #8b3dff; font-weight: 600; }      /* types: 문자열 정수 불 ... */
+.han-bool    { color: #ff2e6a; font-weight: 700; }      /* 참 / 거짓 */
+.han-builtin { color: #ff2e6a; font-weight: 700; }      /* 출력 형식 ... */
+.han-str     { color: #9be29b; }                         /* "string" */
+.han-num     { color: #38e0ff; }                         /* 123, 4.5 */
+.han-comment { color: rgba(246, 239, 227, 0.4); font-style: italic; }
+.han-punct   { color: rgba(246, 239, 227, 0.55); }
+.han-field   { color: #f6efe3; }                         /* struct field name before : */
