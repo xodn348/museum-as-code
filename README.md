@@ -1,18 +1,30 @@
 # Museum as Code — Han-lang Cultural Archive
 
 [![MIT License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Han Language](https://img.shields.io/badge/han-.hgl-green.svg)](https://github.com/han-lang/han)
+[![Han Language](https://img.shields.io/badge/han-.hgl-green.svg)](https://github.com/xodn348/han)
 [![Artifacts](https://img.shields.io/badge/Artifacts-64-gold.svg)](docs/manifest.json)
 [![Hero Artifacts](https://img.shields.io/badge/Hero%20Artifacts-10-d9b45e.svg)](docs/data/heroes/index.json)
+[![Han Validate](https://github.com/xodn348/museum-as-code/actions/workflows/han-validate.yml/badge.svg)](.github/workflows/han-validate.yml)
 
 **Live site:** https://xodn348.github.io/museum-as-code/<br>
-**Repository:** https://github.com/xodn348/museum-as-code
+**Museum repo:** https://github.com/xodn348/museum-as-code<br>
+**Han-lang repo:** https://github.com/xodn348/han · **Playground:** https://xodn348.github.io/han/playground/
+
+---
+
+## 🚨 Han-Lang Only
+
+**Every code block in this project — homepage cards, hero pages, downloadable artifact files, README examples, demo snippets, anything — MUST be valid, executable Han-lang (`.hgl`).** Pseudocode and Korean-keyword-flavored fake syntax are forbidden. If `hgl interpret file.hgl` cannot run it, it does not go in this repo.
+
+This is the project's hardest rule because the museum is simultaneously a Korean cultural archive **and** the canonical real-world demo of the Han programming language. Both jobs require valid Han.
+
+The full mandate, keyword reference, and PR review gates live in [`CLAUDE.md`](./CLAUDE.md). Read it before opening a PR that adds or modifies code in this repo.
 
 ---
 
 ## What this is
 
-**Museum as Code** is a digital museum experiment that treats Korean cultural heritage as **Han-lang (`.hgl`) source code**.
+**Museum as Code** is a digital museum experiment that treats Korean cultural heritage as **Han-lang (`.hgl`) source code**. The site doubles as a working showcase of the [Han programming language](https://github.com/xodn348/han) — every artifact card on the homepage is a real `.hgl` snippet that runs unchanged in the [Han playground](https://xodn348.github.io/han/playground/).
 
 The current homepage is intentionally **code-first**: it does not lead with large artifact photos, because some image/object matches still need exact source and license verification. Instead, the public interface foregrounds:
 
@@ -85,6 +97,34 @@ Han-lang uses Korean keywords such as `구조`, `함수`, `변수`, `문자열`,
 
 ---
 
+## Design System: KPDH-A · 부적 굿판 / Talisman Ritual
+
+The current visual direction is **KPDH-A**: neon talisman aesthetics drawn from public-domain Korean folk motifs (단청, 부적, 까치, 연꽃, 호랑이) layered on top of a code-first surface. KPDH-inspired in vibe only — **zero copyright lift**, no KPDH photos, characters, or trademarked marks. Full notes in [`DESIGN.md`](./DESIGN.md).
+
+### Palette
+
+| Token | Hex | Use |
+| --- | --- | --- |
+| `--ink` | `#0a0612` | Primary background. Near-black with violet bias. |
+| `--rose` | `#ff2e6a` | Primary accent. Borders, seals, glow. |
+| `--rose-deep` | `#b3083d` | Hover/pressed states. |
+| `--paper` | `#f6efe3` | Body text on ink, paper-mode backgrounds. |
+| `--gold` | `#ffd60a` | Han keywords (`구조`, `함수`, …) in code. |
+| `--violet` | `#8b3dff` | Han types (`문자열`, `정수`, …) in code. |
+| `--jade` | `#9be29b` | Han string literals in code. |
+
+### Typography (all OFL-licensed, served via Google Fonts)
+
+- **Black Han Sans** — display 한글 (hero `<h1>`, seal stamps).
+- **Noto Sans KR** — body 한글 (lede paragraphs, captions).
+- **JetBrains Mono** — every `.hgl` code block, file tags, lang badges.
+
+### Code highlighting
+
+The standalone module `docs/han-highlight.js` (zero dependency) is the single source of truth for `.hgl` token coloring. It exposes `window.Han.highlight(text)` and auto-runs on `pre.hgl`, `code.hgl`, and `code.language-han` elements after `DOMContentLoaded`. Both `docs/app.js` and `docs/hero.js` delegate to it so home + hero render with the identical KPDH-A palette.
+
+---
+
 ## Repository layout
 
 ```text
@@ -127,6 +167,19 @@ python3 -m http.server 8765 --directory docs
 ```
 
 Open: http://127.0.0.1:8765/
+
+### Quickstart: the dual purpose
+
+The repo serves two audiences from one source tree:
+
+1. **As a cultural archive** — open `docs/index.html` in a browser and explore 64 national-treasure records grouped by category (Sculpture / Ceramic / Metal / Painting / Records / Architecture). Each card is a runnable Han snippet; each hero page (`docs/hero.html?id=<hero_id>`) carries curator copy plus the real `.hgl` source.
+2. **As a Han-lang demo** — every `.hgl` file under `artifacts/heroes/`, `artifacts/national-treasures/`, and `artifacts/special/kdh/` runs unchanged with `hgl interpret file.hgl`. The `Open Han Playground` button on every hero page jumps straight to the live REPL; the `Download .hgl` button gives you the canonical source.
+
+To verify a single artifact end-to-end:
+
+```bash
+hgl interpret artifacts/heroes/hero_pensive_bodhisattva.hgl
+```
 
 ---
 
