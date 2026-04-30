@@ -26,5 +26,11 @@
   "license": "needs_verification",
   "credit": "Museum as Code local artifact image; original source requires verification",
   "confidence": "low",
-  "updated_at": "2026-04-30T03:35:18.829367Z"
+  "updated_at": "2026-04-30T03:35:18.829367Z",
+  "image_official_url": "https://www.khs.go.kr/unisearch/images/national_treasure/1611476.jpg",
+  "image_source_api": "cha",
+  "image_official_license": "공공누리 제1유형(출처표시)",
+  "image_official_credit": "국가유산청 (Cultural Heritage Administration of Korea)",
+  "image_official_source_name_ko": "동국정운 권1, 6",
+  "image_fetched_at": "2026-04-30T18:00:41Z"
 }
