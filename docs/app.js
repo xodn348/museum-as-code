@@ -38,6 +38,37 @@ function buildMiniHglArtifact({ nameKo, nameEn, designation, room, sourcePath })
   ].filter(Boolean).join('\n');
 }
 
+function isExactImageVerified(record) {
+  if (!record) return false;
+  if (record.exact_image_verified === true) return true;
+  if (record.sidecar?.exact_image_verified === true) return true;
+  const firstImage = Array.isArray(record.images) ? record.images[0] : null;
+  if (firstImage?.exact_image_verified === true) return true;
+  const sidecarImage = Array.isArray(record.sidecar?.images) ? record.sidecar.images[0] : null;
+  return sidecarImage?.exact_image_verified === true;
+}
+
+function getVerifiedImagePath(record) {
+  if (!isExactImageVerified(record)) return '';
+  const sidecarImage = Array.isArray(record.sidecar?.images) ? record.sidecar.images[0] : null;
+  const ownImage = Array.isArray(record.images) ? record.images[0] : null;
+  return sidecarImage?.path
+    || record.sidecar?.cover_image
+    || record.sidecar?.image_url
+    || ownImage?.path
+    || record.cover_image
+    || record.image_url
+    || '';
+}
+
+function imageVerificationNote(record) {
+  return record?.verification_note
+    || record?.sidecar?.verification_note
+    || record?.needs_verification
+    || record?.sidecar?.needs_verification
+    || 'Image withheld until the exact object, license, and local file are verified.';
+}
+
 function trimHglPreview(text, maxLines = 9) {
   if (!text) return '';
   const lines = text
@@ -113,6 +144,16 @@ function renderRooms(rooms, heroes) {
       const roomHeroes = (room.hero_ids || []).map((id) => heroById.get(id)).filter(Boolean);
       const preview = roomHeroes.slice(0, 3).map((hero) => {
         const title = currentLang === 'ko' ? (hero.name_ko || '') : (hero.name_en || hero.name_ko || '');
+        const imagePath = getVerifiedImagePath(hero);
+        if (imagePath) {
+          return `
+            <a class="room-hero-link image-room-link" href="hero.html?id=${encodeURIComponent(hero.id)}">
+              <img src="${escapeHtml(imagePath)}" alt="${escapeHtml(title)}" loading="lazy" decoding="async">
+              <span class="room-code-label">${escapeHtml(title)}<small>exact image verified</small></span>
+            </a>
+          `;
+        }
+
         const code = hero.hglPreview || buildMiniHglArtifact({
           nameKo: hero.name_ko,
           nameEn: hero.name_en,
@@ -121,7 +162,7 @@ function renderRooms(rooms, heroes) {
           sourcePath: hero.hgl_path,
         });
         return `
-          <a class="room-hero-link code-room-link" href="hero.html?id=${encodeURIComponent(hero.id)}">
+          <a class="room-hero-link code-room-link needs-source-review" href="hero.html?id=${encodeURIComponent(hero.id)}" title="${escapeHtml(imageVerificationNote(hero))}">
             <span class="room-code-label">${escapeHtml(title)}</span>
             <pre aria-hidden="true"><code>${highlightCode(code)}</code></pre>
           </a>
@@ -150,27 +191,62 @@ async function loadFeaturedHeroes() {
       throw new Error(`Hero index fetch failed with status ${response.status}`);
     }
     const index = await response.json();
-    const heroes = await hydrateHeroHgl(Array.isArray(index.heroes) ? index.heroes : []);
-    renderHomeSource(heroes);
-    renderFeaturedHeroes(heroes);
+    const baseHeroes = Array.isArray(index.heroes) ? index.heroes : [];
+    const heroesWithSidecar = await Promise.all(baseHeroes.map(async (hero) => {
+      const sidecar = await fetchHeroSidecar(hero);
+      return { ...hero, sidecar };
+    }));
+    renderFeaturedHeroes(heroesWithSidecar);
   } catch (error) {
     console.error('hero index 로드 실패:', error);
     grid.innerHTML = '<p class="error">Hero artifacts failed to load.</p>';
   }
 }
 
-function renderHomeSource(heroes) {
-  const code = document.getElementById('home-hgl-code');
-  if (!code) return;
-  const first = heroes[0] || {};
-  const snippet = first.hglPreview || buildMiniHglArtifact({
-    nameKo: first.name_ko || '금동미륵보살반가사유상',
-    nameEn: first.name_en || 'Pensive Bodhisattva',
-    designation: first.designation || 'National Treasure No. 83',
-    room: first.room || 'Buddhist Sculpture',
-    sourcePath: first.hgl_path || 'data/heroes/hero_pensive_bodhisattva.hgl',
-  });
-  code.innerHTML = highlightCode(snippet);
+async function fetchHeroSidecar(hero) {
+  if (!hero || !hero.data_file) return {};
+  try {
+    const res = await fetch(hero.data_file);
+    if (!res.ok) return {};
+    return await res.json();
+  } catch (_) {
+    return {};
+  }
+}
+
+// KPDH-A: short id derived from hero.id (drop "hero_" prefix) for use as variable name
+function kpdhVarName(heroId) {
+  if (typeof heroId !== 'string') return 'artifact';
+  return heroId.replace(/^hero_/, '') || 'artifact';
+}
+
+// KPDH-A: build the per-card Han instance snippet that matches the shared
+// 히어로유물 schema declared once on the page.
+function buildKpdhCardCode(hero) {
+  const sidecar = hero.sidecar || {};
+  const designationKo = sidecar.designation_ko || hero.designation || '';
+  const eraKo = sidecar.era || hero.period || '';
+  const materialKo = sidecar.material || sidecar.material_en || '';
+  const sizeRaw = sidecar.size || '';
+  const sizeShort = sizeRaw.replace(/\s*\(source verification required\)/i, '').trim();
+  const locationKo = sidecar.location || '';
+  const verified = isExactImageVerified(hero);
+
+  const lines = [
+    `// ${designationKo || hero.designation || ''}`.trim(),
+    `변수 ${kpdhVarName(hero.id)} = 히어로유물 {`,
+    `    이름:     "${hero.name_ko || ''}",`,
+    `    영문명:   "${hero.name_en || ''}",`,
+    `    지정:     "${designationKo || hero.designation || ''}",`,
+    `    시대:     "${eraKo}",`,
+    `    재료:     "${materialKo}",`,
+    `    크기:     "${sizeShort}",`,
+    `    소장처:   "${locationKo}",`,
+    `    출처검증: ${verified ? '참' : '거짓'}`,
+    `}`,
+    `설명출력(${kpdhVarName(hero.id)})`,
+  ];
+  return lines.join('\n');
 }
 
 function renderFeaturedHeroes(heroes) {
@@ -181,32 +257,39 @@ function renderFeaturedHeroes(heroes) {
 
   heroes.forEach((hero, index) => {
     const card = document.createElement('a');
-    card.className = `featured-hero-card code-hero-card${hero.needs_verification ? ' needs-source-review' : ''}`;
+    const imagePath = getVerifiedImagePath(hero);
+    const verified = Boolean(imagePath);
+    card.className = `kpdh-card${verified ? ' image-verified' : ' needs-source-review'}`;
     card.href = `hero.html?id=${encodeURIComponent(hero.id)}`;
     card.style.setProperty('--delay', `${Math.min(index * 40, 320)}ms`);
 
-    const title = currentLang === 'ko' ? (hero.name_ko || '') : (hero.name_en || hero.name_ko || '');
-    const subtitle = currentLang === 'ko' ? (hero.name_en || '') : (hero.name_ko || '');
-    const code = hero.hglPreview || buildMiniHglArtifact({
-      nameKo: hero.name_ko,
-      nameEn: hero.name_en,
-      designation: hero.designation,
-      room: hero.room,
-      sourcePath: hero.hgl_path,
-    });
+    const titleEn = hero.name_en || hero.name_ko || '';
+    const titleKr = hero.name_ko || '';
+    const seal = String(index + 1).padStart(2, '0');
+    const room = (hero.room || '').toUpperCase();
+    const fileTag = `heroes/${kpdhVarName(hero.id)}.hgl`;
+    const code = buildKpdhCardCode(hero);
+    const imageMarkup = verified ? `
+      <figure class="kpdh-card-figure">
+        <img src="${escapeHtml(imagePath)}" alt="${escapeHtml(titleEn)}" loading="lazy" decoding="async">
+        <figcaption>exact image verified</figcaption>
+      </figure>
+    ` : `
+      <div class="kpdh-card-image-pending" title="${escapeHtml(imageVerificationNote(hero))}">
+        <span>IMAGE WITHHELD</span>
+        <small>source match pending</small>
+      </div>
+    `;
 
     card.innerHTML = `
-      <div class="code-card-topline">
-        <span>${String(index + 1).padStart(2, '0')}</span>
-        <span>${escapeHtml(hero.room || '')}</span>
-      </div>
-      <pre class="featured-code" aria-label="Han source preview"><code>${highlightCode(code)}</code></pre>
-      <div class="featured-hero-body">
-        <h3>${escapeHtml(title)}</h3>
-        <p class="featured-subtitle">${escapeHtml(subtitle)}</p>
-        <p class="featured-hook">${escapeHtml(currentLang === 'ko' ? (hero.summary_ko || hero.hook || '') : (hero.hook || hero.summary_en || ''))}</p>
-        <p class="source-policy">${hero.needs_verification ? 'image hidden until source match is verified' : 'source-backed Han page'}</p>
-      </div>
+      <div class="seal">${escapeHtml(seal)}</div>
+      <div class="num">// HERO_${escapeHtml(seal)}${room ? ' · ' + escapeHtml(room) : ''}</div>
+      <div class="file-tag">${escapeHtml(fileTag)}</div>
+      ${imageMarkup}
+      <pre><code>${highlightCode(code)}</code></pre>
+      <div class="title-en">${escapeHtml(titleEn)}</div>
+      <div class="title-kr">${escapeHtml(titleKr)}</div>
+      <div class="meta">→ ${verified ? 'exact image · source-backed · .hgl' : 'awaiting exact image · .hgl'}</div>
     `;
     fragment.appendChild(card);
   });
@@ -368,7 +451,7 @@ function highlightCode(text) {
     .replaceAll('"', '&quot;')
     .replaceAll("'", '&#39;');
 
-  const keywordPattern = /(^|[^\p{L}\p{N}_])(구조|문자열|정수|부울|목록|날짜|실수|구현|함수|변수)(?=[^\p{L}\p{N}_]|$)/gu;
+  const keywordPattern = /(^|[^\p{L}\p{N}_])(구조|문자열|정수|부울|불|목록|날짜|실수|구현|함수|변수|반환|만약|아니면|반복|동안|참|거짓)(?=[^\p{L}\p{N}_]|$)/gu;
   const propertyPattern = /(^[ \t]*)([\p{L}\p{N}_]+)(?=:(?!\/\/))/gu;
   const stringPattern = /&quot;[^\n]*?&quot;/g;
   const commentPattern = /^[ \t]*\/\/.*$/;
@@ -526,6 +609,28 @@ function createArtifactCodePlate(artifact) {
   return placeholder;
 }
 
+function createVerifiedArtifactImage(artifact) {
+  const imagePath = getVerifiedImagePath(artifact);
+  if (!imagePath) return createArtifactCodePlate(artifact);
+
+  const figure = document.createElement('figure');
+  figure.className = 'artifact-image verified-artifact-image';
+
+  const img = document.createElement('img');
+  img.src = imagePath;
+  img.alt = currentLang === 'ko'
+    ? (artifact.name_ko ?? artifact.name_en ?? '')
+    : (artifact.name_en ?? artifact.name_ko ?? '');
+  img.loading = 'lazy';
+  img.decoding = 'async';
+
+  const caption = document.createElement('figcaption');
+  caption.textContent = 'exact image verified';
+
+  figure.append(img, caption);
+  return figure;
+}
+
 function createImagePlaceholder() {
   const placeholder = document.createElement('div');
   placeholder.className = 'artifact-image-placeholder';
@@ -556,7 +661,7 @@ function renderCards(artifacts) {
     card.dataset.collection = artifact.collection;
     card.setAttribute('role', 'button');
 
-    card.appendChild(createArtifactCodePlate(artifact));
+    card.appendChild(createVerifiedArtifactImage(artifact));
 
     const cardBody = document.createElement('div');
     cardBody.className = 'card-body';
@@ -761,6 +866,11 @@ document.addEventListener('DOMContentLoaded', async () => {
   (function () {
     var activeBtn = document.querySelector('.tab-btn.active');
     if (activeBtn && activeBtn.dataset.tab === 'graph' && !graphInitialized) {
+      graphInitialized = true;
+      if (typeof initGraph === 'function') { initGraph(); }
+    }
+    var activeGraphPanel = document.getElementById('cy');
+    if (!activeBtn && activeGraphPanel && activeGraphPanel.classList.contains('active') && !graphInitialized) {
       graphInitialized = true;
       if (typeof initGraph === 'function') { initGraph(); }
     }

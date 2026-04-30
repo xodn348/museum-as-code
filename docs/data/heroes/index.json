@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-30T03:26:53Z",
+  "generated_at": "2026-04-30T00:00:00-05:00",
   "status": "phase-c-active",
   "count": 10,
   "heroes": [
@@ -18,7 +18,12 @@
       "sidecar_path": "../artifacts/heroes/hero_pensive_bodhisattva.json",
       "hgl_path": "data/heroes/hero_pensive_bodhisattva.hgl",
       "license": "CC BY-SA 4.0",
-      "needs_verification": ""
+      "needs_verification": "",
+      "credit": "Photo by Slices of Light via Wikimedia Commons; identity confirmed by National Museum of Korea",
+      "confidence": "high",
+      "exact_image_verified": true,
+      "image_match_confidence": "high",
+      "verification_note": "Exact National Treasure No. 83 object; Commons licensing retained with attribution."
     },
     {
       "id": "hero_celadon_maebyeong",
@@ -35,7 +40,12 @@
       "sidecar_path": "../artifacts/heroes/hero_celadon_maebyeong.json",
       "hgl_path": "data/heroes/hero_celadon_maebyeong.hgl",
       "license": "CC0",
-      "needs_verification": "Local image is a public-domain Goryeo cloud-and-crane prunus vase, not yet verified as National Treasure No. 68. Replace with exact NT68 image if a reusable source is confirmed."
+      "needs_verification": "Image withheld: current local reusable image is a similar Goryeo cloud-and-crane maebyeong, not confirmed as Kansong National Treasure No. 68.",
+      "credit": "Cleveland Museum of Art public-domain image; retained only as hidden reference until exact NT68 source is secured",
+      "confidence": "low",
+      "exact_image_verified": false,
+      "image_match_confidence": "low",
+      "verification_note": "Do not display a photo until an exact reusable Kansong NT68 image is confirmed."
     },
     {
       "id": "hero_moon_jar",
@@ -47,12 +57,17 @@
       "hook": "The most radical gesture here is emptiness.",
       "summary_en": "A full, white porcelain form whose slight asymmetry turns restraint into presence.",
       "summary_ko": "순백의 둥근 형태와 미세한 비대칭이 조선 미감의 절제를 보여주는 달항아리입니다.",
-      "cover_image": "images/heroes/hero_moon_jar/moon-jar-nt262.jpg",
+      "cover_image": "images/heroes/hero_moon_jar/moon-jar-nt310.jpg",
       "data_file": "data/heroes/hero_moon_jar.json",
       "sidecar_path": "../artifacts/heroes/hero_moon_jar.json",
       "hgl_path": "data/heroes/hero_moon_jar.hgl",
       "license": "KOGL Type 1",
-      "needs_verification": ""
+      "needs_verification": "",
+      "credit": "Cultural Heritage Administration / Korea Heritage Service via Wikimedia Commons",
+      "confidence": "high",
+      "exact_image_verified": true,
+      "image_match_confidence": "high",
+      "verification_note": "Exact National Treasure No. 310 image; local filename corrected from nt262 to nt310."
     },
     {
       "id": "hero_hunminjeongeum",
@@ -69,7 +84,12 @@
       "sidecar_path": "../artifacts/heroes/hero_hunminjeongeum.json",
       "hgl_path": "data/heroes/hero_hunminjeongeum.hgl",
       "license": "Public domain",
-      "needs_verification": ""
+      "needs_verification": "Image withheld: reusable Commons image is documented as a reprint/facsimile, not confirmed as the exact Kansong Haerye manuscript object.",
+      "credit": "Kyujanggak/SNU reprint scan via Wikimedia Commons; hidden until exact original-manuscript status is resolved",
+      "confidence": "medium",
+      "exact_image_verified": false,
+      "image_match_confidence": "medium",
+      "verification_note": "Do not display unless the page is relabeled as a facsimile/reprint or an exact original source is confirmed."
     },
     {
       "id": "hero_silla_gold_crown",
@@ -86,7 +106,12 @@
       "sidecar_path": "../artifacts/heroes/hero_silla_gold_crown.json",
       "hgl_path": "data/heroes/hero_silla_gold_crown.hgl",
       "license": "KOGL Type 1",
-      "needs_verification": ""
+      "needs_verification": "",
+      "credit": "Korea Heritage Service via Wikimedia Commons",
+      "confidence": "high",
+      "exact_image_verified": true,
+      "image_match_confidence": "high",
+      "verification_note": "Exact National Treasure No. 87 image; local file refreshed from Commons original."
     },
     {
       "id": "hero_baekje_incense_burner",
@@ -102,8 +127,13 @@
       "data_file": "data/heroes/hero_baekje_incense_burner.json",
       "sidecar_path": "../artifacts/heroes/hero_baekje_incense_burner.json",
       "hgl_path": "data/heroes/hero_baekje_incense_burner.hgl",
-      "license": "CC BY-SA 2.5 candidate / existing local artifact image fallback",
-      "needs_verification": ""
+      "license": "CC BY-SA 2.5",
+      "needs_verification": "",
+      "credit": "Rheo1905 via Wikimedia Commons; identity confirmed by Buyeo National Museum",
+      "confidence": "high",
+      "exact_image_verified": true,
+      "image_match_confidence": "high",
+      "verification_note": "Exact National Treasure No. 287 object; local JPEG byte-matches Commons upload."
     },
     {
       "id": "hero_divine_bell",
@@ -115,12 +145,17 @@
       "hook": "A sculpture you are meant to hear.",
       "summary_en": "A monumental Unified Silla bell whose reliefs, inscription, and resonance made it a model for Korean Buddhist bells.",
       "summary_ko": "부조와 명문, 울림으로 한국 범종의 기준이 된 통일신라의 거대한 청동 종입니다.",
-      "cover_image": "images/heroes/hero_divine_bell/divine-bell-seongdeok.svg",
+      "cover_image": "images/heroes/hero_divine_bell/divine-bell-seongdeok.jpg",
       "data_file": "data/heroes/hero_divine_bell.json",
       "sidecar_path": "../artifacts/heroes/hero_divine_bell.json",
       "hgl_path": "data/heroes/hero_divine_bell.hgl",
-      "license": "CC0 source candidate; local SVG placeholder until download recovers",
-      "needs_verification": "Wikimedia returned HTTP 429 during download; local placeholder prevents hotlinking and marks source replacement required."
+      "license": "CC0",
+      "needs_verification": "",
+      "credit": "Wikimedia Commons CC0 image; identity confirmed by Gyeongju National Museum",
+      "confidence": "high",
+      "exact_image_verified": true,
+      "image_match_confidence": "high",
+      "verification_note": "Exact National Treasure No. 29 object; placeholder SVG replaced by local JPEG."
     },
     {
       "id": "hero_tripitaka",
@@ -132,12 +167,17 @@
       "hook": "A library carved so carefully it became architecture.",
       "summary_en": "More than 80,000 Buddhist printing blocks, carved in Goryeo as a monumental act of preservation.",
       "summary_ko": "고려가 새긴 8만여 장의 불교 경전 목판으로, 지식 보존의 거대한 시스템입니다.",
-      "cover_image": "images/heroes/hero_tripitaka/tripitaka-koreana-woodblock.jpg",
+      "cover_image": "images/heroes/hero_tripitaka/tripitaka-koreana-02.jpg",
       "data_file": "data/heroes/hero_tripitaka.json",
       "sidecar_path": "../artifacts/heroes/hero_tripitaka.json",
       "hgl_path": "data/heroes/hero_tripitaka.hgl",
-      "license": "CC BY-SA 3.0 candidate / existing local artifact image fallback",
-      "needs_verification": ""
+      "license": "CC0",
+      "needs_verification": "",
+      "credit": "Wikimedia Commons CC0 image of Tripitaka Koreana at Haeinsa",
+      "confidence": "high",
+      "exact_image_verified": true,
+      "image_match_confidence": "high",
+      "verification_note": "Exact Haeinsa Tripitaka Koreana woodblocks image; wrong copy-block fallback removed."
     },
     {
       "id": "hero_celestial_chart",
@@ -149,12 +189,17 @@
       "hook": "The new dynasty wrote its sky in stone.",
       "summary_en": "A Joseon star chart that maps constellations, seasons, and royal legitimacy onto a dark slab.",
       "summary_ko": "별자리와 계절, 왕조의 정당성을 검은 돌 위에 새긴 조선의 천문도입니다.",
-      "cover_image": "images/heroes/hero_celestial_chart/cheonsang-chart.svg",
+      "cover_image": "images/heroes/hero_celestial_chart/cheonsang-chart.jpg",
       "data_file": "data/heroes/hero_celestial_chart.json",
       "sidecar_path": "../artifacts/heroes/hero_celestial_chart.json",
       "hgl_path": "data/heroes/hero_celestial_chart.hgl",
-      "license": "CC0 source candidate; local SVG placeholder until download recovers",
-      "needs_verification": "Wikimedia returned HTTP 429 during download; local placeholder prevents hotlinking and marks source replacement required."
+      "license": "KOGL Type 1",
+      "needs_verification": "",
+      "credit": "National Palace Museum of Korea / KOGL Type 1",
+      "confidence": "high",
+      "exact_image_verified": true,
+      "image_match_confidence": "high",
+      "verification_note": "Exact National Treasure No. 228 image; placeholder SVG replaced by official local JPEG."
     },
     {
       "id": "hero_genre_album",
@@ -171,7 +216,12 @@
       "sidecar_path": "../artifacts/heroes/hero_genre_album.json",
       "hgl_path": "data/heroes/hero_genre_album.hgl",
       "license": "Public domain",
-      "needs_verification": ""
+      "needs_verification": "",
+      "credit": "Wikimedia Commons public-domain reproduction; identity confirmed by National Museum of Korea",
+      "confidence": "high",
+      "exact_image_verified": true,
+      "image_match_confidence": "high",
+      "verification_note": "Exact Ssireum leaf from Kim Hong-do genre album."
     }
   ]
 }

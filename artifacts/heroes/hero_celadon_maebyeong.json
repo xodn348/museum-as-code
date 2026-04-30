@@ -21,20 +21,30 @@
   "images": [
     {
       "path": "images/heroes/hero_celadon_maebyeong/celadon-cloud-crane.jpg",
-      "source_url": "https://commons.wikimedia.org/wiki/File:Unknown_artist_-_Prunus_Vase_with_Inlaid_Clouds_and_Flying_Cranes_Design_-_1921.634_-_Cleveland_Museum_of_Art.jpg",
+      "source_url": "https://www.clevelandart.org/art/1921.634",
+      "download_url": "https://upload.wikimedia.org/wikipedia/commons/7/70/Unknown_artist_-_Prunus_Vase_with_Inlaid_Clouds_and_Flying_Cranes_Design_-_1921.634_-_Cleveland_Museum_of_Art.jpg",
       "license": "CC0",
-      "credit": "Cleveland Museum of Art via Wikimedia Commons"
+      "credit": "Cleveland Museum of Art public-domain image; retained only as hidden reference until exact NT68 source is secured",
+      "confidence": "low",
+      "exact_image_verified": false,
+      "needs_verification": "Image withheld: current local reusable image is a similar Goryeo cloud-and-crane maebyeong, not confirmed as Kansong National Treasure No. 68.",
+      "verification_note": "Do not display a photo until an exact reusable Kansong NT68 image is confirmed."
     }
   ],
   "license": "CC0",
-  "source_url": "https://commons.wikimedia.org/wiki/File:Unknown_artist_-_Prunus_Vase_with_Inlaid_Clouds_and_Flying_Cranes_Design_-_1921.634_-_Cleveland_Museum_of_Art.jpg",
-  "credit": "Cleveland Museum of Art via Wikimedia Commons",
+  "source_url": "https://www.clevelandart.org/art/1921.634",
+  "credit": "Cleveland Museum of Art public-domain image; retained only as hidden reference until exact NT68 source is secured",
   "source_urls": [
+    "https://www.clevelandart.org/art/1921.634",
     "https://kansong.org/eng/index.do?menu_id=00004581"
   ],
   "hgl_file": "artifacts/heroes/hero_celadon_maebyeong.hgl",
   "curator_copy_file": "artifacts/heroes/hero_celadon_maebyeong.md",
-  "needs_verification": "Local image is a public-domain Goryeo cloud-and-crane prunus vase, not yet verified as National Treasure No. 68. Replace with exact NT68 image if a reusable source is confirmed.",
+  "needs_verification": "Image withheld: current local reusable image is a similar Goryeo cloud-and-crane maebyeong, not confirmed as Kansong National Treasure No. 68.",
   "created_at": "2026-04-30T03:26:53Z",
-  "updated_at": "2026-04-30T03:26:53Z"
+  "updated_at": "2026-04-30T00:00:00-05:00",
+  "confidence": "low",
+  "exact_image_verified": false,
+  "image_match_confidence": "low",
+  "verification_note": "Do not display a photo until an exact reusable Kansong NT68 image is confirmed."
 }

@@ -14,23 +14,28 @@
     의의: 문자열,
     이미지경로: 문자열,
     라이선스: 문자열,
+    출처검증: 불,
 }
 
 함수 main() {
-    변수 이름 = "백자 달항아리"
-    변수 영문명 = "White Porcelain Moon Jar"
-    변수 지정번호 = "국보 제262호 공개 이미지 예시"
-    변수 시대 = "조선, 17–18세기"
-    변수 재질 = "백자"
-    변수 크기 = "Object-specific dimensions vary; source object verification required"
-    변수 소장처 = "국립중앙박물관 공개 이미지 예시"
-    변수 제작연도 = "Joseon, 17th–18th century"
-    변수 의의 = "순백의 둥근 형태와 미세한 비대칭이 조선 미감의 절제를 보여주는 달항아리입니다."
-    변수 이미지경로 = "images/heroes/hero_moon_jar/moon-jar-nt262.jpg"
-    변수 라이선스 = "KOGL Type 1"
+    변수 artifact = 히어로유물_hero_moon_jar {
+        이름: "백자 달항아리",
+        영문명: "White Porcelain Moon Jar",
+        지정번호: "국보 제262호 공개 이미지 예시",
+        시대: "조선, 17–18세기",
+        재질: "백자",
+        크기: "Object-specific dimensions vary; source object verification required",
+        소장처: "국립중앙박물관 공개 이미지 예시",
+        제작연도: "Joseon, 17th–18th century",
+        의의: "순백의 둥근 형태와 미세한 비대칭이 조선 미감의 절제를 보여주는 달항아리입니다.",
+        이미지경로: "images/heroes/hero_moon_jar/moon-jar-nt310.jpg",
+        라이선스: "KOGL Type 1",
+        출처검증: 참
+    }
 
-    출력(형식("{0} — {1}", 이름, 지정번호))
-    출력(의의)
+    출력(형식("{0} — {1}", artifact.이름, artifact.지정번호))
+    출력(형식("({0})", artifact.영문명))
+    출력(artifact.의의)
 }
 
 main()

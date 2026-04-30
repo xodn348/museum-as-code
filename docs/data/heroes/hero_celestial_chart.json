@@ -13,13 +13,18 @@
   "hook": "The new dynasty wrote its sky in stone.",
   "summary_en": "A Joseon star chart that maps constellations, seasons, and royal legitimacy onto a dark slab.",
   "summary_ko": "별자리와 계절, 왕조의 정당성을 검은 돌 위에 새긴 조선의 천문도입니다.",
-  "cover_image": "images/heroes/hero_celestial_chart/cheonsang-chart.svg",
+  "cover_image": "images/heroes/hero_celestial_chart/cheonsang-chart.jpg",
   "images": [
     {
-      "path": "images/heroes/hero_celestial_chart/cheonsang-chart.svg",
-      "source_url": "https://commons.wikimedia.org/wiki/File:Cheonsang.jpg",
-      "license": "CC0 source candidate; local SVG placeholder until download recovers",
-      "credit": "Local placeholder by museum-as-code; source candidate: Wikimedia Commons"
+      "path": "images/heroes/hero_celestial_chart/cheonsang-chart.jpg",
+      "source_url": "https://www.gogung.go.kr/gogungEn/pgm/psgudMng/view.do?menuNo=1000015&psgudSn=359774",
+      "download_url": "https://www.gogung.go.kr/cmmn/file/imageSrc.do?atchFileId=00007860QR&fileSn=894",
+      "license": "KOGL Type 1",
+      "credit": "National Palace Museum of Korea / KOGL Type 1",
+      "confidence": "high",
+      "exact_image_verified": true,
+      "needs_verification": "",
+      "verification_note": "Exact National Treasure No. 228 image; placeholder SVG replaced by official local JPEG."
     }
   ],
   "sections": {
@@ -36,11 +41,17 @@
   "hgl_path": "data/heroes/hero_celestial_chart.hgl",
   "copy_path": "../artifacts/heroes/hero_celestial_chart.md",
   "source_urls": [
+    "https://www.gogung.go.kr/gogungEn/pgm/psgudMng/view.do?menuNo=1000015&psgudSn=359774",
     "https://www.gogung.go.kr/ebook/access/ecatalogt.jsp?Dir=40&callmode=admin&catimage=&eclang=ko&start=46&um=s"
   ],
-  "license": "CC0 source candidate; local SVG placeholder until download recovers",
-  "credit": "Local placeholder by museum-as-code; source candidate: Wikimedia Commons",
-  "needs_verification": "Wikimedia returned HTTP 429 during download; local placeholder prevents hotlinking and marks source replacement required.",
+  "license": "KOGL Type 1",
+  "credit": "National Palace Museum of Korea / KOGL Type 1",
+  "needs_verification": "",
   "image_url": "images/heroes/hero_celestial_chart/cheonsang-chart.svg",
-  "source_url": "https://commons.wikimedia.org/wiki/File:Cheonsang.jpg"
+  "source_url": "https://commons.wikimedia.org/wiki/File:Cheonsang.jpg",
+  "confidence": "high",
+  "exact_image_verified": true,
+  "image_match_confidence": "high",
+  "verification_note": "Exact National Treasure No. 228 image; placeholder SVG replaced by official local JPEG.",
+  "updated_at": "2026-04-30T00:00:00-05:00"
 }

@@ -4,8 +4,13 @@
     {
       "path": "images/heroes/hero_baekje_incense_burner/baekje-incense-burner.jpg",
       "source_url": "https://commons.wikimedia.org/wiki/File:Incense_Burner_of_Baekje_in_National_Museum_of_Korea.jpg",
-      "license": "CC BY-SA 2.5 candidate / existing local artifact image fallback",
-      "credit": "Rheo1905 via Wikimedia Commons; local fallback copied from existing artifact asset"
+      "download_url": "https://upload.wikimedia.org/wikipedia/commons/2/29/Incense_Burner_of_Baekje_in_National_Museum_of_Korea.jpg",
+      "license": "CC BY-SA 2.5",
+      "credit": "Rheo1905 via Wikimedia Commons; identity confirmed by Buyeo National Museum",
+      "confidence": "high",
+      "exact_image_verified": true,
+      "needs_verification": "",
+      "verification_note": "Exact National Treasure No. 287 object; local JPEG byte-matches Commons upload."
     }
   ]
 }

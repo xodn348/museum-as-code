@@ -6,8 +6,11 @@
       "source_url": "https://commons.wikimedia.org/wiki/File:Danwon-Ssireum.jpg",
       "download_url": "https://upload.wikimedia.org/wikipedia/commons/d/d0/Danwon-Ssireum.jpg",
       "license": "Public domain",
-      "credit": "Wikimedia Commons public-domain reproduction",
-      "needs_verification": ""
+      "credit": "Wikimedia Commons public-domain reproduction; identity confirmed by National Museum of Korea",
+      "confidence": "high",
+      "exact_image_verified": true,
+      "needs_verification": "",
+      "verification_note": "Exact Ssireum leaf from Kim Hong-do genre album."
     }
   ]
 }

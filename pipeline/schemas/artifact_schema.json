@@ -32,6 +32,12 @@
     "description": { "type": "string" },
     "description_en": { "type": "string" },
     "image_url": { "type": "string", "description": "Local docs-relative path only; remote URLs belong in source_url." },
+    "exact_image_verified": {
+      "type": "boolean",
+      "description": "True only when the local image is confirmed to depict this exact object and source/license are recorded."
+    },
+    "image_match_confidence": { "type": "string", "enum": ["low", "medium", "high"] },
+    "verification_note": { "type": "string" },
     "images": {
       "type": "array",
       "items": {
@@ -40,8 +46,12 @@
         "properties": {
           "path": { "type": "string" },
           "source_url": { "type": "string" },
+          "download_url": { "type": "string" },
           "license": { "type": "string" },
           "credit": { "type": "string" },
+          "confidence": { "type": "string", "enum": ["low", "medium", "high"] },
+          "exact_image_verified": { "type": "boolean" },
+          "verification_note": { "type": "string" },
           "needs_verification": { "type": "string" }
         }
       }

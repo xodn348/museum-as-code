@@ -14,23 +14,28 @@
     의의: 문자열,
     이미지경로: 문자열,
     라이선스: 문자열,
+    출처검증: 불,
 }
 
 함수 main() {
-    변수 이름 = "천상열차분야지도 각석"
-    변수 영문명 = "Stone Constellation Chart (Cheonsang Yeolcha Bunyajido)"
-    변수 지정번호 = "국보 제228호"
-    변수 시대 = "조선, 1395년"
-    변수 재질 = "석각"
-    변수 크기 = "About 211.0 × 123.0 cm (catalogue source)"
-    변수 소장처 = "국립고궁박물관"
-    변수 제작연도 = "Joseon, 1395"
-    변수 의의 = "별자리와 계절, 왕조의 정당성을 검은 돌 위에 새긴 조선의 천문도입니다."
-    변수 이미지경로 = "images/heroes/hero_celestial_chart/cheonsang-chart.jpg"
-    변수 라이선스 = "CC0"
+    변수 artifact = 히어로유물_hero_celestial_chart {
+        이름: "천상열차분야지도 각석",
+        영문명: "Stone Constellation Chart (Cheonsang Yeolcha Bunyajido)",
+        지정번호: "국보 제228호",
+        시대: "조선, 1395년",
+        재질: "석각",
+        크기: "About 211.0 × 123.0 cm (catalogue source)",
+        소장처: "국립고궁박물관",
+        제작연도: "Joseon, 1395",
+        의의: "별자리와 계절, 왕조의 정당성을 검은 돌 위에 새긴 조선의 천문도입니다.",
+        이미지경로: "images/heroes/hero_celestial_chart/cheonsang-chart.jpg",
+        라이선스: "KOGL Type 1",
+        출처검증: 참
+    }
 
-    출력(형식("{0} — {1}", 이름, 지정번호))
-    출력(의의)
+    출력(형식("{0} — {1}", artifact.이름, artifact.지정번호))
+    출력(형식("({0})", artifact.영문명))
+    출력(artifact.의의)
 }
 
 main()

@@ -18,8 +18,13 @@
     {
       "path": "images/heroes/hero_hunminjeongeum/hunminjeongeum-haerye.jpg",
       "source_url": "https://commons.wikimedia.org/wiki/File:Hunminjeongeum_Haerye_10.jpg",
+      "download_url": "https://upload.wikimedia.org/wikipedia/commons/f/f0/Hunminjeongeum_Haerye_10.jpg",
       "license": "Public domain",
-      "credit": "Kyujanggak scan via Wikimedia Commons"
+      "credit": "Kyujanggak/SNU reprint scan via Wikimedia Commons; hidden until exact original-manuscript status is resolved",
+      "confidence": "medium",
+      "exact_image_verified": false,
+      "needs_verification": "Image withheld: reusable Commons image is documented as a reprint/facsimile, not confirmed as the exact Kansong Haerye manuscript object.",
+      "verification_note": "Do not display unless the page is relabeled as a facsimile/reprint or an exact original source is confirmed."
     }
   ],
   "sections": {
@@ -36,9 +41,15 @@
   "hgl_path": "data/heroes/hero_hunminjeongeum.hgl",
   "copy_path": "../artifacts/heroes/hero_hunminjeongeum.md",
   "source_urls": [
+    "https://commons.wikimedia.org/wiki/File:Hunminjeongeum_Haerye_10.jpg",
     "https://english.cha.go.kr/cop/bbs/selectBoardArticle.do?bbsId=BBSMSTR_1205&ctgryLrcls=&mn=EN_03_01&nttId=57977&uniq=0"
   ],
   "license": "Public domain",
-  "credit": "Kyujanggak scan via Wikimedia Commons",
-  "needs_verification": ""
+  "credit": "Kyujanggak/SNU reprint scan via Wikimedia Commons; hidden until exact original-manuscript status is resolved",
+  "needs_verification": "Image withheld: reusable Commons image is documented as a reprint/facsimile, not confirmed as the exact Kansong Haerye manuscript object.",
+  "confidence": "medium",
+  "exact_image_verified": false,
+  "image_match_confidence": "medium",
+  "verification_note": "Do not display unless the page is relabeled as a facsimile/reprint or an exact original source is confirmed.",
+  "updated_at": "2026-04-30T00:00:00-05:00"
 }

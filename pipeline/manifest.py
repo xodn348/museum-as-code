@@ -26,6 +26,7 @@ class ManifestArtifact(TypedDict):
     period: str
     designation: str
     image_url: str
+    exact_image_verified: bool
 
 
 class ManifestCollection(TypedDict):
@@ -78,6 +79,10 @@ def _string_field(sidecar: dict[str, object], key: str) -> str:
     return str(value)
 
 
+def _bool_field(sidecar: dict[str, object], key: str) -> bool:
+    return sidecar.get(key) is True
+
+
 def _resolve_local_image_url(sidecar_path: Path, artifact_id: str) -> str:
     return resolve_local_artifact_image(sidecar_path, artifact_id)
 
@@ -96,10 +101,13 @@ def _load_artifact_entry(sidecar_path: Path, collection_id: str) -> ManifestArti
         "period": _string_field(sidecar, "era"),
         "designation": _string_field(sidecar, "designation"),
         "image_url": _resolve_local_image_url(sidecar_path, artifact_id) or _string_field(sidecar, "image_url"),
+        "exact_image_verified": _bool_field(sidecar, "exact_image_verified"),
         "license": _string_field(sidecar, "license"),
         "credit": _string_field(sidecar, "credit"),
         "source_url": _string_field(sidecar, "source_url"),
         "confidence": _string_field(sidecar, "confidence"),
+        "needs_verification": _string_field(sidecar, "needs_verification"),
+        "verification_note": _string_field(sidecar, "verification_note"),
         "room_tags": sidecar.get("room_tags", []),
     }
 

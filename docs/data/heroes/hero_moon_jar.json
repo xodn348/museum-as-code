@@ -13,13 +13,18 @@
   "hook": "The most radical gesture here is emptiness.",
   "summary_en": "A full, white porcelain form whose slight asymmetry turns restraint into presence.",
   "summary_ko": "순백의 둥근 형태와 미세한 비대칭이 조선 미감의 절제를 보여주는 달항아리입니다.",
-  "cover_image": "images/heroes/hero_moon_jar/moon-jar-nt262.jpg",
+  "cover_image": "images/heroes/hero_moon_jar/moon-jar-nt310.jpg",
   "images": [
     {
-      "path": "images/heroes/hero_moon_jar/moon-jar-nt262.jpg",
+      "path": "images/heroes/hero_moon_jar/moon-jar-nt310.jpg",
       "source_url": "https://commons.wikimedia.org/wiki/File:%EB%B0%B1%EC%9E%90_%EB%8B%AC%ED%95%AD%EC%95%84%EB%A6%AC(310%ED%98%B8).jpg",
+      "download_url": "https://upload.wikimedia.org/wikipedia/commons/6/6e/%EB%B0%B1%EC%9E%90_%EB%8B%AC%ED%95%AD%EC%95%84%EB%A6%AC%28310%ED%98%B8%29.jpg",
       "license": "KOGL Type 1",
-      "credit": "Cultural Heritage Administration / Korea Heritage Service via Wikimedia Commons"
+      "credit": "Cultural Heritage Administration / Korea Heritage Service via Wikimedia Commons",
+      "confidence": "high",
+      "exact_image_verified": true,
+      "needs_verification": "",
+      "verification_note": "Exact National Treasure No. 310 image; local filename corrected from nt262 to nt310."
     }
   ],
   "sections": {
@@ -36,11 +41,17 @@
   "hgl_path": "data/heroes/hero_moon_jar.hgl",
   "copy_path": "../artifacts/heroes/hero_moon_jar.md",
   "source_urls": [
+    "https://commons.wikimedia.org/wiki/File:%EB%B0%B1%EC%9E%90_%EB%8B%AC%ED%95%AD%EC%95%84%EB%A6%AC(310%ED%98%B8).jpg",
     "https://english.cha.go.kr/chaen/search/selectGeneralSearchDetail.do?ccebAsno=0003100000000&mn=EN_02_02&pageIndex=33&sCcebCtcd=11&sCcebKdcd=11"
   ],
   "license": "KOGL Type 1",
   "credit": "Cultural Heritage Administration / Korea Heritage Service via Wikimedia Commons",
   "needs_verification": "",
   "designation_ko": "국보 제310호",
-  "source_url": "https://commons.wikimedia.org/wiki/File:%EB%B0%B1%EC%9E%90_%EB%8B%AC%ED%95%AD%EC%95%84%EB%A6%AC(310%ED%98%B8).jpg"
+  "source_url": "https://commons.wikimedia.org/wiki/File:%EB%B0%B1%EC%9E%90_%EB%8B%AC%ED%95%AD%EC%95%84%EB%A6%AC(310%ED%98%B8).jpg",
+  "confidence": "high",
+  "exact_image_verified": true,
+  "image_match_confidence": "high",
+  "verification_note": "Exact National Treasure No. 310 image; local filename corrected from nt262 to nt310.",
+  "updated_at": "2026-04-30T00:00:00-05:00"
 }

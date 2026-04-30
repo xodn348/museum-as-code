@@ -14,23 +14,28 @@
     의의: 문자열,
     이미지경로: 문자열,
     라이선스: 문자열,
+    출처검증: 불,
 }
 
 함수 main() {
-    변수 이름 = "청자 상감운학문 매병"
-    변수 영문명 = "Celadon Prunus Vase with Inlaid Cloud and Crane Design"
-    변수 지정번호 = "국보 제68호"
-    변수 시대 = "고려, 12세기"
-    변수 재질 = "상감청자"
-    변수 크기 = "Height about 42.1 cm (source verification required)"
-    변수 소장처 = "간송미술관"
-    변수 제작연도 = "Goryeo, 12th century"
-    변수 의의 = "운학문 상감과 팽팽한 실루엣으로 고려청자의 정수를 보여주는 매병입니다."
-    변수 이미지경로 = "images/heroes/hero_celadon_maebyeong/celadon-cloud-crane.jpg"
-    변수 라이선스 = "CC0"
+    변수 artifact = 히어로유물_hero_celadon_maebyeong {
+        이름: "청자 상감운학문 매병",
+        영문명: "Celadon Prunus Vase with Inlaid Cloud and Crane Design",
+        지정번호: "국보 제68호",
+        시대: "고려, 12세기",
+        재질: "상감청자",
+        크기: "Height about 42.1 cm (source verification required)",
+        소장처: "간송미술관",
+        제작연도: "Goryeo, 12th century",
+        의의: "운학문 상감과 팽팽한 실루엣으로 고려청자의 정수를 보여주는 매병입니다.",
+        이미지경로: "images/heroes/hero_celadon_maebyeong/celadon-cloud-crane.jpg",
+        라이선스: "CC0",
+        출처검증: 거짓
+    }
 
-    출력(형식("{0} — {1}", 이름, 지정번호))
-    출력(의의)
+    출력(형식("{0} — {1}", artifact.이름, artifact.지정번호))
+    출력(형식("({0})", artifact.영문명))
+    출력(artifact.의의)
 }
 
 main()

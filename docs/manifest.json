@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-30T03:44:35.683056Z",
+  "generated_at": "2026-04-30T05:56:26.241122Z",
   "total_count": 64,
   "artifacts": [
     {
@@ -12,10 +12,13 @@
       "period": "조선시대",
       "designation": "국보 제1호",
       "image_url": "images/artifacts/PS01002001_000010000.jpg",
+      "exact_image_verified": false,
       "license": "needs_verification",
       "credit": "Museum as Code local artifact image; original source requires verification",
       "source_url": "https://www.emuseum.go.kr/images/relic/11/0001.jpg",
       "confidence": "low",
+      "needs_verification": "",
+      "verification_note": "",
       "room_tags": []
     },
     {
@@ -28,10 +31,13 @@
       "period": "조선시대",
       "designation": "국보 제1호",
       "image_url": "images/artifacts/PS01002001_000030000.jpg",
+      "exact_image_verified": false,
       "license": "needs_verification",
       "credit": "Museum as Code local artifact image; original source requires verification",
       "source_url": "https://www.emuseum.go.kr/images/relic/11/0004.jpg",
       "confidence": "low",
+      "needs_verification": "",
+      "verification_note": "",
       "room_tags": []
     },
     {
@@ -44,10 +50,13 @@
       "period": "통일신라시대",
       "designation": "국보 제2호",
       "image_url": "images/artifacts/PS01002001_000020000.jpg",
+      "exact_image_verified": false,
       "license": "needs_verification",
       "credit": "Museum as Code local artifact image; original source requires verification",
       "source_url": "https://www.emuseum.go.kr/images/relic/11/0002.jpg",
       "confidence": "low",
+      "needs_verification": "",
+      "verification_note": "",
       "room_tags": []
     },
     {
@@ -60,10 +69,13 @@
       "period": "통일신라시대",
       "designation": "국보 제5호",
       "image_url": "images/artifacts/PS01002001_000040000.jpg",
+      "exact_image_verified": false,
       "license": "needs_verification",
       "credit": "Museum as Code local artifact image; original source requires verification",
       "source_url": "https://www.emuseum.go.kr/images/relic/11/0005.jpg",
       "confidence": "low",
+      "needs_verification": "",
+      "verification_note": "",
       "room_tags": []
     },
     {
@@ -76,10 +88,13 @@
       "period": "통일신라시대",
       "designation": "국보 제6호",
       "image_url": "images/artifacts/PS01002001_000050000.jpg",
+      "exact_image_verified": false,
       "license": "needs_verification",
       "credit": "Museum as Code local artifact image; original source requires verification",
       "source_url": "https://www.emuseum.go.kr/images/relic/11/0006.jpg",
       "confidence": "low",
+      "needs_verification": "",
+      "verification_note": "",
       "room_tags": []
     },
     {
@@ -92,10 +107,13 @@
       "period": "조선시대",
       "designation": "국보 제6호",
       "image_url": "images/artifacts/PS01002001_000390000.jpg",
+      "exact_image_verified": false,
       "license": "needs_verification",
       "credit": "Museum as Code local artifact image; original source requires verification",
       "source_url": "https://www.emuseum.go.kr/images/relic/11/0006.jpg",
       "confidence": "low",
+      "needs_verification": "",
+      "verification_note": "",
       "room_tags": []
     },
     {
@@ -108,10 +126,13 @@
       "period": "통일신라시대",
       "designation": "국보 제7호",
       "image_url": "images/artifacts/PS01002001_000060000.jpg",
+      "exact_image_verified": false,
       "license": "needs_verification",
       "credit": "Museum as Code local artifact image; original source requires verification",
       "source_url": "https://www.emuseum.go.kr/images/relic/11/0007.jpg",
       "confidence": "low",
+      "needs_verification": "",
+      "verification_note": "",
       "room_tags": []
     },
     {
@@ -124,10 +145,13 @@
       "period": "통일신라시대",
       "designation": "국보 제8호",
       "image_url": "images/artifacts/PS01002001_000070000.jpg",
+      "exact_image_verified": false,
       "license": "needs_verification",
       "credit": "Museum as Code local artifact image; original source requires verification",
       "source_url": "https://www.emuseum.go.kr/images/relic/11/0008.jpg",
       "confidence": "low",
+      "needs_verification": "",
+      "verification_note": "",
       "room_tags": []
     },
     {
@@ -140,10 +164,13 @@
       "period": "통일신라시대",
       "designation": "국보 제9호",
       "image_url": "images/artifacts/PS01002001_000080000.jpg",
+      "exact_image_verified": false,
       "license": "needs_verification",
       "credit": "Museum as Code local artifact image; original source requires verification",
       "source_url": "https://www.emuseum.go.kr/images/relic/11/0009.jpg",
       "confidence": "low",
+      "needs_verification": "",
+      "verification_note": "",
       "room_tags": []
     },
     {
@@ -156,10 +183,13 @@
       "period": "통일신라시대",
       "designation": "국보 제9호",
       "image_url": "images/artifacts/PS01002001_000400000.jpg",
+      "exact_image_verified": false,
       "license": "needs_verification",
       "credit": "Museum as Code local artifact image; original source requires verification",
       "source_url": "https://www.emuseum.go.kr/images/relic/11/0009.jpg",
       "confidence": "low",
+      "needs_verification": "",
+      "verification_note": "",
       "room_tags": []
     },
     {
@@ -172,10 +202,13 @@
       "period": "통일신라시대",
       "designation": "국보 제10호",
       "image_url": "images/artifacts/PS01002001_000090000.jpg",
+      "exact_image_verified": false,
       "license": "needs_verification",
       "credit": "Museum as Code local artifact image; original source requires verification",
       "source_url": "https://www.emuseum.go.kr/images/relic/11/0010.jpg",
       "confidence": "low",
+      "needs_verification": "",
+      "verification_note": "",
       "room_tags": []
     },
     {
@@ -188,10 +221,13 @@
       "period": "고려시대",
       "designation": "국보 제15호",
       "image_url": "images/artifacts/PS01002001_000380000.jpg",
+      "exact_image_verified": false,
       "license": "needs_verification",
       "credit": "Museum as Code local artifact image; original source requires verification",
       "source_url": "https://www.emuseum.go.kr/images/relic/11/0015.jpg",
       "confidence": "low",
+      "needs_verification": "",
+      "verification_note": "",
       "room_tags": []
     },
     {
@@ -204,10 +240,13 @@
       "period": "고려시대",
       "designation": "국보 제16호",
       "image_url": "images/artifacts/PS01002001_000420000.jpg",
+      "exact_image_verified": false,
       "license": "needs_verification",
       "credit": "Museum as Code local artifact image; original source requires verification",
       "source_url": "https://www.emuseum.go.kr/images/relic/11/0016.jpg",
       "confidence": "low",
+      "needs_verification": "",
+      "verification_note": "",
       "room_tags": []
     },
     {
@@ -220,10 +259,13 @@
       "period": "삼국시대",
       "designation": "국보 제20호",
       "image_url": "images/artifacts/PS01002001_000100000.jpg",
+      "exact_image_verified": false,
       "license": "needs_verification",
       "credit": "Museum as Code local artifact image; original source requires verification",
       "source_url": "https://www.emuseum.go.kr/images/relic/11/0020.jpg",
       "confidence": "low",
+      "needs_verification": "",
+      "verification_note": "",
       "room_tags": []
     },
     {
@@ -236,10 +278,13 @@
       "period": "통일신라시대",
       "designation": "국보 제21호",
       "image_url": "images/artifacts/PS01002001_000120000.jpg",
+      "exact_image_verified": false,
       "license": "needs_verification",
       "credit": "Museum as Code local artifact image; original source requires verification",
       "source_url": "https://www.emuseum.go.kr/images/relic/11/0021.jpg",
       "confidence": "low",
+      "needs_verification": "",
+      "verification_note": "",
       "room_tags": []
     },
     {
@@ -252,10 +297,13 @@
       "period": "통일신라시대",
       "designation": "국보 제22호",
       "image_url": "images/artifacts/PS01002001_000110000.jpg",
+      "exact_image_verified": false,
       "license": "needs_verification",
       "credit": "Museum as Code local artifact image; original source requires verification",
       "source_url": "https://www.emuseum.go.kr/images/relic/11/0022.jpg",
       "confidence": "low",
+      "needs_verification": "",
+      "verification_note": "",
       "room_tags": []
     },
     {
@@ -268,10 +316,13 @@
       "period": "고려시대",
       "designation": "국보 제23호",
       "image_url": "images/artifacts/PS01002001_000370000.jpg",
+      "exact_image_verified": false,
       "license": "needs_verification",
       "credit": "Museum as Code local artifact image; original source requires verification",
       "source_url": "https://www.emuseum.go.kr/images/relic/11/0023.jpg",
       "confidence": "low",
+      "needs_verification": "",
+      "verification_note": "",
       "room_tags": []
     },
     {
@@ -284,10 +335,13 @@
       "period": "삼국시대",
       "designation": "국보 제30호",
       "image_url": "images/artifacts/PS01002001_000480000.jpg",
+      "exact_image_verified": false,
       "license": "needs_verification",
       "credit": "Museum as Code local artifact image; original source requires verification",
       "source_url": "https://www.emuseum.go.kr/images/relic/11/0030.jpg",
       "confidence": "low",
+      "needs_verification": "",
+      "verification_note": "",
       "room_tags": []
     },
     {
@@ -300,10 +354,13 @@
       "period": "삼국시대",
       "designation": "국보 제31호",
       "image_url": "images/artifacts/PS01002001_000130000.jpg",
+      "exact_image_verified": false,
       "license": "needs_verification",
       "credit": "Museum as Code local artifact image; original source requires verification",
       "source_url": "https://www.emuseum.go.kr/images/relic/11/0031.jpg",
       "confidence": "low",
+      "needs_verification": "",
+      "verification_note": "",
       "room_tags": []
     },
     {
@@ -316,10 +373,13 @@
       "period": "고려시대",
       "designation": "국보 제32호",
       "image_url": "images/artifacts/PS01002001_000140000.jpg",
+      "exact_image_verified": false,
       "license": "needs_verification",
       "credit": "Museum as Code local artifact image; original source requires verification",
       "source_url": "https://www.emuseum.go.kr/images/relic/11/0032.jpg",
       "confidence": "low",
+      "needs_verification": "",
+      "verification_note": "",
       "room_tags": []
     },
     {
@@ -332,10 +392,13 @@
       "period": "삼국시대",
       "designation": "국보 제33호",
       "image_url": "images/artifacts/PS01002001_000540000.jpg",
+      "exact_image_verified": false,
       "license": "needs_verification",
       "credit": "Museum as Code local artifact image; original source requires verification",
       "source_url": "https://www.emuseum.go.kr/images/relic/11/0033.jpg",
       "confidence": "low",
+      "needs_verification": "",
+      "verification_note": "",
       "room_tags": []
     },
     {
@@ -348,10 +411,13 @@
       "period": "삼국시대",
       "designation": "국보 제37호",
       "image_url": "images/artifacts/PS01002001_000500000.jpg",
+      "exact_image_verified": false,
       "license": "needs_verification",
       "credit": "Museum as Code local artifact image; original source requires verification",
       "source_url": "https://www.emuseum.go.kr/images/relic/11/0037.jpg",
       "confidence": "low",
+      "needs_verification": "",
+      "verification_note": "",
       "room_tags": []
     },
     {
@@ -364,10 +430,13 @@
       "period": "삼국시대",
       "designation": "국보 제38호",
       "image_url": "images/artifacts/PS01002001_000530000.jpg",
+      "exact_image_verified": false,
       "license": "needs_verification",
       "credit": "Museum as Code local artifact image; original source requires verification",
       "source_url": "https://www.emuseum.go.kr/images/relic/11/0038.jpg",
       "confidence": "low",
+      "needs_verification": "",
+      "verification_note": "",
       "room_tags": []
     },
     {
@@ -380,10 +449,13 @@
       "period": "삼국시대",
       "designation": "국보 제41호",
       "image_url": "images/artifacts/PS01002001_000410000.jpg",
+      "exact_image_verified": false,
       "license": "needs_verification",
       "credit": "Museum as Code local artifact image; original source requires verification",
       "source_url": "https://www.emuseum.go.kr/images/relic/11/0041.jpg",
       "confidence": "low",
+      "needs_verification": "",
+      "verification_note": "",
       "room_tags": []
     },
     {
@@ -396,10 +468,13 @@
       "period": "삼국시대",
       "designation": "국보 제45호",
       "image_url": "images/artifacts/PS01002001_000430000.jpg",
+      "exact_image_verified": false,
       "license": "needs_verification",
       "credit": "Museum as Code local artifact image; original source requires verification",
       "source_url": "https://www.emuseum.go.kr/images/relic/11/0045.jpg",
       "confidence": "low",
+      "needs_verification": "",
+      "verification_note": "",
       "room_tags": []
     },
     {
@@ -412,10 +487,13 @@
       "period": "고려시대",
       "designation": "국보 제61호",
       "image_url": "images/artifacts/PS01002001_000460000.jpg",
+      "exact_image_verified": false,
       "license": "needs_verification",
       "credit": "Museum as Code local artifact image; original source requires verification",
       "source_url": "https://www.emuseum.go.kr/images/relic/11/0061.jpg",
       "confidence": "low",
+      "needs_verification": "",
+      "verification_note": "",
       "room_tags": []
     },
     {
@@ -428,10 +506,13 @@
       "period": "고려시대",
       "designation": "국보 제65호",
       "image_url": "images/artifacts/PS01002001_000350000.jpg",
+      "exact_image_verified": false,
       "license": "needs_verification",
       "credit": "Museum as Code local artifact image; original source requires verification",
       "source_url": "https://www.emuseum.go.kr/images/relic/11/0065.jpg",
       "confidence": "low",
+      "needs_verification": "",
+      "verification_note": "",
       "room_tags": []
     },
     {
@@ -444,10 +525,13 @@
       "period": "고려시대",
       "designation": "국보 제66호",
       "image_url": "images/artifacts/PS01002001_000360000.jpg",
+      "exact_image_verified": false,
       "license": "needs_verification",
       "credit": "Museum as Code local artifact image; original source requires verification",
       "source_url": "https://www.emuseum.go.kr/images/relic/11/0066.jpg",
       "confidence": "low",
+      "needs_verification": "",
+      "verification_note": "",
       "room_tags": []
     },
     {
@@ -460,10 +544,13 @@
       "period": "조선시대",
       "designation": "국보 제67호",
       "image_url": "images/artifacts/PS01002001_000340000.jpg",
+      "exact_image_verified": false,
       "license": "needs_verification",
       "credit": "Museum as Code local artifact image; original source requires verification",
       "source_url": "https://www.emuseum.go.kr/images/relic/11/0067.jpg",
       "confidence": "low",
+      "needs_verification": "",
+      "verification_note": "",
       "room_tags": []
     },
     {
@@ -476,10 +563,13 @@
       "period": "고려시대",
       "designation": "국보 제68호",
       "image_url": "images/artifacts/PS01002001_000190000.jpg",
+      "exact_image_verified": false,
       "license": "needs_verification",
       "credit": "Museum as Code local artifact image; original source requires verification",
       "source_url": "https://www.emuseum.go.kr/images/relic/11/0068.jpg",
       "confidence": "low",
+      "needs_verification": "",
+      "verification_note": "",
       "room_tags": []
     },
     {
@@ -492,10 +582,13 @@
       "period": "조선시대",
       "designation": "국보 제69호",
       "image_url": "images/artifacts/PS01002001_000330000.jpg",
+      "exact_image_verified": false,
       "license": "needs_verification",
       "credit": "Museum as Code local artifact image; original source requires verification",
       "source_url": "https://www.emuseum.go.kr/images/relic/11/0069.jpg",
       "confidence": "low",
+      "needs_verification": "",
+      "verification_note": "",
       "room_tags": []
     },
     {
@@ -508,10 +601,13 @@
       "period": "고려시대",
       "designation": "국보 제71호",
       "image_url": "images/artifacts/PS01002001_000560000.jpg",
+      "exact_image_verified": false,
       "license": "needs_verification",
       "credit": "Museum as Code local artifact image; original source requires verification",
       "source_url": "https://www.emuseum.go.kr/images/relic/11/0071.jpg",
       "confidence": "low",
+      "needs_verification": "",
+      "verification_note": "",
       "room_tags": []
     },
     {
@@ -524,10 +620,13 @@
       "period": "삼국시대",
       "designation": "국보 제78호",
       "image_url": "images/artifacts/PS01002001_000170000.jpg",
+      "exact_image_verified": false,
       "license": "needs_verification",
       "credit": "Museum as Code local artifact image; original source requires verification",
       "source_url": "https://www.emuseum.go.kr/images/relic/11/0083.jpg",
       "confidence": "low",
+      "needs_verification": "",
+      "verification_note": "",
       "room_tags": []
     },
     {
@@ -540,10 +639,13 @@
       "period": "조선시대",
       "designation": "국보 제79호",
       "image_url": "images/artifacts/PS01002001_000250000.jpg",
+      "exact_image_verified": false,
       "license": "needs_verification",
       "credit": "Museum as Code local artifact image; original source requires verification",
       "source_url": "https://www.emuseum.go.kr/images/relic/11/0079.jpg",
       "confidence": "low",
+      "needs_verification": "",
+      "verification_note": "",
       "room_tags": []
     },
     {
@@ -556,10 +658,13 @@
       "period": "조선시대",
       "designation": "국보 제80호",
       "image_url": "images/artifacts/PS01002001_000220000.jpg",
+      "exact_image_verified": false,
       "license": "needs_verification",
       "credit": "Museum as Code local artifact image; original source requires verification",
       "source_url": "https://www.emuseum.go.kr/images/relic/11/0080.jpg",
       "confidence": "low",
+      "needs_verification": "",
+      "verification_note": "",
       "room_tags": []
     },
     {
@@ -572,10 +677,13 @@
       "period": "조선시대",
       "designation": "국보 제81호",
       "image_url": "images/artifacts/PS01002001_000230000.jpg",
+      "exact_image_verified": false,
       "license": "needs_verification",
       "credit": "Museum as Code local artifact image; original source requires verification",
       "source_url": "https://www.emuseum.go.kr/images/relic/11/0081.jpg",
       "confidence": "low",
+      "needs_verification": "",
+      "verification_note": "",
       "room_tags": []
     },
     {
@@ -588,10 +696,13 @@
       "period": "조선시대",
       "designation": "국보 제82호",
       "image_url": "images/artifacts/PS01002001_000240000.jpg",
+      "exact_image_verified": false,
       "license": "needs_verification",
       "credit": "Museum as Code local artifact image; original source requires verification",
       "source_url": "https://www.emuseum.go.kr/images/relic/11/0082.jpg",
       "confidence": "low",
+      "needs_verification": "",
+      "verification_note": "",
       "room_tags": []
     },
     {
@@ -604,10 +715,13 @@
       "period": "삼국시대",
       "designation": "국보 제83호",
       "image_url": "images/artifacts/PS01002001_000180000.jpg",
+      "exact_image_verified": false,
       "license": "needs_verification",
       "credit": "Museum as Code local artifact image; original source requires verification",
       "source_url": "https://www.emuseum.go.kr/images/relic/11/0083.jpg",
       "confidence": "low",
+      "needs_verification": "",
+      "verification_note": "",
       "room_tags": []
     },
     {
@@ -620,10 +734,13 @@
       "period": "삼국시대",
       "designation": "국보 제85호",
       "image_url": "images/artifacts/PS01002001_000520000.jpg",
+      "exact_image_verified": false,
       "license": "needs_verification",
       "credit": "Museum as Code local artifact image; original source requires verification",
       "source_url": "https://www.emuseum.go.kr/images/relic/11/0085.jpg",
       "confidence": "low",
+      "needs_verification": "",
+      "verification_note": "",
       "room_tags": []
     },
     {
@@ -636,10 +753,13 @@
       "period": "삼국시대",
       "designation": "국보 제86호",
       "image_url": "images/artifacts/PS01002001_000510000.jpg",
+      "exact_image_verified": false,
       "license": "needs_verification",
       "credit": "Museum as Code local artifact image; original source requires verification",
       "source_url": "https://www.emuseum.go.kr/images/relic/11/0086.jpg",
       "confidence": "low",
+      "needs_verification": "",
+      "verification_note": "",
       "room_tags": []
     },
     {
@@ -652,10 +772,13 @@
       "period": "삼국시대",
       "designation": "국보 제87호",
       "image_url": "images/artifacts/PS01002001_000150000.jpg",
+      "exact_image_verified": false,
       "license": "needs_verification",
       "credit": "Museum as Code local artifact image; original source requires verification",
       "source_url": "https://www.emuseum.go.kr/images/relic/11/0087.jpg",
       "confidence": "low",
+      "needs_verification": "",
+      "verification_note": "",
       "room_tags": []
     },
     {
@@ -668,10 +791,13 @@
       "period": "삼국시대",
       "designation": "국보 제88호",
       "image_url": "images/artifacts/PS01002001_000160000.jpg",
+      "exact_image_verified": false,
       "license": "needs_verification",
       "credit": "Museum as Code local artifact image; original source requires verification",
       "source_url": "https://www.emuseum.go.kr/images/relic/11/0088.jpg",
       "confidence": "low",
+      "needs_verification": "",
+      "verification_note": "",
       "room_tags": []
     },
     {
@@ -684,10 +810,13 @@
       "period": "삼국시대",
       "designation": "국보 제89호",
       "image_url": "images/artifacts/PS01002001_000260000.jpg",
+      "exact_image_verified": false,
       "license": "needs_verification",
       "credit": "Museum as Code local artifact image; original source requires verification",
       "source_url": "https://www.emuseum.go.kr/images/relic/11/0089.jpg",
       "confidence": "low",
+      "needs_verification": "",
+      "verification_note": "",
       "room_tags": []
     },
     {
@@ -700,10 +829,13 @@
       "period": "삼국시대",
       "designation": "국보 제90호",
       "image_url": "images/artifacts/PS01002001_000270000.jpg",
+      "exact_image_verified": false,
       "license": "needs_verification",
       "credit": "Museum as Code local artifact image; original source requires verification",
       "source_url": "https://www.emuseum.go.kr/images/relic/11/0090.jpg",
       "confidence": "low",
+      "needs_verification": "",
+      "verification_note": "",
       "room_tags": []
     },
     {
@@ -716,10 +848,13 @@
       "period": "삼국시대",
       "designation": "국보 제91호",
       "image_url": "images/artifacts/PS01002001_000470000.jpg",
+      "exact_image_verified": false,
       "license": "needs_verification",
       "credit": "Museum as Code local artifact image; original source requires verification",
       "source_url": "https://www.emuseum.go.kr/images/relic/11/0091.jpg",
       "confidence": "low",
+      "needs_verification": "",
+      "verification_note": "",
       "room_tags": []
     },
     {
@@ -732,10 +867,13 @@
       "period": "고려시대",
       "designation": "국보 제92호",
       "image_url": "images/artifacts/PS01002001_000200000.jpg",
+      "exact_image_verified": false,
       "license": "needs_verification",
       "credit": "Museum as Code local artifact image; original source requires verification",
       "source_url": "https://www.emuseum.go.kr/images/relic/11/0092.jpg",
       "confidence": "low",
+      "needs_verification": "",
+      "verification_note": "",
       "room_tags": []
     },
     {
@@ -748,10 +886,13 @@
       "period": "삼국시대",
       "designation": "국보 제113호",
       "image_url": "images/artifacts/PS01002001_000310000.jpg",
+      "exact_image_verified": false,
       "license": "needs_verification",
       "credit": "Museum as Code local artifact image; original source requires verification",
       "source_url": "https://www.emuseum.go.kr/images/relic/11/0113.jpg",
       "confidence": "low",
+      "needs_verification": "",
+      "verification_note": "",
       "room_tags": []
     },
     {
@@ -764,10 +905,13 @@
       "period": "삼국시대",
       "designation": "국보 제121호",
       "image_url": "images/artifacts/PS01002001_000280000.jpg",
+      "exact_image_verified": false,
       "license": "needs_verification",
       "credit": "Museum as Code local artifact image; original source requires verification",
       "source_url": "https://www.emuseum.go.kr/images/relic/11/0121.jpg",
       "confidence": "low",
+      "needs_verification": "",
+      "verification_note": "",
       "room_tags": []
     },
     {
@@ -780,10 +924,13 @@
       "period": "삼국시대",
       "designation": "국보 제122호",
       "image_url": "images/artifacts/PS01002001_000290000.jpg",
+      "exact_image_verified": false,
       "license": "needs_verification",
       "credit": "Museum as Code local artifact image; original source requires verification",
       "source_url": "https://www.emuseum.go.kr/images/relic/11/0122.jpg",
       "confidence": "low",
+      "needs_verification": "",
+      "verification_note": "",
       "room_tags": []
     },
     {
@@ -796,10 +943,13 @@
       "period": "삼국시대",
       "designation": "국보 제124호",
       "image_url": "images/artifacts/PS01002001_000300000.jpg",
+      "exact_image_verified": false,
       "license": "needs_verification",
       "credit": "Museum as Code local artifact image; original source requires verification",
       "source_url": "https://www.emuseum.go.kr/images/relic/11/0124.jpg",
       "confidence": "low",
+      "needs_verification": "",
+      "verification_note": "",
       "room_tags": []
     },
     {
@@ -812,10 +962,13 @@
       "period": "고려시대",
       "designation": "국보 제129호",
       "image_url": "images/artifacts/PS01002001_000490000.jpg",
+      "exact_image_verified": false,
       "license": "needs_verification",
       "credit": "Museum as Code local artifact image; original source requires verification",
       "source_url": "https://www.emuseum.go.kr/images/relic/11/0129.jpg",
       "confidence": "low",
+      "needs_verification": "",
+      "verification_note": "",
       "room_tags": []
     },
     {
@@ -828,10 +981,13 @@
       "period": "조선시대",
       "designation": "국보 제131호",
       "image_url": "images/artifacts/PS01002001_000450000.jpg",
+      "exact_image_verified": false,
       "license": "needs_verification",
       "credit": "Museum as Code local artifact image; original source requires verification",
       "source_url": "https://www.emuseum.go.kr/images/relic/11/0131.jpg",
       "confidence": "low",
+      "needs_verification": "",
+      "verification_note": "",
       "room_tags": []
     },
     {
@@ -844,10 +1000,13 @@
       "period": "조선시대",
       "designation": "국보 제132호",
       "image_url": "images/artifacts/PS01002001_000440000.jpg",
+      "exact_image_verified": false,
       "license": "needs_verification",
       "credit": "Museum as Code local artifact image; original source requires verification",
       "source_url": "https://www.emuseum.go.kr/images/relic/11/0132.jpg",
       "confidence": "low",
+      "needs_verification": "",
+      "verification_note": "",
       "room_tags": []
     },
     {
@@ -860,10 +1019,13 @@
       "period": "삼국시대",
       "designation": "국보 제136호",
       "image_url": "images/artifacts/PS01002001_000210000.jpg",
+      "exact_image_verified": false,
       "license": "needs_verification",
       "credit": "Museum as Code local artifact image; original source requires verification",
       "source_url": "https://www.emuseum.go.kr/images/relic/11/0136.jpg",
       "confidence": "low",
+      "needs_verification": "",
+      "verification_note": "",
       "room_tags": []
     },
     {
@@ -876,10 +1038,13 @@
       "period": "고려시대",
       "designation": "국보 제197호",
       "image_url": "images/artifacts/PS01002001_000550000.jpg",
+      "exact_image_verified": false,
       "license": "needs_verification",
       "credit": "Museum as Code local artifact image; original source requires verification",
       "source_url": "https://www.emuseum.go.kr/images/relic/11/0197.jpg",
       "confidence": "low",
+      "needs_verification": "",
+      "verification_note": "",
       "room_tags": []
     },
     {
@@ -892,10 +1057,13 @@
       "period": "삼국시대",
       "designation": "국보 제287호",
       "image_url": "images/artifacts/PS01002001_000320000.jpg",
+      "exact_image_verified": false,
       "license": "needs_verification",
       "credit": "Museum as Code local artifact image; original source requires verification",
       "source_url": "https://www.emuseum.go.kr/images/relic/11/0287.jpg",
       "confidence": "low",
+      "needs_verification": "",
+      "verification_note": "",
       "room_tags": []
     },
     {
@@ -908,10 +1076,13 @@
       "period": "고려시대",
       "designation": "국보 제531호",
       "image_url": "images/artifacts/PS01002001_000570000.jpg",
+      "exact_image_verified": false,
       "license": "needs_verification",
       "credit": "Museum as Code local artifact image; original source requires verification",
       "source_url": "https://www.emuseum.go.kr/images/relic/11/0531.jpg",
       "confidence": "low",
+      "needs_verification": "",
+      "verification_note": "",
       "room_tags": []
     },
     {
@@ -924,10 +1095,13 @@
       "period": "삼국시대 (6-7세기)",
       "designation": "국보 제78호",
       "image_url": "",
+      "exact_image_verified": false,
       "license": "needs_verification",
       "credit": "Museum as Code local artifact image; original source requires verification",
       "source_url": "https://www.emuseum.go.kr/images/relic/11/0078.jpg",
       "confidence": "medium",
+      "needs_verification": "No local artifact image resolved.",
+      "verification_note": "",
       "room_tags": []
     },
     {
@@ -940,10 +1114,13 @@
       "period": "고려시대 (12세기)",
       "designation": "국보 제92호",
       "image_url": "",
+      "exact_image_verified": false,
       "license": "needs_verification",
       "credit": "Museum as Code local artifact image; original source requires verification",
       "source_url": "https://www.emuseum.go.kr/images/relic/11/0092.jpg",
       "confidence": "medium",
+      "needs_verification": "No local artifact image resolved.",
+      "verification_note": "",
       "room_tags": []
     },
     {
@@ -956,10 +1133,13 @@
       "period": "통일신라시대",
       "designation": "국보 제136호",
       "image_url": "",
+      "exact_image_verified": false,
       "license": "needs_verification",
       "credit": "Museum as Code local artifact image; original source requires verification",
       "source_url": "https://www.emuseum.go.kr/images/relic/11/0136.jpg",
       "confidence": "medium",
+      "needs_verification": "No local artifact image resolved.",
+      "verification_note": "",
       "room_tags": []
     },
     {
@@ -972,10 +1152,13 @@
       "period": "삼국시대 (가야)",
       "designation": "국보 제91호",
       "image_url": "",
+      "exact_image_verified": false,
       "license": "needs_verification",
       "credit": "Museum as Code local artifact image; original source requires verification",
       "source_url": "https://www.emuseum.go.kr/images/relic/11/0091.jpg",
       "confidence": "medium",
+      "needs_verification": "No local artifact image resolved.",
+      "verification_note": "",
       "room_tags": []
     },
     {
@@ -988,10 +1171,13 @@
       "period": "백제시대 (4세기)",
       "designation": "국보 제369호",
       "image_url": "",
+      "exact_image_verified": false,
       "license": "needs_verification",
       "credit": "Museum as Code local artifact image; original source requires verification",
       "source_url": "https://www.emuseum.go.kr/images/relic/11/0369.jpg",
       "confidence": "medium",
+      "needs_verification": "No local artifact image resolved.",
+      "verification_note": "",
       "room_tags": []
     },
     {
@@ -1004,10 +1190,13 @@
       "period": "삼국시대 (신라)",
       "designation": "국보 제87호",
       "image_url": "",
+      "exact_image_verified": false,
       "license": "needs_verification",
       "credit": "Museum as Code local artifact image; original source requires verification",
       "source_url": "https://www.emuseum.go.kr/images/relic/11/0087.jpg",
       "confidence": "medium",
+      "needs_verification": "No local artifact image resolved.",
+      "verification_note": "",
       "room_tags": []
     },
     {
@@ -1020,10 +1209,13 @@
       "period": "백제시대 (7세기)",
       "designation": "국보 제287호",
       "image_url": "",
+      "exact_image_verified": false,
       "license": "needs_verification",
       "credit": "Museum as Code local artifact image; original source requires verification",
       "source_url": "https://www.emuseum.go.kr/images/relic/11/0287.jpg",
       "confidence": "medium",
+      "needs_verification": "No local artifact image resolved.",
+      "verification_note": "",
       "room_tags": []
     }
   ],

@@ -18,8 +18,13 @@
     {
       "path": "images/heroes/hero_pensive_bodhisattva/meditating-maitreya.jpg",
       "source_url": "https://commons.wikimedia.org/wiki/File:Meditating_Maitreya._Gilded_bronze._National_Museum_of_Korea.jpg",
+      "download_url": "https://upload.wikimedia.org/wikipedia/commons/8/8d/Meditating_Maitreya._Gilded_bronze._National_Museum_of_Korea.jpg",
       "license": "CC BY-SA 4.0",
-      "credit": "Photo by Slices of Light via Wikimedia Commons"
+      "credit": "Photo by Slices of Light via Wikimedia Commons; identity confirmed by National Museum of Korea",
+      "confidence": "high",
+      "exact_image_verified": true,
+      "needs_verification": "",
+      "verification_note": "Exact National Treasure No. 83 object; Commons licensing retained with attribution."
     }
   ],
   "sections": {
@@ -36,9 +41,15 @@
   "hgl_path": "data/heroes/hero_pensive_bodhisattva.hgl",
   "copy_path": "../artifacts/heroes/hero_pensive_bodhisattva.md",
   "source_urls": [
+    "https://commons.wikimedia.org/wiki/File:Meditating_Maitreya._Gilded_bronze._National_Museum_of_Korea.jpg",
     "https://www.museum.go.kr/CHN/contents/E0403000000.do?relicId=1256&schM=relic_represent_view"
   ],
   "license": "CC BY-SA 4.0",
-  "credit": "Photo by Slices of Light via Wikimedia Commons",
-  "needs_verification": ""
+  "credit": "Photo by Slices of Light via Wikimedia Commons; identity confirmed by National Museum of Korea",
+  "needs_verification": "",
+  "confidence": "high",
+  "exact_image_verified": true,
+  "image_match_confidence": "high",
+  "verification_note": "Exact National Treasure No. 83 object; Commons licensing retained with attribution.",
+  "updated_at": "2026-04-30T00:00:00-05:00"
 }

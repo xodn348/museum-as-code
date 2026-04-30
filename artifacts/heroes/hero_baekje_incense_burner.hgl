@@ -14,23 +14,28 @@
     의의: 문자열,
     이미지경로: 문자열,
     라이선스: 문자열,
+    출처검증: 불,
 }
 
 함수 main() {
-    변수 이름 = "백제 금동대향로"
-    변수 영문명 = "Great Gilt-bronze Incense Burner of Baekje"
-    변수 지정번호 = "국보 제287호"
-    변수 시대 = "백제, 6–7세기"
-    변수 재질 = "금동"
-    변수 크기 = "Height 61.8 cm; maximum diameter 19.0 cm"
-    변수 소장처 = "국립부여박물관"
-    변수 제작연도 = "Baekje, 6th–7th century"
-    변수 의의 = "봉황, 산악형 뚜껑, 연꽃 몸체, 용 받침이 한 몸을 이룬 백제 공예의 절정입니다."
-    변수 이미지경로 = "images/heroes/hero_baekje_incense_burner/baekje-incense-burner.jpg"
-    변수 라이선스 = "CC BY-SA 4.0"
+    변수 artifact = 히어로유물_hero_baekje_incense_burner {
+        이름: "백제 금동대향로",
+        영문명: "Great Gilt-bronze Incense Burner of Baekje",
+        지정번호: "국보 제287호",
+        시대: "백제, 6–7세기",
+        재질: "금동",
+        크기: "Height 61.8 cm; maximum diameter 19.0 cm",
+        소장처: "국립부여박물관",
+        제작연도: "Baekje, 6th–7th century",
+        의의: "봉황, 산악형 뚜껑, 연꽃 몸체, 용 받침이 한 몸을 이룬 백제 공예의 절정입니다.",
+        이미지경로: "images/heroes/hero_baekje_incense_burner/baekje-incense-burner.jpg",
+        라이선스: "CC BY-SA 2.5",
+        출처검증: 참
+    }
 
-    출력(형식("{0} — {1}", 이름, 지정번호))
-    출력(의의)
+    출력(형식("{0} — {1}", artifact.이름, artifact.지정번호))
+    출력(형식("({0})", artifact.영문명))
+    출력(artifact.의의)
 }
 
 main()

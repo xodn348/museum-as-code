@@ -22,19 +22,29 @@
     {
       "path": "images/heroes/hero_genre_album/danwon-ssireum.jpg",
       "source_url": "https://commons.wikimedia.org/wiki/File:Danwon-Ssireum.jpg",
+      "download_url": "https://upload.wikimedia.org/wikipedia/commons/d/d0/Danwon-Ssireum.jpg",
       "license": "Public domain",
-      "credit": "Wikimedia Commons public-domain reproduction"
+      "credit": "Wikimedia Commons public-domain reproduction; identity confirmed by National Museum of Korea",
+      "confidence": "high",
+      "exact_image_verified": true,
+      "needs_verification": "",
+      "verification_note": "Exact Ssireum leaf from Kim Hong-do genre album."
     }
   ],
   "license": "Public domain",
   "source_url": "https://commons.wikimedia.org/wiki/File:Danwon-Ssireum.jpg",
-  "credit": "Wikimedia Commons public-domain reproduction",
+  "credit": "Wikimedia Commons public-domain reproduction; identity confirmed by National Museum of Korea",
   "source_urls": [
+    "https://commons.wikimedia.org/wiki/File:Danwon-Ssireum.jpg",
     "https://www.museum.go.kr/ENG/contents/E0403000000.do?relicId=551&schM=view&searchId=search"
   ],
   "hgl_file": "artifacts/heroes/hero_genre_album.hgl",
   "curator_copy_file": "artifacts/heroes/hero_genre_album.md",
   "needs_verification": "",
   "created_at": "2026-04-30T03:26:53Z",
-  "updated_at": "2026-04-30T03:26:53Z"
+  "updated_at": "2026-04-30T00:00:00-05:00",
+  "confidence": "high",
+  "exact_image_verified": true,
+  "image_match_confidence": "high",
+  "verification_note": "Exact Ssireum leaf from Kim Hong-do genre album."
 }

@@ -13,13 +13,18 @@
   "hook": "A sculpture you are meant to hear.",
   "summary_en": "A monumental Unified Silla bell whose reliefs, inscription, and resonance made it a model for Korean Buddhist bells.",
   "summary_ko": "부조와 명문, 울림으로 한국 범종의 기준이 된 통일신라의 거대한 청동 종입니다.",
-  "cover_image": "images/heroes/hero_divine_bell/divine-bell-seongdeok.svg",
+  "cover_image": "images/heroes/hero_divine_bell/divine-bell-seongdeok.jpg",
   "images": [
     {
-      "path": "images/heroes/hero_divine_bell/divine-bell-seongdeok.svg",
+      "path": "images/heroes/hero_divine_bell/divine-bell-seongdeok.jpg",
       "source_url": "https://commons.wikimedia.org/wiki/File:Bell_of_King_Seongdeok.jpg",
-      "license": "CC0 source candidate; local SVG placeholder until download recovers",
-      "credit": "Local placeholder by museum-as-code; source candidate: Wikimedia Commons"
+      "download_url": "https://upload.wikimedia.org/wikipedia/commons/a/a9/Bell_of_King_Seongdeok.jpg",
+      "license": "CC0",
+      "credit": "Wikimedia Commons CC0 image; identity confirmed by Gyeongju National Museum",
+      "confidence": "high",
+      "exact_image_verified": true,
+      "needs_verification": "",
+      "verification_note": "Exact National Treasure No. 29 object; placeholder SVG replaced by local JPEG."
     }
   ],
   "sections": {
@@ -36,11 +41,17 @@
   "hgl_path": "data/heroes/hero_divine_bell.hgl",
   "copy_path": "../artifacts/heroes/hero_divine_bell.md",
   "source_urls": [
+    "https://commons.wikimedia.org/wiki/File:Bell_of_King_Seongdeok.jpg",
     "https://gyeongju.museum.go.kr/eng/html/sub02/0201.html?d_mng_no=14&mng_no=180&mode=V"
   ],
-  "license": "CC0 source candidate; local SVG placeholder until download recovers",
-  "credit": "Local placeholder by museum-as-code; source candidate: Wikimedia Commons",
-  "needs_verification": "Wikimedia returned HTTP 429 during download; local placeholder prevents hotlinking and marks source replacement required.",
+  "license": "CC0",
+  "credit": "Wikimedia Commons CC0 image; identity confirmed by Gyeongju National Museum",
+  "needs_verification": "",
   "image_url": "images/heroes/hero_divine_bell/divine-bell-seongdeok.svg",
-  "source_url": "https://commons.wikimedia.org/wiki/File:Bell_of_King_Seongdeok.jpg"
+  "source_url": "https://commons.wikimedia.org/wiki/File:Bell_of_King_Seongdeok.jpg",
+  "confidence": "high",
+  "exact_image_verified": true,
+  "image_match_confidence": "high",
+  "verification_note": "Exact National Treasure No. 29 object; placeholder SVG replaced by local JPEG.",
+  "updated_at": "2026-04-30T00:00:00-05:00"
 }

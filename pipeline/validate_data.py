@@ -20,6 +20,10 @@ def _check_docs_path(errors: list[str], rel_path: str, label: str) -> None:
         errors.append(f"missing {label}: {rel_path}")
 
 
+def _is_exact_image_verified(data: dict[str, Any]) -> bool:
+    return data.get("exact_image_verified") is True
+
+
 def validate_artifact_sidecars(errors: list[str]) -> None:
     seen: dict[str, int] = {}
     for record in iter_artifact_records():
@@ -34,6 +38,11 @@ def validate_artifact_sidecars(errors: list[str]) -> None:
             errors.append(f"{record.path}: image_url must be local, got {image_url}")
         if image_url:
             _check_path(errors, f"docs/{image_url}", f"image for {artifact_id}")
+        if _is_exact_image_verified(data):
+            if not image_url:
+                errors.append(f"{record.path}: exact_image_verified requires image_url")
+            if string_field(data, "needs_verification"):
+                errors.append(f"{record.path}: exact_image_verified conflicts with needs_verification")
         for field in ["license", "source_url", "credit", "confidence"]:
             if not string_field(data, field):
                 errors.append(f"{record.path}: missing provenance field {field}")
@@ -53,6 +62,11 @@ def validate_manifest(errors: list[str]) -> None:
             errors.append(f"manifest remote image_url for {artifact.get('id')}: {image_url}")
         if image_url:
             _check_path(errors, f"docs/{image_url}", f"manifest image for {artifact.get('id')}")
+        if _is_exact_image_verified(artifact):
+            if not image_url:
+                errors.append(f"manifest exact_image_verified requires image_url for {artifact.get('id')}")
+            if string_field(artifact, "needs_verification"):
+                errors.append(f"manifest exact_image_verified conflicts with needs_verification for {artifact.get('id')}")
         for key in ["json_path", "hgl_path"]:
             rel_path = string_field(artifact, key)
             if rel_path.startswith("data/"):
@@ -83,6 +97,22 @@ def validate_heroes(errors: list[str]) -> None:
         image = string_field(hero, "cover_image")
         if image:
             _check_path(errors, f"docs/{image}", f"hero image for {hero_id}")
+        data_file = string_field(hero, "data_file")
+        hero_data_path = DOCS_DIR / data_file
+        if hero_data_path.exists():
+            hero_data = read_json(hero_data_path)
+            exact = _is_exact_image_verified(hero_data) or _is_exact_image_verified(hero)
+            if exact:
+                primary_image = hero_data.get("images", [{}])
+                if isinstance(primary_image, list) and primary_image and isinstance(primary_image[0], dict):
+                    image_record = primary_image[0]
+                else:
+                    image_record = {}
+                for field in ["path", "source_url", "license", "credit", "confidence"]:
+                    if not string_field(image_record, field):
+                        errors.append(f"{hero_data_path}: exact hero image missing {field}")
+                if string_field(hero_data, "needs_verification") or string_field(image_record, "needs_verification"):
+                    errors.append(f"{hero_data_path}: exact hero image conflicts with needs_verification")
 
 
 def main() -> None:

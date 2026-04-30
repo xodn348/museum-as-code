@@ -6,8 +6,11 @@
       "source_url": "https://commons.wikimedia.org/wiki/File:Hunminjeongeum_Haerye_10.jpg",
       "download_url": "https://upload.wikimedia.org/wikipedia/commons/f/f0/Hunminjeongeum_Haerye_10.jpg",
       "license": "Public domain",
-      "credit": "Kyujanggak scan via Wikimedia Commons",
-      "needs_verification": ""
+      "credit": "Kyujanggak/SNU reprint scan via Wikimedia Commons; hidden until exact original-manuscript status is resolved",
+      "confidence": "medium",
+      "exact_image_verified": false,
+      "needs_verification": "Image withheld: reusable Commons image is documented as a reprint/facsimile, not confirmed as the exact Kansong Haerye manuscript object.",
+      "verification_note": "Do not display unless the page is relabeled as a facsimile/reprint or an exact original source is confirmed."
     }
   ]
 }

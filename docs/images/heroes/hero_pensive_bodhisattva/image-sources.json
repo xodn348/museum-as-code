@@ -6,8 +6,11 @@
       "source_url": "https://commons.wikimedia.org/wiki/File:Meditating_Maitreya._Gilded_bronze._National_Museum_of_Korea.jpg",
       "download_url": "https://upload.wikimedia.org/wikipedia/commons/8/8d/Meditating_Maitreya._Gilded_bronze._National_Museum_of_Korea.jpg",
       "license": "CC BY-SA 4.0",
-      "credit": "Photo by Slices of Light via Wikimedia Commons",
-      "needs_verification": ""
+      "credit": "Photo by Slices of Light via Wikimedia Commons; identity confirmed by National Museum of Korea",
+      "confidence": "high",
+      "exact_image_verified": true,
+      "needs_verification": "",
+      "verification_note": "Exact National Treasure No. 83 object; Commons licensing retained with attribution."
     }
   ]
 }

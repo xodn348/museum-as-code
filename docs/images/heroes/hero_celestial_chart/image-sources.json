@@ -2,10 +2,15 @@
   "hero_id": "hero_celestial_chart",
   "images": [
     {
-      "path": "images/heroes/hero_celestial_chart/cheonsang-chart.svg",
-      "source_url": "https://commons.wikimedia.org/wiki/File:Cheonsang.jpg",
-      "license": "CC0 source candidate; local SVG placeholder until download recovers",
-      "credit": "Local placeholder by museum-as-code; source candidate: Wikimedia Commons"
+      "path": "images/heroes/hero_celestial_chart/cheonsang-chart.jpg",
+      "source_url": "https://www.gogung.go.kr/gogungEn/pgm/psgudMng/view.do?menuNo=1000015&psgudSn=359774",
+      "download_url": "https://www.gogung.go.kr/cmmn/file/imageSrc.do?atchFileId=00007860QR&fileSn=894",
+      "license": "KOGL Type 1",
+      "credit": "National Palace Museum of Korea / KOGL Type 1",
+      "confidence": "high",
+      "exact_image_verified": true,
+      "needs_verification": "",
+      "verification_note": "Exact National Treasure No. 228 image; placeholder SVG replaced by official local JPEG."
     }
   ]
 }

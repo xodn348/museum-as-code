@@ -2,10 +2,15 @@
   "hero_id": "hero_divine_bell",
   "images": [
     {
-      "path": "images/heroes/hero_divine_bell/divine-bell-seongdeok.svg",
+      "path": "images/heroes/hero_divine_bell/divine-bell-seongdeok.jpg",
       "source_url": "https://commons.wikimedia.org/wiki/File:Bell_of_King_Seongdeok.jpg",
-      "license": "CC0 source candidate; local SVG placeholder until download recovers",
-      "credit": "Local placeholder by museum-as-code; source candidate: Wikimedia Commons"
+      "download_url": "https://upload.wikimedia.org/wikipedia/commons/a/a9/Bell_of_King_Seongdeok.jpg",
+      "license": "CC0",
+      "credit": "Wikimedia Commons CC0 image; identity confirmed by Gyeongju National Museum",
+      "confidence": "high",
+      "exact_image_verified": true,
+      "needs_verification": "",
+      "verification_note": "Exact National Treasure No. 29 object; placeholder SVG replaced by local JPEG."
     }
   ]
 }

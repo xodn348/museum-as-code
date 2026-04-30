@@ -2,10 +2,15 @@
   "hero_id": "hero_moon_jar",
   "images": [
     {
-      "path": "images/heroes/hero_moon_jar/moon-jar-nt262.jpg",
+      "path": "images/heroes/hero_moon_jar/moon-jar-nt310.jpg",
       "source_url": "https://commons.wikimedia.org/wiki/File:%EB%B0%B1%EC%9E%90_%EB%8B%AC%ED%95%AD%EC%95%84%EB%A6%AC(310%ED%98%B8).jpg",
+      "download_url": "https://upload.wikimedia.org/wikipedia/commons/6/6e/%EB%B0%B1%EC%9E%90_%EB%8B%AC%ED%95%AD%EC%95%84%EB%A6%AC%28310%ED%98%B8%29.jpg",
       "license": "KOGL Type 1",
-      "credit": "Cultural Heritage Administration / Korea Heritage Service via Wikimedia Commons"
+      "credit": "Cultural Heritage Administration / Korea Heritage Service via Wikimedia Commons",
+      "confidence": "high",
+      "exact_image_verified": true,
+      "needs_verification": "",
+      "verification_note": "Exact National Treasure No. 310 image; local filename corrected from nt262 to nt310."
     }
   ]
 }

@@ -22,19 +22,29 @@
     {
       "path": "images/heroes/hero_silla_gold_crown/geumgwanchong-crown.jpg",
       "source_url": "https://commons.wikimedia.org/wiki/File:%EA%B8%88%EA%B4%80%EC%B4%9D%EA%B8%88%EA%B4%80.jpg",
+      "download_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/%EA%B8%88%EA%B4%80%EC%B4%9D%EA%B8%88%EA%B4%80.jpg",
       "license": "KOGL Type 1",
-      "credit": "Korea Heritage Service via Wikimedia Commons"
+      "credit": "Korea Heritage Service via Wikimedia Commons",
+      "confidence": "high",
+      "exact_image_verified": true,
+      "needs_verification": "",
+      "verification_note": "Exact National Treasure No. 87 image; local file refreshed from Commons original."
     }
   ],
   "license": "KOGL Type 1",
   "source_url": "https://commons.wikimedia.org/wiki/File:%EA%B8%88%EA%B4%80%EC%B4%9D%EA%B8%88%EA%B4%80.jpg",
   "credit": "Korea Heritage Service via Wikimedia Commons",
   "source_urls": [
+    "https://commons.wikimedia.org/wiki/File:%EA%B8%88%EA%B4%80%EC%B4%9D%EA%B8%88%EA%B4%80.jpg",
     "https://www.museum.go.kr/ENG/contents/E0401000000.do?relicRecommendId=519701&schM=view"
   ],
   "hgl_file": "artifacts/heroes/hero_silla_gold_crown.hgl",
   "curator_copy_file": "artifacts/heroes/hero_silla_gold_crown.md",
   "needs_verification": "",
   "created_at": "2026-04-30T03:26:53Z",
-  "updated_at": "2026-04-30T03:26:53Z"
+  "updated_at": "2026-04-30T00:00:00-05:00",
+  "confidence": "high",
+  "exact_image_verified": true,
+  "image_match_confidence": "high",
+  "verification_note": "Exact National Treasure No. 87 image; local file refreshed from Commons original."
 }
