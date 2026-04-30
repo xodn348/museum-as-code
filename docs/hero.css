@@ -52,49 +52,36 @@ body::after {
   z-index: 0;
 }
 
-main, nav, .han-only-banner, footer { position: relative; z-index: 1; }
+main, nav, .gh-badge-bar, footer { position: relative; z-index: 1; }
 
 a { color: var(--paper); }
 
-/* ---------- Han-only banner (matches homepage) ---------- */
-.han-only-banner {
-  padding: 10px clamp(1rem, 4vw, 4rem);
-  background: var(--rose);
-  color: var(--ink);
-  font-family: 'JetBrains Mono', "SFMono-Regular", Menlo, monospace;
-  font-size: 11px;
-  letter-spacing: 0.32em;
-  font-weight: 900;
-  text-transform: uppercase;
+/* ---------- GH badge bar ---------- */
+.gh-badge-bar {
   display: flex;
-  justify-content: space-between;
+  gap: 8px;
+  padding: 12px 32px;
+  border-bottom: 1px solid var(--rose-deep);
+  background: rgba(0,0,0,.4);
+}
+.gh-badge {
+  display: inline-flex;
   align-items: center;
-  gap: 1rem;
-  border-bottom: 2px solid var(--ink);
-  z-index: 6;
-}
-.han-only-banner .left {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  flex: 1 1 auto;
-  min-width: 0;
-}
-.han-only-banner .left::before {
-  content: "●";
-  color: var(--ink);
-  font-size: 8px;
-  animation: blink 1.6s ease-in-out infinite;
-}
-.han-only-banner .right a {
-  color: var(--ink);
+  gap: 6px;
+  padding: 6px 12px;
+  border: 1px solid rgba(255,46,106,.5);
+  border-radius: 6px;
+  color: var(--paper);
   text-decoration: none;
-  letter-spacing: 0.22em;
-  font-weight: 800;
+  font-family: 'JetBrains Mono', "SFMono-Regular", Menlo, monospace;
+  font-size: 12px;
+  min-height: 28px;
 }
-.han-only-banner .right a:hover { text-decoration: underline; }
-
-@keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+.gh-badge:hover { background: rgba(255,46,106,.15); border-color: var(--rose); }
+@media (max-width: 768px) {
+  .gh-badge-bar { padding: 10px 16px; flex-wrap: wrap; }
+  .gh-badge { min-height: 36px; }
+}
 
 /* ---------- Nav ---------- */
 .hero-nav {
