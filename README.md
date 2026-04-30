@@ -1,126 +1,195 @@
-# 디지털 국립중앙박물관 — Museum as Code
+# Museum as Code — Han-lang Cultural Archive
 
 [![MIT License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Han Language](https://img.shields.io/badge/han-.hgl-green.svg)](https://github.com/han-lang/han)
 [![Artifacts](https://img.shields.io/badge/Artifacts-64-gold.svg)](docs/manifest.json)
-[![Python Pipeline](https://img.shields.io/badge/Pipeline-Python-orange.svg)](pipeline/)
+[![Hero Artifacts](https://img.shields.io/badge/Hero%20Artifacts-10-d9b45e.svg)](docs/data/heroes/index.json)
+
+**Live site:** https://xodn348.github.io/museum-as-code/<br>
+**Repository:** https://github.com/xodn348/museum-as-code
 
 ---
 
-## 소개 / Introduction
+## What this is
 
-**Museum as Code**는 국보·보물 등 한국의 소중한 문화재를 **han** (`.hgl`) 프로그래밍 언어 소스 코드로 디지털화하는 프로젝트입니다. 현재 총 **64개 유물(국보·보물 57, KDH 7)**을 구조체(struct)로 보존하며, 파이프라인을 통해 e뮤지엄 API에서 자동으로 데이터를 가져와 `.hgl` 파일을 생성합니다. 프로젝트 페이지: https://xodn348.github.io/museum-as-code
+**Museum as Code** is a digital museum experiment that treats Korean cultural heritage as **Han-lang (`.hgl`) source code**.
 
-**Museum as Code** is a project that digitizes Korea's precious cultural heritage — national treasures and treasures — as source code in the **han** (`.hgl`) programming language. It currently preserves **64 artifacts total (57 national-treasures, 7 KDH)** as structs, automatically generated from the e뮤지엄 API via a Python pipeline. GitHub Pages: https://xodn348.github.io/museum-as-code
+The current homepage is intentionally **code-first**: it does not lead with large artifact photos, because some image/object matches still need exact source and license verification. Instead, the public interface foregrounds:
 
-- **컬렉션 / Collections**
-  - `national-treasures`: 57개
-  - `kdh`: 7개
+- `.hgl` source snippets as the visual signature,
+- provenance and metadata sidecars,
+- curated hero pages for 10 representative artifacts,
+- room-based navigation and a secondary connection graph,
+- a broader 64-record code archive.
+
+한국 문화유산을 사진 카탈로그처럼 보여주기보다, **Han-lang 소스코드·출처·구조화된 메타데이터**를 먼저 보여주는 디지털 박물관입니다. 사진은 정확한 유물/출처/라이선스 매칭이 끝난 항목부터 다시 도입합니다.
 
 ---
 
-## 한(han) 언어 / Han Language
+## Current experience
 
-**han** (.hgl)은 한국어 문법으로 작성하는 범용 프로그래밍 언어입니다. 한국어 키워드(`구조`, `함수`, `변수`, `문자열`, `정수`)를 사용해 코드를 작성합니다.
+| Surface | Purpose |
+| --- | --- |
+| `docs/index.html` | Code-first homepage with GitHub CTA, featured code cards, rooms, archive, graph |
+| `docs/hero.html?id=<hero_id>` | Immersive single-artifact hero page with curator copy and `.hgl` source panel |
+| `docs/data/heroes/index.json` | Web manifest for 10 curated hero artifacts |
+| `docs/data/artifacts/` | GitHub Pages-safe copies of artifact `.json` and `.hgl` records |
+| `docs/manifest.json` | 64-record archive manifest |
+| `docs/data/graph.json` | Artifact relationship graph data |
 
-**han** (`.hgl`) is a general-purpose programming language written in Korean grammar. You write code using Korean keywords like `구조`, `함수`, `변수`, `문자열`, `정수`.
+### Hero artifacts
 
-### 예시 / Example
+The curated Phase C set contains 10 hero records under `artifacts/heroes/` and web copies under `docs/data/heroes/`:
+
+1. Pensive Bodhisattva — National Treasure No. 83
+2. Celadon Prunus Vase with Inlaid Cloud and Crane Design
+3. White Porcelain Moon Jar
+4. Hunminjeongeum Haerye
+5. Gold Crown from Geumgwanchong Tomb
+6. Baekje Gilt-bronze Incense Burner
+7. Divine Bell of King Seongdeok
+8. Tripitaka Koreana Woodblocks
+9. Stone Constellation Chart
+10. Danwon Genre Album
+
+Some images remain marked with `needs_verification`; those photos are deliberately hidden from homepage cards until exact matching is resolved.
+
+---
+
+## Han-lang example
 
 ```hgl
-// 실제 파일 발췌 / Real snippet from artifacts/national-treasures/nb_001.hgl
-구조 유물_국보제1호 {
+// Real hero-page style source
+구조 히어로유물_hero_pensive_bodhisattva {
     이름: 문자열,
     영문명: 문자열,
     지정번호: 문자열,
-    분류: 문자열,
     시대: 문자열,
     재질: 문자열,
-    크기: 문자열,
     소장처: 문자열,
-    설명: 문자열,
-    이미지URL: 문자열,
-    API출처: 문자열,
+    라이선스: 문자열,
 }
+
+함수 main() {
+    변수 이름 = "금동미륵보살반가사유상"
+    변수 영문명 = "Pensive Bodhisattva"
+    변수 지정번호 = "국보 제83호"
+
+    출력(형식("{0} — {1}", 이름, 지정번호))
+}
+
+main()
 ```
 
-> **참고 / Note**: han 컴파일러(`hgl`)는 `$ hgl check <file.hgl>` 명령으로 `.hgl` 파일의 문법을 검증할 수 있습니다.
-> Run `$ hgl check <file.hgl>` to validate `.hgl` file syntax.
+Han-lang uses Korean keywords such as `구조`, `함수`, `변수`, `문자열`, `정수`, `출력`, and `형식`. In this project, `.hgl` is both data representation and visual identity.
 
 ---
 
-## 디렉토리 구조 / Directory Structure
+## Repository layout
 
-```
+```text
 museum-as-code/
-├── artifacts/                    # 문화재 소스 코드 / Artifact source code
-│   ├── national-treasures/        # 국보 코드 / National Treasures (.hgl)
-│   ├── treasures/                 # 보물 코드 / Treasures (.hgl)
-│   └── special/
-│       └── kdh/                   # 케이팝 데몬 헌터스 컬렉션 / K-pop Demon Hunters collection
-├── pipeline/                     # 데이터 파이프라인 / Data pipeline
-│   ├── api_client.py             # e뮤지엄 API 클라이언트 / eMuseumn API client
-│   ├── config.py                 # 설정 및 API 키 로딩 / Configuration & API key loading
-│   ├── templates/                # Jinja2 .hgl 템플릿 / Jinja2 .hgl templates
-│   └── schemas/                   # JSON 스키마 / JSON schemas
-├── docs/                         # 문서 / Documentation
-├── requirements.txt              # Python 의존성 / Python dependencies
-├── LICENSE                       # MIT 라이선스 / MIT License
-└── README.md
+├── artifacts/
+│   ├── heroes/                    # 10 curated hero artifacts: .json + .md + .hgl
+│   ├── national-treasures/        # 57 national-treasure records: .json + .hgl
+│   └── special/kdh/               # 7 KDH cultural-reference records
+├── docs/
+│   ├── index.html                 # GitHub Pages homepage
+│   ├── hero.html                  # single hero artifact route
+│   ├── app.js / graph.js          # frontend behavior
+│   ├── style.css / hero.css       # code-first visual system
+│   ├── data/
+│   │   ├── artifacts/             # Pages-safe artifact record copies
+│   │   ├── heroes/                # Pages-safe hero records + .hgl previews
+│   │   ├── graph.json
+│   │   └── rooms.json
+│   └── images/                    # local image assets, not homepage-leading by default
+├── pipeline/
+│   ├── artifact_io.py             # shared path/data helpers
+│   ├── manifest.py                # writes docs/manifest.json
+│   ├── sync_docs_artifacts.py     # copies records into docs/data/artifacts
+│   ├── normalize_sidecars.py      # normalizes provenance/local-image fields
+│   ├── generate_graph.py          # writes docs/data/graph.json
+│   └── validate_data.py           # data and asset integrity checks
+├── DESIGN.md                      # design rules and code-first rationale
+└── plans/                         # redesign planning artifacts
 ```
 
 ---
 
-## 파이프라인 / Pipeline
+## Run locally
 
-Python 파이프라인은 **e뮤지엄 Open API**에서 문화재 데이터를 가져와 `.hgl` 파일로 생성합니다.
-
-The Python pipeline fetches cultural heritage data from the **e뮤지엄 Open API** and generates `.hgl` files.
-
-### 설정 / Setup
+No frontend build step is required; the site is static.
 
 ```bash
-# API 키 내보내기 / Export your API key
-export EMUSEUM_API_KEY='your_key_here'
-
-# 의존성 설치 / Install dependencies
-pip install -r requirements.txt
-
-# 파이프라인 실행 / Run the pipeline
-python -m pipeline.api_client
+cd ~/code/museum-as-code
+python3 -m http.server 8765 --directory docs
 ```
 
-> API 키는 [공공데이터포털](https://www.data.go.kr)에서 "전국 박물관 유물정보" 데이터셋을 신청하면 발급받을 수 있습니다.
-> Get your API key from [공공데이터포털](https://www.data.go.kr) by applying for the "전국 박물관 유물정보" dataset.
+Open: http://127.0.0.1:8765/
 
 ---
 
-## 기여하기 / Contributing
+## Data pipeline commands
 
-새로운 문화재를 추가하거나 버그를 수정하는 기여를 환영합니다!
+```bash
+# Normalize sidecars after metadata/image-source edits
+python3 -m pipeline.normalize_sidecars
 
-Contributions are welcome — add new artifacts, fix bugs, or improve the pipeline!
+# Copy artifact .json/.hgl records into GitHub Pages-safe docs/data paths
+python3 -m pipeline.sync_docs_artifacts
 
-### 방법 / How to Contribute
+# Regenerate archive manifest
+python3 -m pipeline.manifest
 
-1. `artifacts/national-treasures/` 또는 `artifacts/treasures/` 디렉토리에 `.hgl` 파일을 추가하세요.
-   Add a `.hgl` file to `artifacts/national-treasures/` or `artifacts/treasures/`.
+# Regenerate graph data
+python3 -m pipeline.generate_graph
 
-2. 동일한 이름의 `.json` 사이드카 파일을 추가하세요 (메타데이터 포함).
-   Add a `.json` sidecar file with the same name (include metadata).
+# Validate JSON, local paths, hero files, manifest, and graph
+python3 -m pipeline.validate_data
+```
 
-3. `$ hgl check`로 문법을 검증하세요.
-   Validate syntax with `$ hgl check`.
+Recommended verification before pushing:
 
-4. Pull Request를 제출하세요.
-   Submit a Pull Request.
+```bash
+node --check docs/app.js
+node --check docs/graph.js
+node --check docs/hero.js
+python3 -m pipeline.validate_data
+```
 
 ---
 
-## 라이선스 / License
+## Image/provenance policy
 
-이 프로젝트는 **MIT License** 하에 배포됩니다.
+1. **Do not hotlink production artifact images.** Use local files under `docs/images/...`.
+2. **Do not show uncertain photos as primary homepage visuals.** If a source match is not exact, leave `needs_verification` and use the code-first presentation.
+3. **Record source and license fields** in sidecar JSON and `docs/images/heroes/*/image-sources.json`.
+4. **Reintroduce photos per artifact only after verification**, not as broad automatic thumbnails.
 
-This project is distributed under the **MIT License**.
+---
 
-See [LICENSE](LICENSE) for details.
+## Contributing
+
+Contributions are welcome, especially:
+
+- replacing `needs_verification` image placeholders with exact verified sources,
+- improving hero artifact metadata and curator copy,
+- extending `.hgl` records,
+- improving validation scripts,
+- refining the code-first design system without making photos the default entry surface again.
+
+Before opening a PR, run:
+
+```bash
+node --check docs/app.js
+node --check docs/graph.js
+node --check docs/hero.js
+python3 -m pipeline.validate_data
+```
+
+---
+
+## License
+
+This project is distributed under the **MIT License**. See [LICENSE](LICENSE).
