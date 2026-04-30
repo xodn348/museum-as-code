@@ -207,21 +207,21 @@ function renderNavigation(index, heroId) {
   `;
 }
 
-/** Wire download / playground / github buttons once we know the hero id + .hgl text. */
+/** Wire download / playground / github buttons once we know the hero id + .hgl text.
+ *
+ * Note on the playground link: as of 2026-04, the Han playground at
+ * xodn348.github.io/han/playground/ has NO query-string deep-link API —
+ * it loads code from localStorage and has no URLSearchParams handling
+ * (verified by reading web/index.html on main). So the button just
+ * opens the bare playground; users paste the .hgl text from the page or
+ * use the 'Download .hgl' button to grab the source. See DESIGN.md
+ * 'Playground integration findings' for full notes.
+ */
 function wireSourceButtons(entry, hglText) {
   const heroId = entry.id;
   const filename = `${heroId}.hgl`;
   const fileEl = document.getElementById('hgl-filename');
   if (fileEl) fileEl.textContent = `📜 ${filename}`;
-
-  // Try playground deep-link with ?code=<base64>; harmless if unsupported (still navigates).
-  let playgroundHref = PLAYGROUND_URL;
-  try {
-    const encoded = btoa(unescape(encodeURIComponent(hglText)));
-    playgroundHref = `${PLAYGROUND_URL}?code=${encodeURIComponent(encoded)}`;
-  } catch (_) {
-    // fall back to bare playground
-  }
 
   // Use a Blob URL for download (works regardless of host path).
   const blob = new Blob([hglText], { type: 'text/plain;charset=utf-8' });
@@ -231,7 +231,7 @@ function wireSourceButtons(entry, hglText) {
 
   for (const id of ['cta-playground', 'cta-playground-2']) {
     const el = document.getElementById(id);
-    if (el) el.href = playgroundHref;
+    if (el) el.href = PLAYGROUND_URL;
   }
   for (const id of ['cta-download', 'cta-download-2']) {
     const el = document.getElementById(id);
