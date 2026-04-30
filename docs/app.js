@@ -164,7 +164,7 @@ function renderRooms(rooms, heroes) {
         return `
           <a class="room-hero-link code-room-link needs-source-review" href="hero.html?id=${encodeURIComponent(hero.id)}" title="${escapeHtml(imageVerificationNote(hero))}">
             <span class="room-code-label">${escapeHtml(title)}</span>
-            <pre aria-hidden="true"><code>${highlightCode(code)}</code></pre>
+            <pre class="hgl" aria-hidden="true"><code class="hgl">${highlightCode(code)}</code></pre>
           </a>
         `;
       }).join('');
@@ -286,7 +286,7 @@ function renderFeaturedHeroes(heroes) {
       <div class="num">// HERO_${escapeHtml(seal)}${room ? ' · ' + escapeHtml(room) : ''}</div>
       <div class="file-tag">${escapeHtml(fileTag)}</div>
       ${imageMarkup}
-      <pre><code>${highlightCode(code)}</code></pre>
+      <pre class="hgl"><code class="hgl">${highlightCode(code)}</code></pre>
       <div class="title-en">${escapeHtml(titleEn)}</div>
       <div class="title-kr">${escapeHtml(titleKr)}</div>
       <div class="meta">→ ${verified ? 'exact image · source-backed · .hgl' : 'awaiting exact image · .hgl'}</div>
@@ -442,50 +442,16 @@ function escapeHtml(text) {
     .replaceAll("'", '&#39;');
 }
 
+// Delegate Han syntax highlighting to the standalone han-highlight.js module
+// (window.Han.highlight). Falls back to escaped text if loaded before the
+// highlighter script attaches — the auto highlightAll() pass will then style
+// any <pre class="hgl"> / <code class="hgl"> elements after DOMContentLoaded.
 function highlightCode(text) {
   if (text == null) return '';
-  const escaped = String(text)
-    .replaceAll('&', '&amp;')
-    .replaceAll('<', '&lt;')
-    .replaceAll('>', '&gt;')
-    .replaceAll('"', '&quot;')
-    .replaceAll("'", '&#39;');
-
-  const keywordPattern = /(^|[^\p{L}\p{N}_])(구조|문자열|정수|부울|불|목록|날짜|실수|구현|함수|변수|반환|만약|아니면|반복|동안|참|거짓)(?=[^\p{L}\p{N}_]|$)/gu;
-  const propertyPattern = /(^[ \t]*)([\p{L}\p{N}_]+)(?=:(?!\/\/))/gu;
-  const stringPattern = /&quot;[^\n]*?&quot;/g;
-  const commentPattern = /^[ \t]*\/\/.*$/;
-
-  return escaped
-    .split('\n')
-    .map((line) => {
-      if (commentPattern.test(line)) {
-        return `<span class="cm">${line}</span>`;
-      }
-
-      const stringTokens = [];
-      let highlightedLine = line.replace(stringPattern, (match) => {
-        const token = `__STRING_TOKEN_${stringTokens.length}__`;
-        stringTokens.push(`<span class="str">${match}</span>`);
-        return token;
-      });
-
-      highlightedLine = highlightedLine.replace(
-        keywordPattern,
-        '$1<span class="kw">$2</span>'
-      );
-      highlightedLine = highlightedLine.replace(
-        propertyPattern,
-        '$1<span class="prop">$2</span>'
-      );
-
-      stringTokens.forEach((tokenMarkup, index) => {
-        highlightedLine = highlightedLine.replace(`__STRING_TOKEN_${index}__`, tokenMarkup);
-      });
-
-      return highlightedLine;
-    })
-    .join('\n');
+  if (window.Han && typeof window.Han.highlight === 'function') {
+    return window.Han.highlight(String(text));
+  }
+  return escapeHtml(String(text));
 }
 
 function getHashArtifactId() {
@@ -536,7 +502,7 @@ function renderDetailContent(detailData) {
     <h2 class="detail-name-ko" data-lang="ko">${escapeHtml(nameKo)}</h2>
     <p class="detail-name-en" data-lang="en">${escapeHtml(nameEn)}</p>
     <ul class="detail-meta">${metadataRows}</ul>
-    <pre><code class="detail-code">${highlightCode(hglContent)}</code></pre>
+    <pre class="hgl"><code class="hgl detail-code">${highlightCode(hglContent)}</code></pre>
     <p class="detail-description" data-lang="ko">${escapeHtml(descriptionKo)}</p>
     <p class="detail-description" data-lang="en">${escapeHtml(descriptionEn)}</p>
     ${dramaKo || dramaEn ? `
@@ -605,7 +571,7 @@ function createArtifactCodePlate(artifact) {
     room: artifact.period,
     sourcePath: artifact.hgl_path,
   });
-  placeholder.innerHTML = `<pre><code>${highlightCode(code)}</code></pre>`;
+  placeholder.innerHTML = `<pre class="hgl"><code class="hgl">${highlightCode(code)}</code></pre>`;
   return placeholder;
 }
 

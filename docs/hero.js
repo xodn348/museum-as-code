@@ -10,20 +10,6 @@ const PLAYGROUND_URL = 'https://xodn348.github.io/han/playground/';
 const GITHUB_RAW_PREFIX = 'https://raw.githubusercontent.com/xodn348/museum-as-code/main/';
 const GITHUB_BLOB_PREFIX = 'https://github.com/xodn348/museum-as-code/blob/main/';
 
-const HAN_KEYWORDS = [
-  '구조', '함수', '반환', '변수', '상수', '만약', '이면', '아니면',
-  '그리고', '또는', '반복', '동안', '멈춰', '계속', '구현', '열거',
-  '시도', '처리', '맞춤', '포함', '안에서'
-];
-const HAN_BUILTINS = [
-  '출력', '형식', '길이', '입력', '정수변환', '실수변환',
-  '사전', '파일읽기', '파일쓰기', 'main'
-];
-const HAN_TYPES = [
-  '문자열', '정수', '실수', '불', '없음', '참', '거짓',
-  '목록', '날짜', '부울'
-];
-
 let currentLang = 'en';
 let currentHero = null;
 let currentEntry = null;
@@ -121,52 +107,15 @@ function renderVerifiedImageState(hero) {
   setText('license-line', `Image withheld — ${note}`);
 }
 
-/**
- * Tokenize one already-html-escaped Han line.
- * Walks left-to-right, peeling off comments, strings, and identifiers.
- * Comments + strings short-circuit (regex on the rest of the line).
- */
-function highlightLine(line) {
-  // Comment: `//` to end of line. Everything before still tokenizes.
-  const commentIdx = line.indexOf('//');
-  if (commentIdx !== -1) {
-    const before = line.slice(0, commentIdx);
-    const comment = line.slice(commentIdx);
-    return highlightLine(before) + `<span class="tok-cm">${comment}</span>`;
-  }
-
-  // Token boundary regex: identifiers (CJK + ASCII letters + digits + _),
-  // numbers, strings, anything else passes through.
-  const tokenRe = /(&quot;[^&]*?&quot;)|([\p{L}\p{N}_]+)|(\d+)/gu;
-  let out = '';
-  let last = 0;
-  let m;
-  while ((m = tokenRe.exec(line)) !== null) {
-    out += line.slice(last, m.index);
-    const tok = m[0];
-    if (m[1]) {
-      // String literal
-      out += `<span class="tok-str">${tok}</span>`;
-    } else if (HAN_KEYWORDS.includes(tok)) {
-      out += `<span class="tok-kw">${tok}</span>`;
-    } else if (HAN_TYPES.includes(tok)) {
-      out += `<span class="tok-ty">${tok}</span>`;
-    } else if (HAN_BUILTINS.includes(tok)) {
-      out += `<span class="tok-bi">${tok}</span>`;
-    } else if (/^\d+$/.test(tok)) {
-      out += `<span class="tok-num">${tok}</span>`;
-    } else {
-      out += tok;
-    }
-    last = m.index + tok.length;
-  }
-  out += line.slice(last);
-  return out;
-}
-
+// Delegate Han highlighting to the standalone han-highlight module
+// (window.Han.highlight). The shared module emits .han-* spans styled by
+// han-highlight.css, ensuring identical token colors across home + hero.
 function highlightHan(text) {
-  const escaped = escapeHtml(text);
-  return escaped.split('\n').map(highlightLine).join('\n');
+  if (text == null) return '';
+  if (window.Han && typeof window.Han.highlight === 'function') {
+    return window.Han.highlight(String(text));
+  }
+  return escapeHtml(String(text));
 }
 
 function localizeStaticText() {
