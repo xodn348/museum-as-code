@@ -1093,7 +1093,7 @@ nav.kpdh-nav .nav-links a {
 }
 nav.kpdh-nav .nav-links a:hover { opacity: 1; color: var(--rose); }
 
-nav.kpdh-nav .gh-pair { display: flex; gap: 8px; flex-wrap: wrap; }
+nav.kpdh-nav .gh-pair { display: flex; gap: 8px; flex-wrap: wrap; margin-left: auto; }
 nav.kpdh-nav .gh-chip {
   display: inline-flex;
   align-items: center;

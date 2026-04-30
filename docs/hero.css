@@ -114,6 +114,7 @@ a { color: var(--paper); }
   display: flex;
   gap: 8px;
   flex-wrap: wrap;
+  margin-left: auto;
 }
 .hero-nav .gh-chip {
   font-family: 'JetBrains Mono', monospace;
