@@ -218,6 +218,18 @@ KPDH-inspired = **saturated neon + Korean folk talisman**. Concretely:
 
 ---
 
+## 8a. Playground integration findings (2026-04-30)
+
+The Han playground at <https://xodn348.github.io/han/playground/> does **not** support a query-string deep-link API. Verified by reading [`web/index.html`](https://github.com/xodn348/han/blob/main/web/index.html) on `main`:
+
+- The editor (CodeMirror) is initialized with `loadSavedCode() ?? initialCode`, where `loadSavedCode` reads `localStorage.getItem('han-playground-code')`.
+- There is **no** `URLSearchParams` / `location.search` / `atob` / `?code=` handling anywhere in the playground page.
+- An earlier museum build sent `?code=<base64>` to the playground; the playground silently ignored it. That deep-link is now removed.
+
+**Implication for hero pages:** the `→ Open Han Playground` button now opens the bare playground URL. Users can grab the canonical `.hgl` source via the adjacent `↓ Download .hgl` button (Blob URL, downloads as `<heroId>.hgl`) or `View on GitHub ↗` (raw blob). If the playground later adds a real deep-link param, re-wire `wireSourceButtons` in `docs/hero.js`.
+
+**Cross-origin localStorage seeding** is not viable: museum-as-code on `xodn348.github.io/museum-as-code` and the playground on `xodn348.github.io/han` share an origin and could in principle co-write `han-playground-code`, but that would silently overwrite the visitor's saved sandbox state on every museum click — too destructive.
+
 ## 9. Direction history
 
 ### 2026-04-30 · KPDH-A reset (current)
