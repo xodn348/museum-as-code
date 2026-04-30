@@ -4,6 +4,7 @@
 const MANIFEST_URL = './manifest.json';
 const HERO_INDEX_URL = './data/heroes/index.json';
 const ROOMS_URL = './data/rooms.json';
+const GITHUB_URL = 'https://github.com/xodn348/museum-as-code';
 
 // ── State ──────────────────────────────────────────────────────────────────
 let currentLang = 'en';  // 'ko' | 'en'
@@ -23,6 +24,60 @@ const FILTER_LABELS = {
 
 
 
+function buildMiniHglArtifact({ nameKo, nameEn, designation, room, sourcePath }) {
+  const safeNameKo = nameKo || '유물';
+  const safeNameEn = nameEn || safeNameKo;
+  return [
+    `구조 유물 {`,
+    `  이름: "${safeNameKo}"`,
+    `  english: "${safeNameEn}"`,
+    designation ? `  지정: "${designation}"` : '',
+    room ? `  방: "${room}"` : '',
+    sourcePath ? `  소스: "${sourcePath}"` : '',
+    `}`,
+  ].filter(Boolean).join('\n');
+}
+
+function trimHglPreview(text, maxLines = 9) {
+  if (!text) return '';
+  const lines = text
+    .split('\n')
+    .map((line) => line.replace(/,\s*$/, ''))
+    .filter((line) => {
+      const trimmed = line.trim();
+      if (!trimmed || trimmed.startsWith('//')) return false;
+      if (/^구조\s/.test(trimmed)) return true;
+      if (/^(함수|main\(|})/.test(trimmed)) return false;
+      if (/:\s*(문자열|정수|부울|목록|날짜|실수)$/.test(trimmed)) return false;
+      return /^(변수|출력|[\p{L}\p{N}_]+:)/u.test(trimmed);
+    });
+  return lines.slice(0, maxLines).join('\n');
+}
+
+async function fetchTextPreview(path, maxLines = 9) {
+  if (!path) return '';
+  try {
+    const response = await fetch(path);
+    if (!response.ok) return '';
+    return trimHglPreview(await response.text(), maxLines);
+  } catch (_) {
+    return '';
+  }
+}
+
+async function hydrateHeroHgl(heroes) {
+  return Promise.all(heroes.map(async (hero) => ({
+    ...hero,
+    hglPreview: await fetchTextPreview(hero.hgl_path, 8),
+  })));
+}
+
+function setGithubLinks() {
+  document.querySelectorAll('[data-github-url]').forEach((link) => {
+    link.href = GITHUB_URL;
+  });
+}
+
 async function loadRooms() {
   const grid = document.getElementById('rooms-grid');
   if (!grid) return;
@@ -35,7 +90,8 @@ async function loadRooms() {
     if (!heroesResponse.ok) throw new Error(`Hero index fetch failed with status ${heroesResponse.status}`);
     const rooms = await roomsResponse.json();
     const heroIndex = await heroesResponse.json();
-    renderRooms(Array.isArray(rooms.rooms) ? rooms.rooms : [], Array.isArray(heroIndex.heroes) ? heroIndex.heroes : []);
+    const hydratedHeroes = await hydrateHeroHgl(Array.isArray(heroIndex.heroes) ? heroIndex.heroes : []);
+    renderRooms(Array.isArray(rooms.rooms) ? rooms.rooms : [], hydratedHeroes);
   } catch (error) {
     console.error('rooms 로드 실패:', error);
     grid.innerHTML = '<p class="error">Rooms failed to load.</p>';
@@ -55,12 +111,22 @@ function renderRooms(rooms, heroes) {
       const card = document.createElement('section');
       card.className = 'room-card';
       const roomHeroes = (room.hero_ids || []).map((id) => heroById.get(id)).filter(Boolean);
-      const preview = roomHeroes.slice(0, 3).map((hero) => `
-        <a class="room-hero-link" href="hero.html?id=${encodeURIComponent(hero.id)}">
-          <img src="${escapeHtml(hero.cover_image || '')}" alt="${escapeHtml(hero.name_en || hero.name_ko || '')}">
-          <span>${escapeHtml(currentLang === 'ko' ? (hero.name_ko || '') : (hero.name_en || hero.name_ko || ''))}</span>
-        </a>
-      `).join('');
+      const preview = roomHeroes.slice(0, 3).map((hero) => {
+        const title = currentLang === 'ko' ? (hero.name_ko || '') : (hero.name_en || hero.name_ko || '');
+        const code = hero.hglPreview || buildMiniHglArtifact({
+          nameKo: hero.name_ko,
+          nameEn: hero.name_en,
+          designation: hero.designation,
+          room: hero.room,
+          sourcePath: hero.hgl_path,
+        });
+        return `
+          <a class="room-hero-link code-room-link" href="hero.html?id=${encodeURIComponent(hero.id)}">
+            <span class="room-code-label">${escapeHtml(title)}</span>
+            <pre aria-hidden="true"><code>${highlightCode(code)}</code></pre>
+          </a>
+        `;
+      }).join('');
       card.innerHTML = `
         <div class="room-card-heading">
           <p class="room-count">${String(roomHeroes.length).padStart(2, '0')} hero pages</p>
@@ -84,11 +150,27 @@ async function loadFeaturedHeroes() {
       throw new Error(`Hero index fetch failed with status ${response.status}`);
     }
     const index = await response.json();
-    renderFeaturedHeroes(Array.isArray(index.heroes) ? index.heroes : []);
+    const heroes = await hydrateHeroHgl(Array.isArray(index.heroes) ? index.heroes : []);
+    renderHomeSource(heroes);
+    renderFeaturedHeroes(heroes);
   } catch (error) {
     console.error('hero index 로드 실패:', error);
     grid.innerHTML = '<p class="error">Hero artifacts failed to load.</p>';
   }
+}
+
+function renderHomeSource(heroes) {
+  const code = document.getElementById('home-hgl-code');
+  if (!code) return;
+  const first = heroes[0] || {};
+  const snippet = first.hglPreview || buildMiniHglArtifact({
+    nameKo: first.name_ko || '금동미륵보살반가사유상',
+    nameEn: first.name_en || 'Pensive Bodhisattva',
+    designation: first.designation || 'National Treasure No. 83',
+    room: first.room || 'Buddhist Sculpture',
+    sourcePath: first.hgl_path || 'data/heroes/hero_pensive_bodhisattva.hgl',
+  });
+  code.innerHTML = highlightCode(snippet);
 }
 
 function renderFeaturedHeroes(heroes) {
@@ -99,27 +181,33 @@ function renderFeaturedHeroes(heroes) {
 
   heroes.forEach((hero, index) => {
     const card = document.createElement('a');
-    card.className = `featured-hero-card hero-room-${String(hero.room || '').toLowerCase().replaceAll(' ', '-')}`;
+    card.className = `featured-hero-card code-hero-card${hero.needs_verification ? ' needs-source-review' : ''}`;
     card.href = `hero.html?id=${encodeURIComponent(hero.id)}`;
     card.style.setProperty('--delay', `${Math.min(index * 40, 320)}ms`);
 
-    const img = document.createElement('img');
-    img.src = hero.cover_image || '';
-    img.alt = currentLang === 'ko' ? (hero.name_ko || hero.name_en || '') : (hero.name_en || hero.name_ko || '');
-    img.loading = index < 3 ? 'eager' : 'lazy';
-    img.onerror = function () { this.closest('.featured-hero-card')?.classList.add('image-missing'); };
+    const title = currentLang === 'ko' ? (hero.name_ko || '') : (hero.name_en || hero.name_ko || '');
+    const subtitle = currentLang === 'ko' ? (hero.name_en || '') : (hero.name_ko || '');
+    const code = hero.hglPreview || buildMiniHglArtifact({
+      nameKo: hero.name_ko,
+      nameEn: hero.name_en,
+      designation: hero.designation,
+      room: hero.room,
+      sourcePath: hero.hgl_path,
+    });
 
-    const body = document.createElement('div');
-    body.className = 'featured-hero-body';
-    body.innerHTML = `
-      <span class="featured-number">${String(index + 1).padStart(2, '0')}</span>
-      <span class="featured-room">${escapeHtml(hero.room || '')}</span>
-      <h3>${escapeHtml(currentLang === 'ko' ? (hero.name_ko || '') : (hero.name_en || hero.name_ko || ''))}</h3>
-      <p class="featured-subtitle">${escapeHtml(currentLang === 'ko' ? (hero.name_en || '') : (hero.name_ko || ''))}</p>
-      <p class="featured-hook">${escapeHtml(currentLang === 'ko' ? (hero.summary_ko || hero.hook || '') : (hero.hook || hero.summary_en || ''))}</p>
-      ${hero.needs_verification ? '<p class="verification-note">source verification marker</p>' : ''}
+    card.innerHTML = `
+      <div class="code-card-topline">
+        <span>${String(index + 1).padStart(2, '0')}</span>
+        <span>${escapeHtml(hero.room || '')}</span>
+      </div>
+      <pre class="featured-code" aria-label="Han source preview"><code>${highlightCode(code)}</code></pre>
+      <div class="featured-hero-body">
+        <h3>${escapeHtml(title)}</h3>
+        <p class="featured-subtitle">${escapeHtml(subtitle)}</p>
+        <p class="featured-hook">${escapeHtml(currentLang === 'ko' ? (hero.summary_ko || hero.hook || '') : (hero.hook || hero.summary_en || ''))}</p>
+        <p class="source-policy">${hero.needs_verification ? 'image hidden until source match is verified' : 'source-backed Han page'}</p>
+      </div>
     `;
-    card.append(img, body);
     fragment.appendChild(card);
   });
 
@@ -424,6 +512,20 @@ async function loadManifest() {
  * artifact 배열을 받아 #card-grid에 카드를 렌더링한다.
  * @param {Array} artifacts - manifest.json의 artifacts 배열
  */
+function createArtifactCodePlate(artifact) {
+  const placeholder = document.createElement('div');
+  placeholder.className = 'artifact-image-placeholder artifact-code-plate';
+  const code = buildMiniHglArtifact({
+    nameKo: artifact.name_ko,
+    nameEn: artifact.name_en,
+    designation: artifact.designation,
+    room: artifact.period,
+    sourcePath: artifact.hgl_path,
+  });
+  placeholder.innerHTML = `<pre><code>${highlightCode(code)}</code></pre>`;
+  return placeholder;
+}
+
 function createImagePlaceholder() {
   const placeholder = document.createElement('div');
   placeholder.className = 'artifact-image-placeholder';
@@ -454,16 +556,7 @@ function renderCards(artifacts) {
     card.dataset.collection = artifact.collection;
     card.setAttribute('role', 'button');
 
-    if (artifact.image_url) {
-      const img = document.createElement('img');
-      img.src = artifact.image_url;
-      img.loading = 'lazy';
-      img.alt = currentLang === 'ko' ? (artifact.name_ko ?? '') : (artifact.name_en ?? artifact.name_ko ?? '');
-      img.onerror = function() { this.replaceWith(createImagePlaceholder()); };
-      card.appendChild(img);
-    } else {
-      card.appendChild(createImagePlaceholder());
-    }
+    card.appendChild(createArtifactCodePlate(artifact));
 
     const cardBody = document.createElement('div');
     cardBody.className = 'card-body';
@@ -576,6 +669,7 @@ async function showDetail(artifactId) {
 function toggleLang() {
   currentLang = currentLang === 'ko' ? 'en' : 'ko';
   document.body.dataset.lang = currentLang;
+  setGithubLinks();
 
   // Swap text for elements with data-lang-ko / data-lang-en attributes
   document.querySelectorAll('[data-lang-ko]').forEach(el => {
@@ -599,6 +693,7 @@ function toggleLang() {
 // ── Event Bindings ─────────────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', async () => {
   document.body.dataset.lang = currentLang;
+  setGithubLinks();
 
   // 언어 토글
   document.getElementById('lang-toggle')?.addEventListener('click', toggleLang);

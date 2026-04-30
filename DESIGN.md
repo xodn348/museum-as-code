@@ -61,3 +61,15 @@ Use restrained fade/scale only. Avoid decorative animation that competes with th
 - Production images must be local under `docs/images/**`.
 - Remote URLs belong in `source_url`, never `image_url`.
 - If source verification is incomplete, keep an explicit `needs_verification` marker.
+
+## 2026-04-30 Code-first redesign reset
+
+The homepage no longer uses artifact photographs as the primary visual system. Until exact image/object matches are verified, the public entry experience uses Han-lang source blocks as the visual signature:
+
+- Homepage hero: live `.hgl` preview + GitHub CTA.
+- Featured heroes: 10 code cards, no photo thumbnails.
+- Rooms: code-snippet links instead of image strips.
+- Archive cards: generated Han-like source plates instead of potentially mismatched images.
+- Graph: labeled code-style nodes, no photo node backgrounds.
+
+Rationale: incorrect photographs are more damaging than missing photographs. The design now makes provenance and source structure visible first; photos can be reintroduced per object only after exact source/license matching.

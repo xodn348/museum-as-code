@@ -7,34 +7,72 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <h1 data-lang-ko="Museum as Code - 국립중앙박물관" data-lang-en="Museum as Code - National Museum of Korea">Museum as Code - National Museum of Korea</h1>
-    <button type="button" id="lang-toggle" aria-label="Toggle language">EN / 한</button>
+  <header class="site-header">
+    <a class="brand-mark" href="index.html" aria-label="Museum as Code home">
+      <span class="brand-glyph">한</span>
+      <span>
+        <strong>Museum as Code</strong>
+        <small>Han-lang cultural archive</small>
+      </span>
+    </a>
+    <nav class="header-actions" aria-label="Primary actions">
+      <a class="github-link" data-github-url href="https://github.com/xodn348/museum-as-code" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+      <button type="button" id="lang-toggle" aria-label="Toggle language">EN / 한</button>
+    </nav>
   </header>
+
   <main>
-    <div class="tab-bar">
+    <section class="home-hero" aria-labelledby="home-title">
+      <div class="home-copy">
+        <p class="eyebrow" data-lang-ko="사진보다 먼저, 소스" data-lang-en="Source before spectacle">Source before spectacle</p>
+        <h1 id="home-title" data-lang-ko="Han-lang으로 다시 짠 디지털 박물관" data-lang-en="A digital museum written in Han-lang">A digital museum written in Han-lang</h1>
+        <p class="lede" data-lang-ko="검증되지 않은 사진을 크게 보여주는 대신, 유물의 구조·출처·해석을 Han-lang 소스코드로 전면에 둡니다." data-lang-en="Instead of leading with questionable photos, the homepage foregrounds each artifact as Han-lang source: structure, provenance, and interpretation first.">Instead of leading with questionable photos, the homepage foregrounds each artifact as Han-lang source: structure, provenance, and interpretation first.</p>
+        <div class="hero-actions">
+          <a class="primary-action" href="#featured-heroes" data-lang-ko="대표 유물 보기" data-lang-en="Explore hero artifacts">Explore hero artifacts</a>
+          <a class="secondary-action" data-github-url href="https://github.com/xodn348/museum-as-code" target="_blank" rel="noopener noreferrer" data-lang-ko="GitHub에서 보기" data-lang-en="View on GitHub">View on GitHub</a>
+        </div>
+        <dl class="home-stats" aria-label="Project stats">
+          <div><dt>10</dt><dd data-lang-ko="대표 유물" data-lang-en="hero artifacts">hero artifacts</dd></div>
+          <div><dt>64</dt><dd data-lang-ko="코드화된 항목" data-lang-en="coded records">coded records</dd></div>
+          <div><dt>.hgl</dt><dd data-lang-ko="시각적 시그니처" data-lang-en="visual signature">visual signature</dd></div>
+        </dl>
+      </div>
+      <aside class="home-source-panel" aria-label="Han-lang source preview">
+        <div class="source-window-bar"><span></span><span></span><span></span><strong>hero_pensive_bodhisattva.hgl</strong></div>
+        <pre><code id="home-hgl-code">구조 유물 {
+  이름: "금동미륵보살반가사유상"
+  english: "Pensive Bodhisattva"
+  지정: "National Treasure No. 83"
+}</code></pre>
+      </aside>
+    </section>
+
+    <div class="tab-bar" aria-label="Museum sections">
       <button type="button" class="tab-btn active" data-tab="featured" data-lang-ko="대표 유물" data-lang-en="Featured Artifacts">Featured Artifacts</button>
       <button type="button" class="tab-btn" data-tab="rooms" data-lang-ko="테마 룸" data-lang-en="Rooms">Rooms</button>
-      <button type="button" class="tab-btn" data-tab="cards" data-lang-ko="전체 유물" data-lang-en="All Artifacts">All Artifacts</button>
-      <button type="button" class="tab-btn" data-tab="graph" data-lang-ko="연결 탐색" data-lang-en="Explore Connections">Explore Connections</button>
+      <button type="button" class="tab-btn" data-tab="cards" data-lang-ko="전체 코드 아카이브" data-lang-en="Code Archive">Code Archive</button>
+      <button type="button" class="tab-btn" data-tab="graph" data-lang-ko="연결 그래프" data-lang-en="Connection Graph">Connection Graph</button>
     </div>
+
     <section id="featured-heroes" class="tab-content active" aria-label="Featured hero artifacts">
       <div class="featured-intro">
-        <p class="eyebrow" data-lang-ko="Phase C" data-lang-en="Phase C">Phase C</p>
-        <h2 data-lang-ko="대표 유물 10점" data-lang-en="Ten hero artifacts">Ten hero artifacts</h2>
-        <p data-lang-ko="깊이 있는 단일 페이지로 먼저 완성한 한국 문화유산의 입구입니다." data-lang-en="A focused entrance to Korean heritage, built as immersive single-object pages first.">A focused entrance to Korean heritage, built as immersive single-object pages first.</p>
+        <p class="eyebrow" data-lang-ko="Phase C 재정렬" data-lang-en="Phase C reset">Phase C reset</p>
+        <h2 data-lang-ko="대표 유물 10점, 코드 카드로" data-lang-en="Ten hero artifacts, as code cards">Ten hero artifacts, as code cards</h2>
+        <p data-lang-ko="사진이 정확히 검증될 때까지 홈페이지 카드에서는 이미지를 숨기고, 각 유물의 Han-lang 원문과 큐레이터 문장을 먼저 보여줍니다." data-lang-en="Homepage cards hide photos until source matches are verified, showing Han-lang source and curator copy first.">Homepage cards hide photos until source matches are verified, showing Han-lang source and curator copy first.</p>
       </div>
       <div id="featured-grid"></div>
     </section>
+
     <section id="rooms" class="tab-content" aria-label="Curated rooms">
       <div class="rooms-intro">
         <p class="eyebrow" data-lang-ko="Phase A" data-lang-en="Phase A">Phase A</p>
         <h2 data-lang-ko="테마 룸" data-lang-en="Curated rooms">Curated rooms</h2>
-        <p data-lang-ko="그래프보다 먼저 만나는 큐레이션 입구입니다. 각 방은 대표 유물 페이지와 전체 컬렉션을 연결합니다." data-lang-en="A curated entrance before the graph. Each room connects immersive hero pages with the broader collection.">A curated entrance before the graph. Each room connects immersive hero pages with the broader collection.</p>
+        <p data-lang-ko="각 방은 사진 썸네일이 아니라 대표 유물의 코드 조각으로 연결됩니다." data-lang-en="Each room links through code snippets instead of photo thumbnails.">Each room links through code snippets instead of photo thumbnails.</p>
       </div>
       <div id="rooms-grid"></div>
     </section>
-    <div id="cy" class="tab-content">
+
+    <div id="cy" class="tab-content" aria-label="Artifact connection graph">
       <div id="edge-filters">
         <label><input type="checkbox" data-edge-type="category" checked> <span class="edge-swatch" style="background:#66aa77"></span><span data-lang-ko="분류" data-lang-en="Category">Category</span></label>
         <label><input type="checkbox" data-edge-type="era" checked> <span class="edge-swatch" style="background:#6699cc"></span><span data-lang-ko="시대" data-lang-en="Era">Era</span></label>
@@ -42,15 +80,17 @@
         <label><input type="checkbox" data-edge-type="material" checked> <span class="edge-swatch" style="background:#9966cc"></span><span data-lang-ko="재질" data-lang-en="Material">Material</span></label>
       </div>
     </div>
-    <section id="card-grid" class="tab-content" aria-label="Artifact collection">
-      <!-- T13에서 .artifact-card 요소들이 여기에 동적으로 삽입됨 -->
+
+    <section id="card-grid" class="tab-content" aria-label="Artifact code archive">
+      <!-- Artifact cards are rendered by app.js -->
     </section>
   </main>
+
   <div id="artifact-detail" class="hidden" role="dialog" aria-modal="true">
     <div id="detail-panel">
       <button type="button" id="detail-close" aria-label="Close detail view">✕ 닫기 / Close</button>
       <div id="detail-content">
-        <!-- T14에서 채워짐 -->
+        <!-- Detail content is rendered by app.js -->
       </div>
     </div>
   </div>

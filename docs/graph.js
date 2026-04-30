@@ -5,40 +5,11 @@ function initGraph() {
     return;
   }
 
-  fetch('./manifest.json')
+  fetch('data/graph.json')
     .then(function (response) {
       return response.json();
     })
-    .then(function (manifest) {
-      var imageMap = {};
-      (manifest.artifacts || []).forEach(function (artifact) {
-        imageMap[artifact.id] = artifact.image_url || '';
-      });
-      return imageMap;
-    })
-    .catch(function () {
-      return {};
-    })
-    .then(function (imageMap) {
-      return fetch('data/graph.json')
-        .then(function (response) {
-          return response.json();
-        })
-        .then(function (graphData) {
-          return { graphData: graphData, imageMap: imageMap };
-        });
-    })
-    .then(function (result) {
-      var graphData = result.graphData;
-      var imageMap = result.imageMap;
-
-      // Enrich node data with image_url
-      if (graphData.elements && graphData.elements.nodes) {
-        graphData.elements.nodes.forEach(function (node) {
-          node.data.image_url = imageMap[node.data.id] || '';
-        });
-      }
-
+    .then(function (graphData) {
       cy = cytoscape({
         container: document.getElementById('cy'),
         elements: graphData.elements,
@@ -47,33 +18,28 @@ function initGraph() {
             selector: 'node',
             style: {
               label: 'data(label_en)',
-              'background-color': '#4a7c59',
-              color: '#fff',
+              'background-color': '#1f2a21',
+              'border-color': '#d9b45e',
+              'border-width': '2px',
+              color: '#f6efe3',
               'text-valign': 'center',
               'text-halign': 'center',
+              'font-family': 'Georgia, serif',
               'font-size': '10px',
-              width: '50px',
-              height: '50px',
-            },
-          },
-          {
-            selector: 'node[image_url != ""]',
-            style: {
-              'background-image': 'data(image_url)',
-              'background-fit': 'cover',
-              'background-clip': 'node',
-              'text-opacity': 1,
-              'text-background-color': 'rgba(10, 10, 10, 0.72)',
+              'text-wrap': 'wrap',
+              'text-max-width': '86px',
+              'text-background-color': 'rgba(9, 13, 10, 0.84)',
               'text-background-opacity': 1,
-              'text-background-padding': '3px',
-              'text-margin-y': '36px',
+              'text-background-padding': '4px',
+              width: '72px',
+              height: '72px',
             },
           },
           {
             selector: 'edge',
             style: {
               width: 1,
-              opacity: 0.8,
+              opacity: 0.62,
             },
           },
           {
@@ -122,11 +88,11 @@ function initGraph() {
       });
 
       cy.on('mouseover', 'node', function (evt) {
-        evt.target.style({ width: '80px', height: '80px' });
+        evt.target.style({ width: '96px', height: '96px' });
       });
 
       cy.on('mouseout', 'node', function (evt) {
-        evt.target.style({ width: '50px', height: '50px' });
+        evt.target.style({ width: '72px', height: '72px' });
       });
 
       if (typeof currentLang !== 'undefined') {
