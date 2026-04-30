@@ -940,10 +940,64 @@ function applyLanguage(nextLang) {
 // that i18n.js dispatches during its own DOMContentLoaded init.
 document.addEventListener('languagechange', (e) => applyLanguage(e.detail.lang));
 
+// ── KPDH tab system ──────────────────────────────────────────────────────────
+// 4 panes (Featured / Rooms / Archive / Graph) replace the long-scroll layout.
+// The hero section sits above the tab bar. URL hash (#featured, #rooms,
+// #archive, #graph) is the source of truth so deep-links and the back button
+// work. Cytoscape gets a resize() nudge when the graph tab opens because it
+// can't measure a hidden container.
+const TAB_NAMES = ['featured', 'rooms', 'archive', 'graph'];
+function getTabFromHash() {
+  const raw = (location.hash || '').replace(/^#/, '').toLowerCase();
+  if (TAB_NAMES.includes(raw)) return raw;
+  // Legacy anchor support (#featured-heroes, #card-grid, #cy)
+  if (raw === 'featured-heroes') return 'featured';
+  if (raw === 'card-grid') return 'archive';
+  if (raw === 'cy') return 'graph';
+  return null;
+}
+function activateTab(name, opts) {
+  if (!TAB_NAMES.includes(name)) name = 'featured';
+  const pushHash = !(opts && opts.silent);
+  document.querySelectorAll('.kpdh-tab-btn').forEach((btn) => {
+    const on = btn.dataset.tab === name;
+    btn.setAttribute('aria-selected', on ? 'true' : 'false');
+  });
+  document.querySelectorAll('.kpdh-tab-pane').forEach((pane) => {
+    pane.classList.toggle('active', pane.dataset.pane === name);
+  });
+  if (pushHash && location.hash !== '#' + name) {
+    history.replaceState(null, '', '#' + name);
+  }
+  // Cytoscape needs a resize once its container becomes visible.
+  if (name === 'graph' && window.cy && typeof window.cy.resize === 'function') {
+    requestAnimationFrame(() => { window.cy.resize(); window.cy.fit(undefined, 40); });
+  }
+}
+function initTabs() {
+  document.querySelectorAll('.kpdh-tab-btn').forEach((btn) => {
+    btn.addEventListener('click', () => activateTab(btn.dataset.tab));
+  });
+  document.querySelectorAll('[data-tab-link]').forEach((link) => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      activateTab(link.dataset.tabLink);
+      window.scrollTo({ top: document.querySelector('.kpdh-tab-bar')?.offsetTop || 0, behavior: 'smooth' });
+    });
+  });
+  window.addEventListener('hashchange', () => {
+    const t = getTabFromHash();
+    if (t) activateTab(t, { silent: true });
+  });
+  const initial = getTabFromHash() || 'featured';
+  activateTab(initial, { silent: true });
+}
+
 // ── Event Bindings ─────────────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', async () => {
   document.body.dataset.lang = currentLang;
   setGithubLinks();
+  initTabs();
 
   // 상세 뷰 닫기
   document.getElementById('detail-close')?.addEventListener('click', () => {
