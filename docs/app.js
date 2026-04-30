@@ -351,10 +351,12 @@ function ensureFilterTabs(counts) {
     button.textContent = filter.label;
     button.addEventListener('click', () => {
       currentFilter = filter.id;
+      activeCategoryFilter = 'all';
       ensureFilterTabs(counts);
       const filteredArtifacts = currentFilter === 'all'
         ? allArtifacts
         : allArtifacts.filter((artifact) => artifact.collection === currentFilter);
+      renderCategoryPills(filteredArtifacts);
       renderCards(filteredArtifacts);
     });
     tabs.appendChild(button);
@@ -514,6 +516,32 @@ function renderDetailContent(detailData) {
   `;
 }
 
+async function hydrateArtifactExtras(artifacts) {
+  // For each artifact: pull sidecar.category (drives filter pills) and a real
+  // .hgl preview (drives the rose-bordered code plate on each card). Both are
+  // best-effort — failures fall back to manifest fields and the synthetic
+  // buildMiniHglArtifact placeholder.
+  await Promise.all(artifacts.map(async (a) => {
+    try {
+      const [sidecarRes, hglRes] = await Promise.all([
+        fetch(a.json_path),
+        fetch(a.hgl_path),
+      ]);
+      if (sidecarRes.ok) {
+        const sidecar = await sidecarRes.json();
+        a.categoryRaw = sidecar.category || '';
+        a.sidecar = sidecar;
+        a.exact_image_verified = a.exact_image_verified || sidecar.exact_image_verified === true;
+      }
+      if (hglRes.ok) {
+        a.hglPreview = trimHglPreview(await hglRes.text(), 8);
+      }
+    } catch (_) {
+      // ignore — card still renders with the synthetic preview
+    }
+  }));
+}
+
 async function loadManifest() {
   const grid = document.getElementById('card-grid');
 
@@ -548,7 +576,16 @@ async function loadManifest() {
       kdhCount,
     });
 
+    updateArchiveCount(totalCount);
     renderCards(allArtifacts);
+
+    // Hydrate sidecar + .hgl preview in the background, then re-render so
+    // every card carries a real Han snippet and category pills become useful.
+    hydrateArtifactExtras(allArtifacts).then(() => {
+      const collectionFiltered = getFilteredArtifacts();
+      renderCategoryPills(collectionFiltered);
+      renderCards(applyCategoryFilter(collectionFiltered));
+    });
   } catch (error) {
     console.error('manifest.json 로드 실패:', error);
     if (grid) {
@@ -604,6 +641,99 @@ function createImagePlaceholder() {
   return placeholder;
 }
 
+// KPDH-A archive card: file-tag, rose-bordered code plate, dual-script title,
+// source-backed meta. The .hgl preview comes from the real artifact file (8
+// lines, comments + `함수`/`}` stripped) so every card is a tiny window into
+// runnable Han.
+function archiveFileTag(artifact) {
+  const path = String(artifact.hgl_path || '').replace(/^\.?\//, '').replace(/^data\//, '');
+  return path || `${artifact.collection || 'archive'}/${artifact.id || 'unknown'}.hgl`;
+}
+
+function buildArchiveCardCode(artifact) {
+  if (artifact.hglPreview) return artifact.hglPreview;
+  return buildMiniHglArtifact({
+    nameKo: artifact.name_ko,
+    nameEn: artifact.name_en,
+    designation: artifact.designation,
+    room: artifact.period,
+    sourcePath: artifact.hgl_path,
+  });
+}
+
+// Map the heterogeneous sidecar.category strings (불교 조각, 금속공예, 도자기,
+// 전적류, 민화, 회화, 유적건조물, ...) onto a small set of filter buckets that
+// match the brief: Sculpture, Ceramic, Records, Metal, Painting, Architecture.
+const CATEGORY_GROUPS = [
+  { id: 'sculpture',   labelEn: 'Sculpture',    labelKo: '조각',  match: /조각|석조|신앙器材/ },
+  { id: 'ceramic',     labelEn: 'Ceramic',      labelKo: '도자',  match: /도자|토기/ },
+  { id: 'metal',       labelEn: 'Metal',        labelKo: '금속',  match: /금속|철조/ },
+  { id: 'painting',    labelEn: 'Painting',     labelKo: '회화',  match: /회화|민화|불교 화/ },
+  { id: 'records',     labelEn: 'Records',      labelKo: '기록',  match: /전적|서예|비문|금석문|지형도/ },
+  { id: 'architecture',labelEn: 'Architecture', labelKo: '건축',  match: /건조물|시설|고분|과학기술유적|직물/ },
+];
+
+function categoryGroupFor(rawCategory) {
+  const c = String(rawCategory || '').trim();
+  if (!c) return 'other';
+  for (const g of CATEGORY_GROUPS) {
+    if (g.match.test(c)) return g.id;
+  }
+  return 'other';
+}
+
+let activeCategoryFilter = 'all'; // 'all' | one of CATEGORY_GROUPS[].id | 'other'
+
+function renderCategoryPills(artifacts) {
+  const host = document.getElementById('archive-category-pills');
+  if (!host) return;
+  if (!Array.isArray(artifacts) || artifacts.length === 0) {
+    host.innerHTML = '';
+    return;
+  }
+  // Count categories within the currently-collection-filtered set.
+  const counts = { all: artifacts.length, other: 0 };
+  for (const g of CATEGORY_GROUPS) counts[g.id] = 0;
+  for (const a of artifacts) {
+    const id = categoryGroupFor(a.categoryRaw);
+    counts[id] = (counts[id] || 0) + 1;
+  }
+  const pills = [
+    { id: 'all', labelEn: 'All', labelKo: '전체' },
+    ...CATEGORY_GROUPS,
+  ];
+  if (counts.other > 0) {
+    pills.push({ id: 'other', labelEn: 'Other', labelKo: '기타' });
+  }
+  host.innerHTML = '';
+  pills.forEach((p) => {
+    if (counts[p.id] === 0 && p.id !== 'all') return;
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = `kpdh-pill${activeCategoryFilter === p.id ? ' active' : ''}`;
+    btn.dataset.category = p.id;
+    const label = currentLang === 'ko' ? p.labelKo : p.labelEn;
+    btn.innerHTML = `${escapeHtml(label)}<span class="count">${counts[p.id]}</span>`;
+    btn.addEventListener('click', () => {
+      activeCategoryFilter = p.id;
+      const collectionFiltered = getFilteredArtifacts();
+      renderCards(applyCategoryFilter(collectionFiltered));
+      renderCategoryPills(collectionFiltered);
+    });
+    host.appendChild(btn);
+  });
+}
+
+function applyCategoryFilter(artifacts) {
+  if (activeCategoryFilter === 'all') return artifacts;
+  return artifacts.filter((a) => categoryGroupFor(a.categoryRaw) === activeCategoryFilter);
+}
+
+function updateArchiveCount(total) {
+  const el = document.getElementById('archive-count');
+  if (el) el.textContent = `국보·보물 · ${total} · written in .hgl`;
+}
+
 function renderCards(artifacts) {
   const grid = document.getElementById('card-grid');
   if (!grid) return;
@@ -618,55 +748,58 @@ function renderCards(artifacts) {
 
   const fragment = document.createDocumentFragment();
 
-  const cardElements = artifacts.map((artifact) => {
-    const card = document.createElement('div');
+  const cardElements = artifacts.map((artifact, index) => {
+    const card = document.createElement('a');
     const isKdh = artifact.collection === 'kdh';
+    const verified = isExactImageVerified(artifact);
 
-    card.className = `artifact-card card-skeleton${isKdh ? ' kdh kdh-special' : ''}`;
+    card.className = `kpdh-card archive-card${isKdh ? ' kdh' : ''}${verified ? ' image-verified' : ' needs-source-review'}`;
+    card.href = `#artifact-${encodeURIComponent(artifact.id)}`;
     card.dataset.id = artifact.id;
     card.dataset.collection = artifact.collection;
-    card.setAttribute('role', 'button');
+    card.style.setProperty('--delay', `${Math.min(index * 16, 320)}ms`);
 
-    card.appendChild(createVerifiedArtifactImage(artifact));
+    const titleEn = artifact.name_en || artifact.name_ko || '';
+    const titleKr = artifact.name_ko || '';
+    const designation = artifact.designation || '';
+    const period = artifact.period || '';
+    const seal = (designation.match(/(\d+)/)?.[1] || String(index + 1)).padStart(3, '0');
+    const fileTag = archiveFileTag(artifact);
+    const code = buildArchiveCardCode(artifact);
+    const imagePath = getVerifiedImagePath(artifact);
+    const imageMarkup = imagePath ? `
+      <figure class="kpdh-card-figure">
+        <img src="${escapeHtml(imagePath)}" alt="${escapeHtml(titleEn)}" loading="lazy" decoding="async">
+        <figcaption>exact image verified</figcaption>
+      </figure>
+    ` : `
+      <div class="kpdh-card-image-pending" title="${escapeHtml(imageVerificationNote(artifact))}">
+        <span>IMAGE WITHHELD</span>
+        <small>source match pending</small>
+      </div>
+    `;
+    const tagBits = [
+      designation,
+      period,
+      isKdh ? '🎬 K-pop Demon Hunters' : '',
+    ].filter(Boolean).map((t) => escapeHtml(t)).join(' · ');
 
-    const cardBody = document.createElement('div');
-    cardBody.className = 'card-body';
+    card.innerHTML = `
+      <div class="seal">${escapeHtml(seal)}</div>
+      <div class="num">// ${escapeHtml((artifact.id || '').toUpperCase())}${period ? ' · ' + escapeHtml(period) : ''}</div>
+      <div class="file-tag">${escapeHtml(fileTag)}</div>
+      ${imageMarkup}
+      <pre class="hgl"><code class="hgl">${highlightCode(code)}</code></pre>
+      <div class="title-en">${escapeHtml(titleEn)}</div>
+      <div class="title-kr">${escapeHtml(titleKr)}</div>
+      <div class="meta">→ ${tagBits || '.hgl'}</div>
+    `;
 
-    if (isKdh) {
-      const badge = document.createElement('span');
-      badge.className = 'kdh-badge';
-      badge.textContent = '🎬 K-pop Demon Hunters';
-      cardBody.appendChild(badge);
-    }
-
-    const title = document.createElement('h3');
-    title.className = 'card-title';
-    title.textContent = currentLang === 'ko'
-      ? (artifact.name_ko ?? '')
-      : (artifact.name_en ?? artifact.name_ko ?? '');
-
-    const subtitle = document.createElement('p');
-    subtitle.className = 'card-subtitle';
-    subtitle.textContent = currentLang === 'ko'
-      ? (artifact.name_en ?? '')
-      : (artifact.name_ko ?? '');
-
-    const designation = document.createElement('p');
-    designation.className = 'card-designation';
-    designation.textContent = artifact.designation ?? '';
-
-    const period = document.createElement('p');
-    period.className = 'card-period';
-    period.textContent = artifact.period ?? '';
-
-    cardBody.append(title, subtitle, designation, period);
-    card.appendChild(cardBody);
-
-    const handleOpenDetail = () => {
+    card.addEventListener('click', (event) => {
+      event.preventDefault();
       showDetail(artifact.id);
-    };
+    });
 
-    card.addEventListener('click', handleOpenDetail);
     fragment.appendChild(card);
     return card;
   });
@@ -750,7 +883,9 @@ function toggleLang() {
   const btn = document.getElementById('lang-toggle');
   if (btn) btn.textContent = currentLang === 'ko' ? 'EN / 한' : '한 / EN';
 
-  renderCards(getFilteredArtifacts());
+  const collectionFiltered = getFilteredArtifacts();
+  renderCategoryPills(collectionFiltered);
+  renderCards(applyCategoryFilter(collectionFiltered));
   loadFeaturedHeroes();
   loadRooms();
 

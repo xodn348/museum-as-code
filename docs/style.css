@@ -1417,6 +1417,47 @@ body.kpdh-home #featured-heroes {
   padding: 0;
   min-height: 0;
 }
+body.kpdh-home #card-grid.kpdh-cards-archive {
+  background: transparent;
+  color: var(--paper);
+  margin: 0;
+  border: 0;
+}
+
+/* Category filter pills (national-treasures archive) */
+.kpdh-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 10px;
+  padding: 0 clamp(16px, 4vw, 64px) 16px;
+  position: relative;
+  z-index: 2;
+}
+.kpdh-pill {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 7px 14px;
+  border: 1px solid rgba(255,46,106,0.35);
+  color: var(--paper);
+  background: rgba(20,10,30,0.4);
+  cursor: pointer;
+  transition: 0.18s;
+  font-weight: 700;
+}
+.kpdh-pill:hover { border-color: var(--rose); color: var(--rose); }
+.kpdh-pill.active {
+  background: var(--rose);
+  border-color: var(--rose);
+  color: var(--ink);
+  box-shadow: 0 0 18px rgba(255,46,106,0.4);
+}
+.kpdh-pill .count {
+  font-weight: 400;
+  opacity: 0.7;
+  margin-left: 6px;
+}
 .kpdh-cards {
   padding: 0 clamp(16px, 4vw, 64px) 80px;
   display: grid;
