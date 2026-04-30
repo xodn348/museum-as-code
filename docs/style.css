@@ -1043,33 +1043,6 @@ body.kpdh-home::before {
   background-size: auto;
 }
 
-/* GH badge bar */
-.gh-badge-bar {
-  display: flex;
-  gap: 8px;
-  padding: 12px 32px;
-  border-bottom: 1px solid var(--rose-deep);
-  background: rgba(0,0,0,.4);
-}
-.gh-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 6px 12px;
-  border: 1px solid rgba(255,46,106,.5);
-  border-radius: 6px;
-  color: var(--paper);
-  text-decoration: none;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 12px;
-  min-height: 28px;
-}
-.gh-badge:hover { background: rgba(255,46,106,.15); border-color: var(--rose); }
-@media (max-width: 768px) {
-  .gh-badge-bar { padding: 10px 16px; flex-wrap: wrap; }
-  .gh-badge { min-height: 36px; }
-}
-
 /* Top nav */
 nav.kpdh-nav {
   position: relative;
@@ -1140,7 +1113,9 @@ nav.kpdh-nav .gh-chip {
   border-radius: 0;
 }
 nav.kpdh-nav .gh-chip:hover { border-color: var(--rose); color: var(--rose); background: rgba(255,46,106,.08); }
-nav.kpdh-nav .gh-chip .gh-icon { color: var(--rose); font-size: 8px; line-height: 1; }
+nav.kpdh-nav .gh-chip svg.gh-icon { width: 14px; height: 14px; flex-shrink: 0; color: var(--paper); }
+nav.kpdh-nav .gh-chip:hover svg.gh-icon { color: var(--rose); }
+nav.kpdh-nav .gh-chip.gh-han svg.gh-icon { color: var(--rose); }
 nav.kpdh-nav .gh-chip .gh-arrow { font-size: 13px; opacity: .7; margin-left: 2px; }
 nav.kpdh-nav .gh-chip.gh-han { border-color: rgba(255,46,106,.4); color: var(--rose); }
 nav.kpdh-nav .gh-chip.gh-han:hover { background: var(--rose); color: var(--ink); }
