@@ -12,6 +12,41 @@
 
 ---
 
+## Preview
+
+<table>
+  <tr>
+    <td align="center" width="50%">
+      <a href="https://xodn348.github.io/museum-as-code/">
+        <img src="docs/images/release-2026-04-30/home-desktop.png" alt="Homepage on desktop — Hangul typography hero, 韓 stamp, code-first artifact cards" width="100%">
+      </a>
+      <br><sub><b>Home · 1440</b> — Hangul typography hero, 韓 seal, dual GH chips, 10 hero cards + 64 national-treasure code cards</sub>
+    </td>
+    <td align="center" width="50%">
+      <a href="https://xodn348.github.io/museum-as-code/hero.html?id=hero_celadon_maebyeong">
+        <img src="docs/images/release-2026-04-30/hero-celadon-desktop.png" alt="Hero page — Celadon Prunus Vase with full highlighted .hgl source" width="100%">
+      </a>
+      <br><sub><b>Hero detail · 1440</b> — curator narrative, real <code>.hgl</code> source panel with KPDH-A syntax highlighting</sub>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <a href="https://xodn348.github.io/museum-as-code/hero.html?id=hero_pensive_bodhisattva">
+        <img src="docs/images/release-2026-04-30/hero-pensive-desktop.png" alt="Hero page — Pensive Bodhisattva with full highlighted .hgl source" width="100%">
+      </a>
+      <br><sub><b>Hero detail · 1440</b> — Pensive Bodhisattva (National Treasure No. 83)</sub>
+    </td>
+    <td align="center">
+      <a href="https://xodn348.github.io/museum-as-code/">
+        <img src="docs/images/release-2026-04-30/home-mobile.png" alt="Homepage on a 375px viewport with stacked nav and code cards" width="50%">
+      </a>
+      <br><sub><b>Home · 375</b> — banner stacks, dual GH chips wrap, 44px touch targets, archive cards collapse to <code>tap → view source</code> chips</sub>
+    </td>
+  </tr>
+</table>
+
+---
+
 ## 🚨 Han-Lang Only
 
 **Every code block in this project — homepage cards, hero pages, downloadable artifact files, README examples, demo snippets, anything — MUST be valid, executable Han-lang (`.hgl`).** Pseudocode and Korean-keyword-flavored fake syntax are forbidden. If `hgl interpret file.hgl` cannot run it, it does not go in this repo.
