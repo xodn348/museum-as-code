@@ -1,4 +1,6 @@
-# Museum as Code — Han-lang Cultural Archive
+# Museum as Code — The National Museum of Korea, rewritten in Han-lang
+
+> **국립중앙박물관을 한언어로 다시 짓다** — a code-first reconstruction of Korea's national collection. 64 treasures, 64 `.hgl` files. The catalog is the codebase.
 
 [![MIT License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Han Language](https://img.shields.io/badge/han-.hgl-green.svg)](https://github.com/xodn348/han)
@@ -59,7 +61,11 @@ The full mandate, keyword reference, and PR review gates live in [`CLAUDE.md`](.
 
 ## What this is
 
-**Museum as Code** is a digital museum experiment that treats Korean cultural heritage as **Han-lang (`.hgl`) source code**. The site doubles as a working showcase of the [Han programming language](https://github.com/xodn348/han) — every artifact card on the homepage is a real `.hgl` snippet that runs unchanged in the [Han playground](https://xodn348.github.io/han/playground/).
+**Museum as Code** is the **National Museum of Korea, rebuilt as source code**. Every page, card, and artifact record is a real Han-lang (`.hgl`) file — homepage cards, hero pages, downloadable artifacts, schema definitions. 64 national treasures rewritten as 64 executable programs that run unchanged in the [Han playground](https://xodn348.github.io/han/playground/).
+
+The official [국립중앙박물관 site](https://www.museum.go.kr/) is the canonical curator's interface — wider catalog, real photographs, scholarly metadata. This site does something the official one cannot: it makes "Korean cultural archive" and "Korean-language programming demo" the **same artifact**. The medium is the message — Hangul appears as 1st-class syntax, not translated chrome around an English codebase.
+
+It also doubles as the canonical real-world showcase of the [Han programming language](https://github.com/xodn348/han). Every code block on this site is parseable, executable Han — no pseudocode, no fake syntax.
 
 The current homepage is intentionally **code-first**: it does not lead with large artifact photos, because some image/object matches still need exact source and license verification. Instead, the public interface foregrounds:
 
