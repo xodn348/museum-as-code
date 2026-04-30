@@ -1680,6 +1680,59 @@ body.kpdh-home #card-grid.kpdh-cards-archive {
   .kpdh-card pre, .kpdh-card pre.hgl { overflow-x: auto; -webkit-overflow-scrolling: touch; }
 }
 
+/* design-review 2026-04-30: mobile compression
+   Issue: 64 archive cards × 626px = 40k+ scroll height on mobile.
+   Fix: hide code preview on archive cards ≤768px, keep title/meta only.
+   Featured cards keep code preview but capped via max-height. */
+@media (max-width: 768px) {
+  /* Archive cards: collapse to title + meta only (huge mobile scroll fix) */
+  .kpdh-card.archive-card pre,
+  .kpdh-card.archive-card .file-tag,
+  .kpdh-card.archive-card .kpdh-card-image-pending,
+  .kpdh-card.archive-card .kpdh-card-figure {
+    display: none;
+  }
+  .kpdh-card.archive-card {
+    padding: 16px 18px;
+  }
+  .kpdh-card.archive-card .num {
+    margin-bottom: 6px;
+  }
+  .kpdh-card.archive-card::after {
+    content: "tap → view source";
+    display: block;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px dashed rgba(255, 46, 106, 0.35);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: var(--rose);
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+  /* Featured cards: cap code preview height with scroll */
+  body.kpdh-home #featured-grid .kpdh-card pre,
+  body.kpdh-home #featured-grid .kpdh-card pre.hgl {
+    max-height: 180px;
+    overflow-y: auto;
+  }
+  /* Nav touch targets: bump anchors to ≥44px tap area */
+  nav.kpdh-nav .nav-links a {
+    padding: 12px 8px;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+  nav.kpdh-nav .gh-chip {
+    min-height: 44px;
+  }
+  nav.kpdh-nav .lang {
+    min-height: 44px;
+    padding: 12px 16px;
+  }
+}
+
 /* Phone-narrow: keep the talisman stamp from overflowing 360-iPhone-SE viewports
    and prevent .seal-han glyph from busting its 1:1 frame. */
 @media (max-width: 375px) {
