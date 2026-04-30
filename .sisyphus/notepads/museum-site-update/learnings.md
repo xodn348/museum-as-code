@@ -188,3 +188,10 @@ commit: feat: add image_url to manifest pipeline
 - The requested COSE block already exists in repo history as commit `5318ef8 fix: increase graph node repulsion to reduce clustering`; if `docs/graph.js` regresses locally, restoring that layout does not produce a new commit because Git sees no net layout diff from `HEAD`.
 
 - 2026-04-01: The artifact detail code view uses two `.detail-code` style blocks; the later light-background block must override keyword/comment colors for readability on `#f5f3ef`.
+
+## 2026-04-01 Task: 0a (COMPLETE - rerun verification)
+Images downloaded: 57/57
+Failed: none
+Total size: 6.85 MB
+Script optimizations: skip-existing logic, page_limit reduced 5→2
+Commit: already present at HEAD; requested image/script paths had no new diff to commit
