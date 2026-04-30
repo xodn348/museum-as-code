@@ -76,11 +76,13 @@
         <h2 data-lang-ko="히어로 유물 10점" data-lang-en="Ten Hero Artifacts">Ten Hero Artifacts</h2>
         <span class="han-label" data-lang-ko="히어로유물 · 10 · .hgl로 작성" data-lang-en="히어로유물 · 10 · written in .hgl">히어로유물 · 10 · written in .hgl</span>
       </div>
-      <section class="kpdh-schema" aria-label="Shared Han-lang struct definition">
-        <div class="schema-head">
+      <details class="kpdh-schema-details">
+        <summary>
           <span class="file">📜 schema.hgl</span>
           <span class="badge" data-lang-ko="공용 구조체 · 1회 정의 · 10회 인스턴스화" data-lang-en="SHARED STRUCT · DEFINED ONCE · INSTANTIATED 10×">SHARED STRUCT · DEFINED ONCE · INSTANTIATED 10×</span>
-        </div>
+          <span class="kpdh-schema-toggle" aria-hidden="true" data-lang-ko="펼치기 ▾" data-lang-en="View source ▾">View source ▾</span>
+        </summary>
+        <section class="kpdh-schema" aria-label="Shared Han-lang struct definition">
 <pre><span class="cm">// schema.hgl — 모든 히어로 유물이 공유하는 구조</span>
 <span class="kw">구조</span> 히어로유물 {
     이름:     <span class="ty">문자열</span>,
@@ -96,7 +98,8 @@
 <span class="kw">함수</span> <span class="fn">설명출력</span>(유물: 히어로유물) {
     <span class="fn">출력</span>(<span class="fn">형식</span>(<span class="str">"[{0}] {1} · {2}"</span>, 유물.지정, 유물.이름, 유물.영문명))
 }</pre>
-      </section>
+        </section>
+      </details>
       <section id="featured-heroes" aria-label="Ten hero artifacts">
         <div id="featured-grid" class="kpdh-cards"></div>
       </section>

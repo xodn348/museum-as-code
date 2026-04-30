@@ -1192,12 +1192,11 @@ nav.kpdh-nav .lang:hover { background: var(--rose); color: var(--ink); }
 .kpdh-hero {
   position: relative;
   z-index: 2;
-  padding: clamp(40px, 6vw, 80px) clamp(16px, 4vw, 64px) clamp(40px, 5vw, 60px);
+  padding: clamp(20px, 2.4vw, 36px) clamp(16px, 4vw, 64px) clamp(20px, 2.4vw, 32px);
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 380px;
-  gap: 48px;
+  grid-template-columns: minmax(0, 1fr) 200px;
+  gap: 32px;
   align-items: center;
-  min-height: 600px;
 }
 .kpdh-hero .hero-text { max-width: 100%; min-width: 0; }
 .kpdh-hero .eyebrow {
@@ -1230,11 +1229,11 @@ body[data-lang="en"] .kpdh-hero h1 {
   text-shadow: 0 0 40px rgba(255,46,106,.5);
 }
 .kpdh-hero .lede {
-  font-size: clamp(16px, 1.5vw, 20px);
-  line-height: 1.55;
-  max-width: 580px;
+  font-size: clamp(13px, 1.1vw, 15px);
+  line-height: 1.5;
+  max-width: 540px;
   color: rgba(246,239,227,.85);
-  margin: 0 0 24px;
+  margin: 0 0 14px;
 }
 .kpdh-hero .lede strong {
   color: var(--rose);
@@ -1304,16 +1303,16 @@ body[data-lang="en"] .kpdh-hero h1 {
 
 .kpdh-hero .hero-stamp {
   position: relative;
-  width: clamp(220px, 28vw, 340px);
+  width: clamp(120px, 14vw, 180px);
   aspect-ratio: 1 / 1;
-  border: 3px solid var(--rose);
+  border: 2px solid var(--rose);
   background: rgba(255,46,106,.05);
   transform: rotate(-8deg);
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  box-shadow: 0 0 80px rgba(255,46,106,.4);
+  box-shadow: 0 0 50px rgba(255,46,106,.35);
   justify-self: end;
 }
 .kpdh-hero .hero-stamp::before {
@@ -1325,23 +1324,70 @@ body[data-lang="en"] .kpdh-hero h1 {
 }
 .kpdh-hero .hero-stamp .seal-han {
   font-family: 'Black Han Sans', sans-serif;
-  font-size: clamp(140px, 16vw, 200px);
+  font-size: clamp(72px, 8vw, 110px);
   color: var(--rose);
-  text-shadow: 0 0 30px rgba(255,46,106,.6);
+  text-shadow: 0 0 20px rgba(255,46,106,.55);
   line-height: .8;
   font-weight: 400;
 }
 .kpdh-hero .hero-stamp .seal-label {
-  font-size: 11px;
-  letter-spacing: .4em;
+  font-size: 8px;
+  letter-spacing: .3em;
   color: var(--rose);
-  margin-top: 8px;
+  margin-top: 4px;
   font-weight: 900;
 }
 
+/* Collapsible schema chip — keep schema.hgl available without pushing the
+   first row of hero cards below the fold. */
+.kpdh-schema-details {
+  margin: 0 clamp(16px, 4vw, 64px) 16px;
+}
+.kpdh-schema-details > summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  border: 1px solid rgba(255, 46, 106, 0.45);
+  background: rgba(255, 46, 106, 0.06);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: var(--paper);
+  transition: background 120ms;
+}
+.kpdh-schema-details > summary:hover {
+  background: rgba(255, 46, 106, 0.12);
+}
+.kpdh-schema-details > summary::-webkit-details-marker { display: none; }
+.kpdh-schema-details > summary .file { color: var(--rose); font-weight: 700; letter-spacing: 0.05em; }
+.kpdh-schema-details > summary .badge {
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  padding: 4px 8px;
+  border: 1px solid rgba(255, 46, 106, 0.5);
+  background: rgba(255, 46, 106, 0.08);
+  color: var(--rose);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.kpdh-schema-details > summary .kpdh-schema-toggle {
+  margin-left: auto;
+  color: rgba(246, 239, 227, 0.7);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.kpdh-schema-details[open] > summary .kpdh-schema-toggle::after { content: ""; }
+.kpdh-schema-details[open] > summary .kpdh-schema-toggle {
+  /* The data-lang-* swap fills text content; rotate caret via transform instead */
+}
+.kpdh-schema-details > .kpdh-schema { margin-top: 10px; }
+
 /* Divider */
 .kpdh-divider {
-  padding: 60px clamp(16px, 4vw, 64px) 24px;
+  padding: 24px clamp(16px, 4vw, 64px) 16px;
   display: flex;
   align-items: center;
   gap: 24px;
