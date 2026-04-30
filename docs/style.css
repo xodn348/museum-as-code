@@ -1618,18 +1618,46 @@ body.kpdh-home #featured-heroes {
   .kpdh-hero { grid-template-columns: 1fr; }
   .kpdh-hero .hero-stamp { justify-self: start; }
 }
-@media (max-width: 700px) {
+@media (max-width: 768px) {
   .han-only-banner { font-size: 10px; letter-spacing: .2em; flex-direction: column; gap: 6px; align-items: flex-start; }
-  nav.kpdh-nav { padding: 16px; gap: 12px; }
-  nav.kpdh-nav .nav-links { gap: 16px; font-size: 12px; }
+  nav.kpdh-nav { padding: 16px; gap: 12px; flex-wrap: wrap; }
+  nav.kpdh-nav .nav-links { gap: 16px; font-size: 12px; flex-wrap: wrap; }
+  nav.kpdh-nav .gh-pair { flex-wrap: wrap; }
   nav.kpdh-nav .logo { font-size: 22px; }
   nav.kpdh-nav .logo span { font-size: 11px; letter-spacing: .2em; margin-left: 8px; }
   .kpdh-hero { padding: 32px 16px; gap: 24px; }
-  .kpdh-hero h1 { font-size: clamp(48px, 14vw, 80px); margin-bottom: 20px; }
+  .kpdh-hero h1 { font-size: clamp(40px, 12vw, 80px); margin-bottom: 20px; }
   .kpdh-hero .lede { font-size: 15px; }
   .kpdh-hero .btn { padding: 12px 18px; font-size: 11px; letter-spacing: .15em; }
-  .kpdh-divider { padding: 32px 16px 16px; }
+  .kpdh-hero .hero-stamp { width: clamp(160px, 50vw, 240px); transform: rotate(-4deg); }
+  .kpdh-hero .hero-stamp .seal-han { font-size: clamp(96px, 28vw, 150px); }
+  .kpdh-divider { padding: 32px 16px 16px; flex-wrap: wrap; }
   .kpdh-schema { margin: 0 16px 24px; }
-  .kpdh-schema pre { font-size: 11px; padding: 14px; }
+  .kpdh-schema pre { font-size: 11px; padding: 14px; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .kpdh-schema .schema-head { flex-wrap: wrap; gap: 8px; }
   .kpdh-cards { grid-template-columns: 1fr; padding: 0 16px 60px; gap: 18px; }
+  .kpdh-card pre, .kpdh-card pre.hgl { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+}
+
+/* Phone-narrow: keep the talisman stamp from overflowing 360-iPhone-SE viewports
+   and prevent .seal-han glyph from busting its 1:1 frame. */
+@media (max-width: 375px) {
+  nav.kpdh-nav { padding: 12px; }
+  nav.kpdh-nav .logo { font-size: 19px; }
+  nav.kpdh-nav .nav-links { font-size: 11px; gap: 12px; }
+  nav.kpdh-nav .gh-chip { font-size: 10px; padding: 6px 10px; }
+  .kpdh-hero { padding: 24px 14px; gap: 18px; }
+  .kpdh-hero h1 { font-size: clamp(36px, 11vw, 56px); }
+  .kpdh-hero .lede { font-size: 14px; }
+  .kpdh-hero .lang-badge { font-size: 10px; letter-spacing: .14em; padding: 6px 10px; }
+  .kpdh-hero .hero-cta { gap: 8px; }
+  .kpdh-hero .btn { padding: 10px 14px; font-size: 10px; }
+  .kpdh-hero .hero-stamp { width: clamp(140px, 60vw, 200px); }
+  .kpdh-hero .hero-stamp .seal-han { font-size: clamp(80px, 30vw, 120px); }
+  .kpdh-hero .hero-stamp .seal-label { font-size: 9px; letter-spacing: .25em; }
+  .kpdh-divider h2 { font-size: 22px; }
+  .kpdh-divider .han-label { font-size: 10px; }
+  .kpdh-schema { margin: 0 12px 20px; }
+  .kpdh-schema pre { font-size: 10.5px; padding: 12px; }
+  .kpdh-cards { padding: 0 12px 48px; }
 }
