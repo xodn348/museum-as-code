@@ -22,7 +22,7 @@ The current homepage is intentionally **code-first**: it does not lead with larg
 - room-based navigation and a secondary connection graph,
 - a broader 64-record code archive.
 
-한국 문화유산을 사진 카탈로그처럼 보여주기보다, **Han-lang 소스코드·출처·구조화된 메타데이터**를 먼저 보여주는 디지털 박물관입니다. 사진은 정확한 유물/출처/라이선스 매칭이 끝난 항목부터 다시 도입합니다.
+Rather than presenting Korean cultural heritage as a photo catalog, the project leads with **Han-lang source code, provenance, and structured metadata**. Photographs are reintroduced only after the exact artifact, source, and license match has been verified.
 
 ---
 
