@@ -7,7 +7,9 @@ const ROOMS_URL = './data/rooms.json';
 const GITHUB_URL = 'https://github.com/xodn348/museum-as-code';
 
 // ── State ──────────────────────────────────────────────────────────────────
-let currentLang = 'en';  // 'ko' | 'en'
+// Language is owned by window.MuseumI18n (see docs/i18n.js). We mirror it
+// here for compatibility with existing render code that reads currentLang.
+let currentLang = (window.MuseumI18n && window.MuseumI18n.lang) || 'en';
 let allArtifacts = [];
 let currentFilter = 'all';
 let cardObserver = null;
@@ -912,20 +914,13 @@ async function showDetail(artifactId) {
 }
 
 /**
- * ko/en 언어를 토글하고 모든 렌더링을 업데이트한다.
+ * Re-render every dynamic surface after the language flips. i18n.js handles
+ * the toggle button click + body[data-lang] + static text-swap; this only
+ * re-runs the data-bound renderers (cards, rooms, featured heroes, detail).
  */
-function toggleLang() {
-  currentLang = currentLang === 'ko' ? 'en' : 'ko';
-  document.body.dataset.lang = currentLang;
+function applyLanguage(nextLang) {
+  currentLang = nextLang;
   setGithubLinks();
-
-  // Swap text for elements with data-lang-ko / data-lang-en attributes
-  document.querySelectorAll('[data-lang-ko]').forEach(el => {
-    el.textContent = currentLang === 'ko' ? el.dataset.langKo : el.dataset.langEn;
-  });
-
-  const btn = document.getElementById('lang-toggle');
-  if (btn) btn.textContent = currentLang === 'ko' ? 'EN / 한' : '한 / EN';
 
   const collectionFiltered = getFilteredArtifacts();
   renderCategoryPills(collectionFiltered);
@@ -940,13 +935,15 @@ function toggleLang() {
   if (typeof updateGraphLabels === 'function') { updateGraphLabels(currentLang); }
 }
 
+// i18n.js owns the toggle button + localStorage. We register at module scope
+// (not inside DOMContentLoaded) so we don't miss the initial languagechange
+// that i18n.js dispatches during its own DOMContentLoaded init.
+document.addEventListener('languagechange', (e) => applyLanguage(e.detail.lang));
+
 // ── Event Bindings ─────────────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', async () => {
   document.body.dataset.lang = currentLang;
   setGithubLinks();
-
-  // 언어 토글
-  document.getElementById('lang-toggle')?.addEventListener('click', toggleLang);
 
   // 상세 뷰 닫기
   document.getElementById('detail-close')?.addEventListener('click', () => {

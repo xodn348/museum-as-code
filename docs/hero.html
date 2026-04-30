@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="han-highlight.css">
   <link rel="stylesheet" href="hero.css">
   <script defer src="han-highlight.js"></script>
+  <script defer src="i18n.js"></script>
 </head>
 <body data-lang="en">
   <nav class="hero-nav">
@@ -44,17 +45,17 @@
         <p id="hero-subtitle" class="subtitle"></p>
         <p id="hero-hook" class="hook"></p>
         <div class="lang-badge">
-          <span class="dot"></span>WRITTEN IN <b>HAN-LANG</b> · <span id="hero-designation-chip">국보</span>
+          <span class="dot"></span><span data-lang-ko="한언어로 작성" data-lang-en="WRITTEN IN HAN-LANG">WRITTEN IN HAN-LANG</span> · <span id="hero-designation-chip">국보</span>
         </div>
         <div class="hero-cta">
-          <a id="cta-playground" class="btn" href="https://xodn348.github.io/han/playground/" target="_blank" rel="noopener">→ Open Han Playground</a>
-          <a id="cta-download" class="btn btn-ghost" href="#" download>↓ Download .hgl</a>
+          <a id="cta-playground" class="btn" href="https://xodn348.github.io/han/playground/" target="_blank" rel="noopener" data-lang-ko="→ Han 플레이그라운드 열기" data-lang-en="→ Open Han Playground">→ Open Han Playground</a>
+          <a id="cta-download" class="btn btn-ghost" href="#" download data-lang-ko="↓ .hgl 다운로드" data-lang-en="↓ Download .hgl">↓ Download .hgl</a>
         </div>
       </div>
       <div class="hero-image-wrap">
         <div class="hero-stamp" aria-hidden="true">
           <div class="seal-han">韓</div>
-          <div class="seal-label" id="hero-stamp-label">HERO · 히어로유물</div>
+          <div class="seal-label" id="hero-stamp-label" data-lang-ko="히어로 · 히어로유물" data-lang-en="HERO · 히어로유물">HERO · 히어로유물</div>
         </div>
         <img id="hero-image" alt="" decoding="async">
       </div>
@@ -66,7 +67,7 @@
 
     <section class="narrative-section" id="why-section">
       <div class="section-rule"></div>
-      <p class="section-kicker">01 / 의의</p>
+      <p class="section-kicker" data-lang-ko="01 / 의의" data-lang-en="01 / Significance">01 / Significance</p>
       <h2 data-lang-en="Why this matters" data-lang-ko="왜 중요한가">Why this matters</h2>
       <p id="why-copy" class="prose"></p>
     </section>
@@ -74,7 +75,7 @@
     <section class="narrative-section split" id="looking-section">
       <div>
         <div class="section-rule"></div>
-        <p class="section-kicker">02 / 관찰</p>
+        <p class="section-kicker" data-lang-ko="02 / 관찰" data-lang-en="02 / Observation">02 / Observation</p>
         <h2 data-lang-en="What you're looking at" data-lang-ko="무엇을 보는가">What you're looking at</h2>
         <p id="looking-copy" class="prose"></p>
       </div>
@@ -86,7 +87,7 @@
 
     <section class="narrative-section" id="story-section">
       <div class="section-rule"></div>
-      <p class="section-kicker">03 / 이야기</p>
+      <p class="section-kicker" data-lang-ko="03 / 이야기" data-lang-en="03 / Story">03 / Story</p>
       <h2 data-lang-en="The story" data-lang-ko="이야기">The story</h2>
       <p id="story-copy" class="prose"></p>
     </section>
@@ -94,7 +95,7 @@
     <section class="source-panel" aria-labelledby="source-title">
       <div class="source-panel-heading">
         <div class="section-rule"></div>
-        <p class="section-kicker">.hgl / 소스</p>
+        <p class="section-kicker" data-lang-ko=".hgl / 소스 코드" data-lang-en=".hgl / source">.hgl / source</p>
         <h2 id="source-title" data-lang-en="Source code of this artifact" data-lang-ko="이 유물의 소스 코드">Source code of this artifact</h2>
         <p class="source-blurb" data-lang-en="The text below is the actual .hgl file shipped with the museum. It runs in the Han playground as-is." data-lang-ko="아래 코드는 박물관에 동봉된 실제 .hgl 파일입니다. Han 플레이그라운드에서 그대로 실행됩니다.">The text below is the actual .hgl file shipped with the museum. It runs in the Han playground as-is.</p>
       </div>
@@ -106,9 +107,9 @@
         <pre class="hgl"><code id="hero-hgl" class="hgl"></code></pre>
       </div>
       <div class="source-actions">
-        <a id="cta-playground-2" class="btn" href="https://xodn348.github.io/han/playground/" target="_blank" rel="noopener">→ Open Han Playground</a>
-        <a id="cta-download-2" class="btn btn-ghost" href="#" download>↓ Download .hgl</a>
-        <a id="cta-github" class="btn btn-ghost btn-han" href="#" target="_blank" rel="noopener">View on GitHub ↗</a>
+        <a id="cta-playground-2" class="btn" href="https://xodn348.github.io/han/playground/" target="_blank" rel="noopener" data-lang-ko="→ Han 플레이그라운드 열기" data-lang-en="→ Open Han Playground">→ Open Han Playground</a>
+        <a id="cta-download-2" class="btn btn-ghost" href="#" download data-lang-ko="↓ .hgl 다운로드" data-lang-en="↓ Download .hgl">↓ Download .hgl</a>
+        <a id="cta-github" class="btn btn-ghost btn-han" href="#" target="_blank" rel="noopener" data-lang-ko="GitHub에서 보기 ↗" data-lang-en="View on GitHub ↗">View on GitHub ↗</a>
       </div>
     </section>
 
@@ -122,6 +123,6 @@
   </main>
 
   <div id="hero-error" class="hidden" role="alert"></div>
-  <script src="hero.js"></script>
+  <script defer src="hero.js"></script>
 </body>
 </html>

@@ -10,7 +10,11 @@ const PLAYGROUND_URL = 'https://xodn348.github.io/han/playground/';
 const GITHUB_RAW_PREFIX = 'https://raw.githubusercontent.com/xodn348/museum-as-code/main/';
 const GITHUB_BLOB_PREFIX = 'https://github.com/xodn348/museum-as-code/blob/main/';
 
-let currentLang = 'en';
+// Language is owned by window.MuseumI18n (see docs/i18n.js). Read it lazily
+// so we always reflect the latest user choice without re-binding listeners.
+function getLang() {
+  return (window.MuseumI18n && window.MuseumI18n.lang) || 'en';
+}
 let currentHero = null;
 let currentEntry = null;
 let currentIndex = null;
@@ -118,23 +122,21 @@ function highlightHan(text) {
   return escapeHtml(String(text));
 }
 
+// i18n.js owns static text-swap and the lang-toggle button label. We only
+// re-render dynamic surfaces (titles, meta, narrative copy) on languagechange.
 function localizeStaticText() {
-  document.querySelectorAll('[data-lang-ko]').forEach((el) => {
-    el.textContent = currentLang === 'ko' ? el.dataset.langKo : el.dataset.langEn;
-  });
-  const button = document.getElementById('lang-toggle');
-  if (button) button.textContent = currentLang === 'ko' ? 'EN / 한' : '한 / EN';
+  // No-op kept for call-site compatibility; remove once renderLanguage drops it.
 }
 
 function renderLanguage() {
-  document.body.dataset.lang = currentLang;
+  document.body.dataset.lang = getLang();
   localizeStaticText();
   if (!currentHero) return;
 
   const titleKo = currentHero.name_ko;
   const titleEn = currentHero.name_en;
-  setText('hero-title', currentLang === 'ko' ? titleKo : titleEn);
-  setText('hero-subtitle', currentLang === 'ko' ? titleEn : titleKo);
+  setText('hero-title', getLang() === 'ko' ? titleKo : titleEn);
+  setText('hero-subtitle', getLang() === 'ko' ? titleEn : titleKo);
   setText('hero-room', currentHero.room || '');
   setText('hero-hook', currentHero.hook || '');
 
@@ -149,21 +151,21 @@ function renderLanguage() {
     stampLabel.textContent = `${seal} · 히어로유물`;
   }
 
-  const sections = currentLang === 'ko' ? currentHero.sections_ko : currentHero.sections;
-  const fallbackSummary = currentLang === 'ko' ? currentHero.summary_ko : currentHero.summary_en;
+  const sections = getLang() === 'ko' ? currentHero.sections_ko : currentHero.sections;
+  const fallbackSummary = getLang() === 'ko' ? currentHero.summary_ko : currentHero.summary_en;
   setText('why-copy', sections?.why_this_matters || fallbackSummary);
   setText('looking-copy', sections?.what_you_are_looking_at || fallbackSummary);
   setText('story-copy', sections?.the_story || fallbackSummary);
 
   const meta = [
-    [currentLang === 'ko' ? '지정' : 'Designation', currentHero.designation],
-    [currentLang === 'ko' ? '시대' : 'Period', currentLang === 'ko' ? currentHero.period_ko : currentHero.period],
-    [currentLang === 'ko' ? '재질' : 'Medium', currentLang === 'ko' ? currentHero.medium_ko : currentHero.medium],
+    [getLang() === 'ko' ? '지정' : 'Designation', currentHero.designation],
+    [getLang() === 'ko' ? '시대' : 'Period', getLang() === 'ko' ? currentHero.period_ko : currentHero.period],
+    [getLang() === 'ko' ? '재질' : 'Medium', getLang() === 'ko' ? currentHero.medium_ko : currentHero.medium],
     [
-      currentLang === 'ko' ? '크기' : 'Size',
+      getLang() === 'ko' ? '크기' : 'Size',
       currentHero.size || currentHero.dimensions || '—',
     ],
-    [currentLang === 'ko' ? '소장처' : 'Location', currentLang === 'ko' ? currentHero.location_ko : currentHero.location],
+    [getLang() === 'ko' ? '소장처' : 'Location', getLang() === 'ko' ? currentHero.location_ko : currentHero.location],
   ];
   const metaEl = document.getElementById('hero-meta');
   if (metaEl) {
@@ -275,10 +277,12 @@ async function loadHero() {
   }
 }
 
+// i18n.js owns the toggle button click + localStorage. We just re-render
+// our dynamic content (titles, meta, narrative copy) when the language flips.
+document.addEventListener('languagechange', () => {
+  if (currentHero) renderLanguage();
+});
+
 document.addEventListener('DOMContentLoaded', () => {
-  document.getElementById('lang-toggle')?.addEventListener('click', () => {
-    currentLang = currentLang === 'ko' ? 'en' : 'ko';
-    renderLanguage();
-  });
   loadHero();
 });
