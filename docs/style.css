@@ -1209,17 +1209,17 @@ nav.kpdh-nav .lang:hover { background: var(--rose); color: var(--ink); }
 }
 .kpdh-hero h1 {
   font-family: 'Black Han Sans', sans-serif;
-  font-size: clamp(20px, 2.2vw, 32px);
+  font-size: clamp(26px, 2.8vw, 40px);
   line-height: 1.05;
   color: var(--paper);
-  margin: 0 0 8px;
+  margin: 0 0 12px;
   letter-spacing: -.02em;
   font-weight: 400;
   max-width: 14ch;
 }
 body[data-lang="en"] .kpdh-hero h1 {
-  font-size: clamp(15px, 1.5vw, 22px);
-  max-width: 28ch;
+  font-size: clamp(20px, 2vw, 28px);
+  max-width: 24ch;
   letter-spacing: -.025em;
   font-weight: 700;
   font-family: 'Noto Sans KR', sans-serif;
@@ -1750,8 +1750,8 @@ body.kpdh-home #card-grid.kpdh-cards-archive {
   nav.kpdh-nav .nav-links { font-size: 11px; gap: 12px; }
   nav.kpdh-nav .gh-chip { font-size: 10px; padding: 4px 8px; }
   .kpdh-hero { padding: 10px 14px 8px; gap: 14px; }
-  .kpdh-hero h1 { font-size: clamp(16px, 3.6vw, 24px); margin-bottom: 6px; max-width: 16ch; }
-  body[data-lang="en"] .kpdh-hero h1 { font-size: clamp(13px, 3vw, 18px); max-width: 26ch; }
+  .kpdh-hero h1 { font-size: clamp(20px, 4.4vw, 30px); margin-bottom: 8px; max-width: 16ch; }
+  body[data-lang="en"] .kpdh-hero h1 { font-size: clamp(16px, 3.6vw, 22px); max-width: 24ch; }
   .kpdh-hero .lede { font-size: 12px; margin-bottom: 6px; }
   .kpdh-hero .lang-badge { padding: 3px 8px; font-size: 8px; margin-bottom: 6px; }
   .kpdh-hero .btn { padding: 7px 14px; font-size: 10px; letter-spacing: .14em; }
@@ -1827,8 +1827,8 @@ body.kpdh-home #card-grid.kpdh-cards-archive {
   nav.kpdh-nav .nav-links { font-size: 11px; gap: 12px; }
   nav.kpdh-nav .gh-chip { font-size: 10px; padding: 6px 10px; }
   .kpdh-hero { padding: 24px 14px; gap: 18px; }
-  .kpdh-hero h1 { font-size: clamp(15px, 4.2vw, 22px); max-width: 16ch; }
-  body[data-lang="en"] .kpdh-hero h1 { font-size: clamp(13px, 3.5vw, 18px); max-width: 22ch; }
+  .kpdh-hero h1 { font-size: clamp(18px, 5vw, 26px); max-width: 16ch; }
+  body[data-lang="en"] .kpdh-hero h1 { font-size: clamp(15px, 4.2vw, 21px); max-width: 22ch; }
   .kpdh-hero .lede { font-size: 14px; }
   .kpdh-hero .lang-badge { font-size: 10px; letter-spacing: .14em; padding: 6px 10px; }
   .kpdh-hero .hero-cta { gap: 8px; }
