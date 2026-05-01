@@ -941,19 +941,16 @@ function applyLanguage(nextLang) {
 document.addEventListener('languagechange', (e) => applyLanguage(e.detail.lang));
 
 // ── KPDH tab system ──────────────────────────────────────────────────────────
-// 4 panes (Featured / Rooms / Archive / Graph) replace the long-scroll layout.
+// 3 panes (Featured / Rooms / Archive) replace the long-scroll layout.
 // The hero section sits above the tab bar. URL hash (#featured, #rooms,
-// #archive, #graph) is the source of truth so deep-links and the back button
-// work. Cytoscape gets a resize() nudge when the graph tab opens because it
-// can't measure a hidden container.
-const TAB_NAMES = ['featured', 'rooms', 'archive', 'graph'];
+// #archive) is the source of truth so deep-links and the back button work.
+const TAB_NAMES = ['featured', 'rooms', 'archive'];
 function getTabFromHash() {
   const raw = (location.hash || '').replace(/^#/, '').toLowerCase();
   if (TAB_NAMES.includes(raw)) return raw;
-  // Legacy anchor support (#featured-heroes, #card-grid, #cy)
+  // Legacy anchor support (#featured-heroes, #card-grid)
   if (raw === 'featured-heroes') return 'featured';
   if (raw === 'card-grid') return 'archive';
-  if (raw === 'cy') return 'graph';
   return null;
 }
 function activateTab(name, opts) {
@@ -968,10 +965,6 @@ function activateTab(name, opts) {
   });
   if (pushHash && location.hash !== '#' + name) {
     history.replaceState(null, '', '#' + name);
-  }
-  // Cytoscape needs a resize once its container becomes visible.
-  if (name === 'graph' && window.cy && typeof window.cy.resize === 'function') {
-    requestAnimationFrame(() => { window.cy.resize(); window.cy.fit(undefined, 40); });
   }
 }
 function initTabs() {

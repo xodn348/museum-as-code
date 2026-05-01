@@ -12,8 +12,6 @@
   <meta name="twitter:card" content="summary_large_image">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
-  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Noto+Sans+KR:wght@400;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="han-highlight.css">
   <link rel="stylesheet" href="style.css">
@@ -23,12 +21,6 @@
 <body class="kpdh-home">
   <nav class="kpdh-nav" aria-label="Primary">
     <a class="logo" href="index.html">한 <span>Museum as Code</span></a>
-    <div class="nav-links">
-      <a href="#featured" data-tab-link="featured" data-lang-ko="대표작" data-lang-en="Featured">Featured</a>
-      <a href="#rooms" data-tab-link="rooms" data-lang-ko="전시실" data-lang-en="Rooms">Rooms</a>
-      <a href="#archive" data-tab-link="archive" data-lang-ko="아카이브" data-lang-en="Archive">Archive</a>
-      <a href="#graph" data-tab-link="graph" data-lang-ko="그래프" data-lang-en="Graph">Graph</a>
-    </div>
     <div class="gh-pair">
       <a class="gh-chip" data-github-url href="https://github.com/xodn348/museum-as-code" target="_blank" rel="noopener noreferrer" aria-label="Museum source on GitHub">
         <svg class="gh-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
@@ -68,7 +60,6 @@
       <button type="button" class="kpdh-tab-btn" role="tab" aria-selected="true" data-tab="featured" id="tab-btn-featured" aria-controls="tab-pane-featured" data-lang-ko="대표작" data-lang-en="Featured">Featured</button>
       <button type="button" class="kpdh-tab-btn" role="tab" aria-selected="false" data-tab="rooms" id="tab-btn-rooms" aria-controls="tab-pane-rooms" data-lang-ko="전시실" data-lang-en="Rooms">Rooms</button>
       <button type="button" class="kpdh-tab-btn" role="tab" aria-selected="false" data-tab="archive" id="tab-btn-archive" aria-controls="tab-pane-archive" data-lang-ko="아카이브" data-lang-en="Archive">Archive</button>
-      <button type="button" class="kpdh-tab-btn" role="tab" aria-selected="false" data-tab="graph" id="tab-btn-graph" aria-controls="tab-pane-graph" data-lang-ko="그래프" data-lang-en="Graph">Graph</button>
     </nav>
 
     <div class="kpdh-tab-pane active" data-pane="featured" id="tab-pane-featured" role="tabpanel" aria-labelledby="tab-btn-featured">
@@ -124,20 +115,6 @@
       <section id="card-grid" class="kpdh-cards kpdh-cards-archive" aria-label="Artifact code archive"></section>
     </div>
 
-    <div class="kpdh-tab-pane" data-pane="graph" id="tab-pane-graph" role="tabpanel" aria-labelledby="tab-btn-graph">
-      <div class="kpdh-divider">
-        <h2 data-lang-ko="유물 관계망" data-lang-en="Artifact Connection Graph">Artifact Connection Graph</h2>
-        <span class="han-label" data-lang-ko="그래프 · 분류 · 시대 · 소장처 · 재질" data-lang-en="graph · category · era · location · material">graph · category · era · location · material</span>
-      </div>
-      <div id="cy" aria-label="Artifact connection graph">
-        <div id="edge-filters">
-          <label><input type="checkbox" data-edge-type="category" checked> <span class="edge-swatch" style="background:#66aa77"></span><span data-lang-ko="분류" data-lang-en="Category">Category</span></label>
-          <label><input type="checkbox" data-edge-type="era" checked> <span class="edge-swatch" style="background:#6699cc"></span><span data-lang-ko="시대" data-lang-en="Era">Era</span></label>
-          <label><input type="checkbox" data-edge-type="location" checked> <span class="edge-swatch" style="background:#cc9944"></span><span data-lang-ko="소장처" data-lang-en="Location">Location</span></label>
-          <label><input type="checkbox" data-edge-type="material" checked> <span class="edge-swatch" style="background:#9966cc"></span><span data-lang-ko="재질" data-lang-en="Material">Material</span></label>
-        </div>
-      </div>
-    </div>
   </main>
 
   <div id="artifact-detail" class="hidden" role="dialog" aria-modal="true">
@@ -147,8 +124,6 @@
     </div>
   </div>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.33.1/cytoscape.min.js"></script>
-  <script src="graph.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
