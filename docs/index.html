@@ -24,10 +24,10 @@
   <nav class="kpdh-nav" aria-label="Primary">
     <a class="logo" href="index.html">한 <span>Museum as Code</span></a>
     <div class="nav-links">
-      <a href="#featured-heroes" data-lang-ko="대표작" data-lang-en="Featured">Featured</a>
-      <a href="#rooms" data-lang-ko="전시실" data-lang-en="Rooms">Rooms</a>
-      <a href="#card-grid" data-lang-ko="아카이브" data-lang-en="Archive">Archive</a>
-      <a href="#cy" data-lang-ko="그래프" data-lang-en="Graph">Graph</a>
+      <a href="#featured" data-tab-link="featured" data-lang-ko="대표작" data-lang-en="Featured">Featured</a>
+      <a href="#rooms" data-tab-link="rooms" data-lang-ko="전시실" data-lang-en="Rooms">Rooms</a>
+      <a href="#archive" data-tab-link="archive" data-lang-ko="아카이브" data-lang-en="Archive">Archive</a>
+      <a href="#graph" data-tab-link="graph" data-lang-ko="그래프" data-lang-en="Graph">Graph</a>
     </div>
     <div class="gh-pair">
       <a class="gh-chip" data-github-url href="https://github.com/xodn348/museum-as-code" target="_blank" rel="noopener noreferrer" aria-label="Museum source on GitHub">
@@ -51,11 +51,11 @@
         </h1>
         <p class="lede">
           <span data-lang="en">A code-first reconstruction of Korea's national collection. <strong>64 treasures, 64 <code>.hgl</code> files</strong> — the catalog is the codebase, written in a real Korean-keyword programming language that runs unchanged in the <a href="https://xodn348.github.io/han/playground/" target="_blank" rel="noopener">Han playground</a>.</span>
-          <span data-lang="ko">한국 국보·보물 컬렉션을 코드로 다시 세운 박물관. <strong>국보·보물 64점 = 64개의 <code>.hgl</code> 파일</strong> — 카탈로그가 곧 코드베이스. <a href="https://xodn348.github.io/han/playground/" target="_blank" rel="noopener">Han 플레이그라운드</a>에서 그대로 실행되는, 한국어 키워드로 작동하는 진짜 프로그래밍 언어로 작성됨.</span>
+          <span data-lang="ko">한국의 국보·보물 컬렉션을 코드로 다시 지은 박물관. <strong>국보·보물 64점이 곧 64개의 <code>.hgl</code> 파일</strong> — 카탈로그가 곧 코드베이스. 한국어 키워드로 작동하는 진짜 프로그래밍 언어 한언어로 작성되어, <a href="https://xodn348.github.io/han/playground/" target="_blank" rel="noopener">Han 플레이그라운드</a>에서 그대로 실행됩니다.</span>
         </p>
         <div class="lang-badge"><span class="dot"></span><span data-lang-ko="한언어로 작성 · 한언어 v0.4 · 오픈소스" data-lang-en="WRITTEN IN HAN-LANG · 한언어 v0.4 · OPEN SOURCE">WRITTEN IN HAN-LANG · 한언어 v0.4 · OPEN SOURCE</span></div>
         <div class="hero-cta">
-          <a class="btn" href="#featured-heroes" data-lang-ko="→ 히어로 유물 보기" data-lang-en="→ Explore Hero Artifacts">→ Explore Hero Artifacts</a>
+          <a class="btn" href="#featured" data-tab-link="featured" data-lang-ko="→ 히어로 유물 보기" data-lang-en="→ Explore Hero Artifacts">→ Explore Hero Artifacts</a>
         </div>
       </div>
       <div class="hero-stamp" aria-hidden="true">
@@ -64,16 +64,25 @@
       </div>
     </section>
 
-    <div class="kpdh-divider">
-      <h2 data-lang-ko="히어로 유물 10점" data-lang-en="Ten Hero Artifacts">Ten Hero Artifacts</h2>
-      <span class="han-label" data-lang-ko="히어로유물 · 10 · .hgl로 작성" data-lang-en="히어로유물 · 10 · written in .hgl">히어로유물 · 10 · written in .hgl</span>
-    </div>
+    <nav class="kpdh-tab-bar" role="tablist" aria-label="Sections">
+      <button type="button" class="kpdh-tab-btn" role="tab" aria-selected="true" data-tab="featured" id="tab-btn-featured" aria-controls="tab-pane-featured" data-lang-ko="대표작" data-lang-en="Featured">Featured</button>
+      <button type="button" class="kpdh-tab-btn" role="tab" aria-selected="false" data-tab="rooms" id="tab-btn-rooms" aria-controls="tab-pane-rooms" data-lang-ko="전시실" data-lang-en="Rooms">Rooms</button>
+      <button type="button" class="kpdh-tab-btn" role="tab" aria-selected="false" data-tab="archive" id="tab-btn-archive" aria-controls="tab-pane-archive" data-lang-ko="아카이브" data-lang-en="Archive">Archive</button>
+      <button type="button" class="kpdh-tab-btn" role="tab" aria-selected="false" data-tab="graph" id="tab-btn-graph" aria-controls="tab-pane-graph" data-lang-ko="그래프" data-lang-en="Graph">Graph</button>
+    </nav>
 
-    <section class="kpdh-schema" aria-label="Shared Han-lang struct definition">
-      <div class="schema-head">
-        <span class="file">📜 schema.hgl</span>
-        <span class="badge" data-lang-ko="공용 구조체 · 1회 정의 · 10회 인스턴스화" data-lang-en="SHARED STRUCT · DEFINED ONCE · INSTANTIATED 10×">SHARED STRUCT · DEFINED ONCE · INSTANTIATED 10×</span>
+    <div class="kpdh-tab-pane active" data-pane="featured" id="tab-pane-featured" role="tabpanel" aria-labelledby="tab-btn-featured">
+      <div class="kpdh-divider">
+        <h2 data-lang-ko="히어로 유물 10점" data-lang-en="Ten Hero Artifacts">Ten Hero Artifacts</h2>
+        <span class="han-label" data-lang-ko="히어로유물 · 10 · .hgl로 작성" data-lang-en="히어로유물 · 10 · written in .hgl">히어로유물 · 10 · written in .hgl</span>
       </div>
+      <details class="kpdh-schema-details">
+        <summary>
+          <span class="file">📜 schema.hgl</span>
+          <span class="badge" data-lang-ko="공용 구조체 · 1회 정의 · 10회 인스턴스화" data-lang-en="SHARED STRUCT · DEFINED ONCE · INSTANTIATED 10×">SHARED STRUCT · DEFINED ONCE · INSTANTIATED 10×</span>
+          <span class="kpdh-schema-toggle" aria-hidden="true" data-lang-ko="펼치기 ▾" data-lang-en="View source ▾">View source ▾</span>
+        </summary>
+        <section class="kpdh-schema" aria-label="Shared Han-lang struct definition">
 <pre><span class="cm">// schema.hgl — 모든 히어로 유물이 공유하는 구조</span>
 <span class="kw">구조</span> 히어로유물 {
     이름:     <span class="ty">문자열</span>,
@@ -89,30 +98,46 @@
 <span class="kw">함수</span> <span class="fn">설명출력</span>(유물: 히어로유물) {
     <span class="fn">출력</span>(<span class="fn">형식</span>(<span class="str">"[{0}] {1} · {2}"</span>, 유물.지정, 유물.이름, 유물.영문명))
 }</pre>
-    </section>
+        </section>
+      </details>
+      <section id="featured-heroes" aria-label="Ten hero artifacts">
+        <div id="featured-grid" class="kpdh-cards"></div>
+      </section>
+    </div>
 
-    <section id="featured-heroes" class="tab-content active" aria-label="Ten hero artifacts">
-      <div id="featured-grid" class="kpdh-cards"></div>
-    </section>
+    <div class="kpdh-tab-pane" data-pane="rooms" id="tab-pane-rooms" role="tabpanel" aria-labelledby="tab-btn-rooms">
+      <div class="kpdh-divider">
+        <h2 data-lang-ko="전시실" data-lang-en="Curated Rooms">Curated Rooms</h2>
+        <span class="han-label" data-lang-ko="전시실 · 큐레이터 셀렉션" data-lang-en="rooms · curator selection">rooms · curator selection</span>
+      </div>
+      <section id="rooms" aria-label="Curated rooms">
+        <div id="rooms-grid"></div>
+      </section>
+    </div>
 
-    <!-- Sections below remain for in-page anchors (Rooms / Archive / Graph), rendered by app.js -->
-    <section id="rooms" class="tab-content active" aria-label="Curated rooms">
-      <div id="rooms-grid"></div>
-    </section>
-    <div id="cy" class="tab-content active" aria-label="Artifact connection graph">
-      <div id="edge-filters">
-        <label><input type="checkbox" data-edge-type="category" checked> <span class="edge-swatch" style="background:#66aa77"></span><span data-lang-ko="분류" data-lang-en="Category">Category</span></label>
-        <label><input type="checkbox" data-edge-type="era" checked> <span class="edge-swatch" style="background:#6699cc"></span><span data-lang-ko="시대" data-lang-en="Era">Era</span></label>
-        <label><input type="checkbox" data-edge-type="location" checked> <span class="edge-swatch" style="background:#cc9944"></span><span data-lang-ko="소장처" data-lang-en="Location">Location</span></label>
-        <label><input type="checkbox" data-edge-type="material" checked> <span class="edge-swatch" style="background:#9966cc"></span><span data-lang-ko="재질" data-lang-en="Material">Material</span></label>
+    <div class="kpdh-tab-pane" data-pane="archive" id="tab-pane-archive" role="tabpanel" aria-labelledby="tab-btn-archive">
+      <div class="kpdh-divider" id="archive-divider">
+        <h2 data-lang-ko="국보 · National Treasures" data-lang-en="National Treasures · 국보">National Treasures · 국보</h2>
+        <span class="han-label" id="archive-count" data-lang-ko="국보·보물 · 57 · .hgl로 작성" data-lang-en="국보·보물 · 57 · written in .hgl">국보·보물 · 57 · written in .hgl</span>
+      </div>
+      <div id="archive-category-pills" class="kpdh-pills" aria-label="Filter by artifact category"></div>
+      <section id="card-grid" class="kpdh-cards kpdh-cards-archive" aria-label="Artifact code archive"></section>
+    </div>
+
+    <div class="kpdh-tab-pane" data-pane="graph" id="tab-pane-graph" role="tabpanel" aria-labelledby="tab-btn-graph">
+      <div class="kpdh-divider">
+        <h2 data-lang-ko="유물 관계망" data-lang-en="Artifact Connection Graph">Artifact Connection Graph</h2>
+        <span class="han-label" data-lang-ko="그래프 · 분류 · 시대 · 소장처 · 재질" data-lang-en="graph · category · era · location · material">graph · category · era · location · material</span>
+      </div>
+      <div id="cy" aria-label="Artifact connection graph">
+        <div id="edge-filters">
+          <label><input type="checkbox" data-edge-type="category" checked> <span class="edge-swatch" style="background:#66aa77"></span><span data-lang-ko="분류" data-lang-en="Category">Category</span></label>
+          <label><input type="checkbox" data-edge-type="era" checked> <span class="edge-swatch" style="background:#6699cc"></span><span data-lang-ko="시대" data-lang-en="Era">Era</span></label>
+          <label><input type="checkbox" data-edge-type="location" checked> <span class="edge-swatch" style="background:#cc9944"></span><span data-lang-ko="소장처" data-lang-en="Location">Location</span></label>
+          <label><input type="checkbox" data-edge-type="material" checked> <span class="edge-swatch" style="background:#9966cc"></span><span data-lang-ko="재질" data-lang-en="Material">Material</span></label>
+        </div>
       </div>
     </div>
-    <div class="kpdh-divider" id="archive-divider">
-      <h2 data-lang-ko="국보 · National Treasures" data-lang-en="National Treasures · 국보">National Treasures · 국보</h2>
-      <span class="han-label" id="archive-count" data-lang-ko="국보·보물 · 57 · .hgl로 작성" data-lang-en="국보·보물 · 57 · written in .hgl">국보·보물 · 57 · written in .hgl</span>
-    </div>
-    <div id="archive-category-pills" class="kpdh-pills" aria-label="Filter by artifact category"></div>
-    <section id="card-grid" class="tab-content active kpdh-cards kpdh-cards-archive" aria-label="Artifact code archive"></section>
   </main>
 
   <div id="artifact-detail" class="hidden" role="dialog" aria-modal="true">

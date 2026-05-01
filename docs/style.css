@@ -407,6 +407,58 @@ body[data-lang="en"] [data-lang="ko"] { display: none; }
   display: block;
 }
 
+/* KPDH tab system — replaces the long-scroll layout. Hero section sits above;
+   each section below (Featured / Rooms / Archive / Graph) lives in one pane. */
+.kpdh-tab-bar {
+  display: flex;
+  gap: 0;
+  padding: 0 48px;
+  margin: 0 0 24px;
+  border-bottom: 1px solid rgba(246, 239, 227, 0.12);
+  position: sticky;
+  top: 0;
+  background: var(--ink, #0a0612);
+  z-index: 20;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.kpdh-tab-bar::-webkit-scrollbar { display: none; }
+.kpdh-tab-bar .kpdh-tab-btn {
+  appearance: none;
+  background: transparent;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  color: rgba(246, 239, 227, 0.55);
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 18px 22px;
+  cursor: pointer;
+  transition: color 120ms, border-color 120ms;
+  white-space: nowrap;
+}
+.kpdh-tab-bar .kpdh-tab-btn:hover {
+  color: rgba(246, 239, 227, 0.9);
+}
+.kpdh-tab-bar .kpdh-tab-btn[aria-selected="true"] {
+  color: var(--rose, #ff2e6a);
+  border-bottom-color: var(--rose, #ff2e6a);
+}
+.kpdh-tab-bar .kpdh-tab-btn:focus-visible {
+  outline: 2px solid var(--rose, #ff2e6a);
+  outline-offset: -4px;
+}
+.kpdh-tab-pane { display: none; }
+.kpdh-tab-pane.active { display: block; }
+.kpdh-tab-pane > .kpdh-divider:first-child { margin-top: 0; }
+
+@media (max-width: 768px) {
+  .kpdh-tab-bar { padding: 0 16px; margin-bottom: 16px; }
+  .kpdh-tab-bar .kpdh-tab-btn { padding: 14px 14px; font-size: 11px; letter-spacing: 0.1em; }
+}
+
 #edge-filters {
   position: absolute;
   top: 1rem;
@@ -1140,12 +1192,11 @@ nav.kpdh-nav .lang:hover { background: var(--rose); color: var(--ink); }
 .kpdh-hero {
   position: relative;
   z-index: 2;
-  padding: clamp(40px, 6vw, 80px) clamp(16px, 4vw, 64px) clamp(40px, 5vw, 60px);
+  padding: clamp(20px, 2.4vw, 36px) clamp(16px, 4vw, 64px) clamp(20px, 2.4vw, 32px);
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 380px;
-  gap: 48px;
+  grid-template-columns: minmax(0, 1fr) 200px;
+  gap: 32px;
   align-items: center;
-  min-height: 600px;
 }
 .kpdh-hero .hero-text { max-width: 100%; min-width: 0; }
 .kpdh-hero .eyebrow {
@@ -1158,23 +1209,31 @@ nav.kpdh-nav .lang:hover { background: var(--rose); color: var(--ink); }
 }
 .kpdh-hero h1 {
   font-family: 'Black Han Sans', sans-serif;
-  font-size: clamp(64px, 11vw, 160px);
-  line-height: .92;
+  font-size: clamp(25px, 2.8vw, 45px);
+  line-height: 1.05;
   color: var(--paper);
-  margin: 0 0 32px;
+  margin: 0 0 18px;
   letter-spacing: -.02em;
   font-weight: 400;
+  max-width: 14ch;
+}
+body[data-lang="en"] .kpdh-hero h1 {
+  font-size: clamp(20px, 2.2vw, 34px);
+  max-width: 22ch;
+  letter-spacing: -.025em;
+  font-weight: 700;
+  font-family: 'Noto Sans KR', sans-serif;
 }
 .kpdh-hero h1 .accent {
   color: var(--rose);
   text-shadow: 0 0 40px rgba(255,46,106,.5);
 }
 .kpdh-hero .lede {
-  font-size: clamp(16px, 1.5vw, 20px);
-  line-height: 1.55;
-  max-width: 580px;
+  font-size: clamp(13px, 1.1vw, 15px);
+  line-height: 1.5;
+  max-width: 540px;
   color: rgba(246,239,227,.85);
-  margin: 0 0 24px;
+  margin: 0 0 14px;
 }
 .kpdh-hero .lede strong {
   color: var(--rose);
@@ -1244,16 +1303,16 @@ nav.kpdh-nav .lang:hover { background: var(--rose); color: var(--ink); }
 
 .kpdh-hero .hero-stamp {
   position: relative;
-  width: clamp(220px, 28vw, 340px);
+  width: clamp(120px, 14vw, 180px);
   aspect-ratio: 1 / 1;
-  border: 3px solid var(--rose);
+  border: 2px solid var(--rose);
   background: rgba(255,46,106,.05);
   transform: rotate(-8deg);
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  box-shadow: 0 0 80px rgba(255,46,106,.4);
+  box-shadow: 0 0 50px rgba(255,46,106,.35);
   justify-self: end;
 }
 .kpdh-hero .hero-stamp::before {
@@ -1265,23 +1324,70 @@ nav.kpdh-nav .lang:hover { background: var(--rose); color: var(--ink); }
 }
 .kpdh-hero .hero-stamp .seal-han {
   font-family: 'Black Han Sans', sans-serif;
-  font-size: clamp(140px, 16vw, 200px);
+  font-size: clamp(72px, 8vw, 110px);
   color: var(--rose);
-  text-shadow: 0 0 30px rgba(255,46,106,.6);
+  text-shadow: 0 0 20px rgba(255,46,106,.55);
   line-height: .8;
   font-weight: 400;
 }
 .kpdh-hero .hero-stamp .seal-label {
-  font-size: 11px;
-  letter-spacing: .4em;
+  font-size: 8px;
+  letter-spacing: .3em;
   color: var(--rose);
-  margin-top: 8px;
+  margin-top: 4px;
   font-weight: 900;
 }
 
+/* Collapsible schema chip — keep schema.hgl available without pushing the
+   first row of hero cards below the fold. */
+.kpdh-schema-details {
+  margin: 0 clamp(16px, 4vw, 64px) 16px;
+}
+.kpdh-schema-details > summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  border: 1px solid rgba(255, 46, 106, 0.45);
+  background: rgba(255, 46, 106, 0.06);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: var(--paper);
+  transition: background 120ms;
+}
+.kpdh-schema-details > summary:hover {
+  background: rgba(255, 46, 106, 0.12);
+}
+.kpdh-schema-details > summary::-webkit-details-marker { display: none; }
+.kpdh-schema-details > summary .file { color: var(--rose); font-weight: 700; letter-spacing: 0.05em; }
+.kpdh-schema-details > summary .badge {
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  padding: 4px 8px;
+  border: 1px solid rgba(255, 46, 106, 0.5);
+  background: rgba(255, 46, 106, 0.08);
+  color: var(--rose);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.kpdh-schema-details > summary .kpdh-schema-toggle {
+  margin-left: auto;
+  color: rgba(246, 239, 227, 0.7);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.kpdh-schema-details[open] > summary .kpdh-schema-toggle::after { content: ""; }
+.kpdh-schema-details[open] > summary .kpdh-schema-toggle {
+  /* The data-lang-* swap fills text content; rotate caret via transform instead */
+}
+.kpdh-schema-details > .kpdh-schema { margin-top: 10px; }
+
 /* Divider */
 .kpdh-divider {
-  padding: 60px clamp(16px, 4vw, 64px) 24px;
+  padding: 24px clamp(16px, 4vw, 64px) 16px;
   display: flex;
   align-items: center;
   gap: 24px;
@@ -1636,7 +1742,8 @@ body.kpdh-home #card-grid.kpdh-cards-archive {
   nav.kpdh-nav .logo { font-size: 22px; }
   nav.kpdh-nav .logo span { font-size: 11px; letter-spacing: .2em; margin-left: 8px; }
   .kpdh-hero { padding: 32px 16px; gap: 24px; }
-  .kpdh-hero h1 { font-size: clamp(40px, 12vw, 80px); margin-bottom: 20px; }
+  .kpdh-hero h1 { font-size: clamp(20px, 4.2vw, 31px); margin-bottom: 14px; max-width: 16ch; }
+  body[data-lang="en"] .kpdh-hero h1 { font-size: clamp(16px, 3.4vw, 24px); max-width: 22ch; }
   .kpdh-hero .lede { font-size: 15px; }
   .kpdh-hero .btn { padding: 12px 18px; font-size: 11px; letter-spacing: .15em; }
   .kpdh-hero .hero-stamp { width: clamp(160px, 50vw, 240px); transform: rotate(-4deg); }
@@ -1710,7 +1817,8 @@ body.kpdh-home #card-grid.kpdh-cards-archive {
   nav.kpdh-nav .nav-links { font-size: 11px; gap: 12px; }
   nav.kpdh-nav .gh-chip { font-size: 10px; padding: 6px 10px; }
   .kpdh-hero { padding: 24px 14px; gap: 18px; }
-  .kpdh-hero h1 { font-size: clamp(36px, 11vw, 56px); }
+  .kpdh-hero h1 { font-size: clamp(15px, 4.2vw, 22px); max-width: 16ch; }
+  body[data-lang="en"] .kpdh-hero h1 { font-size: clamp(13px, 3.5vw, 18px); max-width: 22ch; }
   .kpdh-hero .lede { font-size: 14px; }
   .kpdh-hero .lang-badge { font-size: 10px; letter-spacing: .14em; padding: 6px 10px; }
   .kpdh-hero .hero-cta { gap: 8px; }
