@@ -412,8 +412,8 @@ body[data-lang="en"] [data-lang="ko"] { display: none; }
 .kpdh-tab-bar {
   display: flex;
   gap: 0;
-  padding: 0 48px;
-  margin: 0 0 24px;
+  padding: 0 32px;
+  margin: 0 0 12px;
   border-bottom: 1px solid rgba(246, 239, 227, 0.12);
   position: sticky;
   top: 0;
@@ -430,11 +430,11 @@ body[data-lang="en"] [data-lang="ko"] { display: none; }
   border-bottom: 2px solid transparent;
   color: rgba(246, 239, 227, 0.55);
   font-family: 'Noto Sans KR', sans-serif;
-  font-size: 13px;
+  font-size: 11px;
   font-weight: 700;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  padding: 18px 22px;
+  padding: 10px 14px;
   cursor: pointer;
   transition: color 120ms, border-color 120ms;
   white-space: nowrap;
@@ -1104,7 +1104,7 @@ nav.kpdh-nav {
   align-items: center;
   flex-wrap: wrap;
   gap: 16px;
-  padding: 24px clamp(16px, 4vw, 64px);
+  padding: 12px clamp(14px, 3vw, 40px);
   border-bottom: 1px solid rgba(246,239,227,.08);
   background: transparent;
   backdrop-filter: none;
@@ -1192,10 +1192,10 @@ nav.kpdh-nav .lang:hover { background: var(--rose); color: var(--ink); }
 .kpdh-hero {
   position: relative;
   z-index: 2;
-  padding: clamp(20px, 2.4vw, 36px) clamp(16px, 4vw, 64px) clamp(20px, 2.4vw, 32px);
+  padding: clamp(10px, 1.4vw, 18px) clamp(14px, 3vw, 40px) clamp(10px, 1.4vw, 16px);
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 200px;
-  gap: 32px;
+  grid-template-columns: minmax(0, 1fr) 140px;
+  gap: 20px;
   align-items: center;
 }
 .kpdh-hero .hero-text { max-width: 100%; min-width: 0; }
@@ -1209,17 +1209,17 @@ nav.kpdh-nav .lang:hover { background: var(--rose); color: var(--ink); }
 }
 .kpdh-hero h1 {
   font-family: 'Black Han Sans', sans-serif;
-  font-size: clamp(25px, 2.8vw, 45px);
+  font-size: clamp(20px, 2.2vw, 32px);
   line-height: 1.05;
   color: var(--paper);
-  margin: 0 0 18px;
+  margin: 0 0 8px;
   letter-spacing: -.02em;
   font-weight: 400;
   max-width: 14ch;
 }
 body[data-lang="en"] .kpdh-hero h1 {
-  font-size: clamp(20px, 2.2vw, 34px);
-  max-width: 22ch;
+  font-size: clamp(15px, 1.5vw, 22px);
+  max-width: 28ch;
   letter-spacing: -.025em;
   font-weight: 700;
   font-family: 'Noto Sans KR', sans-serif;
@@ -1229,11 +1229,11 @@ body[data-lang="en"] .kpdh-hero h1 {
   text-shadow: 0 0 40px rgba(255,46,106,.5);
 }
 .kpdh-hero .lede {
-  font-size: clamp(13px, 1.1vw, 15px);
-  line-height: 1.5;
-  max-width: 540px;
+  font-size: clamp(11px, 0.9vw, 13px);
+  line-height: 1.45;
+  max-width: 520px;
   color: rgba(246,239,227,.85);
-  margin: 0 0 14px;
+  margin: 0 0 8px;
 }
 .kpdh-hero .lede strong {
   color: var(--rose);
@@ -1253,24 +1253,24 @@ body[data-lang="en"] .kpdh-hero h1 {
 .kpdh-hero .lang-badge {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  padding: 10px 18px;
+  gap: 6px;
+  padding: 4px 10px;
   border: 1px solid var(--rose);
   background: rgba(255,46,106,.08);
   font-family: 'JetBrains Mono', monospace;
-  font-size: 11px;
-  letter-spacing: .22em;
+  font-size: 9px;
+  letter-spacing: .18em;
   color: var(--rose);
   font-weight: 700;
-  margin-bottom: 32px;
-  box-shadow: 0 0 24px rgba(255,46,106,.18);
+  margin-bottom: 10px;
+  box-shadow: 0 0 18px rgba(255,46,106,.15);
 }
 .kpdh-hero .lang-badge .dot {
-  width: 8px;
-  height: 8px;
+  width: 5px;
+  height: 5px;
   border-radius: 50%;
   background: var(--rose);
-  box-shadow: 0 0 10px var(--rose);
+  box-shadow: 0 0 8px var(--rose);
   animation: kpdh-blink 1.6s ease-in-out infinite;
 }
 .kpdh-hero .lang-badge b {
@@ -1279,12 +1279,12 @@ body[data-lang="en"] .kpdh-hero h1 {
   font-weight: 900;
 }
 
-.kpdh-hero .hero-cta { display: flex; gap: 14px; flex-wrap: wrap; }
+.kpdh-hero .hero-cta { display: flex; gap: 10px; flex-wrap: wrap; }
 .kpdh-hero .btn {
-  padding: 16px 26px;
+  padding: 8px 16px;
   font-weight: 900;
-  font-size: 13px;
-  letter-spacing: .22em;
+  font-size: 11px;
+  letter-spacing: .18em;
   text-transform: uppercase;
   cursor: pointer;
   border: 2px solid var(--rose);
@@ -1303,7 +1303,7 @@ body[data-lang="en"] .kpdh-hero h1 {
 
 .kpdh-hero .hero-stamp {
   position: relative;
-  width: clamp(120px, 14vw, 180px);
+  width: clamp(80px, 9vw, 120px);
   aspect-ratio: 1 / 1;
   border: 2px solid var(--rose);
   background: rgba(255,46,106,.05);
@@ -1312,7 +1312,7 @@ body[data-lang="en"] .kpdh-hero h1 {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  box-shadow: 0 0 50px rgba(255,46,106,.35);
+  box-shadow: 0 0 30px rgba(255,46,106,.3);
   justify-self: end;
 }
 .kpdh-hero .hero-stamp::before {
@@ -1324,9 +1324,9 @@ body[data-lang="en"] .kpdh-hero h1 {
 }
 .kpdh-hero .hero-stamp .seal-han {
   font-family: 'Black Han Sans', sans-serif;
-  font-size: clamp(72px, 8vw, 110px);
+  font-size: clamp(48px, 5.5vw, 72px);
   color: var(--rose);
-  text-shadow: 0 0 20px rgba(255,46,106,.55);
+  text-shadow: 0 0 14px rgba(255,46,106,.5);
   line-height: .8;
   font-weight: 400;
 }
@@ -1387,7 +1387,7 @@ body[data-lang="en"] .kpdh-hero h1 {
 
 /* Divider */
 .kpdh-divider {
-  padding: 24px clamp(16px, 4vw, 64px) 16px;
+  padding: 10px clamp(16px, 4vw, 40px) 8px;
   display: flex;
   align-items: center;
   gap: 24px;
@@ -1404,10 +1404,15 @@ body[data-lang="en"] .kpdh-hero h1 {
 }
 .kpdh-divider h2 {
   font-family: 'Black Han Sans', sans-serif;
-  font-size: clamp(32px, 5vw, 48px);
+  font-size: clamp(18px, 2.4vw, 26px);
   color: var(--paper);
   font-weight: 400;
   margin: 0;
+}
+body[data-lang="en"] .kpdh-divider h2 {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: clamp(14px, 1.6vw, 20px);
+  font-weight: 700;
 }
 .kpdh-divider .han-label {
   font-size: 11px;
@@ -1741,14 +1746,19 @@ body.kpdh-home #card-grid.kpdh-cards-archive {
   nav.kpdh-nav .gh-pair { flex-wrap: wrap; }
   nav.kpdh-nav .logo { font-size: 22px; }
   nav.kpdh-nav .logo span { font-size: 11px; letter-spacing: .2em; margin-left: 8px; }
-  .kpdh-hero { padding: 32px 16px; gap: 24px; }
-  .kpdh-hero h1 { font-size: clamp(20px, 4.2vw, 31px); margin-bottom: 14px; max-width: 16ch; }
-  body[data-lang="en"] .kpdh-hero h1 { font-size: clamp(16px, 3.4vw, 24px); max-width: 22ch; }
-  .kpdh-hero .lede { font-size: 15px; }
-  .kpdh-hero .btn { padding: 12px 18px; font-size: 11px; letter-spacing: .15em; }
-  .kpdh-hero .hero-stamp { width: clamp(160px, 50vw, 240px); transform: rotate(-4deg); }
-  .kpdh-hero .hero-stamp .seal-han { font-size: clamp(96px, 28vw, 150px); }
-  .kpdh-divider { padding: 32px 16px 16px; flex-wrap: wrap; }
+  nav.kpdh-nav { padding: 8px 12px; gap: 8px; }
+  nav.kpdh-nav .nav-links { font-size: 11px; gap: 12px; }
+  nav.kpdh-nav .gh-chip { font-size: 10px; padding: 4px 8px; }
+  .kpdh-hero { padding: 10px 14px 8px; gap: 14px; }
+  .kpdh-hero h1 { font-size: clamp(16px, 3.6vw, 24px); margin-bottom: 6px; max-width: 16ch; }
+  body[data-lang="en"] .kpdh-hero h1 { font-size: clamp(13px, 3vw, 18px); max-width: 26ch; }
+  .kpdh-hero .lede { font-size: 12px; margin-bottom: 6px; }
+  .kpdh-hero .lang-badge { padding: 3px 8px; font-size: 8px; margin-bottom: 6px; }
+  .kpdh-hero .btn { padding: 7px 14px; font-size: 10px; letter-spacing: .14em; }
+  /* Hide decorative 韓 stamp on mobile — it stacks below text in single
+     column and burns ~200px of viewport with no informational value. */
+  .kpdh-hero .hero-stamp { display: none; }
+  .kpdh-divider { padding: 8px 16px 6px; flex-wrap: wrap; }
   .kpdh-schema { margin: 0 16px 24px; }
   .kpdh-schema pre { font-size: 11px; padding: 14px; overflow-x: auto; -webkit-overflow-scrolling: touch; }
   .kpdh-schema .schema-head { flex-wrap: wrap; gap: 8px; }
