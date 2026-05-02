@@ -14,38 +14,9 @@
 
 ---
 
-## Preview
-
-<table>
-  <tr>
-    <td align="center" width="50%">
-      <a href="https://xodn348.github.io/museum-as-code/">
-        <img src="docs/images/release-2026-04-30/home-desktop.png" alt="Homepage on desktop — Hangul typography hero, 韓 stamp, code-first artifact cards" width="100%">
-      </a>
-      <br><sub><b>Home · 1440</b> — Hangul typography hero, 韓 seal, dual GH chips, 10 hero cards + 64 national-treasure code cards</sub>
-    </td>
-    <td align="center" width="50%">
-      <a href="https://xodn348.github.io/museum-as-code/hero.html?id=hero_celadon_maebyeong">
-        <img src="docs/images/release-2026-04-30/hero-celadon-desktop.png" alt="Hero page — Celadon Prunus Vase with full highlighted .hgl source" width="100%">
-      </a>
-      <br><sub><b>Hero detail · 1440</b> — curator narrative, real <code>.hgl</code> source panel with KPDH-A syntax highlighting</sub>
-    </td>
-  </tr>
-  <tr>
-    <td align="center">
-      <a href="https://xodn348.github.io/museum-as-code/hero.html?id=hero_pensive_bodhisattva">
-        <img src="docs/images/release-2026-04-30/hero-pensive-desktop.png" alt="Hero page — Pensive Bodhisattva with full highlighted .hgl source" width="100%">
-      </a>
-      <br><sub><b>Hero detail · 1440</b> — Pensive Bodhisattva (National Treasure No. 83)</sub>
-    </td>
-    <td align="center">
-      <a href="https://xodn348.github.io/museum-as-code/">
-        <img src="docs/images/release-2026-04-30/home-mobile.png" alt="Homepage on a 375px viewport with stacked nav and code cards" width="50%">
-      </a>
-      <br><sub><b>Home · 375</b> — banner stacks, dual GH chips wrap, 44px touch targets, archive cards collapse to <code>tap → view source</code> chips</sub>
-    </td>
-  </tr>
-</table>
+<a href="https://xodn348.github.io/museum-as-code/">
+  <img src="docs/images/release-2026-04-30/home-desktop.png" alt="Museum as Code — homepage in Han-lang" width="100%">
+</a>
 
 ---
 
@@ -90,22 +61,7 @@ Rather than presenting Korean cultural heritage as a photo catalog, the project 
 | `docs/manifest.json` | 64-record archive manifest |
 | `docs/data/graph.json` | Artifact relationship graph data |
 
-### Hero artifacts
-
-The curated Phase C set contains 10 hero records under `artifacts/heroes/` and web copies under `docs/data/heroes/`:
-
-1. Pensive Bodhisattva — National Treasure No. 83
-2. Celadon Prunus Vase with Inlaid Cloud and Crane Design
-3. White Porcelain Moon Jar
-4. Hunminjeongeum Haerye
-5. Gold Crown from Geumgwanchong Tomb
-6. Baekje Gilt-bronze Incense Burner
-7. Divine Bell of King Seongdeok
-8. Tripitaka Koreana Woodblocks
-9. Stone Constellation Chart
-10. Danwon Genre Album
-
-Some images remain marked with `needs_verification`; those photos are deliberately hidden from homepage cards until exact matching is resolved.
+10 curated hero records under `artifacts/heroes/` (Pensive Bodhisattva, Celadon Maebyeong, Moon Jar, Hunminjeongeum, Gold Crown, Baekje Incense Burner, Divine Bell of King Seongdeok, Tripitaka Koreana, Stone Constellation Chart, Danwon Genre Album). Photos marked `needs_verification` stay hidden from cards until source/license match.
 
 ---
 
@@ -138,31 +94,9 @@ Han-lang uses Korean keywords such as `구조`, `함수`, `변수`, `문자열`,
 
 ---
 
-## Design System: KPDH-A · 부적 굿판 / Talisman Ritual
+## Design System
 
-The current visual direction is **KPDH-A**: neon talisman aesthetics drawn from public-domain Korean folk motifs (단청, 부적, 까치, 연꽃, 호랑이) layered on top of a code-first surface. KPDH-inspired in vibe only — **zero copyright lift**, no KPDH photos, characters, or trademarked marks. Full notes in [`DESIGN.md`](./DESIGN.md).
-
-### Palette
-
-| Token | Hex | Use |
-| --- | --- | --- |
-| `--ink` | `#0a0612` | Primary background. Near-black with violet bias. |
-| `--rose` | `#ff2e6a` | Primary accent. Borders, seals, glow. |
-| `--rose-deep` | `#b3083d` | Hover/pressed states. |
-| `--paper` | `#f6efe3` | Body text on ink, paper-mode backgrounds. |
-| `--gold` | `#ffd60a` | Han keywords (`구조`, `함수`, …) in code. |
-| `--violet` | `#8b3dff` | Han types (`문자열`, `정수`, …) in code. |
-| `--jade` | `#9be29b` | Han string literals in code. |
-
-### Typography (all OFL-licensed, served via Google Fonts)
-
-- **Black Han Sans** — display 한글 (hero `<h1>`, seal stamps).
-- **Noto Sans KR** — body 한글 (lede paragraphs, captions).
-- **JetBrains Mono** — every `.hgl` code block, file tags, lang badges.
-
-### Code highlighting
-
-The standalone module `docs/han-highlight.js` (zero dependency) is the single source of truth for `.hgl` token coloring. It exposes `window.Han.highlight(text)` and auto-runs on `pre.hgl`, `code.hgl`, and `code.language-han` elements after `DOMContentLoaded`. Both `docs/app.js` and `docs/hero.js` delegate to it so home + hero render with the identical KPDH-A palette.
+**KPDH-A · 부적 굿판** — neon talisman aesthetics on a code-first surface. Rose `#ff2e6a` on ink `#0a0612`, Black Han Sans for 한글 display, Noto Sans KR for body, JetBrains Mono for `.hgl`. Full palette, typography, and highlighting notes in [`DESIGN.md`](./DESIGN.md).
 
 ---
 
@@ -209,14 +143,7 @@ python3 -m http.server 8765 --directory docs
 
 Open: http://127.0.0.1:8765/
 
-### Quickstart: the dual purpose
-
-The repo serves two audiences from one source tree:
-
-1. **As a cultural archive** — open `docs/index.html` in a browser and explore 64 national-treasure records grouped by category (Sculpture / Ceramic / Metal / Painting / Records / Architecture). Each card is a runnable Han snippet; each hero page (`docs/hero.html?id=<hero_id>`) carries curator copy plus the real `.hgl` source.
-2. **As a Han-lang demo** — every `.hgl` file under `artifacts/heroes/`, `artifacts/national-treasures/`, and `artifacts/special/kdh/` runs unchanged with `hgl interpret file.hgl`. The `Open Han Playground` button on every hero page jumps straight to the live REPL; the `Download .hgl` button gives you the canonical source.
-
-To verify a single artifact end-to-end:
+Verify a single `.hgl` artifact end-to-end:
 
 ```bash
 hgl interpret artifacts/heroes/hero_pensive_bodhisattva.hgl
@@ -224,97 +151,52 @@ hgl interpret artifacts/heroes/hero_pensive_bodhisattva.hgl
 
 ---
 
-## Data pipeline commands
+<details>
+<summary><b>Data pipeline + verification</b></summary>
 
 ```bash
-# Normalize sidecars after metadata/image-source edits
+# Sidecar / manifest / graph regeneration
 python3 -m pipeline.normalize_sidecars
+python3 -m pipeline.sync_docs_artifacts
+python3 -m pipeline.manifest
+python3 -m pipeline.generate_graph
 
-# Fetch official photo URLs from 국가유산청 (CHA) Open API and write
-# image_official_url / image_source_api / image_official_license into the
-# national-treasures sidecars. No API key required, public domain endpoint,
-# rate-limited to ≤2 req/s. Add --dry-run to skip HTTP, --limit N to cap
-# the number of detail fetches for a smoke test.
-python3 -m pipeline.fetch_official_images          # full sweep (국보)
+# Pull official photo URLs from 국가유산청 (CHA) Open API into the
+# national-treasures sidecars. No API key required, ≤2 req/s.
+python3 -m pipeline.fetch_official_images          # full sweep
 python3 -m pipeline.fetch_official_images --dry-run
 python3 -m pipeline.fetch_official_images --limit 5
 python3 -m pipeline.fetch_official_images --type 보물
 
-# Copy artifact .json/.hgl records into GitHub Pages-safe docs/data paths
-python3 -m pipeline.sync_docs_artifacts
-
-# Regenerate archive manifest
-python3 -m pipeline.manifest
-
-# Regenerate graph data
-python3 -m pipeline.generate_graph
-
-# Validate JSON, local paths, hero files, manifest, and graph
+# Validate everything (JSON, local paths, hero files, manifest, graph)
 python3 -m pipeline.validate_data
-```
 
-Recommended verification before pushing:
-
-```bash
+# Pre-push smoke test
 node --check docs/app.js
-node --check docs/graph.js
 node --check docs/hero.js
-python3 -m pipeline.validate_data
 ```
 
----
+</details>
 
-## Image/provenance policy
+<details>
+<summary><b>Image / provenance policy</b></summary>
 
-1. **Do not hotlink production artifact images.** Use local files under `docs/images/...`.
-2. **Do not show uncertain photos as primary homepage visuals.** If a source match is not exact, leave `needs_verification` and use the code-first presentation.
-3. **Record source and license fields** in sidecar JSON and `docs/images/heroes/*/image-sources.json`.
-4. **Reintroduce photos per artifact only after verification**, not as broad automatic thumbnails.
+1. No hotlinking — local files under `docs/images/...` only.
+2. No uncertain photos as primary visuals — if source match is not exact, leave `needs_verification` and use the code-first card.
+3. Record `source` + `license` fields in sidecar JSON.
 
-### Official image attribution (CHA Open API)
+CHA Open API images carry license `공공누리 제1유형(출처표시)` (attribution required, commercial use OK), credit `국가유산청`. Fields written by `pipeline.fetch_official_images`: `image_official_url`, `image_source_api`, `image_official_license`, `image_official_credit`, `image_official_source_name_ko`, `image_fetched_at`. Cards render `source · license` captions from these fields.
 
-Sidecars under `artifacts/national-treasures/` may carry an `image_official_url`
-pulled from the **국가유산청 (Cultural Heritage Administration) Open API**
-(`https://www.cha.go.kr/cha/SearchKindOpenapiList.do` /
-`SearchKindOpenapiDt.do`). Matching is by 지정번호 only — i.e. `designation`
-parses to "국보 제N호" → CHA `ccbaAsno` index — so the photo represents the
-official record for that designation, which may not match local
-`name`/`description` fields if the local sidecar is mislabeled. Fields
-written by `pipeline.fetch_official_images`:
-
-| Field | Meaning |
-|---|---|
-| `image_official_url` | HTTPS URL of the official photo on `khs.go.kr` |
-| `image_source_api` | `"cha"` |
-| `image_official_license` | `공공누리 제1유형(출처표시)` — Korea OGL Type 1 (attribution required, commercial use OK) |
-| `image_official_credit` | `국가유산청 (Cultural Heritage Administration of Korea)` |
-| `image_official_source_name_ko` | Canonical Korean name of the matched designation in CHA |
-| `image_fetched_at` | ISO-8601 UTC timestamp of the fetch |
-
-Each archive card on the homepage shows this image with a
-`source · license` caption (rendered from `image_source_api` and
-`image_official_license`), satisfying the 공공누리 제1유형 attribution
-requirement. If `image_official_url` is missing, the card falls back to the
-`exact_image_verified` path or the `IMAGE WITHHELD` placeholder.
+</details>
 
 ---
 
 ## Contributing
 
-Contributions are welcome, especially:
-
-- replacing `needs_verification` image placeholders with exact verified sources,
-- improving hero artifact metadata and curator copy,
-- extending `.hgl` records,
-- improving validation scripts,
-- refining the code-first design system without making photos the default entry surface again.
-
-Before opening a PR, run:
+PRs welcome — especially exact-image verifications, curator copy improvements, new `.hgl` records. Before pushing:
 
 ```bash
-node --check docs/app.js
-node --check docs/graph.js
-node --check docs/hero.js
+node --check docs/app.js docs/hero.js
 python3 -m pipeline.validate_data
 ```
 
