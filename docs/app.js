@@ -252,10 +252,6 @@ function buildKpdhCardCode(hero) {
   const sizeShort = sizeRaw.replace(/\s*\(source verification required\)/i, '').trim();
   const locationKo = sidecar.location || '';
   const verified = isExactImageVerified(hero);
-  const storyKo = sidecar.story_ko || '';
-  const storyOpener = storyKo
-    ? storyKo.split(/(?<=\.)\s+/)[0]  // first sentence only — full story renders below as prose
-    : '';
 
   const lines = [
     `// ${designationKo || hero.designation || ''}`.trim(),
@@ -267,13 +263,10 @@ function buildKpdhCardCode(hero) {
     `    재료:     "${materialKo}",`,
     `    크기:     "${sizeShort}",`,
     `    소장처:   "${locationKo}",`,
-    storyOpener
-      ? `    이야기:   "${storyOpener.replace(/"/g, "'")}…",`
-      : null,
     `    출처검증: ${verified ? '참' : '거짓'}`,
     `}`,
     `설명출력(${kpdhVarName(hero.id)})`,
-  ].filter(Boolean);
+  ];
   return lines.join('\n');
 }
 
@@ -321,15 +314,6 @@ function renderFeaturedHeroes(heroes) {
       </div>
     `;
 
-    const storyKo = hero.sidecar?.story_ko || hero.sidecar?.sections_ko?.the_story || '';
-    const storyEn = hero.sidecar?.story_en || hero.sidecar?.sections?.the_story || '';
-    const storyMarkup = (storyKo || storyEn) ? `
-      <div class="hero-story">
-        ${storyKo ? `<p class="hero-story-body" data-lang="ko">${escapeHtml(storyKo)}</p>` : ''}
-        ${storyEn ? `<p class="hero-story-body" data-lang="en">${escapeHtml(storyEn)}</p>` : ''}
-      </div>
-    ` : '';
-
     card.innerHTML = `
       <div class="seal">${escapeHtml(seal)}</div>
       <div class="num">// HERO_${escapeHtml(seal)}${room ? ' · ' + escapeHtml(room) : ''}</div>
@@ -338,7 +322,6 @@ function renderFeaturedHeroes(heroes) {
       <pre class="hgl"><code class="hgl">${highlightCode(code)}</code></pre>
       <div class="title-en">${escapeHtml(titleEn)}</div>
       <div class="title-kr">${escapeHtml(titleKr)}</div>
-      ${storyMarkup}
       <div class="meta">→ ${verified ? 'exact image · source-backed · .hgl' : 'awaiting exact image · .hgl'}</div>
     `;
     fragment.appendChild(card);
