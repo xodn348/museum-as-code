@@ -2,7 +2,8 @@
   "id": "hero_silla_gold_crown",
   "name_ko": "금관총 금관",
   "name_en": "Gold Crown from Geumgwanchong Tomb",
-  "designation": "National Treasure No. 87",
+  "designation": "국보 제87호",
+  "designation_en": "National Treasure No. 87",
   "period": "Silla, 5th century",
   "period_ko": "신라, 5세기",
   "medium": "Gold and jade",
@@ -35,7 +36,7 @@
   "sections_ko": {
     "why_this_matters": "황금은 번역이 필요 없습니다. 이 관 한 점이 시퀀스에 신라식 화려함을 한 줄기 흘려보내며, 고대 왕권이 무엇이었는지를 가장 즉각적인 이미지로 보여줍니다.",
     "what_you_are_looking_at": "둥근 띠 위로 나뭇가지 모양 입식이 솟고, 곡옥과 작은 영락이 매달려 있습니다. 얇은 금판과 두드린 문양, 휘어진 곡옥의 조합이 — 움직이지 않아도 빛이 흔들리며 살아 움직이는 듯한 효과를 만듭니다.",
-    "the_story": "5–6세기 신라 마립간의 무덤에서, 금판을 가위로 오리고 망치로 두드려 만든 관이 머리뼈 위에 그대로 얹힌 채 발견되었습니다. 둥근 띠 위로 솟은 山자형 입식과 사슴뿔 모양의 가지에는 작은 곡옥과 영락이 매달려, 죽은 왕이 움직이지 않아도 빛이 흔들리며 살아 움직이는 듯한 효과를 냈습니다. 가지의 형상은 시베리아 샤먼의 관과 닮아 있어, 신라 왕권이 내륙 아시아의 신화적 전통과 깊이 연결되어 있었음을 시사합니다. 금관총이라는 이름 자체가 이 관의 발견에서 비롯된 것으로, 신라가 ‘황금의 나라’로 기록되었던 이유를 가장 직접적으로 보여주는 한 점입니다."
+    "the_story": "5–6세기 신라 마립간(麻立干)의 무덤에서, 얇은 금판을 가위로 오리고 망치로 두드려 만든 관 한 점이 머리뼈 위에 그대로 얹힌 채 발견되었습니다. 둥근 관 띠 위로 한자 山 자 모양의 입식과 사슴뿔 모양의 가지가 솟아 있고, 거기에 작은 곡옥(曲玉)과 영락(瓔珞)이 매달려 — 죽은 왕이 움직이지 않아도 빛이 흔들리며 살아 움직이는 듯한 효과를 냈습니다. 가지의 형상은 시베리아 샤먼들의 관과 닮아 있어, 신라 왕권이 내륙 아시아 깊숙한 곳까지 뻗어 있던 신화적 어휘를 끌어다 썼음을 시사합니다. 이 관이 발견된 무덤은 그 자체로 ‘금관총(金冠塚)’이라는 이름을 얻었고, 고대 문헌이 신라를 ‘황금의 나라’로 기록한 가장 직접적이고 살아 있는 증거가 됩니다."
   },
   "sidecar_path": "../artifacts/heroes/hero_silla_gold_crown.json",
   "hgl_path": "data/heroes/hero_silla_gold_crown.hgl",
@@ -52,6 +53,6 @@
   "image_match_confidence": "high",
   "verification_note": "Exact National Treasure No. 87 image; local file refreshed from Commons original.",
   "updated_at": "2026-04-30T00:00:00-05:00",
-  "story_ko": "5–6세기 신라 마립간의 무덤에서, 금판을 가위로 오리고 망치로 두드려 만든 관이 머리뼈 위에 그대로 얹힌 채 발견되었습니다. 둥근 띠 위로 솟은 山자형 입식과 사슴뿔 모양의 가지에는 작은 곡옥과 영락이 매달려, 죽은 왕이 움직이지 않아도 빛이 흔들리며 살아 움직이는 듯한 효과를 냈습니다. 가지의 형상은 시베리아 샤먼의 관과 닮아 있어, 신라 왕권이 내륙 아시아의 신화적 전통과 깊이 연결되어 있었음을 시사합니다. 금관총이라는 이름 자체가 이 관의 발견에서 비롯된 것으로, 신라가 ‘황금의 나라’로 기록되었던 이유를 가장 직접적으로 보여주는 한 점입니다.",
+  "story_ko": "5–6세기 신라 마립간(麻立干)의 무덤에서, 얇은 금판을 가위로 오리고 망치로 두드려 만든 관 한 점이 머리뼈 위에 그대로 얹힌 채 발견되었습니다. 둥근 관 띠 위로 한자 山 자 모양의 입식과 사슴뿔 모양의 가지가 솟아 있고, 거기에 작은 곡옥(曲玉)과 영락(瓔珞)이 매달려 — 죽은 왕이 움직이지 않아도 빛이 흔들리며 살아 움직이는 듯한 효과를 냈습니다. 가지의 형상은 시베리아 샤먼들의 관과 닮아 있어, 신라 왕권이 내륙 아시아 깊숙한 곳까지 뻗어 있던 신화적 어휘를 끌어다 썼음을 시사합니다. 이 관이 발견된 무덤은 그 자체로 ‘금관총(金冠塚)’이라는 이름을 얻었고, 고대 문헌이 신라를 ‘황금의 나라’로 기록한 가장 직접적이고 살아 있는 증거가 됩니다.",
   "story_en": "In the 5th–6th century, in the tomb of a Silla maripgan ruler, a crown cut from sheet gold and hammered into shape was found resting directly on the skull. From a circular band rise tree-like uprights in the form of the Chinese character 山 and antler-shaped branches, hung with comma-shaped jades and gold spangles so that even a still body would have made the crown shimmer at the smallest motion. The branching forms echo the headdresses of Siberian shaman traditions, suggesting that Silla kingship drew on a mythic vocabulary stretching deep into inland Asia. The tomb itself was named Geumgwanchong — Gold Crown Tomb — for the discovery of this object, and it is the most direct surviving reason that ancient texts called Silla 'the country of gold.'"
 }

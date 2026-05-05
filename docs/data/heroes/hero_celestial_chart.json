@@ -2,7 +2,8 @@
   "id": "hero_celestial_chart",
   "name_ko": "천상열차분야지도 각석",
   "name_en": "Stone Constellation Chart (Cheonsang Yeolcha Bunyajido)",
-  "designation": "National Treasure No. 228",
+  "designation": "국보 제228호",
+  "designation_en": "National Treasure No. 228",
   "period": "Joseon, 1395",
   "period_ko": "조선, 1395년",
   "medium": "Stone engraving",
@@ -35,7 +36,7 @@
   "sections_ko": {
     "why_this_matters": "이 한 점이 컬렉션의 정서를 바꿉니다 — 신성한 얼굴과 왕실의 황금에서, 관측과 측정 그리고 밤하늘의 질서로. 박물관이 어디까지 다룰 수 있는지를 다시 정의하는 작품입니다.",
     "what_you_are_looking_at": "별들은 동심원과 해설 명문 안에 정리되어 배치됩니다. 신화적 하늘을 그리는 대신, 관측과 질서, 역법(曆法)의 권위를 통치의 도구로 제시하는 정밀한 도면입니다.",
-    "the_story": "1395년 태조 이성계는 새 왕조의 정당성을 하늘의 질서에 묶어 두기 위해, 고구려 시대의 옛 천문도 탁본을 바탕으로 별 1,467개를 검은 돌 위에 새긴 천문도를 만들었습니다. 비석 한복판의 둥근 별자리도는 적도와 황도, 28수(宿)의 위치까지 정확히 새겨져 있어, 14세기 동아시아 천문학의 가장 정밀한 결과물 중 하나로 평가됩니다. 비석 위쪽에는 별자리도의 작성 원리와 28수의 거리, 별 등급이 함께 새겨져 — 이 돌 한 장이 곧 한 권의 천문서 역할을 합니다. 현재 국립고궁박물관에 보관되어 있고 만 원권 지폐 뒷면 도안의 출처이기도 한, 조선이 하늘을 어떻게 그렸는지를 한 점에 압축한 비석입니다."
+    "the_story": "1395년, 조선을 세운 태조 이성계는 새 왕조의 정당성을 하늘의 질서에 묶어 두기 위해, 원본은 전설로만 남은 고구려 시대의 옛 천문도 탁본을 바탕으로 별 1,467개를 검은 돌 위에 새긴 천문도를 명령했습니다. 비석 한복판의 둥근 별자리도는 적도(赤道)와 황도(黃道), 그리고 28수(宿)의 위치까지 정확히 기록되어 있어, 14세기 동아시아 천문학이 도달한 가장 정밀한 결과물 중 하나로 꼽힙니다. 비석에는 별자리도의 작성 원리, 28수 사이의 거리, 별의 등급까지 함께 새겨져 있어 — 이 화강암 한 장이 곧 한 권의 완결된 천문 논고처럼 작동합니다. 현재 국립고궁박물관에 보관되어 있고 만 원권 지폐 뒷면 도안의 출처이기도 한 이 천문도는, ‘하늘을 어떻게 그릴 것인가’라는 단순한 물음에 조선이 한 점에 압축해 내놓은 답입니다."
   },
   "sidecar_path": "../artifacts/heroes/hero_celestial_chart.json",
   "hgl_path": "data/heroes/hero_celestial_chart.hgl",
@@ -54,6 +55,6 @@
   "image_match_confidence": "high",
   "verification_note": "National Treasure No. 228 image, locally hosted; metadata reviewed.",
   "updated_at": "2026-04-30T00:00:00-05:00",
-  "story_ko": "1395년 태조 이성계는 새 왕조의 정당성을 하늘의 질서에 묶어 두기 위해, 고구려 시대의 옛 천문도 탁본을 바탕으로 별 1,467개를 검은 돌 위에 새긴 천문도를 만들었습니다. 비석 한복판의 둥근 별자리도는 적도와 황도, 28수(宿)의 위치까지 정확히 새겨져 있어, 14세기 동아시아 천문학의 가장 정밀한 결과물 중 하나로 평가됩니다. 비석 위쪽에는 별자리도의 작성 원리와 28수의 거리, 별 등급이 함께 새겨져 — 이 돌 한 장이 곧 한 권의 천문서 역할을 합니다. 현재 국립고궁박물관에 보관되어 있고 만 원권 지폐 뒷면 도안의 출처이기도 한, 조선이 하늘을 어떻게 그렸는지를 한 점에 압축한 비석입니다.",
+  "story_ko": "1395년, 조선을 세운 태조 이성계는 새 왕조의 정당성을 하늘의 질서에 묶어 두기 위해, 원본은 전설로만 남은 고구려 시대의 옛 천문도 탁본을 바탕으로 별 1,467개를 검은 돌 위에 새긴 천문도를 명령했습니다. 비석 한복판의 둥근 별자리도는 적도(赤道)와 황도(黃道), 그리고 28수(宿)의 위치까지 정확히 기록되어 있어, 14세기 동아시아 천문학이 도달한 가장 정밀한 결과물 중 하나로 꼽힙니다. 비석에는 별자리도의 작성 원리, 28수 사이의 거리, 별의 등급까지 함께 새겨져 있어 — 이 화강암 한 장이 곧 한 권의 완결된 천문 논고처럼 작동합니다. 현재 국립고궁박물관에 보관되어 있고 만 원권 지폐 뒷면 도안의 출처이기도 한 이 천문도는, ‘하늘을 어떻게 그릴 것인가’라는 단순한 물음에 조선이 한 점에 압축해 내놓은 답입니다.",
   "story_en": "In 1395 Yi Seong-gye, founding king of Joseon, ordered a celestial chart cut into black stone — 1,467 stars laid out from a Goguryeo-era rubbing whose original survives only as legend — to anchor his new dynasty's legitimacy to the order of the sky. At the center of the stone, a circular star map records the celestial equator and ecliptic and the positions of the 28 lunar lodges with enough accuracy to count among the most precise astronomical artifacts of 14th-century East Asia. The stone also carries the principles by which the chart was drawn, the distances between the 28 lodges, and the magnitudes of the stars — a single slab of granite functioning as a complete astronomical treatise. Now at the National Palace Museum of Korea and famously the source of the design printed on the back of the 10,000-won banknote, the chart is Joseon's compressed answer to a simple question: how do you draw the sky?"
 }
