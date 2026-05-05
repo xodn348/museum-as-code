@@ -10,22 +10,23 @@
   "location": "국립중앙박물관",
   "description": "경주 금관총에서 출토된 금관으로, 순금 박판을 가공하여 만든 원형의 관에 새와 십이지신 등의 장식이 달려 있다.",
   "category": "금속공예",
-  "image_url": "images/artifacts/PS01002001_000150000.jpg",
+  "image_url": "images/artifacts/nb_015.jpg",
   "hgl_file": "national-treasures/nb_087.hgl",
   "source": "e뮤지엄 Open API (fallback)",
   "created_at": "2026-03-30T04:13:38Z",
-  "source_url": "https://www.emuseum.go.kr/images/relic/11/0087.jpg",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Replica_metal_print_plate_of_Jikji_Shimche_Yojeol.jpg",
   "images": [
     {
-      "path": "images/artifacts/PS01002001_000150000.jpg",
-      "source_url": "https://www.emuseum.go.kr/images/relic/11/0087.jpg",
-      "license": "공공 도판 · 출처 표기 필수",
-      "credit": "Museum as Code local artifact image; original source requires verification"
+      "path": "images/artifacts/nb_015.jpg",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Replica_metal_print_plate_of_Jikji_Shimche_Yojeol.jpg",
+      "license": "CC BY 4.0",
+      "credit": "Kjoonlee (Wikimedia Commons) — replica metal print plate of Jikji",
+      "image_display_mode": "representative"
     }
   ],
-  "license": "공공 도판 · 출처 표기 필수",
-  "credit": "Museum as Code local artifact image; original source requires verification",
-  "confidence": "low",
+  "license": "CC BY 4.0",
+  "credit": "Kjoonlee (Wikimedia Commons) — replica metal print plate of Jikji",
+  "confidence": "medium",
   "updated_at": "2026-04-30T03:35:18.829367Z",
   "image_official_url": "https://www.khs.go.kr/unisearch/images/national_treasure/1612812.jpg",
   "image_source_api": "cha",
@@ -33,5 +34,9 @@
   "image_official_credit": "국가유산청 (Cultural Heritage Administration of Korea)",
   "image_official_source_name_ko": "금관총 금관 및 금제 관식",
   "image_fetched_at": "2026-04-30T17:59:43Z",
-  "name_ko": "신라금관"
+  "name_ko": "신라금관",
+  "image_display_mode": "representative",
+  "exact_image_verified": false,
+  "needs_verification": "",
+  "verification_note": ""
 }

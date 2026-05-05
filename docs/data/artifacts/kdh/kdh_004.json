@@ -9,7 +9,7 @@
   "size": "높이 45.2cm",
   "location": "국립중앙박물관",
   "description": "삼국시대 가야의 도기로, 말 위에 앉은 인물의 형상을 한 독특한 명기이다. 가야의 청동기문화와 도자기제작 기술을 보여준다.",
-  "image_url": "",
+  "image_url": "images/artifacts/kdh_004.jpg",
   "hgl_file": "artifacts/special/kdh/kdh_004.hgl",
   "drama_connection": {
     "ko": "드라마 속 고대 기사 악귀의 모습이 이 도기 기마인물을 모티프로 한다",
@@ -17,12 +17,23 @@
   },
   "collection": "kdh",
   "created_at": "2026-03-29T00:00:00Z",
-  "source_url": "https://www.emuseum.go.kr/images/relic/11/0091.jpg",
-  "needs_verification": "No local artifact image resolved.",
-  "license": "needs_verification",
-  "credit": "Museum as Code local artifact image; original source requires verification",
-  "confidence": "medium",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Earthenware_Funerary_Objects_in_the_Shape_of_a_Warrior_on_Horseback_%EB%8F%84%EA%B8%B0_%EA%B8%B0%EB%A7%88%EC%9D%B8%EB%AC%BC%ED%98%95_%EB%AA%85%EA%B8%B0_01.jpg",
+  "license": "CC-BY-SA-2.0",
+  "credit": "xcoldricex via Flickr / Wikimedia Commons; National Museum of Korea (NT 91)",
+  "confidence": "high",
   "updated_at": "2026-04-30T03:35:18.829367Z",
-  "images": [],
-  "category": "KDH cultural reference"
+  "images": [
+    {
+      "path": "images/artifacts/kdh_004.jpg",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Earthenware_Funerary_Objects_in_the_Shape_of_a_Warrior_on_Horseback_%EB%8F%84%EA%B8%B0_%EA%B8%B0%EB%A7%88%EC%9D%B8%EB%AC%BC%ED%98%95_%EB%AA%85%EA%B8%B0_01.jpg",
+      "license": "CC-BY-SA-2.0",
+      "credit": "xcoldricex via Flickr / Wikimedia Commons; National Museum of Korea (NT 91)",
+      "image_display_mode": "exact"
+    }
+  ],
+  "category": "KDH cultural reference",
+  "image_display_mode": "exact",
+  "exact_image_verified": true,
+  "needs_verification": "",
+  "verification_note": ""
 }

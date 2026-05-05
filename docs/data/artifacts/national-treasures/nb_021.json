@@ -10,23 +10,12 @@
   "location": "국립중앙박물관",
   "description": "삼국시대 금동으로 제작된 용 모양 보배로, 용의 형태가 역동적이고 생동감이 넘친다.",
   "category": "금속공예",
-  "image_url": "images/artifacts/PS01002001_000210000.jpg",
+  "image_url": "",
   "hgl_file": "national-treasures/nb_136.hgl",
   "source": "e뮤지엄 Open API (fallback)",
   "created_at": "2026-03-30T04:13:39Z",
   "source_url": "https://www.emuseum.go.kr/images/relic/11/0136.jpg",
-  "images": [
-    {
-      "path": "images/artifacts/khs/1611584.jpg",
-      "source_url": "https://www.khs.go.kr/unisearch/images/national_treasure/1611584.jpg",
-      "license": "공공누리 제1유형(출처표시)",
-      "credit": "국가유산청 (Cultural Heritage Administration of Korea)",
-      "exact_image_verified": true,
-      "image_display_mode": "official",
-      "caption_ko": "공식 도판 · 국가유산청",
-      "caption_en": "official photograph · CHA"
-    }
-  ],
+  "images": [],
   "license": "공식 도판 · 국가유산청 / CHA",
   "credit": "Museum as Code local artifact image; original source requires verification",
   "confidence": "low",
@@ -36,10 +25,12 @@
   "image_official_credit": "국가유산청 (Cultural Heritage Administration of Korea)",
   "image_official_source_name_ko": "금동 용두보당",
   "image_fetched_at": "2026-04-30T17:59:51Z",
-  "exact_image_verified": true,
-  "image_display_mode": "official",
+  "exact_image_verified": false,
+  "image_display_mode": "withheld",
   "image_caption_ko": "공식 도판 · 국가유산청",
   "image_caption_en": "official photograph · Cultural Heritage Administration",
   "image_official_url_archived": "https://www.khs.go.kr/unisearch/images/national_treasure/1611584.jpg",
-  "name_ko": "금동용두보당"
+  "name_ko": "금동용두보당",
+  "verification_note": "no PD/CC image of NT 136 (Leeum gilt-bronze flagpole finial / 금동용두보당) found on Commons after 3+ search variants; only a different MET rafter-finial dragon-head (different artifact) is available",
+  "needs_verification": "대표 도판 확보 후 갱신 필요"
 }

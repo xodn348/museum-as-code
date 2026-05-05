@@ -10,26 +10,23 @@
   "location": "국립중앙박물관",
   "description": "삼산관에서 발견된 삼국시대 금동 미륵보살 반가사유상으로, 예술성이 뛰어나다.",
   "category": "불교 조각",
-  "image_url": "images/artifacts/PS01002001_000180000.jpg",
+  "image_url": "images/artifacts/nb_083.jpg",
   "hgl_file": "national-treasures/nb_083.hgl",
   "source": "e뮤지엄 Open API (fallback)",
   "created_at": "2026-03-30T04:13:39Z",
-  "source_url": "https://www.emuseum.go.kr/images/relic/11/0083.jpg",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Meditating_Maitreya._Gilded_bronze._National_Museum_of_Korea.jpg",
   "images": [
     {
-      "path": "images/artifacts/khs/1611492.jpg",
-      "source_url": "https://www.khs.go.kr/unisearch/images/national_treasure/1611492.jpg",
-      "license": "공공누리 제1유형(출처표시)",
-      "credit": "국가유산청 (Cultural Heritage Administration of Korea)",
-      "exact_image_verified": true,
-      "image_display_mode": "official",
-      "caption_ko": "공식 도판 · 국가유산청",
-      "caption_en": "official photograph · CHA"
+      "path": "images/artifacts/nb_083.jpg",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Meditating_Maitreya._Gilded_bronze._National_Museum_of_Korea.jpg",
+      "license": "CC BY-SA 4.0",
+      "credit": "Photo: Ismoon (Wikimedia Commons); object: National Museum of Korea — Gilt-bronze Maitreya in Meditation, NT 83",
+      "image_display_mode": "exact"
     }
   ],
-  "license": "공식 도판 · 국가유산청 / CHA",
-  "credit": "Museum as Code local artifact image; original source requires verification",
-  "confidence": "low",
+  "license": "CC BY-SA 4.0",
+  "credit": "Photo: Ismoon (Wikimedia Commons); object: National Museum of Korea — Gilt-bronze Maitreya in Meditation, NT 83",
+  "confidence": "high",
   "updated_at": "2026-04-30T03:35:18.829367Z",
   "image_source_api": "cha",
   "image_official_license": "공공누리 제1유형(출처표시)",
@@ -37,9 +34,11 @@
   "image_official_source_name_ko": "금동미륵보살반가사유상(1962-2)",
   "image_fetched_at": "2026-04-30T17:59:47Z",
   "exact_image_verified": true,
-  "image_display_mode": "official",
+  "image_display_mode": "exact",
   "image_caption_ko": "공식 도판 · 국가유산청",
   "image_caption_en": "official photograph · Cultural Heritage Administration",
   "image_official_url_archived": "https://www.khs.go.kr/unisearch/images/national_treasure/1611492.jpg",
-  "name_ko": "금동미륵보살반가사유상"
+  "name_ko": "금동미륵보살반가사유상",
+  "needs_verification": "",
+  "verification_note": ""
 }

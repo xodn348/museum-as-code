@@ -9,7 +9,7 @@
   "size": "높이 22.0cm",
   "location": "국립부여박물관",
   "description": "백제시대의 금동대향로로, 정교한 장식과优美的 형태가 특징이다. 불교 의식에서 사용된 중요한 법구이며, 백제 금속 공예의最高傑作으로 꼽힌다.",
-  "image_url": "",
+  "image_url": "images/artifacts/kdh_007.jpg",
   "hgl_file": "artifacts/special/kdh/kdh_007.hgl",
   "drama_connection": {
     "ko": "악귀 봉인 의식에 사용되는 향로; 연기가 피어오르면 결계가 형성된다",
@@ -17,12 +17,23 @@
   },
   "collection": "kdh",
   "created_at": "2026-03-29T00:00:00Z",
-  "source_url": "https://www.emuseum.go.kr/images/relic/11/0287.jpg",
-  "needs_verification": "No local artifact image resolved.",
-  "license": "needs_verification",
-  "credit": "Museum as Code local artifact image; original source requires verification",
-  "confidence": "medium",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Incense_Burner_of_Baekje_in_National_Museum_of_Korea.jpg",
+  "license": "CC BY-SA 2.5",
+  "credit": "Wikimedia Commons (CC BY-SA 2.5). Baekje Gilt-Bronze Incense Burner, National Treasure No. 287, displayed at the National Museum of Korea.",
+  "confidence": "high",
   "updated_at": "2026-04-30T03:35:18.829367Z",
-  "images": [],
-  "category": "KDH cultural reference"
+  "images": [
+    {
+      "path": "images/artifacts/kdh_007.jpg",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Incense_Burner_of_Baekje_in_National_Museum_of_Korea.jpg",
+      "license": "CC BY-SA 2.5",
+      "credit": "Wikimedia Commons (CC BY-SA 2.5). Baekje Gilt-Bronze Incense Burner, National Treasure No. 287, displayed at the National Museum of Korea.",
+      "image_display_mode": "exact"
+    }
+  ],
+  "category": "KDH cultural reference",
+  "image_display_mode": "exact",
+  "exact_image_verified": true,
+  "needs_verification": "",
+  "verification_note": ""
 }

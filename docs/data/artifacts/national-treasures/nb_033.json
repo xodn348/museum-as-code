@@ -10,23 +10,12 @@
   "location": "국립중앙박물관",
   "description": "조선시대의 백자 병으로, 검은斑点이 특징적인 명작이다.",
   "category": "도자기",
-  "image_url": "images/artifacts/PS01002001_000330000.jpg",
+  "image_url": "",
   "hgl_file": "national-treasures/nb_069.hgl",
   "source": "e뮤지엄 Open API (fallback)",
   "created_at": "2026-03-30T04:13:39Z",
   "source_url": "https://www.emuseum.go.kr/images/relic/11/0069.jpg",
-  "images": [
-    {
-      "path": "images/artifacts/khs/1611957.jpg",
-      "source_url": "https://www.khs.go.kr/unisearch/images/national_treasure/1611957.jpg",
-      "license": "공공누리 제1유형(출처표시)",
-      "credit": "국가유산청 (Cultural Heritage Administration of Korea)",
-      "exact_image_verified": true,
-      "image_display_mode": "official",
-      "caption_ko": "공식 도판 · 국가유산청",
-      "caption_en": "official photograph · CHA"
-    }
-  ],
+  "images": [],
   "license": "공식 도판 · 국가유산청 / CHA",
   "credit": "Museum as Code local artifact image; original source requires verification",
   "confidence": "low",
@@ -36,10 +25,12 @@
   "image_official_credit": "국가유산청 (Cultural Heritage Administration of Korea)",
   "image_official_source_name_ko": "심지백 개국원종공신녹권",
   "image_fetched_at": "2026-04-30T18:00:08Z",
-  "exact_image_verified": true,
-  "image_display_mode": "official",
+  "exact_image_verified": false,
+  "image_display_mode": "withheld",
   "image_caption_ko": "공식 도판 · 국가유산청",
   "image_caption_en": "official photograph · Cultural Heritage Administration",
   "image_official_url_archived": "https://www.khs.go.kr/unisearch/images/national_treasure/1611957.jpg",
-  "name_ko": "백자병"
+  "name_ko": "백자병",
+  "verification_note": "Manifest entry conflict: '백자병' tagged NT 69 (which is Sim Jibaek Royal Merit Certificate). Generic '백자 병' photo on Commons is KOGL but lacks designation match; cannot confirm NT 69 identity.",
+  "needs_verification": "대표 도판 확보 후 갱신 필요"
 }

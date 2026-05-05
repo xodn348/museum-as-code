@@ -10,19 +10,12 @@
   "location": "충청북도 증평군",
   "description": "통일신라 말기인 9세기에 부석사지에 세운 것으로, 통일신라 불교 조각의 거대한 규모를 대표한다.",
   "category": "불교 조각",
-  "image_url": "images/artifacts/PS01002001_000050000.jpg",
+  "image_url": "",
   "hgl_file": "national-treasures/nb_006.hgl",
   "source": "e뮤지엄 Open API (fallback)",
   "created_at": "2026-03-30T04:13:38Z",
   "source_url": "https://www.emuseum.go.kr/images/relic/11/0006.jpg",
-  "images": [
-    {
-      "path": "images/artifacts/PS01002001_000050000.jpg",
-      "source_url": "https://www.emuseum.go.kr/images/relic/11/0006.jpg",
-      "license": "공공 도판 · 출처 표기 필수",
-      "credit": "Museum as Code local artifact image; original source requires verification"
-    }
-  ],
+  "images": [],
   "license": "공공 도판 · 출처 표기 필수",
   "credit": "Museum as Code local artifact image; original source requires verification",
   "confidence": "low",
@@ -33,5 +26,9 @@
   "image_official_credit": "국가유산청 (Cultural Heritage Administration of Korea)",
   "image_official_source_name_ko": "충주 탑평리 칠층석탑",
   "image_fetched_at": "2026-04-30T17:59:29Z",
-  "name_ko": "부석사소조석가여래좌상"
+  "name_ko": "부석사소조석가여래좌상",
+  "image_display_mode": "withheld",
+  "exact_image_verified": false,
+  "needs_verification": "대표 도판 확보 후 갱신 필요",
+  "verification_note": "sidecar image file no longer exists; check manifest entry for replacement"
 }

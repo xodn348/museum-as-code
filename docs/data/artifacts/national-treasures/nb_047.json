@@ -10,26 +10,23 @@
   "location": "국립중앙박물관",
   "description": "삼국시대 보살상 장신구로, 머리카락 모양의 세공이 특징적이다.",
   "category": "금속공예",
-  "image_url": "images/artifacts/PS01002001_000470000.jpg",
+  "image_url": "images/artifacts/nb_091.jpg",
   "hgl_file": "national-treasures/nb_091.hgl",
   "source": "e뮤지엄 Open API (fallback)",
   "created_at": "2026-03-30T04:13:39Z",
-  "source_url": "https://www.emuseum.go.kr/images/relic/11/0091.jpg",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Earthenware_Funerary_Objects_in_the_Shape_of_a_Warrior_on_Horseback_%EB%8F%84%EA%B8%B0_%EA%B8%B0%EB%A7%88%EC%9D%B8%EB%AC%BC%ED%98%95_%EB%AA%85%EA%B8%B0_07.jpg",
   "images": [
     {
-      "path": "images/artifacts/khs/1611505.jpg",
-      "source_url": "https://www.khs.go.kr/unisearch/images/national_treasure/1611505.jpg",
-      "license": "공공누리 제1유형(출처표시)",
-      "credit": "국가유산청 (Cultural Heritage Administration of Korea)",
-      "exact_image_verified": true,
-      "image_display_mode": "official",
-      "caption_ko": "공식 도판 · 국가유산청",
-      "caption_en": "official photograph · CHA"
+      "path": "images/artifacts/nb_091.jpg",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Earthenware_Funerary_Objects_in_the_Shape_of_a_Warrior_on_Horseback_%EB%8F%84%EA%B8%B0_%EA%B8%B0%EB%A7%88%EC%9D%B8%EB%AC%BC%ED%98%95_%EB%AA%85%EA%B8%B0_07.jpg",
+      "license": "Public domain",
+      "credit": "Wikimedia user Good_friend100 (own work, released to public domain). Earthenware Mounted Warrior funerary object, National Treasure No. 91.",
+      "image_display_mode": "exact"
     }
   ],
-  "license": "공식 도판 · 국가유산청 / CHA",
-  "credit": "Museum as Code local artifact image; original source requires verification",
-  "confidence": "low",
+  "license": "Public domain",
+  "credit": "Wikimedia user Good_friend100 (own work, released to public domain). Earthenware Mounted Warrior funerary object, National Treasure No. 91.",
+  "confidence": "high",
   "updated_at": "2026-04-30T03:35:18.829367Z",
   "image_source_api": "cha",
   "image_official_license": "공공누리 제1유형(출처표시)",
@@ -37,9 +34,11 @@
   "image_official_source_name_ko": "도기 기마인물형 명기",
   "image_fetched_at": "2026-04-30T18:00:28Z",
   "exact_image_verified": true,
-  "image_display_mode": "official",
+  "image_display_mode": "exact",
   "image_caption_ko": "공식 도판 · 국가유산청",
   "image_caption_en": "official photograph · Cultural Heritage Administration",
   "image_official_url_archived": "https://www.khs.go.kr/unisearch/images/national_treasure/1611505.jpg",
-  "name_ko": "금동보살머리장식"
+  "name_ko": "금동보살머리장식",
+  "needs_verification": "",
+  "verification_note": ""
 }

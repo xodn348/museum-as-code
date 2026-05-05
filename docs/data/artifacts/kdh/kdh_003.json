@@ -18,11 +18,14 @@
   "collection": "kdh",
   "created_at": "2026-03-29T00:00:00Z",
   "source_url": "https://www.emuseum.go.kr/images/relic/11/0136.jpg",
-  "needs_verification": "No local artifact image resolved.",
+  "needs_verification": "대표 도판 확보 후 갱신 필요",
   "license": "needs_verification",
   "credit": "Museum as Code local artifact image; original source requires verification",
-  "confidence": "medium",
+  "confidence": "low",
   "updated_at": "2026-04-30T03:35:18.829367Z",
   "images": [],
-  "category": "KDH cultural reference"
+  "category": "KDH cultural reference",
+  "image_display_mode": "withheld",
+  "verification_note": "same artifact as nb_136 (NT 136 gilt-bronze dragon-head flagpole finial); no PD/CC image found on Commons",
+  "exact_image_verified": false
 }

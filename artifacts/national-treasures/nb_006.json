@@ -10,22 +10,23 @@
   "location": "경상북도 영주시",
   "description": "통일신라 시대에 축조된 무석사지의 석탑으로, 자연석을 그대로 이용하여 통일신라 특유의 자연주의적 석재 조형 양식을 잘 보여준다.",
   "category": "불교시설",
-  "image_url": "images/artifacts/PS01002001_000060000.jpg",
+  "image_url": "images/artifacts/nb_006.jpg",
   "hgl_file": "national-treasures/nb_007.hgl",
   "source": "e뮤지엄 Open API (fallback)",
   "created_at": "2026-03-30T04:13:38Z",
-  "source_url": "https://www.emuseum.go.kr/images/relic/11/0007.jpg",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Clay_Seated_Buddha_of_Buseoksa_01.jpg",
   "images": [
     {
-      "path": "images/artifacts/PS01002001_000060000.jpg",
-      "source_url": "https://www.emuseum.go.kr/images/relic/11/0007.jpg",
-      "license": "공공 도판 · 출처 표기 필수",
-      "credit": "Museum as Code local artifact image; original source requires verification"
+      "path": "images/artifacts/nb_006.jpg",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Clay_Seated_Buddha_of_Buseoksa_01.jpg",
+      "license": "CC0",
+      "credit": "Bernard Gagnon (Wikimedia Commons)",
+      "image_display_mode": "representative"
     }
   ],
-  "license": "공공 도판 · 출처 표기 필수",
-  "credit": "Museum as Code local artifact image; original source requires verification",
-  "confidence": "low",
+  "license": "CC0",
+  "credit": "Bernard Gagnon (Wikimedia Commons)",
+  "confidence": "medium",
   "updated_at": "2026-04-30T03:35:18.829367Z",
   "image_official_url": "https://www.khs.go.kr/unisearch/images/national_treasure/1612203.jpg",
   "image_source_api": "cha",
@@ -33,5 +34,9 @@
   "image_official_credit": "국가유산청 (Cultural Heritage Administration of Korea)",
   "image_official_source_name_ko": "천안 봉선홍경사 갈기비",
   "image_fetched_at": "2026-04-30T17:59:30Z",
-  "name_ko": "浮石寺石탑"
+  "name_ko": "浮石寺石탑",
+  "image_display_mode": "representative",
+  "exact_image_verified": false,
+  "needs_verification": "",
+  "verification_note": ""
 }

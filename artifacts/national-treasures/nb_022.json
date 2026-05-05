@@ -10,19 +10,12 @@
   "location": "국립민속박물관",
   "description": "조선시대의 민화인 칠성도로, 칠성과칠성君을 그린 것으로 가정과 풍요를 기원하는 의미를 담고 있다.",
   "category": "민화",
-  "image_url": "images/artifacts/PS01002001_000220000.jpg",
+  "image_url": "",
   "hgl_file": "national-treasures/nb_080.hgl",
   "source": "e뮤지엄 Open API (fallback)",
   "created_at": "2026-03-30T04:13:39Z",
   "source_url": "https://www.emuseum.go.kr/images/relic/11/0080.jpg",
-  "images": [
-    {
-      "path": "images/artifacts/PS01002001_000220000.jpg",
-      "source_url": "https://www.emuseum.go.kr/images/relic/11/0080.jpg",
-      "license": "공공 도판 · 출처 표기 필수",
-      "credit": "Museum as Code local artifact image; original source requires verification"
-    }
-  ],
+  "images": [],
   "license": "공공 도판 · 출처 표기 필수",
   "credit": "Museum as Code local artifact image; original source requires verification",
   "confidence": "low",
@@ -33,5 +26,9 @@
   "image_official_credit": "국가유산청 (Cultural Heritage Administration of Korea)",
   "image_official_source_name_ko": "경주 구황동 금제여래입상",
   "image_fetched_at": "2026-04-30T17:59:52Z",
-  "name_ko": "칠성도"
+  "name_ko": "칠성도",
+  "image_display_mode": "withheld",
+  "exact_image_verified": false,
+  "needs_verification": "대표 도판 확보 후 갱신 필요",
+  "verification_note": "sidecar image file no longer exists; check manifest entry for replacement"
 }

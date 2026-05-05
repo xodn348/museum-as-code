@@ -10,26 +10,23 @@
   "location": "국립민속박물관",
   "description": "조선시대의 용왕상으로, 물의 신을 형상화하였다. 풍수와 물의 개념을 담아 농경 사회에서 중요시되었다.",
   "category": "민화",
-  "image_url": "images/artifacts/PS01002001_000240000.jpg",
+  "image_url": "images/artifacts/nb_082.jpg",
   "hgl_file": "national-treasures/nb_082.hgl",
   "source": "e뮤지엄 Open API (fallback)",
   "created_at": "2026-03-30T04:13:39Z",
-  "source_url": "https://www.emuseum.go.kr/images/relic/11/0082.jpg",
+  "source_url": "https://commons.wikimedia.org/wiki/File:%EA%B0%90%EC%82%B0%EC%82%AC_%EC%84%9D%EC%A1%B0%EB%AF%B8%EB%A5%B5%EB%B3%B4%EC%82%B4%EC%9E%85%EC%83%81.jpg",
   "images": [
     {
-      "path": "images/artifacts/khs/1611490.jpg",
-      "source_url": "https://www.khs.go.kr/unisearch/images/national_treasure/1611490.jpg",
-      "license": "공공누리 제1유형(출처표시)",
-      "credit": "국가유산청 (Cultural Heritage Administration of Korea)",
-      "exact_image_verified": true,
-      "image_display_mode": "official",
-      "caption_ko": "공식 도판 · 국가유산청",
-      "caption_en": "official photograph · CHA"
+      "path": "images/artifacts/nb_082.jpg",
+      "source_url": "https://commons.wikimedia.org/wiki/File:%EA%B0%90%EC%82%B0%EC%82%AC_%EC%84%9D%EC%A1%B0%EB%AF%B8%EB%A5%B5%EB%B3%B4%EC%82%B4%EC%9E%85%EC%83%81.jpg",
+      "license": "CC BY-SA 2.0",
+      "credit": "Dolmang via Flickr (CC BY-SA 2.0). Stone Standing Maitreya Bodhisattva of Gamsansa Temple, National Treasure No. 82.",
+      "image_display_mode": "exact"
     }
   ],
-  "license": "공식 도판 · 국가유산청 / CHA",
-  "credit": "Museum as Code local artifact image; original source requires verification",
-  "confidence": "low",
+  "license": "CC BY-SA 2.0",
+  "credit": "Dolmang via Flickr (CC BY-SA 2.0). Stone Standing Maitreya Bodhisattva of Gamsansa Temple, National Treasure No. 82.",
+  "confidence": "high",
   "updated_at": "2026-04-30T03:35:18.829367Z",
   "image_source_api": "cha",
   "image_official_license": "공공누리 제1유형(출처표시)",
@@ -37,9 +34,11 @@
   "image_official_source_name_ko": "경주 감산사 석조아미타여래입상",
   "image_fetched_at": "2026-04-30T17:59:55Z",
   "exact_image_verified": true,
-  "image_display_mode": "official",
+  "image_display_mode": "exact",
   "image_caption_ko": "공식 도판 · 국가유산청",
   "image_caption_en": "official photograph · Cultural Heritage Administration",
   "image_official_url_archived": "https://www.khs.go.kr/unisearch/images/national_treasure/1611490.jpg",
-  "name_ko": "용왕상"
+  "name_ko": "용왕상",
+  "needs_verification": "",
+  "verification_note": ""
 }
