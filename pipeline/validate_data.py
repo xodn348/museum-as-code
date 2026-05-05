@@ -8,6 +8,27 @@ from typing import Any
 from pipeline.artifact_io import PROJECT_ROOT, DOCS_DIR, is_remote_url, iter_artifact_records, read_json, string_field
 
 
+# Modes the frontend renderer (docs/app.js resolveImageCaption + image rendering branches)
+# treats as image-bearing. Anything else falls through to the IMAGE WITHHELD placeholder.
+RENDERABLE_IMAGE_MODES = {"exact", "official", "representative"}
+WITHHELD_MODE = "withheld"
+ALLOWED_IMAGE_MODES = RENDERABLE_IMAGE_MODES | {WITHHELD_MODE, ""}
+
+
+def _resolve_image(data: dict[str, Any]) -> tuple[str, str]:
+    """Return (path, mode) using the same precedence as the frontend."""
+    images = data.get("images") or []
+    first = images[0] if images and isinstance(images[0], dict) else {}
+    path = (
+        first.get("path")
+        or data.get("cover_image")
+        or data.get("image_url")
+        or ""
+    )
+    mode = data.get("image_display_mode") or first.get("image_display_mode") or ""
+    return path, mode
+
+
 def _check_path(errors: list[str], rel_path: str, label: str) -> None:
     path = PROJECT_ROOT / rel_path
     if not path.exists():
@@ -43,6 +64,26 @@ def validate_artifact_sidecars(errors: list[str]) -> None:
                 errors.append(f"{record.path}: exact_image_verified requires image_url")
             if string_field(data, "needs_verification"):
                 errors.append(f"{record.path}: exact_image_verified conflicts with needs_verification")
+        # Renderable-image guard — catches the nb_057-class bug where mode is set
+        # to a value the frontend doesn't recognise and the card silently falls
+        # through to the IMAGE WITHHELD placeholder.
+        path, mode = _resolve_image(data)
+        if mode and mode not in ALLOWED_IMAGE_MODES:
+            errors.append(
+                f"{record.path}: unknown image_display_mode {mode!r} "
+                f"(allowed: {sorted(ALLOWED_IMAGE_MODES)})"
+            )
+        if mode in RENDERABLE_IMAGE_MODES and not path:
+            errors.append(
+                f"{record.path}: image_display_mode={mode!r} requires an image path"
+            )
+        if mode == WITHHELD_MODE and not (
+            string_field(data, "needs_verification") or string_field(data, "verification_note")
+        ):
+            errors.append(
+                f"{record.path}: image_display_mode='withheld' must provide "
+                f"needs_verification or verification_note explaining why"
+            )
         for field in ["license", "source_url", "credit", "confidence"]:
             if not string_field(data, field):
                 errors.append(f"{record.path}: missing provenance field {field}")

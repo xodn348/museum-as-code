@@ -8,7 +8,7 @@
   "material": "석채, 금박, 견죽",
   "size": "가로 150cm, 세로 195cm",
   "location": "국립중앙박물관",
-  "description": "고려시대의 아미타쌍상도로, 아미타如来来往坐着自己的 쌍상을 그린 불화이다.",
+  "description": "고려시대 아미타쌍상도로, 아미타불 두 분을 나란히 그린 불화이다.",
   "category": "불교 화",
   "image_url": "images/artifacts/PS01002001_000570000.jpg",
   "hgl_file": "national-treasures/nb_531.hgl",
@@ -29,7 +29,9 @@
   "updated_at": "2026-04-30T03:35:18.829367Z",
   "name_ko": "아미타쌍상도",
   "period": "고려시대",
-  "image_display_mode": "fallback",
-  "description_ko": "고려시대의 아미타쌍상도로, 아미타如来来往坐着自己的 쌍상을 그린 불화이다.",
-  "description_en": "Goryeo-era Buddhist painting depicting a pair of Amitabha Buddha figures."
+  "image_display_mode": "representative",
+  "description_ko": "고려시대 아미타쌍상도로, 아미타불 두 분을 나란히 그린 불화이다.",
+  "description_en": "Goryeo-era Buddhist painting depicting a pair of Amitabha Buddha figures.",
+  "image_caption_ko": "대표 도판 (출처 검증 진행 중)",
+  "image_caption_en": "representative work (source verification in progress)"
 }
