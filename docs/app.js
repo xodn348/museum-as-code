@@ -41,6 +41,8 @@ const UI_STRINGS = {
   archive_count_template:   { ko: '국보·보물 · {n} · .hgl로 작성', en: 'National Treasures · {n} · written in .hgl' },
   awaiting_exact_meta:      { ko: '실물 이미지 대기 · .hgl', en: 'awaiting exact image · .hgl' },
   exact_meta:               { ko: '실물 이미지 · 출처 검증 · .hgl', en: 'exact image · source-backed · .hgl' },
+  official_meta:            { ko: '공식 도판 · 국가유산청 · .hgl', en: 'official photograph · CHA · .hgl' },
+  representative_meta:      { ko: '대표 도판 · .hgl', en: 'representative work · .hgl' },
   image_withheld_note: {
     ko: '실제 유물·라이선스·로컬 파일이 검증될 때까지 이미지를 보류합니다.',
     en: 'Image withheld until the exact object, license, and local file are verified.',
@@ -83,8 +85,24 @@ function isExactImageVerified(record) {
   return sidecarImage?.exact_image_verified === true;
 }
 
-function getVerifiedImagePath(record) {
-  if (!isExactImageVerified(record)) return '';
+// Modes the renderer treats as image-bearing. EIV=true is also accepted as
+// a legacy signal even when no display mode is set.
+const RENDERABLE_IMAGE_MODES = new Set(['exact', 'official', 'representative']);
+
+function imageDisplayMode(record) {
+  const sidecar = record?.sidecar || {};
+  const ownFirst = Array.isArray(record?.images) ? record.images[0] : null;
+  const sideFirst = Array.isArray(sidecar.images) ? sidecar.images[0] : null;
+  return sidecar.image_display_mode
+    || record?.image_display_mode
+    || sideFirst?.image_display_mode
+    || ownFirst?.image_display_mode
+    || (isExactImageVerified(record) ? 'exact' : '');
+}
+
+function getDisplayImagePath(record) {
+  const mode = imageDisplayMode(record);
+  if (!RENDERABLE_IMAGE_MODES.has(mode)) return '';
   const sidecarImage = Array.isArray(record.sidecar?.images) ? record.sidecar.images[0] : null;
   const ownImage = Array.isArray(record.images) ? record.images[0] : null;
   return sidecarImage?.path
@@ -94,6 +112,20 @@ function getVerifiedImagePath(record) {
     || record.cover_image
     || record.image_url
     || '';
+}
+
+// Back-compat alias — older call sites still use this name. New code should
+// prefer getDisplayImagePath / imageDisplayMode.
+function getVerifiedImagePath(record) {
+  return getDisplayImagePath(record);
+}
+
+function metaKeyForRecord(record) {
+  const mode = imageDisplayMode(record);
+  if (mode === 'official') return 'official_meta';
+  if (mode === 'representative') return 'representative_meta';
+  if (mode === 'exact') return 'exact_meta';
+  return 'awaiting_exact_meta';
 }
 
 // Bilingual placeholder for cards whose exact image has not been confirmed
@@ -403,7 +435,7 @@ function renderFeaturedHeroes(heroes) {
       <pre class="hgl"><code class="hgl">${highlightCode(code)}</code></pre>
       <div class="title-en">${escapeHtml(titleEn)}</div>
       <div class="title-kr">${escapeHtml(titleKr)}</div>
-      <div class="meta">→ ${escapeHtml(verified ? t('exact_meta') : t('awaiting_exact_meta'))}</div>
+      <div class="meta">→ ${escapeHtml(t(verified ? metaKeyForRecord(hero) : 'awaiting_exact_meta'))}</div>
     `;
     fragment.appendChild(card);
   });
