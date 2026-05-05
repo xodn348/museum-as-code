@@ -101,6 +101,10 @@ function trimHglPreview(text, maxLines = 9) {
       if (/^구조\s/.test(trimmed)) return true;
       if (/^(함수|main\(|})/.test(trimmed)) return false;
       if (/:\s*(문자열|정수|부울|목록|날짜|실수)$/.test(trimmed)) return false;
+      // Skip the long story fields in card previews — they live in the
+      // full .hgl source and on the per-hero detail page, but blow up the
+      // height of any compact card.
+      if (/^(이야기|이야기_영문|story_ko|story_en)\s*:/.test(trimmed)) return false;
       return /^(변수|출력|[\p{L}\p{N}_]+:)/u.test(trimmed);
     });
   return lines.slice(0, maxLines).join('\n');
