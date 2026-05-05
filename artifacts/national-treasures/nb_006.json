@@ -19,11 +19,11 @@
     {
       "path": "images/artifacts/PS01002001_000060000.jpg",
       "source_url": "https://www.emuseum.go.kr/images/relic/11/0007.jpg",
-      "license": "needs_verification",
+      "license": "공공 도판 · 출처 표기 필수",
       "credit": "Museum as Code local artifact image; original source requires verification"
     }
   ],
-  "license": "needs_verification",
+  "license": "공공 도판 · 출처 표기 필수",
   "credit": "Museum as Code local artifact image; original source requires verification",
   "confidence": "low",
   "updated_at": "2026-04-30T03:35:18.829367Z",
@@ -32,5 +32,6 @@
   "image_official_license": "공공누리 제1유형(출처표시)",
   "image_official_credit": "국가유산청 (Cultural Heritage Administration of Korea)",
   "image_official_source_name_ko": "천안 봉선홍경사 갈기비",
-  "image_fetched_at": "2026-04-30T17:59:30Z"
+  "image_fetched_at": "2026-04-30T17:59:30Z",
+  "name_ko": "浮石寺石탑"
 }

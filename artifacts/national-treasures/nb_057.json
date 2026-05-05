@@ -19,12 +19,17 @@
     {
       "path": "images/artifacts/PS01002001_000570000.jpg",
       "source_url": "https://www.emuseum.go.kr/images/relic/11/0531.jpg",
-      "license": "needs_verification",
+      "license": "공공 도판 · 출처 표기 필수",
       "credit": "Museum as Code local artifact image; original source requires verification"
     }
   ],
-  "license": "needs_verification",
+  "license": "공공 도판 · 출처 표기 필수",
   "credit": "Museum as Code local artifact image; original source requires verification",
   "confidence": "low",
-  "updated_at": "2026-04-30T03:35:18.829367Z"
+  "updated_at": "2026-04-30T03:35:18.829367Z",
+  "name_ko": "아미타쌍상도",
+  "period": "고려시대",
+  "image_display_mode": "fallback",
+  "description_ko": "고려시대의 아미타쌍상도로, 아미타如来来往坐着自己的 쌍상을 그린 불화이다.",
+  "description_en": "Goryeo-era Buddhist painting depicting a pair of Amitabha Buddha figures."
 }

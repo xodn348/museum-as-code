@@ -19,11 +19,11 @@
     {
       "path": "images/artifacts/PS01002001_000450000.jpg",
       "source_url": "https://www.emuseum.go.kr/images/relic/11/0131.jpg",
-      "license": "needs_verification",
+      "license": "공공 도판 · 출처 표기 필수",
       "credit": "Museum as Code local artifact image; original source requires verification"
     }
   ],
-  "license": "needs_verification",
+  "license": "공공 도판 · 출처 표기 필수",
   "credit": "Museum as Code local artifact image; original source requires verification",
   "confidence": "low",
   "updated_at": "2026-04-30T03:35:18.829367Z",
@@ -32,5 +32,6 @@
   "image_official_license": "공공누리 제1유형(출처표시)",
   "image_official_credit": "국가유산청 (Cultural Heritage Administration of Korea)",
   "image_official_source_name_ko": "고려말 화령부 호적 관련 고문서",
-  "image_fetched_at": "2026-04-30T18:00:25Z"
+  "image_fetched_at": "2026-04-30T18:00:25Z",
+  "name_ko": "조선왕조실록"
 }
