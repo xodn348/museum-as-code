@@ -17,20 +17,28 @@
   "source_url": "https://www.emuseum.go.kr/images/relic/11/0085.jpg",
   "images": [
     {
-      "path": "images/artifacts/PS01002001_000520000.jpg",
-      "source_url": "https://www.emuseum.go.kr/images/relic/11/0085.jpg",
-      "license": "needs_verification",
-      "credit": "Museum as Code local artifact image; original source requires verification"
+      "path": "images/artifacts/khs/1611493.jpg",
+      "source_url": "https://www.khs.go.kr/unisearch/images/national_treasure/1611493.jpg",
+      "license": "공공누리 제1유형(출처표시)",
+      "credit": "국가유산청 (Cultural Heritage Administration of Korea)",
+      "exact_image_verified": true,
+      "image_display_mode": "official",
+      "caption_ko": "공식 도판 · 국가유산청",
+      "caption_en": "official photograph · CHA"
     }
   ],
   "license": "needs_verification",
   "credit": "Museum as Code local artifact image; original source requires verification",
   "confidence": "low",
   "updated_at": "2026-04-30T03:35:18.829367Z",
-  "image_official_url": "https://www.khs.go.kr/unisearch/images/national_treasure/1611493.jpg",
   "image_source_api": "cha",
   "image_official_license": "공공누리 제1유형(출처표시)",
   "image_official_credit": "국가유산청 (Cultural Heritage Administration of Korea)",
   "image_official_source_name_ko": "금동신묘명삼존불입상",
-  "image_fetched_at": "2026-04-30T18:00:35Z"
+  "image_fetched_at": "2026-04-30T18:00:35Z",
+  "exact_image_verified": true,
+  "image_display_mode": "official",
+  "image_caption_ko": "공식 도판 · 국가유산청",
+  "image_caption_en": "official photograph · Cultural Heritage Administration",
+  "image_official_url_archived": "https://www.khs.go.kr/unisearch/images/national_treasure/1611493.jpg"
 }

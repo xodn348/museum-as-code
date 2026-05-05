@@ -101,10 +101,9 @@ function trimHglPreview(text, maxLines = 9) {
       if (/^구조\s/.test(trimmed)) return true;
       if (/^(함수|main\(|})/.test(trimmed)) return false;
       if (/:\s*(문자열|정수|부울|목록|날짜|실수)$/.test(trimmed)) return false;
-      // Skip the long story fields in card previews — they live in the
-      // full .hgl source and on the per-hero detail page, but blow up the
-      // height of any compact card.
-      if (/^(이야기|이야기_영문|story_ko|story_en)\s*:/.test(trimmed)) return false;
+      // Drop the English-translation field from previews; the Korean
+      // 이야기 line is what carries the meaning on the card.
+      if (/^이야기_영문\s*:/.test(trimmed)) return false;
       return /^(변수|출력|[\p{L}\p{N}_]+:)/u.test(trimmed);
     });
   return lines.slice(0, maxLines).join('\n');
@@ -256,6 +255,10 @@ function buildKpdhCardCode(hero) {
   const sizeShort = sizeRaw.replace(/\s*\(source verification required\)/i, '').trim();
   const locationKo = sidecar.location || '';
   const verified = isExactImageVerified(hero);
+  const storyKo = sidecar.story_ko || '';
+  const storyOpener = storyKo
+    ? storyKo.split(/(?<=[.…])\s+/)[0].replace(/"/g, "'")
+    : '';
 
   const lines = [
     `// ${designationKo || hero.designation || ''}`.trim(),
@@ -267,10 +270,11 @@ function buildKpdhCardCode(hero) {
     `    재료:     "${materialKo}",`,
     `    크기:     "${sizeShort}",`,
     `    소장처:   "${locationKo}",`,
+    storyOpener ? `    이야기:   "${storyOpener}…",` : null,
     `    출처검증: ${verified ? '참' : '거짓'}`,
     `}`,
     `설명출력(${kpdhVarName(hero.id)})`,
-  ];
+  ].filter(Boolean);
   return lines.join('\n');
 }
 
