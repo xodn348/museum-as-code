@@ -285,12 +285,11 @@ function renderRooms(rooms, heroes) {
         const imagePath = getVerifiedImagePath(hero);
         if (imagePath) {
           const cap = resolveImageCaption(hero);
-          const captionText = currentLang === 'ko' ? cap.ko : cap.en;
           const repClass = cap.mode === 'representative' ? ' representative' : '';
           return `
             <a class="room-hero-link image-room-link${repClass}" href="hero.html?id=${encodeURIComponent(hero.id)}">
               <img src="${escapeHtml(imagePath)}" alt="${escapeHtml(title)}" loading="lazy" decoding="async">
-              <span class="room-code-label">${escapeHtml(title)}<small>${escapeHtml(captionText)}</small></span>
+              <span class="room-code-label">${escapeHtml(title)}</span>
             </a>
           `;
         }
@@ -420,10 +419,6 @@ function renderFeaturedHeroes(heroes) {
     const imageMarkup = verified ? `
       <figure class="kpdh-card-figure${repClass}">
         <img src="${escapeHtml(imagePath)}" alt="${escapeHtml(titleEn)}" loading="lazy" decoding="async">
-        <figcaption>
-          <span data-lang="ko">${escapeHtml(cap.ko)}</span>
-          <span data-lang="en">${escapeHtml(cap.en)}</span>
-        </figcaption>
       </figure>
     ` : renderImagePendingMarkup(hero);
 
@@ -780,10 +775,8 @@ function createVerifiedArtifactImage(artifact) {
 
   const cap = resolveImageCaption(artifact);
   if (cap.mode === 'representative') figure.classList.add('representative');
-  const caption = document.createElement('figcaption');
-  caption.innerHTML = `<span data-lang="ko">${escapeHtml(cap.ko)}</span><span data-lang="en">${escapeHtml(cap.en)}</span>`;
 
-  figure.append(img, caption);
+  figure.append(img);
   return figure;
 }
 
@@ -931,18 +924,11 @@ function renderCards(artifacts) {
     const code = buildArchiveCardCode(artifact);
     const imagePath = getVerifiedImagePath(artifact);
     const officialUrl = getOfficialImageUrl(artifact);
-    const officialMeta = getOfficialImageMeta(artifact);
     let imageMarkup;
     if (officialUrl) {
-      const sourceLabel = officialMeta?.src === 'cha'
-        ? '국가유산청 (CHA)'
-        : (officialMeta?.src || 'official source');
-      const licenseLabel = officialMeta?.license || '';
-      const captionParts = [sourceLabel, licenseLabel].filter(Boolean).join(' · ');
       imageMarkup = `
       <figure class="kpdh-card-figure official-image">
         <img src="${escapeHtml(officialUrl)}" alt="${escapeHtml(titleEn)}" loading="lazy" decoding="async" referrerpolicy="no-referrer">
-        <figcaption class="image-credit">${escapeHtml(captionParts)}</figcaption>
       </figure>
     `;
     } else if (imagePath) {
@@ -951,10 +937,6 @@ function renderCards(artifacts) {
       imageMarkup = `
       <figure class="kpdh-card-figure${repClass}">
         <img src="${escapeHtml(imagePath)}" alt="${escapeHtml(titleEn)}" loading="lazy" decoding="async">
-        <figcaption>
-          <span data-lang="ko">${escapeHtml(cap.ko)}</span>
-          <span data-lang="en">${escapeHtml(cap.en)}</span>
-        </figcaption>
       </figure>
     `;
     } else {
