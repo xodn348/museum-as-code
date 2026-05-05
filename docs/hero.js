@@ -53,19 +53,49 @@ function getPrimaryImage(hero) {
   };
 }
 
+// Mirror of docs/app.js `resolveImageCaption`: returns `{mode, ko, en}` based
+// on `image_display_mode` (exact | official | representative). Hero pages
+// must NEVER hardcode "exact image verified" for representative or official
+// images — caption text follows the record's declared mode.
+function resolveImageCaption(record) {
+  const sidecar = record?.sidecar || record || {};
+  const firstImage = Array.isArray(sidecar.images) ? sidecar.images[0] : null;
+  const mode = sidecar.image_display_mode
+    || firstImage?.image_display_mode
+    || (sidecar.exact_image_verified ? 'exact' : '');
+  const ko = sidecar.image_caption_ko
+    || firstImage?.caption_ko
+    || (mode === 'official' ? '공식 도판 · 국가유산청'
+      : mode === 'representative' ? '대표 도판'
+      : '실물 이미지 검증 완료');
+  const en = sidecar.image_caption_en
+    || firstImage?.caption_en
+    || (mode === 'official' ? 'official photograph · CHA'
+      : mode === 'representative' ? 'representative work'
+      : 'exact image verified');
+  return { mode, ko, en };
+}
+
 function renderVerifiedImageState(hero) {
-  const verified = isExactImageVerified(hero);
+  const cap = resolveImageCaption(hero);
+  // Treat any declared display mode (exact, official, representative) as a
+  // signal that an image is OK to show. Only fall back to "withheld" when the
+  // record genuinely has no verified image AND no display-mode-aware fallback.
+  const hasModeFallback = cap.mode === 'official' || cap.mode === 'representative';
+  const verified = isExactImageVerified(hero) || hasModeFallback;
   const image = getPrimaryImage(hero);
   const img = document.getElementById('hero-image');
   const detail = document.getElementById('detail-image');
   const wrap = document.querySelector('.hero-image-wrap');
   const detailFigure = detail?.closest('figure');
-  const note = image.note || 'Image withheld until the exact object, local file, and source license are verified.';
 
   document.getElementById('hero-image-pending')?.remove();
   document.getElementById('detail-image-pending')?.remove();
   wrap?.classList.toggle('image-withheld', !verified);
   detailFigure?.classList.toggle('image-withheld', !verified);
+  // Tag representative-mode figures so styling can soften the framing
+  // (mirrors docs/app.js convention).
+  detailFigure?.classList.toggle('representative', cap.mode === 'representative');
 
   if (verified && image.path) {
     if (img) {
@@ -78,7 +108,12 @@ function renderVerifiedImageState(hero) {
       detail.alt = hero.name_en || hero.name_ko || '';
       detail.hidden = false;
     }
-    setText('image-credit', `${image.credit} · ${image.license}`);
+    // Mode-aware caption: "representative work" / "official photograph" /
+    // "exact image verified" — never hardcoded. Credit + license appended
+    // verbatim from the record.
+    const captionText = getLang() === 'ko' ? cap.ko : cap.en;
+    const creditPart = [image.credit, image.license].filter(Boolean).join(' · ');
+    setText('image-credit', creditPart ? `${captionText} — ${creditPart}` : captionText);
     setText('license-line', `${image.license} — ${image.credit}${image.sourceUrl ? ` (${image.sourceUrl})` : ''}`);
     return;
   }
@@ -165,6 +200,11 @@ function renderLanguage() {
       .map(([k, v]) => `<div><dt>${escapeHtml(k)}</dt><dd>${escapeHtml(v)}</dd></div>`)
       .join('');
   }
+
+  // Caption + nav text are dynamic and language-bound — re-render them
+  // alongside meta so a language flip updates the whole detail view.
+  renderVerifiedImageState(currentHero);
+  if (currentIndex && currentEntry) renderNavigation(currentIndex, currentEntry.id);
 }
 
 async function fetchJson(path) {
@@ -186,6 +226,13 @@ function resolveId(index) {
   return index.heroes?.[0]?.id || '';
 }
 
+function heroDisplayName(hero) {
+  if (!hero) return '';
+  return getLang() === 'ko'
+    ? (hero.name_ko || hero.name_en || '')
+    : (hero.name_en || hero.name_ko || '');
+}
+
 function renderNavigation(index, heroId) {
   const nav = document.getElementById('next-prev');
   if (!nav) return;
@@ -194,9 +241,12 @@ function renderNavigation(index, heroId) {
   const pos = heroes.findIndex((hero) => hero.id === heroId);
   const prev = heroes[(pos - 1 + heroes.length) % heroes.length];
   const next = heroes[(pos + 1) % heroes.length];
+  const ko = getLang() === 'ko';
+  const prevLabel = ko ? '이전' : 'Previous';
+  const nextLabel = ko ? '다음' : 'Next';
   nav.innerHTML = `
-    ${prev ? `<a href="hero.html?id=${encodeURIComponent(prev.id)}">← ${escapeHtml(prev.name_en)}</a>` : ''}
-    ${next ? `<a href="hero.html?id=${encodeURIComponent(next.id)}">${escapeHtml(next.name_en)} →</a>` : ''}
+    ${prev ? `<a href="hero.html?id=${encodeURIComponent(prev.id)}" aria-label="${escapeHtml(prevLabel)}: ${escapeHtml(heroDisplayName(prev))}">← ${escapeHtml(heroDisplayName(prev))}</a>` : ''}
+    ${next ? `<a href="hero.html?id=${encodeURIComponent(next.id)}" aria-label="${escapeHtml(nextLabel)}: ${escapeHtml(heroDisplayName(next))}">${escapeHtml(heroDisplayName(next))} →</a>` : ''}
   `;
 }
 
@@ -263,7 +313,10 @@ async function loadHero() {
     const errorEl = document.getElementById('hero-error');
     if (errorEl) {
       errorEl.classList.remove('hidden');
-      errorEl.textContent = `Hero artifact failed to load: ${error.message}`;
+      const prefix = getLang() === 'ko'
+        ? '히어로 유물을 불러오지 못했습니다'
+        : 'Hero artifact failed to load';
+      errorEl.textContent = `${prefix}: ${error.message}`;
     }
   }
 }
