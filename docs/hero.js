@@ -94,21 +94,12 @@ function renderVerifiedImageState(hero) {
     detail.hidden = true;
   }
 
-  const pending = document.createElement('div');
-  pending.id = 'hero-image-pending';
-  pending.className = 'image-pending-panel';
-  pending.innerHTML = `
-    <strong>IMAGE WITHHELD</strong>
-    <span>${escapeHtml(note)}</span>
-  `;
-  wrap?.appendChild(pending);
-
-  const detailPending = pending.cloneNode(true);
-  detailPending.id = 'detail-image-pending';
-  detailFigure?.appendChild(detailPending);
-
-  setText('image-credit', note);
-  setText('license-line', `Image withheld — ${note}`);
+  // No "IMAGE WITHHELD" panel — the Han code plate IS the artifact in this
+  // museum. Hide the empty image frame entirely so the page reads cleanly.
+  wrap?.classList.add('image-suppressed');
+  detailFigure?.classList.add('image-suppressed');
+  setText('image-credit', '');
+  setText('license-line', '');
 }
 
 // Delegate Han highlighting to the standalone han-highlight module

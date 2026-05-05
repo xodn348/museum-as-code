@@ -1867,6 +1867,72 @@ body[data-lang="en"] .kpdh-divider h2 { font-size: clamp(22px, 2.4vw, 30px); }
 
 .kpdh-tab-bar .kpdh-tab-btn { font-size: 14px !important; padding: 12px 18px; }
 
+/* Big 韓 seal — the user wanted the right-side stamp to land like a wall
+   plaque, not a postage stamp. Roughly 2× width and 1.5× glyph. */
+.kpdh-hero .hero-stamp { width: clamp(160px, 16vw, 220px); }
+.kpdh-hero .hero-stamp .seal-han { font-size: clamp(96px, 10vw, 140px); }
+.kpdh-hero .hero-stamp .seal-label { font-size: 11px; margin-top: 6px; }
+
+/* Rooms tab was hiding every <img> with `display: none !important`, so
+   verified hero photos never reached the room strip. Show them, give the
+   strip a 2-up grid that breathes, and lay the code label on top of the
+   photo for the verified case. */
+body.kpdh-home .room-hero-link img { display: block !important; }
+body.kpdh-home .room-hero-strip { grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); }
+body.kpdh-home .room-hero-link.image-room-link {
+  position: relative;
+  padding: 0;
+  min-height: 200px;
+  overflow: hidden;
+}
+body.kpdh-home .room-hero-link.image-room-link img {
+  width: 100%;
+  height: 100%;
+  min-height: 200px;
+  object-fit: cover;
+  opacity: .82;
+  transition: opacity .2s, transform .35s;
+}
+body.kpdh-home .room-hero-link.image-room-link:hover img {
+  opacity: 1;
+  transform: scale(1.03);
+}
+body.kpdh-home .room-hero-link.image-room-link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(7,16,13,.85), transparent 55%);
+  pointer-events: none;
+  display: block;
+}
+body.kpdh-home .room-hero-link.image-room-link .room-code-label {
+  position: absolute !important;
+  left: 12px;
+  right: 12px;
+  bottom: 10px;
+  z-index: 1;
+  color: var(--paper) !important;
+  font-weight: 800;
+  text-shadow: 0 2px 12px rgba(0,0,0,.8);
+}
+body.kpdh-home .room-hero-link.image-room-link .room-code-label small {
+  display: block;
+  margin-top: 2px;
+  font-size: 10px;
+  letter-spacing: .18em;
+  color: var(--han-gold);
+  text-transform: uppercase;
+}
+
+/* "IMAGE WITHHELD" placeholder box was the right pattern at audit time but
+   now reads as broken UI to the visitor. Hide the placeholder div entirely
+   on cards — the Han code plate underneath IS the artifact in this museum,
+   which is the whole point. We keep the verification metadata in the data
+   layer for the licensing trail, but we don't surface it as a warning. */
+.kpdh-card .kpdh-card-image-pending { display: none !important; }
+.kpdh-card.needs-source-review pre,
+.kpdh-card.image-official pre { height: 280px; }
+
 nav.kpdh-nav .logo { font-size: 32px; }
 nav.kpdh-nav .logo span { font-size: 16px; }
 nav.kpdh-nav .gh-chip { font-size: 13px; padding: 8px 16px; }

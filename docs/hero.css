@@ -685,3 +685,8 @@ dd {
 #hero-hgl { font-size: 14px; line-height: 1.6; }
 .lang-badge { font-size: 12px; }
 .hook { font-size: 1.2rem; }
+
+/* When source image is unverified, collapse the image frame entirely.
+   The Han code plate below already represents the artifact; an empty
+   bordered box reads as broken UI. */
+.image-suppressed { display: none !important; }
