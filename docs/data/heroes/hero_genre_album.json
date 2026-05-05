@@ -2,7 +2,8 @@
   "id": "hero_genre_album",
   "name_ko": "김홍도 필 풍속도 화첩",
   "name_en": "Album of Genre Paintings by Kim Hong-do (Danwon)",
-  "designation": "Treasure No. 527",
+  "designation": "보물 제527호",
+  "designation_en": "Treasure No. 527",
   "period": "Joseon, 18th century",
   "period_ko": "조선, 18세기",
   "medium": "Ink and light color on paper",
@@ -35,7 +36,7 @@
   "sections_ko": {
     "why_this_matters": "컬렉션에는 사람이 필요합니다. 단원의 화첩은 한국 유산이 사람이 살고, 웃고, 몸을 움직이고, 사회를 이루는 공간이라는 사실을 화면 위에 다시 채워 넣습니다.",
     "what_you_are_looking_at": "배경은 비워두고 인물의 동작에 집중하는 구성이 반복됩니다. <씨름>에서는 두 선수를 둘러싸 고리를 이룬 관중과 한쪽에 흩어진 신발, 엿장수의 등장만으로 한 장면의 사회상을 완성합니다.",
-    "the_story": "18세기 후반, 정조의 화원이자 도화서 출신 화가 김홍도는 양반·서민·농부·아이가 등장하는 일상의 한 장면씩을 화폭에 옮겨, 25폭의 풍속도 화첩을 엮었습니다. 씨름판에서 쓰러지는 한 명의 표정, 서당에서 회초리를 든 훈장과 우는 아이의 어깨, 대장간의 망치질 — 어느 한 폭도 풍경이 아니라 사람의 동작과 표정에서 시작해, 조선 풍속화가 무엇을 그리는 장르인지를 다시 정의했습니다. 같은 시대 정선의 진경산수가 조선의 땅을 본 그대로 그렸다면, 김홍도의 풍속도첩은 그 땅 위에 사는 사람들을 본 그대로 그려, 두 화가가 함께 18세기 조선의 시각적 자화상을 완성했습니다. 현재 국립중앙박물관에 소장된 이 화첩은 조선 후기 사회사를 그림 한 권으로 읽을 수 있게 해주는 가장 두꺼운 1차 사료입니다."
+    "the_story": "18세기 후반, 정조의 화원이자 도화서(圖畫署)를 거친 김홍도는 양반·서민·농부·아이가 한 동작씩에 잡힌 일상의 장면을 묶어, 25폭짜리 풍속도 화첩 한 권을 만들었습니다. 씨름판에서 쓰러지는 한 사람의 표정, 서당에서 회초리를 든 훈장과 우는 아이의 어깨, 대장간에서 휘둘리는 망치의 궤적 — 어느 한 폭도 풍경에서 출발하지 않고 사람의 동작과 표정에서 시작해, 조선 풍속화가 무엇을 그리는 장르인지를 새로 정의했습니다. 같은 시대 정선의 진경산수(眞景山水)가 조선의 땅을 본 그대로 그렸다면, 단원의 풍속화첩은 그 땅 위에 사는 사람들을 본 그대로 그려 냈고, 두 화가는 함께 18세기 조선의 시각적 자화상을 완성했습니다. 현재 국립중앙박물관에 소장된 이 화첩은 조선 후기의 사회사를 한 권의 그림책으로 읽을 수 있게 해주는 가장 두꺼운 1차 사료입니다."
   },
   "sidecar_path": "../artifacts/heroes/hero_genre_album.json",
   "hgl_path": "data/heroes/hero_genre_album.hgl",
@@ -52,6 +53,6 @@
   "image_match_confidence": "high",
   "verification_note": "Exact Ssireum leaf from Kim Hong-do genre album.",
   "updated_at": "2026-04-30T00:00:00-05:00",
-  "story_ko": "18세기 후반, 정조의 화원이자 도화서 출신 화가 김홍도는 양반·서민·농부·아이가 등장하는 일상의 한 장면씩을 화폭에 옮겨, 25폭의 풍속도 화첩을 엮었습니다. 씨름판에서 쓰러지는 한 명의 표정, 서당에서 회초리를 든 훈장과 우는 아이의 어깨, 대장간의 망치질 — 어느 한 폭도 풍경이 아니라 사람의 동작과 표정에서 시작해, 조선 풍속화가 무엇을 그리는 장르인지를 다시 정의했습니다. 같은 시대 정선의 진경산수가 조선의 땅을 본 그대로 그렸다면, 김홍도의 풍속도첩은 그 땅 위에 사는 사람들을 본 그대로 그려, 두 화가가 함께 18세기 조선의 시각적 자화상을 완성했습니다. 현재 국립중앙박물관에 소장된 이 화첩은 조선 후기 사회사를 그림 한 권으로 읽을 수 있게 해주는 가장 두꺼운 1차 사료입니다.",
+  "story_ko": "18세기 후반, 정조의 화원이자 도화서(圖畫署)를 거친 김홍도는 양반·서민·농부·아이가 한 동작씩에 잡힌 일상의 장면을 묶어, 25폭짜리 풍속도 화첩 한 권을 만들었습니다. 씨름판에서 쓰러지는 한 사람의 표정, 서당에서 회초리를 든 훈장과 우는 아이의 어깨, 대장간에서 휘둘리는 망치의 궤적 — 어느 한 폭도 풍경에서 출발하지 않고 사람의 동작과 표정에서 시작해, 조선 풍속화가 무엇을 그리는 장르인지를 새로 정의했습니다. 같은 시대 정선의 진경산수(眞景山水)가 조선의 땅을 본 그대로 그렸다면, 단원의 풍속화첩은 그 땅 위에 사는 사람들을 본 그대로 그려 냈고, 두 화가는 함께 18세기 조선의 시각적 자화상을 완성했습니다. 현재 국립중앙박물관에 소장된 이 화첩은 조선 후기의 사회사를 한 권의 그림책으로 읽을 수 있게 해주는 가장 두꺼운 1차 사료입니다.",
   "story_en": "In the late 18th century Kim Hong-do — court painter to King Jeongjo and graduate of the royal Dohwaseo academy — bound 25 leaves of scenes from ordinary life into a single album: yangban scholars, commoners, farmers, children, all caught mid-gesture. The face of the wrestler going down, the schoolmaster's switch raised over a weeping boy's shoulder, the swing of a hammer in the smithy — every leaf begins not in landscape but in human movement and expression, and together they redefined what Joseon genre painting was for. Where Jeong Seon's true-view landscapes painted the Joseon land as it actually looked, Danwon's album painted the people standing on that land as they actually moved — together the two painters completed an 18th-century visual self-portrait of Korea. Now in the National Museum of Korea, the album is the thickest single primary source we have for reading the social history of late Joseon as a picture book."
 }

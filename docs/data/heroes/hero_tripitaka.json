@@ -2,7 +2,8 @@
   "id": "hero_tripitaka",
   "name_ko": "합천 해인사 대장경판",
   "name_en": "Printing Woodblocks of the Tripiṭaka Koreana",
-  "designation": "National Treasure No. 32",
+  "designation": "국보 제32호",
+  "designation_en": "National Treasure No. 32",
   "period": "Goryeo, 1236–1251",
   "period_ko": "고려, 1236–1251년",
   "medium": "Woodblocks",
@@ -35,7 +36,7 @@
   "sections_ko": {
     "why_this_matters": "코드 박물관의 시각에서 보면 팔만대장경은 초창기의 데이터 인프라입니다 — 텍스트, 포맷, 복제, 저장, 그리고 장기 보존이 한 시스템 안에 갖춰져 있습니다.",
     "what_you_are_looking_at": "각 목판에는 인쇄를 위해 좌우가 뒤집힌 글자가 새겨져 있습니다. 개별 판각의 정교함만큼이나 규모 자체가 의미인데, 8만 장이 넘는 판이 단 하나의 일관된 경전을 전송할 수 있을 만큼 균질해야 했기 때문입니다.",
-    "the_story": "1232년 몽골 침입으로 초조대장경이 불에 탄 후, 고려 조정은 부처의 힘으로 침입을 막겠다는 서원으로 다시 한 번 대장경을 새겼고, 16년 만인 1251년에 81,258매의 목판이 완성되었습니다. 한 판에 각 면 23행 14자, 양면을 합치면 한 판이 약 644자 — 전체 5,200만 자가 단 한 글자의 오자도 없이 새겨져 있어, 인쇄술 이전 인류가 도달한 정밀도의 한 정점으로 평가됩니다. 13세기 중반 이래 합천 해인사 장경판전에 보관되어, 자연 통풍과 흙바닥, 숯과 소금의 단순한 조합만으로 750년간 곰팡이와 벌레로부터 살아남았습니다. 1995년 유네스코 세계문화유산으로 등재된, 책이 어떻게 천 년을 견딜 수 있는지를 보여주는 거대한 한 권의 도서관입니다."
+    "the_story": "1232년 몽골의 침입으로 초조대장경의 목판이 모두 불타 버린 뒤, 고려 조정은 부처의 힘으로 침입을 막겠다는 서원으로 대장경을 처음부터 다시 새기기 시작했고, 16년 만인 1251년 81,258매의 목판이 완성되었습니다. 한 면에 23행 14자, 양면을 합치면 한 판이 약 644자 — 전체 5,200만 자가 단 한 글자의 알려진 오자도 없이 새겨져 있어, 인쇄술이 본격화되기 이전 인류가 도달한 정밀도의 한 정점으로 평가됩니다. 13세기 중반부터 합천 해인사의 장경판전(藏經板殿)에 보관되어, 자연 통풍과 흙바닥, 숯과 소금이라는 단순한 조합만으로 750년 동안 곰팡이와 벌레로부터 한 판도 잃지 않고 살아남았습니다. 1995년 유네스코 세계문화유산에 등재된 팔만대장경은, ‘책 한 권이 어떻게 천 년을 견딜 수 있는가’라는 물음에 대한 한 권 분량의 거대한 도서관 그 자체입니다."
   },
   "sidecar_path": "../artifacts/heroes/hero_tripitaka.json",
   "hgl_path": "data/heroes/hero_tripitaka.hgl",
@@ -53,6 +54,6 @@
   "image_match_confidence": "high",
   "verification_note": "Exact Haeinsa Tripitaka Koreana woodblocks image; wrong copy-block fallback removed.",
   "updated_at": "2026-04-30T00:00:00-05:00",
-  "story_ko": "1232년 몽골 침입으로 초조대장경이 불에 탄 후, 고려 조정은 부처의 힘으로 침입을 막겠다는 서원으로 다시 한 번 대장경을 새겼고, 16년 만인 1251년에 81,258매의 목판이 완성되었습니다. 한 판에 각 면 23행 14자, 양면을 합치면 한 판이 약 644자 — 전체 5,200만 자가 단 한 글자의 오자도 없이 새겨져 있어, 인쇄술 이전 인류가 도달한 정밀도의 한 정점으로 평가됩니다. 13세기 중반 이래 합천 해인사 장경판전에 보관되어, 자연 통풍과 흙바닥, 숯과 소금의 단순한 조합만으로 750년간 곰팡이와 벌레로부터 살아남았습니다. 1995년 유네스코 세계문화유산으로 등재된, 책이 어떻게 천 년을 견딜 수 있는지를 보여주는 거대한 한 권의 도서관입니다.",
+  "story_ko": "1232년 몽골의 침입으로 초조대장경의 목판이 모두 불타 버린 뒤, 고려 조정은 부처의 힘으로 침입을 막겠다는 서원으로 대장경을 처음부터 다시 새기기 시작했고, 16년 만인 1251년 81,258매의 목판이 완성되었습니다. 한 면에 23행 14자, 양면을 합치면 한 판이 약 644자 — 전체 5,200만 자가 단 한 글자의 알려진 오자도 없이 새겨져 있어, 인쇄술이 본격화되기 이전 인류가 도달한 정밀도의 한 정점으로 평가됩니다. 13세기 중반부터 합천 해인사의 장경판전(藏經板殿)에 보관되어, 자연 통풍과 흙바닥, 숯과 소금이라는 단순한 조합만으로 750년 동안 곰팡이와 벌레로부터 한 판도 잃지 않고 살아남았습니다. 1995년 유네스코 세계문화유산에 등재된 팔만대장경은, ‘책 한 권이 어떻게 천 년을 견딜 수 있는가’라는 물음에 대한 한 권 분량의 거대한 도서관 그 자체입니다.",
   "story_en": "After the original Tripitaka woodblocks burned in the Mongol invasion of 1232, the Goryeo court vowed that recarving the entire Buddhist canon would itself defend the kingdom — and sixteen years later, in 1251, 81,258 woodblocks were complete. Each face holds 23 lines of 14 characters; both faces together carry roughly 644 graphs per block, and across the full set more than 52 million characters appear without a single known transcription error — one of the high points of human precision in the age before printing. Since the mid-13th century the blocks have lived in the Janggyeong Panjeon storehouse at Haeinsa Temple, where natural ventilation, an earthen floor, and a simple bedding of charcoal and salt have kept them safe from mold and insects for 750 years. Inscribed on the UNESCO World Heritage list in 1995, the Tripitaka Koreana is a single book the size of a library — and a working demonstration that a book can survive a thousand years."
 }
