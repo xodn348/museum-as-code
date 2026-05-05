@@ -671,3 +671,17 @@ dd {
   .hero-stamp .seal-han { font-size: clamp(64px, 28vw, 110px); }
   .hero-stamp .seal-label { font-size: 9px; letter-spacing: 0.22em; }
 }
+
+/* Type-bump 2026-05-05 — small px labels in hero pages were too tight.
+   Mirrors the bump in style.css so /hero.html?id=... reads at the same
+   museum-card scale as the index. */
+.hero-nav .logo { font-size: 30px; }
+.hero-nav .gh-chip { font-size: 13px; padding: 8px 14px; }
+.hero-nav .gh-chip .gh-arrow { font-size: 14px; }
+.hero-nav .lang { font-size: 13px; padding: 8px 14px; }
+.schema-head .file,
+.schema-head .badge { font-size: 13px; }
+.schema pre code,
+#hero-hgl { font-size: 14px; line-height: 1.6; }
+.lang-badge { font-size: 12px; }
+.hook { font-size: 1.2rem; }

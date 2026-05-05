@@ -9,9 +9,14 @@
   --shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
 
+/* Global type-scale bump — every rem-based size grows ~13% so body copy,
+   nav, cards, code blocks, and metadata all read larger without breaking
+   the clamp()-driven hero/headline ratios. */
+html { font-size: 18px; }
+
 /* Reset & Base */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-body { background: var(--bg); color: var(--text); font-family: 'Noto Sans KR', sans-serif; }
+body { background: var(--bg); color: var(--text); font-family: 'Noto Sans KR', sans-serif; font-size: 1rem; line-height: 1.6; }
 
 body[data-lang='en'] [data-lang='ko'] { display: none !important; }
 body[data-lang='ko'] [data-lang='en'] { display: none !important; }
@@ -1841,4 +1846,42 @@ body.kpdh-home #card-grid.kpdh-cards-archive {
   .kpdh-schema { margin: 0 12px 20px; }
   .kpdh-schema pre { font-size: 10.5px; padding: 12px; }
   .kpdh-cards { padding: 0 12px 48px; }
+}
+
+/* Type-bump 2026-05-05 — small px-based labels were too tight to read.
+   Bumps nav, card metadata, code blocks, and image captions ~25% so the
+   page feels like a museum wall card, not a terminal log. Headlines and
+   body copy already scale via the html { font-size: 18px } root bump. */
+nav.kpdh-nav .logo { font-size: 32px; }
+nav.kpdh-nav .logo span { font-size: 16px; }
+nav.kpdh-nav .gh-chip { font-size: 13px; padding: 8px 16px; }
+nav.kpdh-nav .gh-chip svg.gh-icon { width: 16px; height: 16px; }
+nav.kpdh-nav .gh-chip .gh-arrow { font-size: 15px; }
+nav.kpdh-nav .lang { font-size: 13px; padding: 8px 16px; }
+
+.kpdh-tab-bar .kpdh-tab-btn { font-size: 14px !important; }
+
+.kpdh-card .seal { font-size: 28px; width: 54px; height: 54px; }
+.kpdh-card .num { font-size: 13px; }
+.kpdh-card .file-tag { font-size: 11px; }
+.kpdh-card-figure figcaption { font-size: 11px; padding: 6px 9px; }
+.kpdh-card-image-pending span { font-size: 13px; }
+.kpdh-card-image-pending small { font-size: 11px; }
+.kpdh-card pre,
+.kpdh-card pre code { font-size: 13px; line-height: 1.6; }
+.kpdh-card.image-verified pre { height: 168px; }
+.kpdh-card pre { height: 220px; }
+.kpdh-card .title-en { font-size: 24px; }
+.kpdh-card .title-kr { font-size: 16px; }
+.kpdh-card .meta { font-size: 13px; }
+
+.kpdh-schema-details summary .file,
+.kpdh-schema-details summary .badge,
+.kpdh-schema-details summary .kpdh-schema-toggle { font-size: 13px; }
+.kpdh-schema pre { font-size: 14px; line-height: 1.65; }
+
+@media (max-width: 768px) {
+  .kpdh-card pre,
+  .kpdh-card pre code { font-size: 12px; }
+  .kpdh-card .title-en { font-size: 20px; }
 }
