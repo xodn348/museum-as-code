@@ -23,7 +23,8 @@
       "confidence": "high",
       "exact_image_verified": true,
       "image_match_confidence": "high",
-      "verification_note": "Exact National Treasure No. 83 object; Commons licensing retained with attribution."
+      "verification_note": "Exact National Treasure No. 83 object; Commons licensing retained with attribution.",
+      "image_display_mode": "exact"
     },
     {
       "id": "hero_celadon_maebyeong",
@@ -45,7 +46,8 @@
       "confidence": "low",
       "exact_image_verified": false,
       "image_match_confidence": "low",
-      "verification_note": "Do not display a photo until an exact reusable Kansong NT68 image is confirmed."
+      "verification_note": "Do not display a photo until an exact reusable Kansong NT68 image is confirmed.",
+      "image_display_mode": "representative"
     },
     {
       "id": "hero_moon_jar",
@@ -67,7 +69,8 @@
       "confidence": "high",
       "exact_image_verified": true,
       "image_match_confidence": "high",
-      "verification_note": "Exact National Treasure No. 310 image; local filename corrected from nt262 to nt310."
+      "verification_note": "Exact National Treasure No. 310 image; local filename corrected from nt262 to nt310.",
+      "image_display_mode": "exact"
     },
     {
       "id": "hero_hunminjeongeum",
@@ -89,7 +92,8 @@
       "confidence": "medium",
       "exact_image_verified": false,
       "image_match_confidence": "medium",
-      "verification_note": "Do not display unless the page is relabeled as a facsimile/reprint or an exact original source is confirmed."
+      "verification_note": "Do not display unless the page is relabeled as a facsimile/reprint or an exact original source is confirmed.",
+      "image_display_mode": "representative"
     },
     {
       "id": "hero_silla_gold_crown",
@@ -111,7 +115,8 @@
       "confidence": "high",
       "exact_image_verified": true,
       "image_match_confidence": "high",
-      "verification_note": "Exact National Treasure No. 87 image; local file refreshed from Commons original."
+      "verification_note": "Exact National Treasure No. 87 image; local file refreshed from Commons original.",
+      "image_display_mode": "exact"
     },
     {
       "id": "hero_baekje_incense_burner",
@@ -133,7 +138,8 @@
       "confidence": "high",
       "exact_image_verified": true,
       "image_match_confidence": "high",
-      "verification_note": "Exact National Treasure No. 287 object; local JPEG byte-matches Commons upload."
+      "verification_note": "Exact National Treasure No. 287 object; local JPEG byte-matches Commons upload.",
+      "image_display_mode": "exact"
     },
     {
       "id": "hero_divine_bell",
@@ -155,7 +161,8 @@
       "confidence": "high",
       "exact_image_verified": true,
       "image_match_confidence": "high",
-      "verification_note": "National Treasure No. 29 image, locally hosted; metadata reviewed."
+      "verification_note": "National Treasure No. 29 image, locally hosted; metadata reviewed.",
+      "image_display_mode": "exact"
     },
     {
       "id": "hero_tripitaka",
@@ -177,7 +184,8 @@
       "confidence": "high",
       "exact_image_verified": true,
       "image_match_confidence": "high",
-      "verification_note": "Exact Haeinsa Tripitaka Koreana woodblocks image; wrong copy-block fallback removed."
+      "verification_note": "Exact Haeinsa Tripitaka Koreana woodblocks image; wrong copy-block fallback removed.",
+      "image_display_mode": "exact"
     },
     {
       "id": "hero_celestial_chart",
@@ -199,7 +207,8 @@
       "confidence": "high",
       "exact_image_verified": true,
       "image_match_confidence": "high",
-      "verification_note": "National Treasure No. 228 image, locally hosted; metadata reviewed."
+      "verification_note": "National Treasure No. 228 image, locally hosted; metadata reviewed.",
+      "image_display_mode": "exact"
     },
     {
       "id": "hero_genre_album",
@@ -221,7 +230,8 @@
       "confidence": "high",
       "exact_image_verified": true,
       "image_match_confidence": "high",
-      "verification_note": "Exact Ssireum leaf from Kim Hong-do genre album."
+      "verification_note": "Exact Ssireum leaf from Kim Hong-do genre album.",
+      "image_display_mode": "exact"
     }
   ]
 }
