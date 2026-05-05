@@ -1075,3 +1075,20 @@ document.addEventListener('DOMContentLoaded', async () => {
     });
   });
 })();
+
+// Image error fallback — when khs.go.kr (or any external host) refuses a
+// hotlink, swap the broken <img> for the same "IMAGE WITHHELD" placeholder
+// the unverified cards already use. Delegated at the document root so it
+// catches images rendered after re-render. Capture phase because img.error
+// does not bubble.
+document.addEventListener('error', function (e) {
+  var img = e.target;
+  if (!(img instanceof HTMLImageElement)) return;
+  var figure = img.closest('.kpdh-card-figure, .room-hero-link.image-room-link, .verified-artifact-image');
+  if (!figure) return;
+  var placeholder = document.createElement('div');
+  placeholder.className = 'kpdh-card-image-pending';
+  placeholder.title = 'Source image unreachable — falling back to code plate.';
+  placeholder.innerHTML = '<span>IMAGE UNREACHABLE</span><small>source host blocked the request</small>';
+  figure.replaceWith(placeholder);
+}, true);

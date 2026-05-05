@@ -1851,7 +1851,22 @@ body.kpdh-home #card-grid.kpdh-cards-archive {
 /* Type-bump 2026-05-05 — small px-based labels were too tight to read.
    Bumps nav, card metadata, code blocks, and image captions ~25% so the
    page feels like a museum wall card, not a terminal log. Headlines and
-   body copy already scale via the html { font-size: 18px } root bump. */
+   body copy already scale via the html { font-size: 18px } root bump.
+   Hero + divider use clamp() with px floors/ceilings so we override here
+   instead of inheriting root rem. */
+
+.kpdh-hero h1 { font-size: clamp(44px, 5.2vw, 72px); }
+body[data-lang="en"] .kpdh-hero h1 { font-size: clamp(34px, 4vw, 56px); }
+.kpdh-hero .lede { font-size: clamp(15px, 1.4vw, 19px); line-height: 1.55; max-width: 640px; }
+.kpdh-hero .lang-badge { font-size: 12px; padding: 6px 12px; }
+.kpdh-hero .btn { font-size: 14px; padding: 10px 20px; }
+
+.kpdh-divider h2 { font-size: clamp(26px, 3vw, 36px); }
+body[data-lang="en"] .kpdh-divider h2 { font-size: clamp(22px, 2.4vw, 30px); }
+.kpdh-divider .han-label { font-size: 13px; }
+
+.kpdh-tab-bar .kpdh-tab-btn { font-size: 14px !important; padding: 12px 18px; }
+
 nav.kpdh-nav .logo { font-size: 32px; }
 nav.kpdh-nav .logo span { font-size: 16px; }
 nav.kpdh-nav .gh-chip { font-size: 13px; padding: 8px 16px; }
