@@ -28,7 +28,7 @@
       "confidence": "high",
       "exact_image_verified": true,
       "needs_verification": "",
-      "verification_note": "Exact National Treasure No. 228 image; placeholder SVG replaced by official local JPEG."
+      "verification_note": "National Treasure No. 228 image, locally hosted; metadata reviewed."
     }
   ],
   "license": "KOGL Type 1",
@@ -47,5 +47,5 @@
   "confidence": "high",
   "exact_image_verified": true,
   "image_match_confidence": "high",
-  "verification_note": "Exact National Treasure No. 228 image; placeholder SVG replaced by official local JPEG."
+  "verification_note": "National Treasure No. 228 image, locally hosted; metadata reviewed."
 }

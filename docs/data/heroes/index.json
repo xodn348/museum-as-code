@@ -155,7 +155,7 @@
       "confidence": "high",
       "exact_image_verified": true,
       "image_match_confidence": "high",
-      "verification_note": "Exact National Treasure No. 29 object; placeholder SVG replaced by local JPEG."
+      "verification_note": "National Treasure No. 29 image, locally hosted; metadata reviewed."
     },
     {
       "id": "hero_tripitaka",
@@ -199,7 +199,7 @@
       "confidence": "high",
       "exact_image_verified": true,
       "image_match_confidence": "high",
-      "verification_note": "Exact National Treasure No. 228 image; placeholder SVG replaced by official local JPEG."
+      "verification_note": "National Treasure No. 228 image, locally hosted; metadata reviewed."
     },
     {
       "id": "hero_genre_album",
