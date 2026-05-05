@@ -108,6 +108,24 @@ def validate_manifest(errors: list[str]) -> None:
                 errors.append(f"manifest exact_image_verified requires image_url for {artifact.get('id')}")
             if string_field(artifact, "needs_verification"):
                 errors.append(f"manifest exact_image_verified conflicts with needs_verification for {artifact.get('id')}")
+        # Renderer-accurate guard: archive cards read from manifest, not the
+        # per-artifact sidecar. Without image_display_mode the card silently
+        # falls through to the IMAGE WITHHELD placeholder even when image_url
+        # is present.
+        path, mode = _resolve_image(artifact)
+        if mode and mode not in ALLOWED_IMAGE_MODES:
+            errors.append(
+                f"manifest {artifact.get('id')}: unknown image_display_mode {mode!r}"
+            )
+        if not mode and image_url:
+            errors.append(
+                f"manifest {artifact.get('id')}: image_url set but image_display_mode missing — "
+                f"archive card will render as placeholder"
+            )
+        if mode in RENDERABLE_IMAGE_MODES and not (path or image_url):
+            errors.append(
+                f"manifest {artifact.get('id')}: image_display_mode={mode!r} requires an image"
+            )
         for key in ["json_path", "hgl_path"]:
             rel_path = string_field(artifact, key)
             if rel_path.startswith("data/"):
@@ -129,6 +147,20 @@ def validate_heroes(errors: list[str]) -> None:
             errors.append("hero index contains non-object hero")
             continue
         hero_id = string_field(hero, "id")
+        # Rooms tab reads only the index, not the per-hero sidecar. Without
+        # image_display_mode, getDisplayImagePath() returns '' and the room
+        # preview falls back to a code block instead of the photo.
+        index_mode = string_field(hero, "image_display_mode")
+        cover = string_field(hero, "cover_image")
+        if cover and not index_mode:
+            errors.append(
+                f"hero index {hero_id}: cover_image set but image_display_mode missing — "
+                f"rooms tab will render as code-only"
+            )
+        if index_mode and index_mode not in ALLOWED_IMAGE_MODES:
+            errors.append(
+                f"hero index {hero_id}: unknown image_display_mode {index_mode!r}"
+            )
         _check_path(errors, f"docs/{string_field(hero, 'data_file')}", f"hero data for {hero_id}")
         hgl_path = string_field(hero, "hgl_path")
         if hgl_path.startswith("data/"):
