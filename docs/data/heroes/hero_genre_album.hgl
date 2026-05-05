@@ -12,6 +12,8 @@
     소장처: 문자열,
     제작연도: 문자열,
     의의: 문자열,
+    이야기: 문자열,
+    이야기_영문: 문자열,
     이미지경로: 문자열,
     라이선스: 문자열,
     출처검증: 불,
@@ -28,6 +30,8 @@
         소장처: "국립중앙박물관",
         제작연도: "Joseon, 18th century",
         의의: "김홍도의 풍속도첩은 노동과 놀이, 유머와 움직임을 히어로 목록 안으로 끌어옵니다.",
+        이야기: "18세기 후반, 정조의 화원이자 도화서 출신 화가 김홍도는 양반·서민·농부·아이가 등장하는 일상의 한 장면씩을 화폭에 옮겨, 25폭의 풍속도 화첩을 엮었습니다. 씨름판에서 쓰러지는 한 명의 표정, 서당에서 회초리를 든 훈장과 우는 아이의 어깨, 대장간의 망치질 — 어느 한 폭도 풍경이 아니라 사람의 동작과 표정에서 시작해, 조선 풍속화가 무엇을 그리는 장르인지를 다시 정의했습니다. 같은 시대 정선의 진경산수가 조선의 땅을 본 그대로 그렸다면, 김홍도의 풍속도첩은 그 땅 위에 사는 사람들을 본 그대로 그려, 두 화가가 함께 18세기 조선의 시각적 자화상을 완성했습니다. 현재 국립중앙박물관에 소장된 이 화첩은 조선 후기 사회사를 그림 한 권으로 읽을 수 있게 해주는 가장 두꺼운 1차 사료입니다.",
+        이야기_영문: "In the late 18th century Kim Hong-do — court painter to King Jeongjo and graduate of the royal Dohwaseo academy — bound 25 leaves of scenes from ordinary life into a single album: yangban scholars, commoners, farmers, children, all caught mid-gesture. The face of the wrestler going down, the schoolmaster's switch raised over a weeping boy's shoulder, the swing of a hammer in the smithy — every leaf begins not in landscape but in human movement and expression, and together they redefined what Joseon genre painting was for. Where Jeong Seon's true-view landscapes painted the Joseon land as it actually looked, Danwon's album painted the people standing on that land as they actually moved — together the two painters completed an 18th-century visual self-portrait of Korea. Now in the National Museum of Korea, the album is the thickest single primary source we have for reading the social history of late Joseon as a picture book.",
         이미지경로: "images/heroes/hero_genre_album/danwon-ssireum.jpg",
         라이선스: "Public domain",
         출처검증: 참
@@ -35,7 +39,8 @@
 
     출력(형식("{0} — {1}", artifact.이름, artifact.지정번호))
     출력(형식("({0})", artifact.영문명))
-    출력(artifact.의의)
+    출력("")
+    출력(artifact.이야기)
 }
 
 main()

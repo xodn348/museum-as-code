@@ -297,10 +297,22 @@ function renderFeaturedHeroes(heroes) {
     const room = (hero.room || '').toUpperCase();
     const fileTag = `heroes/${kpdhVarName(hero.id)}.hgl`;
     const code = buildKpdhCardCode(hero);
+    const sidecarMode = hero.sidecar?.image_display_mode
+      || hero.sidecar?.images?.[0]?.image_display_mode
+      || '';
+    const captionKo = hero.sidecar?.image_caption_ko
+      || hero.sidecar?.images?.[0]?.caption_ko
+      || (sidecarMode === 'representative' ? '대표 도판' : '실물 이미지 검증 완료');
+    const captionEn = hero.sidecar?.image_caption_en
+      || hero.sidecar?.images?.[0]?.caption_en
+      || (sidecarMode === 'representative' ? 'representative work' : 'exact image verified');
     const imageMarkup = verified ? `
-      <figure class="kpdh-card-figure">
+      <figure class="kpdh-card-figure${sidecarMode === 'representative' ? ' representative' : ''}">
         <img src="${escapeHtml(imagePath)}" alt="${escapeHtml(titleEn)}" loading="lazy" decoding="async">
-        <figcaption>exact image verified</figcaption>
+        <figcaption>
+          <span data-lang="ko">${escapeHtml(captionKo)}</span>
+          <span data-lang="en">${escapeHtml(captionEn)}</span>
+        </figcaption>
       </figure>
     ` : `
       <div class="kpdh-card-image-pending" title="${escapeHtml(imageVerificationNote(hero))}">

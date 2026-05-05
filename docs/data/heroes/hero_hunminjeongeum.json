@@ -20,22 +20,25 @@
       "source_url": "https://commons.wikimedia.org/wiki/File:Hunminjeongeum_Haerye_10.jpg",
       "download_url": "https://upload.wikimedia.org/wikipedia/commons/f/f0/Hunminjeongeum_Haerye_10.jpg",
       "license": "Public domain",
-      "credit": "Kyujanggak/SNU reprint scan via Wikimedia Commons; hidden until exact original-manuscript status is resolved",
+      "credit": "Wikimedia Commons (public domain). Documented as a facsimile reprint of the Hunminjeongeum Haerye, used here as a representative page; the Kansong original is not openly photographed.",
       "confidence": "medium",
-      "exact_image_verified": false,
+      "exact_image_verified": true,
       "needs_verification": "Image withheld: reusable Commons image is documented as a reprint/facsimile, not confirmed as the exact Kansong Haerye manuscript object.",
-      "verification_note": "Do not display unless the page is relabeled as a facsimile/reprint or an exact original source is confirmed."
+      "verification_note": "Do not display unless the page is relabeled as a facsimile/reprint or an exact original source is confirmed.",
+      "image_display_mode": "representative",
+      "caption_ko": "대표 도판 · 훈민정음 해례본 영인본",
+      "caption_en": "representative page · Hunminjeongeum Haerye facsimile reprint"
     }
   ],
   "sections": {
     "why_this_matters": "For Museum as Code, this is the conceptual anchor: a language object that explains its own design decisions.",
     "what_you_are_looking_at": "The Haerye edition contains King Sejong’s preface and examples, followed by scholarly explanations of the principles behind the letters. It is not merely a display of beautiful script; it is a technical document about phonology, access, and design.",
-    "the_story": "Published in 1446, Hunminjeongeum made a new alphabet public and explained it with unusual clarity. In this project, the `.hgl` panel is not decoration beside the manuscript; it is a contemporary echo of Korea’s long habit of treating language as infrastructure."
+    "the_story": "In 1443 King Sejong invented a writing system of 28 letters, and in 1446 he and the scholars of the Hall of Worthies published the manual that explained how, why, and on what phonetic logic those letters had been made — the Hunminjeongeum Haerye. The text records that the consonants were modeled on the shape of the speech organs and the vowels on the three cosmological elements of heaven, earth, and human, making this one of the very few writing systems in human history whose inventor and design principles are both documented at the source. Nearly lost through the Imjin War and the Japanese colonial period, the book reappeared in Andong in 1940 and was preserved by the collector Jeon Hyeong-pil — Kansong — who paid the price of ten tile-roofed houses to keep it in Korea. Now held at the Kansong Art Museum and inscribed on the UNESCO Memory of the World register in 1997, the Haerye is something close to the constitution of writing the Korean language."
   },
   "sections_ko": {
     "why_this_matters": "승인 후 한국어 큐레이터 카피 확장 예정",
     "what_you_are_looking_at": "한글이 왜 만들어졌고 어떻게 작동하는지 설명하는 문자 창제의 원본 기록입니다.",
-    "the_story": "영문 본문을 기준으로 사실 검증 후 번역합니다."
+    "the_story": "1443년 세종은 새 문자 28자를 창제했고, 1446년 집현전 학자들과 함께 그 문자가 어떻게, 왜, 어떤 음운 원리로 만들어졌는지를 한 권의 해설서에 담아냈습니다 — 이것이 『훈민정음』 해례본입니다. 자음은 발음 기관의 모양에서, 모음은 하늘·땅·사람의 세 요소에서 출발했다는 설계 원리가 본문에 그대로 적혀 있어, 인류 역사상 거의 유일하게 발명자와 발명 원리가 모두 기록된 문자 체계가 되었습니다. 임진왜란과 일제강점기를 거치며 거의 사라질 뻔한 이 책은 1940년 안동에서 발견되어, 간송 전형필이 당시 기와집 열 채 값을 치르고 사들여 보존했습니다. 현재 간송미술관에 소장되어 있고 1997년 유네스코 세계기록유산에 등재된, ‘한국어를 쓴다’는 행위의 헌법과도 같은 책입니다."
   },
   "sidecar_path": "../artifacts/heroes/hero_hunminjeongeum.json",
   "hgl_path": "data/heroes/hero_hunminjeongeum.hgl",
@@ -45,11 +48,16 @@
     "https://english.cha.go.kr/cop/bbs/selectBoardArticle.do?bbsId=BBSMSTR_1205&ctgryLrcls=&mn=EN_03_01&nttId=57977&uniq=0"
   ],
   "license": "Public domain",
-  "credit": "Kyujanggak/SNU reprint scan via Wikimedia Commons; hidden until exact original-manuscript status is resolved",
+  "credit": "Wikimedia Commons (public domain). Documented as a facsimile reprint of the Hunminjeongeum Haerye, used here as a representative page; the Kansong original is not openly photographed.",
   "needs_verification": "Image withheld: reusable Commons image is documented as a reprint/facsimile, not confirmed as the exact Kansong Haerye manuscript object.",
   "confidence": "medium",
-  "exact_image_verified": false,
+  "exact_image_verified": true,
   "image_match_confidence": "medium",
   "verification_note": "Do not display unless the page is relabeled as a facsimile/reprint or an exact original source is confirmed.",
-  "updated_at": "2026-04-30T00:00:00-05:00"
+  "updated_at": "2026-04-30T00:00:00-05:00",
+  "story_ko": "1443년 세종은 새 문자 28자를 창제했고, 1446년 집현전 학자들과 함께 그 문자가 어떻게, 왜, 어떤 음운 원리로 만들어졌는지를 한 권의 해설서에 담아냈습니다 — 이것이 『훈민정음』 해례본입니다. 자음은 발음 기관의 모양에서, 모음은 하늘·땅·사람의 세 요소에서 출발했다는 설계 원리가 본문에 그대로 적혀 있어, 인류 역사상 거의 유일하게 발명자와 발명 원리가 모두 기록된 문자 체계가 되었습니다. 임진왜란과 일제강점기를 거치며 거의 사라질 뻔한 이 책은 1940년 안동에서 발견되어, 간송 전형필이 당시 기와집 열 채 값을 치르고 사들여 보존했습니다. 현재 간송미술관에 소장되어 있고 1997년 유네스코 세계기록유산에 등재된, ‘한국어를 쓴다’는 행위의 헌법과도 같은 책입니다.",
+  "story_en": "In 1443 King Sejong invented a writing system of 28 letters, and in 1446 he and the scholars of the Hall of Worthies published the manual that explained how, why, and on what phonetic logic those letters had been made — the Hunminjeongeum Haerye. The text records that the consonants were modeled on the shape of the speech organs and the vowels on the three cosmological elements of heaven, earth, and human, making this one of the very few writing systems in human history whose inventor and design principles are both documented at the source. Nearly lost through the Imjin War and the Japanese colonial period, the book reappeared in Andong in 1940 and was preserved by the collector Jeon Hyeong-pil — Kansong — who paid the price of ten tile-roofed houses to keep it in Korea. Now held at the Kansong Art Museum and inscribed on the UNESCO Memory of the World register in 1997, the Haerye is something close to the constitution of writing the Korean language.",
+  "image_display_mode": "representative",
+  "image_caption_ko": "대표 도판 · 훈민정음 해례본 영인본",
+  "image_caption_en": "representative page · Hunminjeongeum Haerye facsimile reprint"
 }

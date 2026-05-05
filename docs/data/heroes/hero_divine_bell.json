@@ -30,12 +30,12 @@
   "sections": {
     "why_this_matters": "The bell expands the experience beyond looking. It brings scale, inscription, Buddhist imagery, and the memory of sound into the digital museum.",
     "what_you_are_looking_at": "Dragon-shaped ornaments form the suspension loop, while a reverberation pipe rises near the crown. Decorative bands, lotus panels, and apsaras holding incense burners organize the enormous bronze surface.",
-    "the_story": "Completed in 771, the bell is also known as the Bell of Bongdeoksa Temple and, popularly, the Emille Bell. Its legend is famous, but its technical achievement is just as powerful: casting, relief, and acoustic design on a monumental scale."
+    "the_story": "In 771 King Hyegong of Silla dedicated an 18.9-ton bronze bell at Bongdeok Temple in memory of his grandfather King Seongdeok. The bell's signature long-decaying tone — the sound that gives it the folk name 'Emille' — comes from the precise proportion of its bronze alloy together with an acoustic chimney inside the bell, a Silla-only design unknown in any other bell tradition in the world. Two flying apsaras face each other across the surface in low relief, so that a single strike visually drops a celestial music into the human world. The bell was retired from active ringing to protect it, but it now hangs outdoors at the Gyeongju National Museum — the prototype, in one object, of every Korean temple bell that came after."
   },
   "sections_ko": {
     "why_this_matters": "승인 후 한국어 큐레이터 카피 확장 예정",
     "what_you_are_looking_at": "부조와 명문, 울림으로 한국 범종의 기준이 된 통일신라의 거대한 청동 종입니다.",
-    "the_story": "영문 본문을 기준으로 사실 검증 후 번역합니다."
+    "the_story": "771년, 신라 혜공왕은 할아버지 성덕대왕을 기리기 위해 무게 18.9톤의 청동 종을 봉덕사에 봉헌했습니다. 종을 한 번 치면 길게 늘어지는 ‘에밀레…’ 소리는 청동 합금의 미세한 비율과 종 안쪽의 음통(音筒) 구조 — 세계 어느 종에도 없는 신라식 설계 — 가 함께 만들어내는 결과입니다. 종의 표면에는 비천상이 마주보며 새겨져, 두드림 한 번에 천상의 음악이 인간의 영역으로 내려오는 장면을 시각화합니다. 1,200년이 지난 지금 보존을 위해 직접 타종은 멈췄지만, 국립경주박물관 야외 전시장에 걸린 이 한 종은 한국 종소리의 원형, 그 자체입니다."
   },
   "sidecar_path": "../artifacts/heroes/hero_divine_bell.json",
   "hgl_path": "data/heroes/hero_divine_bell.hgl",
@@ -53,5 +53,7 @@
   "exact_image_verified": true,
   "image_match_confidence": "high",
   "verification_note": "Exact National Treasure No. 29 object; placeholder SVG replaced by local JPEG.",
-  "updated_at": "2026-04-30T00:00:00-05:00"
+  "updated_at": "2026-04-30T00:00:00-05:00",
+  "story_ko": "771년, 신라 혜공왕은 할아버지 성덕대왕을 기리기 위해 무게 18.9톤의 청동 종을 봉덕사에 봉헌했습니다. 종을 한 번 치면 길게 늘어지는 ‘에밀레…’ 소리는 청동 합금의 미세한 비율과 종 안쪽의 음통(音筒) 구조 — 세계 어느 종에도 없는 신라식 설계 — 가 함께 만들어내는 결과입니다. 종의 표면에는 비천상이 마주보며 새겨져, 두드림 한 번에 천상의 음악이 인간의 영역으로 내려오는 장면을 시각화합니다. 1,200년이 지난 지금 보존을 위해 직접 타종은 멈췄지만, 국립경주박물관 야외 전시장에 걸린 이 한 종은 한국 종소리의 원형, 그 자체입니다.",
+  "story_en": "In 771 King Hyegong of Silla dedicated an 18.9-ton bronze bell at Bongdeok Temple in memory of his grandfather King Seongdeok. The bell's signature long-decaying tone — the sound that gives it the folk name 'Emille' — comes from the precise proportion of its bronze alloy together with an acoustic chimney inside the bell, a Silla-only design unknown in any other bell tradition in the world. Two flying apsaras face each other across the surface in low relief, so that a single strike visually drops a celestial music into the human world. The bell was retired from active ringing to protect it, but it now hangs outdoors at the Gyeongju National Museum — the prototype, in one object, of every Korean temple bell that came after."
 }

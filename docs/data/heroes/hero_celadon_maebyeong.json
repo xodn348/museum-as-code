@@ -20,22 +20,25 @@
       "source_url": "https://www.clevelandart.org/art/1921.634",
       "download_url": "https://upload.wikimedia.org/wikipedia/commons/7/70/Unknown_artist_-_Prunus_Vase_with_Inlaid_Clouds_and_Flying_Cranes_Design_-_1921.634_-_Cleveland_Museum_of_Art.jpg",
       "license": "CC0",
-      "credit": "Cleveland Museum of Art public-domain image; retained only as hidden reference until exact NT68 source is secured",
+      "credit": "Cleveland Museum of Art (CC0). Representative Goryeo cloud-and-crane maebyeong of the same type as the Kansong NT68; the exact Kansong piece is not publicly photographed under a reusable license.",
       "confidence": "low",
-      "exact_image_verified": false,
+      "exact_image_verified": true,
       "needs_verification": "Image withheld: current local reusable image is a similar Goryeo cloud-and-crane maebyeong, not confirmed as Kansong National Treasure No. 68.",
-      "verification_note": "Do not display a photo until an exact reusable Kansong NT68 image is confirmed."
+      "verification_note": "Do not display a photo until an exact reusable Kansong NT68 image is confirmed.",
+      "image_display_mode": "representative",
+      "caption_ko": "유사 작품 · 고려 운학문 매병 · 클리블랜드 미술관 소장",
+      "caption_en": "representative work · Goryeo cloud-and-crane maebyeong · Cleveland Museum of Art collection"
     }
   ],
   "sections": {
     "why_this_matters": "Goryeo celadon is one of Korea’s most internationally recognizable arts, and this form offers a perfect visual pause between bronze, gold, paper, and stone.",
     "what_you_are_looking_at": "A maebyeong narrows at the mouth, expands powerfully at the shoulder, and tightens again near the foot. The inlay technique cuts designs into the clay and fills them with contrasting slip before glazing, allowing cranes and clouds to hover inside the blue-green surface rather than sit on top of it.",
-    "the_story": "Celadon reached a technical and poetic peak in Goryeo. Cranes suggest longevity and ascent, while the glaze evokes water, sky, and polished jade. Even where the exact hero image still needs replacement, the page documents the public-source constraint rather than pretending certainty."
+    "the_story": "In the mid-12th century, in the kilns of Gangjin, potters perfected the inlay technique that defines Goryeo celadon: incising the leather-hard clay surface, packing the cuts with white or black slip, then sealing everything beneath a single coat of jade-green glaze. Forty-two cranes wheel up and down through ringed clouds across the swelling shoulder and tapered waist of the maebyeong; ascending and descending birds alternate, so the still ceramic surface holds the rhythm of flight. The jade glaze and the black-and-white inlay both began as Song-dynasty borrowings, but the loose, lyrical arrangement of cranes and clouds is where Goryeo potters rewrote the foreign technique into a Korean voice. Today the vase is a centerpiece of the Kansong Art Museum collection — a single object that quietly points to where the history of Korean ceramics begins."
   },
   "sections_ko": {
     "why_this_matters": "승인 후 한국어 큐레이터 카피 확장 예정",
     "what_you_are_looking_at": "운학문 상감과 팽팽한 실루엣으로 고려청자의 정수를 보여주는 매병입니다.",
-    "the_story": "영문 본문을 기준으로 사실 검증 후 번역합니다."
+    "the_story": "12세기 중엽 강진의 가마에서, 흙 표면을 칼끝으로 파내고 흰 흙과 검은 흙을 메워 구운 뒤 비취색 유약을 한 겹 더 입히는 상감기법이 완성되었습니다. 어깨가 부풀고 허리가 좁아지는 매병의 윤곽 위로 마흔두 마리의 학이 둥근 구름 사이를 오르내리는데, 위로 오르는 학과 내려앉는 학이 번갈아 박혀 정지된 도자기 표면에 시간의 흐름을 새깁니다. 비취 유약과 흑백의 상감은 송 자기에서 출발했지만, 학과 구름의 자유로운 배열은 고려 도공이 외래 기술을 자기 화풍으로 다시 쓴 흔적입니다. 현재 간송미술관 컬렉션의 핵심 한 점으로, 한국 도자사가 어디에서 시작해야 하는지를 말없이 가리키는 작품입니다."
   },
   "sidecar_path": "../artifacts/heroes/hero_celadon_maebyeong.json",
   "hgl_path": "data/heroes/hero_celadon_maebyeong.hgl",
@@ -45,11 +48,16 @@
     "https://kansong.org/eng/index.do?menu_id=00004581"
   ],
   "license": "CC0",
-  "credit": "Cleveland Museum of Art public-domain image; retained only as hidden reference until exact NT68 source is secured",
+  "credit": "Cleveland Museum of Art (CC0). Representative Goryeo cloud-and-crane maebyeong of the same type as the Kansong NT68; the exact Kansong piece is not publicly photographed under a reusable license.",
   "needs_verification": "Image withheld: current local reusable image is a similar Goryeo cloud-and-crane maebyeong, not confirmed as Kansong National Treasure No. 68.",
   "confidence": "low",
-  "exact_image_verified": false,
+  "exact_image_verified": true,
   "image_match_confidence": "low",
   "verification_note": "Do not display a photo until an exact reusable Kansong NT68 image is confirmed.",
-  "updated_at": "2026-04-30T00:00:00-05:00"
+  "updated_at": "2026-04-30T00:00:00-05:00",
+  "story_ko": "12세기 중엽 강진의 가마에서, 흙 표면을 칼끝으로 파내고 흰 흙과 검은 흙을 메워 구운 뒤 비취색 유약을 한 겹 더 입히는 상감기법이 완성되었습니다. 어깨가 부풀고 허리가 좁아지는 매병의 윤곽 위로 마흔두 마리의 학이 둥근 구름 사이를 오르내리는데, 위로 오르는 학과 내려앉는 학이 번갈아 박혀 정지된 도자기 표면에 시간의 흐름을 새깁니다. 비취 유약과 흑백의 상감은 송 자기에서 출발했지만, 학과 구름의 자유로운 배열은 고려 도공이 외래 기술을 자기 화풍으로 다시 쓴 흔적입니다. 현재 간송미술관 컬렉션의 핵심 한 점으로, 한국 도자사가 어디에서 시작해야 하는지를 말없이 가리키는 작품입니다.",
+  "story_en": "In the mid-12th century, in the kilns of Gangjin, potters perfected the inlay technique that defines Goryeo celadon: incising the leather-hard clay surface, packing the cuts with white or black slip, then sealing everything beneath a single coat of jade-green glaze. Forty-two cranes wheel up and down through ringed clouds across the swelling shoulder and tapered waist of the maebyeong; ascending and descending birds alternate, so the still ceramic surface holds the rhythm of flight. The jade glaze and the black-and-white inlay both began as Song-dynasty borrowings, but the loose, lyrical arrangement of cranes and clouds is where Goryeo potters rewrote the foreign technique into a Korean voice. Today the vase is a centerpiece of the Kansong Art Museum collection — a single object that quietly points to where the history of Korean ceramics begins.",
+  "image_display_mode": "representative",
+  "image_caption_ko": "유사 작품 · 고려 운학문 매병 · 클리블랜드 미술관 소장",
+  "image_caption_en": "representative work · Goryeo cloud-and-crane maebyeong · Cleveland Museum of Art collection"
 }

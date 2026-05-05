@@ -1948,6 +1948,13 @@ body.kpdh-home .room-hero-link.image-room-link .room-code-label small {
 .kpdh-card .hero-story-body { margin: 0; }
 .kpdh-card.image-verified pre { height: auto; max-height: 168px; }
 
+/* Representative-image badge — honest about not-the-exact-piece status. */
+.kpdh-card-figure.representative figcaption {
+  background: rgba(217, 180, 94, .92);
+  color: var(--ink);
+  border-color: var(--han-gold);
+}
+
 nav.kpdh-nav .logo { font-size: 32px; }
 nav.kpdh-nav .logo span { font-size: 16px; }
 nav.kpdh-nav .gh-chip { font-size: 13px; padding: 8px 16px; }

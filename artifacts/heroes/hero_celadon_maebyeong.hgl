@@ -12,6 +12,8 @@
     소장처: 문자열,
     제작연도: 문자열,
     의의: 문자열,
+    이야기: 문자열,
+    이야기_영문: 문자열,
     이미지경로: 문자열,
     라이선스: 문자열,
     출처검증: 불,
@@ -28,6 +30,8 @@
         소장처: "간송미술관",
         제작연도: "Goryeo, 12th century",
         의의: "운학문 상감과 팽팽한 실루엣으로 고려청자의 정수를 보여주는 매병입니다.",
+        이야기: "12세기 중엽 강진의 가마에서, 흙 표면을 칼끝으로 파내고 흰 흙과 검은 흙을 메워 구운 뒤 비취색 유약을 한 겹 더 입히는 상감기법이 완성되었습니다. 어깨가 부풀고 허리가 좁아지는 매병의 윤곽 위로 마흔두 마리의 학이 둥근 구름 사이를 오르내리는데, 위로 오르는 학과 내려앉는 학이 번갈아 박혀 정지된 도자기 표면에 시간의 흐름을 새깁니다. 비취 유약과 흑백의 상감은 송 자기에서 출발했지만, 학과 구름의 자유로운 배열은 고려 도공이 외래 기술을 자기 화풍으로 다시 쓴 흔적입니다. 현재 간송미술관 컬렉션의 핵심 한 점으로, 한국 도자사가 어디에서 시작해야 하는지를 말없이 가리키는 작품입니다.",
+        이야기_영문: "In the mid-12th century, in the kilns of Gangjin, potters perfected the inlay technique that defines Goryeo celadon: incising the leather-hard clay surface, packing the cuts with white or black slip, then sealing everything beneath a single coat of jade-green glaze. Forty-two cranes wheel up and down through ringed clouds across the swelling shoulder and tapered waist of the maebyeong; ascending and descending birds alternate, so the still ceramic surface holds the rhythm of flight. The jade glaze and the black-and-white inlay both began as Song-dynasty borrowings, but the loose, lyrical arrangement of cranes and clouds is where Goryeo potters rewrote the foreign technique into a Korean voice. Today the vase is a centerpiece of the Kansong Art Museum collection — a single object that quietly points to where the history of Korean ceramics begins.",
         이미지경로: "images/heroes/hero_celadon_maebyeong/celadon-cloud-crane.jpg",
         라이선스: "CC0",
         출처검증: 거짓
@@ -35,7 +39,8 @@
 
     출력(형식("{0} — {1}", artifact.이름, artifact.지정번호))
     출력(형식("({0})", artifact.영문명))
-    출력(artifact.의의)
+    출력("")
+    출력(artifact.이야기)
 }
 
 main()

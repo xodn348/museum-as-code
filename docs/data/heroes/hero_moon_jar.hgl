@@ -12,6 +12,8 @@
     소장처: 문자열,
     제작연도: 문자열,
     의의: 문자열,
+    이야기: 문자열,
+    이야기_영문: 문자열,
     이미지경로: 문자열,
     라이선스: 문자열,
     출처검증: 불,
@@ -28,6 +30,8 @@
         소장처: "국립중앙박물관 공개 이미지 예시",
         제작연도: "Joseon, 17th–18th century",
         의의: "순백의 둥근 형태와 미세한 비대칭이 조선 미감의 절제를 보여주는 달항아리입니다.",
+        이야기: "17세기 후반에서 18세기 초, 광주 분원의 사옹원 도공들은 큰 백자를 한 번에 빚지 못해 윗부분과 아랫부분을 따로 만들어 가운데에서 이어 붙였습니다. 이음새가 살짝 비대칭으로 어긋나면서 정원이 아니라 보름달처럼 약간 일그러진 둥글기가 생기는데, 이 ‘실패한 대칭’이 오히려 달항아리의 얼굴이 됩니다. 푸른빛 한 점 없이 우윳빛 한 가지로 채운 표면은 조선 중기 사대부의 미감 — 화려함보다 절제와 여백 — 을 그대로 옮긴 결과입니다. 김환기가 평생을 바쳐 그렸고 박서보가 단색화의 원형으로 다시 호출한 형상으로, 이 한 항아리는 조선의 미학에서 한국 현대미술의 정체성까지 곧장 이어지는 다리입니다.",
+        이야기_영문: "Between the late 17th and early 18th centuries, the royal kilns at Bunwon in Gwangju could not throw a vessel of this size in a single piece — so the potters made the upper and lower hemispheres separately and joined them at the equator. The seam misaligned slightly every time, and the asymmetry that resulted — not a perfect circle but a softly imperfect full moon — is precisely what gives the moon jar its face. The unbroken milk-white surface, with no blue underglaze and no decoration, is the Joseon literati aesthetic made into ceramic: restraint and empty space prized over ornament. The form Kim Whan-ki painted obsessively his whole life, and Park Seo-bo later named as the prototype of dansaekhwa monochrome painting — a single jar that runs from Joseon court taste straight into Korea's modern artistic identity.",
         이미지경로: "images/heroes/hero_moon_jar/moon-jar-nt310.jpg",
         라이선스: "KOGL Type 1",
         출처검증: 참
@@ -35,7 +39,8 @@
 
     출력(형식("{0} — {1}", artifact.이름, artifact.지정번호))
     출력(형식("({0})", artifact.영문명))
-    출력(artifact.의의)
+    출력("")
+    출력(artifact.이야기)
 }
 
 main()

@@ -12,6 +12,8 @@
     소장처: 문자열,
     제작연도: 문자열,
     의의: 문자열,
+    이야기: 문자열,
+    이야기_영문: 문자열,
     이미지경로: 문자열,
     라이선스: 문자열,
     출처검증: 불,
@@ -28,6 +30,8 @@
         소장처: "국립중앙박물관",
         제작연도: "Silla, 5th century",
         의의: "나뭇가지 모양 입식과 곡옥 장식이 신라 왕권과 제의를 압축한 금관입니다.",
+        이야기: "5–6세기 신라 마립간의 무덤에서, 금판을 가위로 오리고 망치로 두드려 만든 관이 머리뼈 위에 그대로 얹힌 채 발견되었습니다. 둥근 띠 위로 솟은 山자형 입식과 사슴뿔 모양의 가지에는 작은 곡옥과 영락이 매달려, 죽은 왕이 움직이지 않아도 빛이 흔들리며 살아 움직이는 듯한 효과를 냈습니다. 가지의 형상은 시베리아 샤먼의 관과 닮아 있어, 신라 왕권이 내륙 아시아의 신화적 전통과 깊이 연결되어 있었음을 시사합니다. 금관총이라는 이름 자체가 이 관의 발견에서 비롯된 것으로, 신라가 ‘황금의 나라’로 기록되었던 이유를 가장 직접적으로 보여주는 한 점입니다.",
+        이야기_영문: "In the 5th–6th century, in the tomb of a Silla maripgan ruler, a crown cut from sheet gold and hammered into shape was found resting directly on the skull. From a circular band rise tree-like uprights in the form of the Chinese character 山 and antler-shaped branches, hung with comma-shaped jades and gold spangles so that even a still body would have made the crown shimmer at the smallest motion. The branching forms echo the headdresses of Siberian shaman traditions, suggesting that Silla kingship drew on a mythic vocabulary stretching deep into inland Asia. The tomb itself was named Geumgwanchong — Gold Crown Tomb — for the discovery of this object, and it is the most direct surviving reason that ancient texts called Silla 'the country of gold.'",
         이미지경로: "images/heroes/hero_silla_gold_crown/geumgwanchong-crown.jpg",
         라이선스: "KOGL Type 1",
         출처검증: 참
@@ -35,7 +39,8 @@
 
     출력(형식("{0} — {1}", artifact.이름, artifact.지정번호))
     출력(형식("({0})", artifact.영문명))
-    출력(artifact.의의)
+    출력("")
+    출력(artifact.이야기)
 }
 
 main()

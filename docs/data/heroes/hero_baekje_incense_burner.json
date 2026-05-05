@@ -30,12 +30,12 @@
   "sections": {
     "why_this_matters": "No other object in the set carries so many worlds at once: scent, ritual, animals, music, immortals, mountains, and smoke.",
     "what_you_are_looking_at": "The burner rises from a dragon base to a lotus bowl and a mountain-shaped lid topped by a phoenix. Small openings among the peaks let incense smoke drift through the landscape, animating the metal with air.",
-    "the_story": "Discovered at Neungsan-ri in Buyeo, the burner shows Baekje’s ability to absorb Buddhist and Daoist imagery into a distinct court style. It is ideal for a scroll page because every level rewards close looking."
+    "the_story": "When this bronze incense burner was lifted from the mud of a temple site in Buyeo in 1993, after 1,400 years underground, it was the most startling Korean archaeological find since the fall of Baekje itself. Sixty-four centimeters tall, the burner stacks a dragon at the base, lotus petals on the body, the Daoist Mount Bo on the lid, and a phoenix at the summit — a vertical compression of Korean, Chinese, and Indian religious imagination into a single object. Smoke escapes through five small openings in the lid in a way that, lit and breathed, makes mist appear to rise from a peak: the burner was engineered to construct a small cosmos in the air above it. Now the heaviest single object at the Buyeo National Museum, it is the proof — in one piece — that Baekje metalwork stood with the finest in 7th-century East Asia."
   },
   "sections_ko": {
     "why_this_matters": "승인 후 한국어 큐레이터 카피 확장 예정",
     "what_you_are_looking_at": "봉황, 산악형 뚜껑, 연꽃 몸체, 용 받침이 한 몸을 이룬 백제 공예의 절정입니다.",
-    "the_story": "영문 본문을 기준으로 사실 검증 후 번역합니다."
+    "the_story": "1993년 부여 능산리 절터의 진흙 속에서 1,400년을 잠들었던 청동 향로 한 점이 발견되었을 때, 그것은 백제 멸망 이후 가장 충격적인 고고학 발견으로 기록되었습니다. 높이 64cm의 향로는 받침의 용, 몸체의 연꽃, 뚜껑의 박산 — 도교의 신선세계 — , 그리고 정상의 봉황까지 한국·중국·인도의 종교적 상상을 한 작품에 압축해 담았습니다. 뚜껑의 작은 구멍 다섯 개로 향연이 새어나오면 마치 산 위에서 안개가 피어나는 듯한 환영을 만들어, 향로 자체가 작은 세계를 짓는 장치로 설계되었음을 보여줍니다. 백제의 금속공예가 동아시아 어느 왕국에도 뒤지지 않았음을 단 한 점으로 증명하는, 국립부여박물관의 가장 무거운 한 점입니다."
   },
   "sidecar_path": "../artifacts/heroes/hero_baekje_incense_burner.json",
   "hgl_path": "data/heroes/hero_baekje_incense_burner.hgl",
@@ -52,5 +52,7 @@
   "exact_image_verified": true,
   "image_match_confidence": "high",
   "verification_note": "Exact National Treasure No. 287 object; local JPEG byte-matches Commons upload.",
-  "updated_at": "2026-04-30T00:00:00-05:00"
+  "updated_at": "2026-04-30T00:00:00-05:00",
+  "story_ko": "1993년 부여 능산리 절터의 진흙 속에서 1,400년을 잠들었던 청동 향로 한 점이 발견되었을 때, 그것은 백제 멸망 이후 가장 충격적인 고고학 발견으로 기록되었습니다. 높이 64cm의 향로는 받침의 용, 몸체의 연꽃, 뚜껑의 박산 — 도교의 신선세계 — , 그리고 정상의 봉황까지 한국·중국·인도의 종교적 상상을 한 작품에 압축해 담았습니다. 뚜껑의 작은 구멍 다섯 개로 향연이 새어나오면 마치 산 위에서 안개가 피어나는 듯한 환영을 만들어, 향로 자체가 작은 세계를 짓는 장치로 설계되었음을 보여줍니다. 백제의 금속공예가 동아시아 어느 왕국에도 뒤지지 않았음을 단 한 점으로 증명하는, 국립부여박물관의 가장 무거운 한 점입니다.",
+  "story_en": "When this bronze incense burner was lifted from the mud of a temple site in Buyeo in 1993, after 1,400 years underground, it was the most startling Korean archaeological find since the fall of Baekje itself. Sixty-four centimeters tall, the burner stacks a dragon at the base, lotus petals on the body, the Daoist Mount Bo on the lid, and a phoenix at the summit — a vertical compression of Korean, Chinese, and Indian religious imagination into a single object. Smoke escapes through five small openings in the lid in a way that, lit and breathed, makes mist appear to rise from a peak: the burner was engineered to construct a small cosmos in the air above it. Now the heaviest single object at the Buyeo National Museum, it is the proof — in one piece — that Baekje metalwork stood with the finest in 7th-century East Asia."
 }
