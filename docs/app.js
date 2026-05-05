@@ -24,6 +24,39 @@ const FILTER_LABELS = {
   kdh: 'KDH',
 };
 
+// Bilingual UI strings reused across loading / empty / error placeholders.
+// Keep keys stable; values flip on currentLang via t(key). When adding a new
+// key, include both 'ko' and 'en' — never one-sided.
+const UI_STRINGS = {
+  rooms_load_failed:        { ko: '전시실을 불러오지 못했습니다.', en: 'Rooms failed to load.' },
+  hero_index_load_failed:   { ko: '히어로 유물을 불러오지 못했습니다.', en: 'Hero artifacts failed to load.' },
+  manifest_load_failed:     { ko: 'manifest.json 로드 실패', en: 'Failed to load manifest.json' },
+  detail_not_found:         { ko: '상세 정보를 찾을 수 없습니다.', en: 'Detail not found.' },
+  detail_load_failed:       { ko: '상세 정보를 불러오지 못했습니다.', en: 'Failed to load detail.' },
+  image_pending_label:      { ko: '이미지 검증 대기', en: 'Image pending verification' },
+  image_pending_sub:        { ko: '실물 출처 매칭이 완료된 뒤 공개됩니다', en: 'will appear once the source match is confirmed' },
+  image_unreachable_label:  { ko: '이미지 연결 실패', en: 'Image unreachable' },
+  image_unreachable_sub:    { ko: '원본 호스트가 요청을 차단했습니다', en: 'source host blocked the request' },
+  hero_pages_suffix:        { ko: '점의 히어로 유물', en: 'hero pages' },
+  archive_count_template:   { ko: '국보·보물 · {n} · .hgl로 작성', en: 'National Treasures · {n} · written in .hgl' },
+  awaiting_exact_meta:      { ko: '실물 이미지 대기 · .hgl', en: 'awaiting exact image · .hgl' },
+  exact_meta:               { ko: '실물 이미지 · 출처 검증 · .hgl', en: 'exact image · source-backed · .hgl' },
+  image_withheld_note: {
+    ko: '실제 유물·라이선스·로컬 파일이 검증될 때까지 이미지를 보류합니다.',
+    en: 'Image withheld until the exact object, license, and local file are verified.',
+  },
+  image_unreachable_fallback: {
+    ko: '원본 이미지에 접근할 수 없어 코드 플레이트로 대체합니다.',
+    en: 'Source image unreachable — falling back to code plate.',
+  },
+};
+
+function t(key) {
+  const entry = UI_STRINGS[key];
+  if (!entry) return '';
+  return (currentLang === 'ko' ? entry.ko : entry.en) || entry.en || entry.ko || '';
+}
+
 
 
 function buildMiniHglArtifact({ nameKo, nameEn, designation, room, sourcePath }) {
@@ -63,12 +96,34 @@ function getVerifiedImagePath(record) {
     || '';
 }
 
+// Bilingual placeholder for cards whose exact image has not been confirmed
+// (or whose `image_display_mode === 'withheld'`). Renders both Korean and
+// English labels via the static-swap pattern so visibility flips with
+// body[data-lang]. Avoids the all-caps "IMAGE WITHHELD" system token in the
+// user-facing UI.
+function renderImagePendingMarkup(record) {
+  const cap = resolveImageCaption(record);
+  const isWithheld = cap.mode === 'withheld';
+  const label = isWithheld
+    ? { ko: cap.ko || UI_STRINGS.image_pending_label.ko, en: cap.en || UI_STRINGS.image_pending_label.en }
+    : { ko: UI_STRINGS.image_pending_label.ko, en: UI_STRINGS.image_pending_label.en };
+  const sub = { ko: UI_STRINGS.image_pending_sub.ko, en: UI_STRINGS.image_pending_sub.en };
+  return `
+      <div class="kpdh-card-image-pending" title="${escapeHtml(imageVerificationNote(record))}">
+        <span data-lang="ko">${escapeHtml(label.ko)}</span>
+        <span data-lang="en">${escapeHtml(label.en)}</span>
+        <small data-lang="ko">${escapeHtml(sub.ko)}</small>
+        <small data-lang="en">${escapeHtml(sub.en)}</small>
+      </div>
+    `;
+}
+
 function imageVerificationNote(record) {
   return record?.verification_note
     || record?.sidecar?.verification_note
     || record?.needs_verification
     || record?.sidecar?.needs_verification
-    || 'Image withheld until the exact object, license, and local file are verified.';
+    || t('image_withheld_note');
 }
 
 function getOfficialImageUrl(record) {
@@ -92,11 +147,13 @@ function resolveImageCaption(record) {
     || firstImage?.caption_ko
     || (mode === 'official' ? '공식 도판 · 국가유산청'
       : mode === 'representative' ? '대표 도판'
+      : mode === 'withheld' ? '이미지 비공개 · 출처 검증 대기'
       : '실물 이미지 검증 완료');
   const en = sidecar.image_caption_en
     || firstImage?.caption_en
     || (mode === 'official' ? 'official photograph · CHA'
       : mode === 'representative' ? 'representative work'
+      : mode === 'withheld' ? 'image withheld · awaiting source verification'
       : 'exact image verified');
   return { mode, ko, en };
 }
@@ -172,7 +229,7 @@ async function loadRooms() {
     renderRooms(Array.isArray(rooms.rooms) ? rooms.rooms : [], hydratedHeroes);
   } catch (error) {
     console.error('rooms 로드 실패:', error);
-    grid.innerHTML = '<p class="error">Rooms failed to load.</p>';
+    grid.innerHTML = `<p class="error">${escapeHtml(t('rooms_load_failed'))}</p>`;
   }
 }
 
@@ -190,7 +247,9 @@ function renderRooms(rooms, heroes) {
       card.className = 'room-card';
       const roomHeroes = (room.hero_ids || []).map((id) => heroById.get(id)).filter(Boolean);
       const preview = roomHeroes.slice(0, 3).map((hero) => {
-        const title = currentLang === 'ko' ? (hero.name_ko || '') : (hero.name_en || hero.name_ko || '');
+        const title = currentLang === 'ko'
+          ? (hero.name_ko || hero.name_en || '')
+          : (hero.name_en || hero.name_ko || '');
         const imagePath = getVerifiedImagePath(hero);
         if (imagePath) {
           const cap = resolveImageCaption(hero);
@@ -220,9 +279,9 @@ function renderRooms(rooms, heroes) {
       }).join('');
       card.innerHTML = `
         <div class="room-card-heading">
-          <p class="room-count">${String(roomHeroes.length).padStart(2, '0')} hero pages</p>
-          <h3>${escapeHtml(currentLang === 'ko' ? room.name_ko : room.name_en)}</h3>
-          <p>${escapeHtml(currentLang === 'ko' ? room.intro_ko : room.intro_en)}</p>
+          <p class="room-count">${String(roomHeroes.length).padStart(2, '0')} ${escapeHtml(t('hero_pages_suffix'))}</p>
+          <h3>${escapeHtml(currentLang === 'ko' ? (room.name_ko || room.name_en || '') : (room.name_en || room.name_ko || ''))}</h3>
+          <p>${escapeHtml(currentLang === 'ko' ? (room.intro_ko || room.intro_en || '') : (room.intro_en || room.intro_ko || ''))}</p>
         </div>
         <div class="room-hero-strip">${preview}</div>
       `;
@@ -249,7 +308,7 @@ async function loadFeaturedHeroes() {
     renderFeaturedHeroes(heroesWithSidecar);
   } catch (error) {
     console.error('hero index 로드 실패:', error);
-    grid.innerHTML = '<p class="error">Hero artifacts failed to load.</p>';
+    grid.innerHTML = `<p class="error">${escapeHtml(t('hero_index_load_failed'))}</p>`;
   }
 }
 
@@ -319,7 +378,7 @@ function renderFeaturedHeroes(heroes) {
     card.style.setProperty('--delay', `${Math.min(index * 40, 320)}ms`);
 
     const titleEn = hero.name_en || hero.name_ko || '';
-    const titleKr = hero.name_ko || '';
+    const titleKr = hero.name_ko || hero.name_en || '';
     const seal = String(index + 1).padStart(2, '0');
     const room = (hero.room || '').toUpperCase();
     const fileTag = `heroes/${kpdhVarName(hero.id)}.hgl`;
@@ -334,12 +393,7 @@ function renderFeaturedHeroes(heroes) {
           <span data-lang="en">${escapeHtml(cap.en)}</span>
         </figcaption>
       </figure>
-    ` : `
-      <div class="kpdh-card-image-pending" title="${escapeHtml(imageVerificationNote(hero))}">
-        <span>IMAGE WITHHELD</span>
-        <small>source match pending</small>
-      </div>
-    `;
+    ` : renderImagePendingMarkup(hero);
 
     card.innerHTML = `
       <div class="seal">${escapeHtml(seal)}</div>
@@ -349,7 +403,7 @@ function renderFeaturedHeroes(heroes) {
       <pre class="hgl"><code class="hgl">${highlightCode(code)}</code></pre>
       <div class="title-en">${escapeHtml(titleEn)}</div>
       <div class="title-kr">${escapeHtml(titleKr)}</div>
-      <div class="meta">→ ${verified ? 'exact image · source-backed · .hgl' : 'awaiting exact image · .hgl'}</div>
+      <div class="meta">→ ${escapeHtml(verified ? t('exact_meta') : t('awaiting_exact_meta'))}</div>
     `;
     fragment.appendChild(card);
   });
@@ -542,8 +596,13 @@ function renderDetailContent(detailData) {
     hglContent,
   } = detailData;
 
-  const nameKo = sidecar.name ?? artifact.name_ko ?? '';
-  const nameEn = sidecar.name_en ?? artifact.name_en ?? '';
+  const nameKoRaw = sidecar.name ?? artifact.name_ko ?? '';
+  const nameEnRaw = sidecar.name_en ?? artifact.name_en ?? '';
+  // Detail H2/H3 must never render empty: cross-fall back so a missing
+  // Korean title still shows the English title (and vice versa) — better
+  // than a hollow heading on the overlay.
+  const nameKo = nameKoRaw || nameEnRaw;
+  const nameEn = nameEnRaw || nameKoRaw;
   const descriptionKo = sidecar.description ?? '';
   const descriptionEn = sidecar.description_en ?? sidecar.descriptionEn ?? '';
   const dramaKo = sidecar.drama_connection?.ko ?? '';
@@ -649,7 +708,7 @@ async function loadManifest() {
   } catch (error) {
     console.error('manifest.json 로드 실패:', error);
     if (grid) {
-      grid.innerHTML = '<p class="error">manifest.json 로드 실패</p>';
+      grid.innerHTML = `<p class="error">${escapeHtml(t('manifest_load_failed'))}</p>`;
     }
   }
 }
@@ -793,7 +852,11 @@ function applyCategoryFilter(artifacts) {
 
 function updateArchiveCount(total) {
   const el = document.getElementById('archive-count');
-  if (el) el.textContent = `국보·보물 · ${total} · written in .hgl`;
+  if (!el) return;
+  const template = UI_STRINGS.archive_count_template;
+  el.setAttribute('data-lang-ko', template.ko.replace('{n}', String(total)));
+  el.setAttribute('data-lang-en', template.en.replace('{n}', String(total)));
+  el.textContent = (currentLang === 'ko' ? template.ko : template.en).replace('{n}', String(total));
 }
 
 function renderCards(artifacts) {
@@ -828,7 +891,7 @@ function renderCards(artifacts) {
     card.style.setProperty('--delay', `${Math.min(index * 16, 320)}ms`);
 
     const titleEn = artifact.name_en || artifact.name_ko || '';
-    const titleKr = artifact.name_ko || '';
+    const titleKr = artifact.name_ko || artifact.name_en || '';
     const designation = artifact.designation || '';
     const period = artifact.period || '';
     const seal = (designation.match(/(\d+)/)?.[1] || String(index + 1)).padStart(3, '0');
@@ -863,12 +926,7 @@ function renderCards(artifacts) {
       </figure>
     `;
     } else {
-      imageMarkup = `
-      <div class="kpdh-card-image-pending" title="${escapeHtml(imageVerificationNote(artifact))}">
-        <span>IMAGE WITHHELD</span>
-        <small>source match pending</small>
-      </div>
-    `;
+      imageMarkup = renderImagePendingMarkup(artifact);
     }
     const tagBits = [
       designation,
@@ -921,7 +979,7 @@ async function showDetail(artifactId) {
 
   const artifact = allArtifacts.find((item) => item.id === artifactId);
   if (!artifact) {
-    detailContent.innerHTML = '<p class="error">상세 정보를 찾을 수 없습니다.</p>';
+    detailContent.innerHTML = `<p class="error">${escapeHtml(t('detail_not_found'))}</p>`;
     overlay.classList.remove('hidden');
     return;
   }
@@ -954,7 +1012,7 @@ async function showDetail(artifactId) {
     }
   } catch (error) {
     console.error('상세 데이터 로드 실패:', error);
-    detailContent.innerHTML = '<p class="error">상세 정보를 불러오지 못했습니다.</p>';
+    detailContent.innerHTML = `<p class="error">${escapeHtml(t('detail_load_failed'))}</p>`;
     overlay.classList.remove('hidden');
   }
 }
@@ -1134,7 +1192,15 @@ document.addEventListener('error', function (e) {
   if (!figure) return;
   var placeholder = document.createElement('div');
   placeholder.className = 'kpdh-card-image-pending';
-  placeholder.title = 'Source image unreachable — falling back to code plate.';
-  placeholder.innerHTML = '<span>IMAGE UNREACHABLE</span><small>source host blocked the request</small>';
+  var labelKo = UI_STRINGS.image_unreachable_label.ko;
+  var labelEn = UI_STRINGS.image_unreachable_label.en;
+  var subKo = UI_STRINGS.image_unreachable_sub.ko;
+  var subEn = UI_STRINGS.image_unreachable_sub.en;
+  placeholder.title = t('image_unreachable_fallback');
+  placeholder.innerHTML = ''
+    + '<span data-lang="ko">' + escapeHtml(labelKo) + '</span>'
+    + '<span data-lang="en">' + escapeHtml(labelEn) + '</span>'
+    + '<small data-lang="ko">' + escapeHtml(subKo) + '</small>'
+    + '<small data-lang="en">' + escapeHtml(subEn) + '</small>';
   figure.replaceWith(placeholder);
 }, true);
