@@ -97,10 +97,10 @@
       "credit": "Museum as Code local artifact image; original source requires verification",
       "source_url": "https://www.emuseum.go.kr/images/relic/11/0006.jpg",
       "confidence": "low",
-      "needs_verification": "",
-      "verification_note": "",
+      "needs_verification": "image file is identical to ['nb_006_2'] — generic fallback shared across distinct artifacts",
+      "verification_note": "대표 도판 확보 후 갱신 필요",
       "room_tags": [],
-      "image_display_mode": "official"
+      "image_display_mode": "withheld"
     },
     {
       "id": "nb_006_2",
@@ -117,10 +117,10 @@
       "credit": "Museum as Code local artifact image; original source requires verification",
       "source_url": "https://www.emuseum.go.kr/images/relic/11/0006.jpg",
       "confidence": "low",
-      "needs_verification": "",
-      "verification_note": "",
+      "needs_verification": "image file is identical to ['nb_006'] — generic fallback shared across distinct artifacts",
+      "verification_note": "대표 도판 확보 후 갱신 필요",
       "room_tags": [],
-      "image_display_mode": "official"
+      "image_display_mode": "withheld"
     },
     {
       "id": "nb_007",
@@ -177,10 +177,10 @@
       "credit": "Museum as Code local artifact image; original source requires verification",
       "source_url": "https://www.emuseum.go.kr/images/relic/11/0009.jpg",
       "confidence": "low",
-      "needs_verification": "",
-      "verification_note": "",
+      "needs_verification": "image file is identical to ['nb_009_2', 'nb_015'] — generic fallback shared across distinct artifacts",
+      "verification_note": "대표 도판 확보 후 갱신 필요",
       "room_tags": [],
-      "image_display_mode": "official"
+      "image_display_mode": "withheld"
     },
     {
       "id": "nb_009_2",
@@ -197,10 +197,10 @@
       "credit": "Museum as Code local artifact image; original source requires verification",
       "source_url": "https://www.emuseum.go.kr/images/relic/11/0009.jpg",
       "confidence": "low",
-      "needs_verification": "",
-      "verification_note": "",
+      "needs_verification": "image file is identical to ['nb_009', 'nb_015'] — generic fallback shared across distinct artifacts",
+      "verification_note": "대표 도판 확보 후 갱신 필요",
       "room_tags": [],
-      "image_display_mode": "official"
+      "image_display_mode": "withheld"
     },
     {
       "id": "nb_010",
@@ -237,10 +237,10 @@
       "credit": "Museum as Code local artifact image; original source requires verification",
       "source_url": "https://www.emuseum.go.kr/images/relic/11/0015.jpg",
       "confidence": "low",
-      "needs_verification": "",
-      "verification_note": "",
+      "needs_verification": "image file is identical to ['nb_009', 'nb_009_2'] — generic fallback shared across distinct artifacts",
+      "verification_note": "대표 도판 확보 후 갱신 필요",
       "room_tags": [],
-      "image_display_mode": "official"
+      "image_display_mode": "withheld"
     },
     {
       "id": "nb_016",
@@ -617,10 +617,10 @@
       "credit": "Museum as Code local artifact image; original source requires verification",
       "source_url": "https://www.emuseum.go.kr/images/relic/11/0069.jpg",
       "confidence": "low",
-      "needs_verification": "",
-      "verification_note": "",
+      "needs_verification": "CHA archive returned a 720x960 portrait scan (likely newspaper or document, not artifact photograph)",
+      "verification_note": "대표 도판 확보 후 갱신 필요",
       "room_tags": [],
-      "image_display_mode": "official"
+      "image_display_mode": "withheld"
     },
     {
       "id": "nb_071",
@@ -637,10 +637,10 @@
       "credit": "Museum as Code local artifact image; original source requires verification",
       "source_url": "https://www.emuseum.go.kr/images/relic/11/0071.jpg",
       "confidence": "low",
-      "needs_verification": "",
-      "verification_note": "",
+      "needs_verification": "CHA archive returned a 720x960 portrait scan (likely newspaper or document, not artifact photograph)",
+      "verification_note": "대표 도판 확보 후 갱신 필요",
       "room_tags": [],
-      "image_display_mode": "official"
+      "image_display_mode": "withheld"
     },
     {
       "id": "nb_078",
@@ -657,10 +657,10 @@
       "credit": "Museum as Code local artifact image; original source requires verification",
       "source_url": "https://www.emuseum.go.kr/images/relic/11/0083.jpg",
       "confidence": "low",
-      "needs_verification": "",
-      "verification_note": "",
+      "needs_verification": "image file is identical to ['nb_083', 'kdh_001'] — generic fallback shared across distinct artifacts",
+      "verification_note": "대표 도판 확보 후 갱신 필요",
       "room_tags": [],
-      "image_display_mode": "official"
+      "image_display_mode": "withheld"
     },
     {
       "id": "nb_079",
@@ -677,10 +677,10 @@
       "credit": "Museum as Code local artifact image; original source requires verification",
       "source_url": "https://www.emuseum.go.kr/images/relic/11/0079.jpg",
       "confidence": "low",
-      "needs_verification": "",
-      "verification_note": "",
+      "needs_verification": "CHA archive returned a 720x960 portrait scan (likely newspaper or document, not artifact photograph)",
+      "verification_note": "대표 도판 확보 후 갱신 필요",
       "room_tags": [],
-      "image_display_mode": "official"
+      "image_display_mode": "withheld"
     },
     {
       "id": "nb_080",
@@ -697,10 +697,10 @@
       "credit": "Museum as Code local artifact image; original source requires verification",
       "source_url": "https://www.emuseum.go.kr/images/relic/11/0080.jpg",
       "confidence": "low",
-      "needs_verification": "",
-      "verification_note": "",
+      "needs_verification": "CHA archive returned a 720x960 portrait scan (likely newspaper or document, not artifact photograph)",
+      "verification_note": "대표 도판 확보 후 갱신 필요",
       "room_tags": [],
-      "image_display_mode": "official"
+      "image_display_mode": "withheld"
     },
     {
       "id": "nb_081",
@@ -717,10 +717,10 @@
       "credit": "Museum as Code local artifact image; original source requires verification",
       "source_url": "https://www.emuseum.go.kr/images/relic/11/0081.jpg",
       "confidence": "low",
-      "needs_verification": "",
-      "verification_note": "",
+      "needs_verification": "CHA archive returned a 720x960 portrait scan (likely newspaper or document, not artifact photograph)",
+      "verification_note": "대표 도판 확보 후 갱신 필요",
       "room_tags": [],
-      "image_display_mode": "official"
+      "image_display_mode": "withheld"
     },
     {
       "id": "nb_082",
@@ -737,10 +737,10 @@
       "credit": "Museum as Code local artifact image; original source requires verification",
       "source_url": "https://www.emuseum.go.kr/images/relic/11/0082.jpg",
       "confidence": "low",
-      "needs_verification": "",
-      "verification_note": "",
+      "needs_verification": "CHA archive returned a 720x960 portrait scan (likely newspaper or document, not artifact photograph)",
+      "verification_note": "대표 도판 확보 후 갱신 필요",
       "room_tags": [],
-      "image_display_mode": "official"
+      "image_display_mode": "withheld"
     },
     {
       "id": "nb_083",
@@ -757,10 +757,10 @@
       "credit": "Museum as Code local artifact image; original source requires verification",
       "source_url": "https://www.emuseum.go.kr/images/relic/11/0083.jpg",
       "confidence": "low",
-      "needs_verification": "",
-      "verification_note": "",
+      "needs_verification": "image file is identical to ['nb_078', 'kdh_001'] — generic fallback shared across distinct artifacts",
+      "verification_note": "대표 도판 확보 후 갱신 필요",
       "room_tags": [],
-      "image_display_mode": "official"
+      "image_display_mode": "withheld"
     },
     {
       "id": "nb_085",
@@ -777,10 +777,10 @@
       "credit": "Museum as Code local artifact image; original source requires verification",
       "source_url": "https://www.emuseum.go.kr/images/relic/11/0085.jpg",
       "confidence": "low",
-      "needs_verification": "",
-      "verification_note": "",
+      "needs_verification": "CHA archive returned a 720x960 portrait scan (likely newspaper or document, not artifact photograph)",
+      "verification_note": "대표 도판 확보 후 갱신 필요",
       "room_tags": [],
-      "image_display_mode": "official"
+      "image_display_mode": "withheld"
     },
     {
       "id": "nb_086",
@@ -797,10 +797,10 @@
       "credit": "Museum as Code local artifact image; original source requires verification",
       "source_url": "https://www.emuseum.go.kr/images/relic/11/0086.jpg",
       "confidence": "low",
-      "needs_verification": "",
-      "verification_note": "",
+      "needs_verification": "CHA archive returned a 720x960 portrait scan (likely newspaper or document, not artifact photograph)",
+      "verification_note": "대표 도판 확보 후 갱신 필요",
       "room_tags": [],
-      "image_display_mode": "official"
+      "image_display_mode": "withheld"
     },
     {
       "id": "nb_087",
@@ -817,10 +817,10 @@
       "credit": "Museum as Code local artifact image; original source requires verification",
       "source_url": "https://www.emuseum.go.kr/images/relic/11/0087.jpg",
       "confidence": "low",
-      "needs_verification": "",
-      "verification_note": "",
+      "needs_verification": "CHA archive returned a 720x960 portrait scan (likely newspaper or document, not artifact photograph); image file is identical to ['kdh_006'] — generic fallback shared across distinct artifacts",
+      "verification_note": "대표 도판 확보 후 갱신 필요",
       "room_tags": [],
-      "image_display_mode": "official"
+      "image_display_mode": "withheld"
     },
     {
       "id": "nb_088",
@@ -837,10 +837,10 @@
       "credit": "Museum as Code local artifact image; original source requires verification",
       "source_url": "https://www.emuseum.go.kr/images/relic/11/0088.jpg",
       "confidence": "low",
-      "needs_verification": "",
-      "verification_note": "",
+      "needs_verification": "CHA archive returned a 720x960 portrait scan (likely newspaper or document, not artifact photograph)",
+      "verification_note": "대표 도판 확보 후 갱신 필요",
       "room_tags": [],
-      "image_display_mode": "official"
+      "image_display_mode": "withheld"
     },
     {
       "id": "nb_089",
@@ -857,10 +857,10 @@
       "credit": "Museum as Code local artifact image; original source requires verification",
       "source_url": "https://www.emuseum.go.kr/images/relic/11/0089.jpg",
       "confidence": "low",
-      "needs_verification": "",
-      "verification_note": "",
+      "needs_verification": "CHA archive returned a 720x960 portrait scan (likely newspaper or document, not artifact photograph)",
+      "verification_note": "대표 도판 확보 후 갱신 필요",
       "room_tags": [],
-      "image_display_mode": "official"
+      "image_display_mode": "withheld"
     },
     {
       "id": "nb_090",
@@ -877,10 +877,10 @@
       "credit": "Museum as Code local artifact image; original source requires verification",
       "source_url": "https://www.emuseum.go.kr/images/relic/11/0090.jpg",
       "confidence": "low",
-      "needs_verification": "",
-      "verification_note": "",
+      "needs_verification": "CHA archive returned a 720x960 portrait scan (likely newspaper or document, not artifact photograph)",
+      "verification_note": "대표 도판 확보 후 갱신 필요",
       "room_tags": [],
-      "image_display_mode": "official"
+      "image_display_mode": "withheld"
     },
     {
       "id": "nb_091",
@@ -897,10 +897,10 @@
       "credit": "Museum as Code local artifact image; original source requires verification",
       "source_url": "https://www.emuseum.go.kr/images/relic/11/0091.jpg",
       "confidence": "low",
-      "needs_verification": "",
-      "verification_note": "",
+      "needs_verification": "CHA archive returned a 720x960 portrait scan (likely newspaper or document, not artifact photograph); image file is identical to ['kdh_004'] — generic fallback shared across distinct artifacts",
+      "verification_note": "대표 도판 확보 후 갱신 필요",
       "room_tags": [],
-      "image_display_mode": "official"
+      "image_display_mode": "withheld"
     },
     {
       "id": "nb_092",
@@ -917,10 +917,10 @@
       "credit": "Museum as Code local artifact image; original source requires verification",
       "source_url": "https://www.emuseum.go.kr/images/relic/11/0092.jpg",
       "confidence": "low",
-      "needs_verification": "",
-      "verification_note": "",
+      "needs_verification": "CHA archive returned a 720x960 portrait scan (likely newspaper or document, not artifact photograph); image file is identical to ['kdh_002'] — generic fallback shared across distinct artifacts",
+      "verification_note": "대표 도판 확보 후 갱신 필요",
       "room_tags": [],
-      "image_display_mode": "official"
+      "image_display_mode": "withheld"
     },
     {
       "id": "nb_113",
@@ -937,10 +937,10 @@
       "credit": "Museum as Code local artifact image; original source requires verification",
       "source_url": "https://www.emuseum.go.kr/images/relic/11/0113.jpg",
       "confidence": "low",
-      "needs_verification": "",
-      "verification_note": "",
+      "needs_verification": "CHA archive returned a 720x960 portrait scan (likely newspaper or document, not artifact photograph)",
+      "verification_note": "대표 도판 확보 후 갱신 필요",
       "room_tags": [],
-      "image_display_mode": "official"
+      "image_display_mode": "withheld"
     },
     {
       "id": "nb_121",
@@ -957,10 +957,10 @@
       "credit": "Museum as Code local artifact image; original source requires verification",
       "source_url": "https://www.emuseum.go.kr/images/relic/11/0121.jpg",
       "confidence": "low",
-      "needs_verification": "",
-      "verification_note": "",
+      "needs_verification": "CHA archive returned a 720x960 portrait scan (likely newspaper or document, not artifact photograph)",
+      "verification_note": "대표 도판 확보 후 갱신 필요",
       "room_tags": [],
-      "image_display_mode": "official"
+      "image_display_mode": "withheld"
     },
     {
       "id": "nb_122",
@@ -977,10 +977,10 @@
       "credit": "Museum as Code local artifact image; original source requires verification",
       "source_url": "https://www.emuseum.go.kr/images/relic/11/0122.jpg",
       "confidence": "low",
-      "needs_verification": "",
-      "verification_note": "",
+      "needs_verification": "CHA archive returned a 720x960 portrait scan (likely newspaper or document, not artifact photograph)",
+      "verification_note": "대표 도판 확보 후 갱신 필요",
       "room_tags": [],
-      "image_display_mode": "official"
+      "image_display_mode": "withheld"
     },
     {
       "id": "nb_124",
@@ -997,10 +997,10 @@
       "credit": "Museum as Code local artifact image; original source requires verification",
       "source_url": "https://www.emuseum.go.kr/images/relic/11/0124.jpg",
       "confidence": "low",
-      "needs_verification": "",
-      "verification_note": "",
+      "needs_verification": "CHA archive returned a 720x960 portrait scan (likely newspaper or document, not artifact photograph)",
+      "verification_note": "대표 도판 확보 후 갱신 필요",
       "room_tags": [],
-      "image_display_mode": "official"
+      "image_display_mode": "withheld"
     },
     {
       "id": "nb_129",
@@ -1017,10 +1017,10 @@
       "credit": "Museum as Code local artifact image; original source requires verification",
       "source_url": "https://www.emuseum.go.kr/images/relic/11/0129.jpg",
       "confidence": "low",
-      "needs_verification": "",
-      "verification_note": "",
+      "needs_verification": "CHA archive returned a 720x960 portrait scan (likely newspaper or document, not artifact photograph)",
+      "verification_note": "대표 도판 확보 후 갱신 필요",
       "room_tags": [],
-      "image_display_mode": "official"
+      "image_display_mode": "withheld"
     },
     {
       "id": "nb_131",
@@ -1037,10 +1037,10 @@
       "credit": "Museum as Code local artifact image; original source requires verification",
       "source_url": "https://www.emuseum.go.kr/images/relic/11/0131.jpg",
       "confidence": "low",
-      "needs_verification": "",
-      "verification_note": "",
+      "needs_verification": "CHA archive returned a 720x960 portrait scan (likely newspaper or document, not artifact photograph)",
+      "verification_note": "대표 도판 확보 후 갱신 필요",
       "room_tags": [],
-      "image_display_mode": "official"
+      "image_display_mode": "withheld"
     },
     {
       "id": "nb_132",
@@ -1057,10 +1057,10 @@
       "credit": "Museum as Code local artifact image; original source requires verification",
       "source_url": "https://www.emuseum.go.kr/images/relic/11/0132.jpg",
       "confidence": "low",
-      "needs_verification": "",
-      "verification_note": "",
+      "needs_verification": "CHA archive returned a 720x960 portrait scan (likely newspaper or document, not artifact photograph)",
+      "verification_note": "대표 도판 확보 후 갱신 필요",
       "room_tags": [],
-      "image_display_mode": "official"
+      "image_display_mode": "withheld"
     },
     {
       "id": "nb_136",
@@ -1077,10 +1077,10 @@
       "credit": "Museum as Code local artifact image; original source requires verification",
       "source_url": "https://www.emuseum.go.kr/images/relic/11/0136.jpg",
       "confidence": "low",
-      "needs_verification": "",
-      "verification_note": "",
+      "needs_verification": "CHA archive returned a 720x960 portrait scan (likely newspaper or document, not artifact photograph); image file is identical to ['kdh_003'] — generic fallback shared across distinct artifacts",
+      "verification_note": "대표 도판 확보 후 갱신 필요",
       "room_tags": [],
-      "image_display_mode": "official"
+      "image_display_mode": "withheld"
     },
     {
       "id": "nb_197",
@@ -1117,10 +1117,10 @@
       "credit": "Museum as Code local artifact image; original source requires verification",
       "source_url": "https://www.emuseum.go.kr/images/relic/11/0287.jpg",
       "confidence": "low",
-      "needs_verification": "",
-      "verification_note": "",
+      "needs_verification": "CHA archive returned a 700x960 portrait scan (likely newspaper or document, not artifact photograph); image file is identical to ['kdh_007'] — generic fallback shared across distinct artifacts",
+      "verification_note": "대표 도판 확보 후 갱신 필요",
       "room_tags": [],
-      "image_display_mode": "official"
+      "image_display_mode": "withheld"
     },
     {
       "id": "nb_531",
@@ -1157,10 +1157,10 @@
       "credit": "Museum as Code local artifact image; original source requires verification",
       "source_url": "https://www.emuseum.go.kr/images/relic/11/0078.jpg",
       "confidence": "medium",
-      "needs_verification": "No local artifact image resolved.",
-      "verification_note": "",
+      "needs_verification": "image file is identical to ['nb_078', 'nb_083'] — generic fallback shared across distinct artifacts",
+      "verification_note": "대표 도판 확보 후 갱신 필요",
       "room_tags": [],
-      "image_display_mode": "official"
+      "image_display_mode": "withheld"
     },
     {
       "id": "kdh_002",
@@ -1177,10 +1177,10 @@
       "credit": "Museum as Code local artifact image; original source requires verification",
       "source_url": "https://www.emuseum.go.kr/images/relic/11/0092.jpg",
       "confidence": "medium",
-      "needs_verification": "No local artifact image resolved.",
-      "verification_note": "",
+      "needs_verification": "CHA archive returned a 720x960 portrait scan (likely newspaper or document, not artifact photograph); image file is identical to ['nb_092'] — generic fallback shared across distinct artifacts",
+      "verification_note": "대표 도판 확보 후 갱신 필요",
       "room_tags": [],
-      "image_display_mode": "official"
+      "image_display_mode": "withheld"
     },
     {
       "id": "kdh_003",
@@ -1197,10 +1197,10 @@
       "credit": "Museum as Code local artifact image; original source requires verification",
       "source_url": "https://www.emuseum.go.kr/images/relic/11/0136.jpg",
       "confidence": "medium",
-      "needs_verification": "No local artifact image resolved.",
-      "verification_note": "",
+      "needs_verification": "CHA archive returned a 720x960 portrait scan (likely newspaper or document, not artifact photograph); image file is identical to ['nb_136'] — generic fallback shared across distinct artifacts",
+      "verification_note": "대표 도판 확보 후 갱신 필요",
       "room_tags": [],
-      "image_display_mode": "official"
+      "image_display_mode": "withheld"
     },
     {
       "id": "kdh_004",
@@ -1217,10 +1217,10 @@
       "credit": "Museum as Code local artifact image; original source requires verification",
       "source_url": "https://www.emuseum.go.kr/images/relic/11/0091.jpg",
       "confidence": "medium",
-      "needs_verification": "No local artifact image resolved.",
-      "verification_note": "",
+      "needs_verification": "CHA archive returned a 720x960 portrait scan (likely newspaper or document, not artifact photograph); image file is identical to ['nb_091'] — generic fallback shared across distinct artifacts",
+      "verification_note": "대표 도판 확보 후 갱신 필요",
       "room_tags": [],
-      "image_display_mode": "official"
+      "image_display_mode": "withheld"
     },
     {
       "id": "kdh_005",
@@ -1257,10 +1257,10 @@
       "credit": "Museum as Code local artifact image; original source requires verification",
       "source_url": "https://www.emuseum.go.kr/images/relic/11/0087.jpg",
       "confidence": "medium",
-      "needs_verification": "No local artifact image resolved.",
-      "verification_note": "",
+      "needs_verification": "CHA archive returned a 720x960 portrait scan (likely newspaper or document, not artifact photograph); image file is identical to ['nb_087'] — generic fallback shared across distinct artifacts",
+      "verification_note": "대표 도판 확보 후 갱신 필요",
       "room_tags": [],
-      "image_display_mode": "official"
+      "image_display_mode": "withheld"
     },
     {
       "id": "kdh_007",
@@ -1277,10 +1277,10 @@
       "credit": "Museum as Code local artifact image; original source requires verification",
       "source_url": "https://www.emuseum.go.kr/images/relic/11/0287.jpg",
       "confidence": "medium",
-      "needs_verification": "No local artifact image resolved.",
-      "verification_note": "",
+      "needs_verification": "CHA archive returned a 700x960 portrait scan (likely newspaper or document, not artifact photograph); image file is identical to ['nb_287'] — generic fallback shared across distinct artifacts",
+      "verification_note": "대표 도판 확보 후 갱신 필요",
       "room_tags": [],
-      "image_display_mode": "official"
+      "image_display_mode": "withheld"
     }
   ],
   "collections": [
