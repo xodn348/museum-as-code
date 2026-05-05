@@ -78,6 +78,29 @@ function getOfficialImageUrl(record) {
     || '';
 }
 
+// Shared image-caption resolver. Honors `image_display_mode` ∈
+// {exact, official, representative} so room cards, archive figures,
+// and featured cards all label the image truthfully (e.g. celadon
+// 매병 is representative — not "exact image verified").
+function resolveImageCaption(record) {
+  const sidecar = record?.sidecar || record || {};
+  const firstImage = Array.isArray(sidecar.images) ? sidecar.images[0] : null;
+  const mode = sidecar.image_display_mode
+    || firstImage?.image_display_mode
+    || (sidecar.exact_image_verified ? 'exact' : '');
+  const ko = sidecar.image_caption_ko
+    || firstImage?.caption_ko
+    || (mode === 'official' ? '공식 도판 · 국가유산청'
+      : mode === 'representative' ? '대표 도판'
+      : '실물 이미지 검증 완료');
+  const en = sidecar.image_caption_en
+    || firstImage?.caption_en
+    || (mode === 'official' ? 'official photograph · CHA'
+      : mode === 'representative' ? 'representative work'
+      : 'exact image verified');
+  return { mode, ko, en };
+}
+
 function getOfficialImageMeta(record) {
   if (!record) return null;
   const src = record.image_source_api || record.sidecar?.image_source_api || '';
@@ -170,10 +193,13 @@ function renderRooms(rooms, heroes) {
         const title = currentLang === 'ko' ? (hero.name_ko || '') : (hero.name_en || hero.name_ko || '');
         const imagePath = getVerifiedImagePath(hero);
         if (imagePath) {
+          const cap = resolveImageCaption(hero);
+          const captionText = currentLang === 'ko' ? cap.ko : cap.en;
+          const repClass = cap.mode === 'representative' ? ' representative' : '';
           return `
-            <a class="room-hero-link image-room-link" href="hero.html?id=${encodeURIComponent(hero.id)}">
+            <a class="room-hero-link image-room-link${repClass}" href="hero.html?id=${encodeURIComponent(hero.id)}">
               <img src="${escapeHtml(imagePath)}" alt="${escapeHtml(title)}" loading="lazy" decoding="async">
-              <span class="room-code-label">${escapeHtml(title)}<small>exact image verified</small></span>
+              <span class="room-code-label">${escapeHtml(title)}<small>${escapeHtml(captionText)}</small></span>
             </a>
           `;
         }
@@ -298,21 +324,14 @@ function renderFeaturedHeroes(heroes) {
     const room = (hero.room || '').toUpperCase();
     const fileTag = `heroes/${kpdhVarName(hero.id)}.hgl`;
     const code = buildKpdhCardCode(hero);
-    const sidecarMode = hero.sidecar?.image_display_mode
-      || hero.sidecar?.images?.[0]?.image_display_mode
-      || '';
-    const captionKo = hero.sidecar?.image_caption_ko
-      || hero.sidecar?.images?.[0]?.caption_ko
-      || (sidecarMode === 'representative' ? '대표 도판' : '실물 이미지 검증 완료');
-    const captionEn = hero.sidecar?.image_caption_en
-      || hero.sidecar?.images?.[0]?.caption_en
-      || (sidecarMode === 'representative' ? 'representative work' : 'exact image verified');
+    const cap = resolveImageCaption(hero);
+    const repClass = cap.mode === 'representative' ? ' representative' : '';
     const imageMarkup = verified ? `
-      <figure class="kpdh-card-figure${sidecarMode === 'representative' ? ' representative' : ''}">
+      <figure class="kpdh-card-figure${repClass}">
         <img src="${escapeHtml(imagePath)}" alt="${escapeHtml(titleEn)}" loading="lazy" decoding="async">
         <figcaption>
-          <span data-lang="ko">${escapeHtml(captionKo)}</span>
-          <span data-lang="en">${escapeHtml(captionEn)}</span>
+          <span data-lang="ko">${escapeHtml(cap.ko)}</span>
+          <span data-lang="en">${escapeHtml(cap.en)}</span>
         </figcaption>
       </figure>
     ` : `
@@ -668,8 +687,10 @@ function createVerifiedArtifactImage(artifact) {
   img.loading = 'lazy';
   img.decoding = 'async';
 
+  const cap = resolveImageCaption(artifact);
+  if (cap.mode === 'representative') figure.classList.add('representative');
   const caption = document.createElement('figcaption');
-  caption.textContent = 'exact image verified';
+  caption.innerHTML = `<span data-lang="ko">${escapeHtml(cap.ko)}</span><span data-lang="en">${escapeHtml(cap.en)}</span>`;
 
   figure.append(img, caption);
   return figure;
@@ -830,10 +851,15 @@ function renderCards(artifacts) {
       </figure>
     `;
     } else if (imagePath) {
+      const cap = resolveImageCaption(artifact);
+      const repClass = cap.mode === 'representative' ? ' representative' : '';
       imageMarkup = `
-      <figure class="kpdh-card-figure">
+      <figure class="kpdh-card-figure${repClass}">
         <img src="${escapeHtml(imagePath)}" alt="${escapeHtml(titleEn)}" loading="lazy" decoding="async">
-        <figcaption>exact image verified</figcaption>
+        <figcaption>
+          <span data-lang="ko">${escapeHtml(cap.ko)}</span>
+          <span data-lang="en">${escapeHtml(cap.en)}</span>
+        </figcaption>
       </figure>
     `;
     } else {

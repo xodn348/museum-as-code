@@ -1941,6 +1941,9 @@ body.kpdh-home .room-hero-link.image-room-link .room-code-label small {
   color: var(--ink);
   border-color: var(--han-gold);
 }
+body.kpdh-home .room-hero-link.image-room-link.representative .room-code-label small {
+  color: var(--han-gold);
+}
 
 nav.kpdh-nav .logo { font-size: 32px; }
 nav.kpdh-nav .logo span { font-size: 16px; }
