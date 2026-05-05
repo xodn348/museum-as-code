@@ -1,6 +1,6 @@
 // 금동미륵보살반가사유상 — Phase C hero artifact
-// A single figure turns thought itself into sculpture.
-// Source metadata is tracked in artifacts/heroes/hero_pensive_bodhisattva.json
+// The story now lives inside the source: 이야기 / 이야기_영문 fields below.
+// Runs unchanged in `hgl interpret` and the Han playground.
 
 구조 히어로유물_hero_pensive_bodhisattva {
     이름: 문자열,
@@ -12,6 +12,8 @@
     소장처: 문자열,
     제작연도: 문자열,
     의의: 문자열,
+    이야기: 문자열,
+    이야기_영문: 문자열,
     이미지경로: 문자열,
     라이선스: 문자열,
     출처검증: 불,
@@ -24,10 +26,12 @@
         지정번호: "국보 제83호",
         시대: "삼국시대, 7세기 초",
         재질: "금동",
-        크기: "Height 93.5 cm",
-        소장처: "국립중앙박물관",
+        크기: "높이 93.5 cm",
+        소장처: "국립중앙박물관 사유의 방",
         제작연도: "Three Kingdoms Period, early 7th century",
         의의: "반가의 자세, 내려앉은 시선, 미소가 한국 불교조각의 상징이 된 금동 보살상입니다.",
+        이야기: "7세기 어느 백제 또는 신라의 장인이 한 덩어리의 청동을 두드려 사유의 자세 그 자체를 굳혔습니다. 한쪽 다리를 다른 무릎에 걸치고 손가락 끝으로 뺨을 받친 반가의 자세는 미륵이 인간의 고통을 헤아리는 순간을 조각으로 옮긴 것입니다. 일본 교토 고류지의 미륵보살반가사유상이 이 작품과 거의 같은 자세, 같은 미소를 짓고 있다는 사실은 6–7세기 한반도와 일본 사이를 오갔던 불교 미술의 지문을 그대로 보여줍니다. 2021년 국립중앙박물관은 이 한 점을 위해 사유의 방을 따로 지어, 관람객이 침묵 속에서 보살의 미소와 마주서도록 동선을 다시 그렸습니다.",
+        이야기_영문: "In the early 7th century a craftsman in Baekje or Silla worked a single block of bronze into the act of thinking itself. The half-folded leg and the fingertip grazing the cheek — the 반가 han'ga pose — captures Maitreya in the moment he reckons with human suffering. The near-identical Miroku Bosatsu in Kyoto's Koryu-ji is the fingerprint of Buddhist art moving between the Korean peninsula and Japan in the 6th-7th centuries. In 2021 the National Museum of Korea built an entire room, the Room of Quiet Contemplation, around this single sculpture so visitors meet its smile in silence.",
         이미지경로: "images/heroes/hero_pensive_bodhisattva/meditating-maitreya.jpg",
         라이선스: "CC BY-SA 4.0",
         출처검증: 참
@@ -35,7 +39,8 @@
 
     출력(형식("{0} — {1}", artifact.이름, artifact.지정번호))
     출력(형식("({0})", artifact.영문명))
-    출력(artifact.의의)
+    출력("")
+    출력(artifact.이야기)
 }
 
 main()

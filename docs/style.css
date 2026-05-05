@@ -1933,6 +1933,21 @@ body.kpdh-home .room-hero-link.image-room-link .room-code-label small {
 .kpdh-card.needs-source-review pre,
 .kpdh-card.image-official pre { height: 280px; }
 
+/* Story prose surfaced beneath title — the same 이야기 string lives in
+   the .hgl source above, this is just the human-reading rendering of it. */
+.kpdh-card .hero-story {
+  margin: 12px 0 4px;
+  padding: 12px 14px;
+  border-left: 2px solid var(--rose);
+  background: rgba(255,46,106,.05);
+  font-size: 14px;
+  line-height: 1.7;
+  color: rgba(246,239,227,.9);
+  font-family: 'Noto Sans KR', sans-serif;
+}
+.kpdh-card .hero-story-body { margin: 0; }
+.kpdh-card.image-verified pre { height: auto; max-height: 168px; }
+
 nav.kpdh-nav .logo { font-size: 32px; }
 nav.kpdh-nav .logo span { font-size: 16px; }
 nav.kpdh-nav .gh-chip { font-size: 13px; padding: 8px 16px; }
