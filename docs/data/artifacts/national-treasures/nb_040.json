@@ -27,7 +27,7 @@
       "caption_en": "official photograph · CHA"
     }
   ],
-  "license": "needs_verification",
+  "license": "공식 도판 · 국가유산청 / CHA",
   "credit": "Museum as Code local artifact image; original source requires verification",
   "confidence": "low",
   "updated_at": "2026-04-30T03:35:18.829367Z",
@@ -40,5 +40,6 @@
   "image_display_mode": "official",
   "image_caption_ko": "공식 도판 · 국가유산청",
   "image_caption_en": "official photograph · Cultural Heritage Administration",
-  "image_official_url_archived": "https://www.khs.go.kr/unisearch/images/national_treasure/1612225.jpg"
+  "image_official_url_archived": "https://www.khs.go.kr/unisearch/images/national_treasure/1612225.jpg",
+  "name_ko": "용두사지석등"
 }
