@@ -121,10 +121,10 @@ Right column:
 
 ### 4.4 Schema panel (`schema.hgl`)
 
-A single panel directly under each grid section header. It defines the struct **once**, so individual cards can show pure instances without redefining the schema 64 times.
+A single panel directly under each grid section header. It defines the struct **once**, so individual cards can show pure instances without redefining the schema for every entry.
 
 - Background: `rgba(20,10,30,.7)` over the page ambience, 1px `--rose` border, backdrop-blur 6px, rose glow shadow.
-- Header strip: rose-tinted, file glyph + filename `📜 schema.hgl` on the left, badge `● SHARED STRUCT · 한 번 정의 · 64회 인스턴스화` on the right (dot blinks).
+- Header strip: rose-tinted, file glyph + filename `📜 schema.hgl` on the left, badge `● SHARED STRUCT · 한 번 정의 · 다회 인스턴스화` on the right (dot blinks).
 - `<pre>` body: full Han-lang struct definition + at least one helper function (e.g. `설명출력`). Syntax-highlighted with `.k .t .s .c .fn` spans.
 
 ### 4.5 Code cards (artifact grid)
